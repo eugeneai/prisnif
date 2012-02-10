@@ -1,7 +1,7 @@
 {e[][]
 {
 a[X1,Y1][]{ e[][P(g(X1,Y1),X1,Y1)]{} } ;
-a[X2,Y2][]{ e[][P(X2,f(X2,Y2),Y2)]{} } ;
+a[X2,Y2][]{ e[][P(X2,h(X2,Y2),Y2)]{} } ;
 a[X,Y,Z,U,V,W][P(X,Y,U),P(Y,Z,V),P(X,V,W)] { e[][P(U,Z,W)]{} } ;
 a[T][P(k(T),T,k(T))] {e[][False]{}} 
 }
