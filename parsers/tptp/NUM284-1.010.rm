@@ -1,0 +1,52 @@
+%--------------------------------------------------------------------------
+% File     : NUM284-1.010 : TPTP v3.1.1. Released v1.0.0.
+% Domain   : Number Theory
+% Problem  : Calculation of fibonacci numbers
+% Version  : [SETHEO] axioms : Biased.
+% English  : Compute the 10th Fibonacci number.
+
+% Refs     : 
+% Source   : [SETHEO]
+% Names    : fib3.lop (Size 3) [SETHEO]
+%          : fib4.lop (Size 4) [SETHEO]
+%          : fib5.lop (Size 5) [SETHEO]
+%          : fib6.lop (Size 6) [SETHEO]
+%          : fib9.lop (Size 9) [SETHEO]
+
+% Status   : Unsatisfiable
+% Rating   : 0.00 v2.0.0
+% Syntax   : Number of clauses     :    6 (   0 non-Horn;   4 unit;   5 RR)
+%            Number of atoms       :   12 (   0 equality)
+%            Maximal clause size   :    6 (   2 average)
+%            Number of predicates  :    2 (   0 propositional; 2-3 arity)
+%            Number of functors    :    2 (   1 constant; 0-1 arity)
+%            Number of variables   :   21 (  20 singleton)
+%            Maximal term depth    :   11 (   2 average)
+
+% Comments : Biased towards SETHEO.
+%          : tptp2X: -ftptp -s10 NUM284-1.g 
+%--------------------------------------------------------------------------
+input_clause(fibonacci_0,axiom,
+    [++fibonacci(n0,s(n0))]).
+
+input_clause(fibonacci_1,axiom,
+    [++fibonacci(s(n0),s(n0))]).
+
+input_clause(fibonacci_N,axiom,
+    [--sum(N1,s(n0),N),
+     --sum(N2,s(s(n0)),N),
+     --fibonacci(N1,F1),
+     --fibonacci(N2,F2),
+     --sum(F1,F2,FN),
+     ++fibonacci(N,FN)]).
+
+input_clause(add_0,axiom,
+    [++sum(X,n0,X)]).
+
+input_clause(add,axiom,
+    [--sum(X,Y,Z),
+     ++sum(X,s(Y),s(Z))]).
+
+input_clause(prove_fibonacci,negated_conjecture,
+    [--fibonacci(s(s(s(s(s(s(s(s(s(s(n0)))))))))),Result)]).
+%--------------------------------------------------------------------------

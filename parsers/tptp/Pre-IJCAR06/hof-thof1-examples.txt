@@ -1,0 +1,135 @@
+% Examples: from TPTP/Proposals/HOL.html updated for Feb. 21 2006 language,
+% which includes definitions via ':='.  -- A.V.G.
+% ESPECIALLY NOTE: colon should be followed by whitespace.
+% ----------
+hof(subset,definition,
+  subset :=
+    ^ [A: $type] :
+    ^ [P: (A > $o),R: (A > $o)] : 
+    ! [X: A] :
+      ( ( P @ X )
+     => ( R @ X ) )  ).
+
+hof(set_union,definition,
+  set_union :=
+    ^ [A: $type] :
+    ^ [D: ((A > $o) > $o),X: A] :
+    ? [S: (A > $o)] :
+      ( ( D @ S ) 
+      & ( S @ X ) )  ).
+
+hof(thm616A,conjecture,
+    ! [A: $type] :
+    ! [OpenColl: ((A > $o) > $o)] :
+      ( ( ! [G: ((A > $o) > $o)] :
+            ( ( ( ( subset 
+                  @ ( A > $o ) ) 
+                @ G ) @ OpenColl ) 
+           => ( OpenColl 
+              @ ( ( set_union @ A ) @ G ) ) ) ) 
+     => ( ! [B: (A > $o)] : 
+            ( ( ! [X: A] :
+                  ( ( B @ X ) 
+                 => ( ? [D: (A > $o)] :
+                        ( ( ( OpenColl @ D ) 
+                          & ( D @ X ) ) 
+                        & ( ( ( subset @ A ) @ D ) @ B ) ) ) ) ) 
+           => ( OpenColl @ B ) ) ) )  ).
+
+hof(thm616AA, axiom,
+      ! [G: (($i > $o) > $o)] :
+            ( ( subset @ ($i > $o) @ G @ open_coll ) 
+              =>
+              ( open_coll @ (set_union @ $i @ G) )
+            )
+   ).
+
+hof(thm616AB, conjecture,
+      ! [B: ($i > $o)] : 
+            ( ! [X: $i] :
+                ( ( B @ X ) 
+                  =>
+                  ( ? [D: ($i > $o)] :
+                      ( ( open_coll @ D ) 
+                        &
+                        ( D @ X )
+                        &
+                        ( subset @ $i @ D @ B )
+                      )
+                  )
+                ) 
+              =>
+              ( open_coll @ B )
+            )
+   ).
+
+hof(a,conjecture,
+    ! [P: (($o > $o) > $o)] :
+      ( ( P @ (~) ) 
+     => ( P 
+        @ ^ [X: $o] : ( ~ ( ~ ( ~ X ) ) ) ) )  ).
+
+hof(b,conjecture,
+    ! [P: (($o > $o > $o) > $o)] :
+      ( ( P @ (|) ) 
+     => ( P 
+        @ ^ [X: $o,Y: $o] :
+            ( Y | X ) ) )  ).
+
+hof(c,conjecture,
+    ! [P: (($o > $o) > $o)] :
+      ( ( P 
+        @ ( (|) @ $true ) ) 
+     => ( P 
+        @ ^ [X: $o] : $true) )
+  ).
+
+hof(d,conjecture,
+    ! [B: $type,A: $type] :
+    ! [P: (((B > A) > (B > A) > $o) > $o)] :
+      ( ( P 
+        @ ( (=)
+          @ ( B > A )
+          )
+        )
+     => ( P 
+        @ ^ [X: (B > A),Y: (B > A)] :
+            ( Y = X )
+        )
+      )
+  ).
+
+% *_ax assume 'not', 'or', 'eq' have axioms somewhere; names suggest intended
+% interpretations, but these are normal constants.  Illustrates syntax.
+
+hof(a_ax,conjecture,
+    ! [P: ($o > $o > $o)] :
+      ( ( P @ not ) 
+     => ( P 
+        @ ^ [X: $o] : ( not @ ( not @ ( not @ X ) ) ) ) )  ).
+
+hof(b_ax,conjecture,
+    ! [P: (($o > $o > $o) > $o)] :
+      ( ( P @ or ) 
+     => ( P 
+        @ ^ [X: $o,Y: $o] :
+            ( or @ Y @ X ) ) )  ).
+
+hof(c_ax,conjecture,
+    ! [P: (($o > $o) > $o)] :
+      ( ( P 
+        @ ( or @ $true ) ) 
+     => ( P 
+        @ ^ [X: $o] : $true) )  ).
+
+hof(d_ax,conjecture,
+    ! [B: $type,A: $type] :
+    ! [P: (((B > A) > (B > A) > $o) > $o)] :
+      ( ( P 
+        @ ( eq 
+          @ ( B > A ) ) )
+     => ( P 
+        @ ^ [X: (B > A),Y: (B > A)] :
+            ( eq @ Y @ X ) ) )  ).
+
+

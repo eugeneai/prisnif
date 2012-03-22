@@ -1,0 +1,185 @@
+HIGHER-ORDER DRAFT FILES --- ALL KNOWN FEATURES IN TEST FILES ARE WORKING
+
+The parser prints out parse trees so you can see if it parses
+your favorite HOL sentence the way you'd like.
+Type "hotptp-yl-parser-verbose < setops.ax" for example.
+
+hotptp-bnf2.txt   (Version 2.11)
+
+The BNF2-style description, modified from 3.1.1.13d version of TPTP description.
+FO/diffs-Feb11 shows the diffs to include all the higher-order features.
+
+make hotptp       generates hotptp-yl-parser from hotptp-bnf2.txt
+
+hotptp-yl-parser            Linux Intel Xeon executable (exit code only)
+hotptp-yl-parser-verbose    Linux Intel Xeon executable (prints parse trees)
+
+Wed Feb  1 2006.  Version 0.3 placed on Internet.
+Sat Feb  4 2006.  Version 0.4 placed on Internet.
+Sun Feb  5 2006.  Version 0.4 bnf w. updated translation placed on Internet.
+Wed Feb  8 2006.  Version 0.5 with all known HOF features working to Internet.
+Wed Feb  8 2006.  Version 0.5 with all known HOF features working to Internet.
+Mon Feb 13 2006.  Version 0.6 with all known HOF features working to Internet.
+                  Also syntaxBNF-3.1.1.13b.txt and scripts, Makefile.
+Mon Feb 20 2006.  Version 2.9 with all known HOF features working to Internet.
+                  Also updated scripts, Makefile, sample.txt.
+Tue Feb 21 2006.  Incorporates <hof definition> using infix := .
+Wed Feb 22 2006.  Recognizes old-syntax, keeping in step with 3.1.1.13c.
+                  syntaxBNF2-3.1.1.13c.txt tested and posted also.
+Mon Mar 20 2006.  Comments are no longer tokens.  In-line comments accepted.
+                  New parser prints all comments in verbose mode.
+                  New lex-er stores all comments in a global array along with
+                  token strings, so the order in input file is preserved.
+                  sample_inline.txt is a test file for both kinds of comments.
+
+Mon Feb 21 23:02 PST 2006:  hotptp-yl-parser 2.8 worked correctly on all
+files in TPTP-v3.1.1/Problems/*/, showing backward compatibility.
+
+------------------------------------------------------------------------------
+setops.ax
+
+lambda encoding of axioms for set operations, following ESHOL 2005 Workshop
+paper by Benzmuller, Sorge, Jamnik, and Kerber.
+This file uses = for definitions, which might lead to semantic problems
+but it provides tests for the syntax.
+------------------------------------------------------------------------------
+hof-thof1-examples.txt
+
+The examples from http://www.cs.miami.edu/~tptp/TPTP/Proposals/HOL.html
+with syntax and semantic updates based on emails from Chad Brown and
+Chris Benzmuller.  The parentheses that would be implied by
+associativity of @ (left), -> (right), and : (right) have been removed.
+Operators used as bare constants are enclosed in parentheses (this gives
+Prolog a fighting chance, too).
+Definitions using := are demonstrated.  Spaces were inserted after colons
+where there was no whitespace, to conform to TPTP requirements.
+
+------------------------------------------------------------------------------
+hof-thof2-examples.txt
+
+The examples from http://www.cs.miami.edu/~tptp/TPTP/Proposals/HOL.html
+in the second part of the page, which use a moderately different set of
+conventions.  Parentheses are added around the arguments of = in
+several places.  Unbalanced parentheses in the first sentence are corrected.
+Spaces were inserted after colons where there was no whitespace.
+This file uses = for definitions, which might lead to semantic problems
+but it provides tests for the syntax.
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+hotptp-1.lex0
+hotptp-1.y
+
+The "source" files converted from hotptp-bnf2.txt.
+------------------------------------------------------------------------------
+GENERATING PARSERS
+
+On Red Hat Fedora Linux, Intel Xeon the commands in Makefile were used
+to generate the executable parsers.  NOTE: LANG=C is important.
+On Linux, lex points to flex anyway; note "-l" in the command.
+"bison -y" and "flex -l" should work in place of lex and yacc.
+The warning outputs shown are acceptable.
+
+Various intermediate files that are of interest only for debugging
+parser generation at another site, or from a different bnf2 file, are
+in the directory Intermediates/.
+
+% yacc -d -v hotptp-1.y
+yacc: 75 rules never reduced
+yacc: 4 shift/reduce conflicts
+
+% lex -l hotptp-1.lex0
+"hotptp-1.lex0", line 61: warning, dangerous trailing context
+.... (about 20 more lines like this)
+
+% gcc -g  -o hotptp-yl-parser lex.yy.c y.tab.c -ly -ll
+% gcc -g  -DP_VERBOSE=1 -o hotptp-yl-parser-verbose lex.yy.c y.tab.c -ly -ll
+
+On IRIX and probably Solaris
+% lex hotptp-1.lex0
+"hotptp-1.lex0":line XX: Warning: Non-portable Character Class
+.... (a few lines like this)
+
+ON SGI Irix and Sun Solaris, the same compile method works, except
+no "-l" flag to lex, and I used cc instead of gcc.  Maybe gcc is OK too.
+------------------------------------------------------------------------------
+
+sample.txt      is a short fof test file (no hof constructs) with these lines:
+
+fof(1,axiom, foo(X,Y,h(Y,Z)), unknown).
+fof(2,axiom, bar(X,Y,h(Y,Z)) != baz(h(Y,Z), Y,X), unknown).
+fof(status,status,X=1,theory(ac),[status(tau)]).
+cnf(include,file,(X=1|X=2),file('mary.txt',harry),[status(tau)]).
+include('fred.txt',[1,3]).
+fof(3,equality,'Mary'("\"Queen\" of \\Scots\\")='1',introduced(axiom_of_choice,[status(uns)])).
+/* $$ Sample: multi-line
+ * system comment.
+ */
+/* multi-line
+ * comment.
+ */
+------------------------------------------------------------------------------
+
+NUM284-1.010.rm           old-syntax cnf file
+SYN007+1.005.rm           old-syntax fof file
+
+The parsers understand these now, Feb. 22, 2006.
+
+------------------------------------------------------------------------------
+
+syntaxBNF2-3.1.1.13b.txt  is based on email from geoff, Version 3.1.1.13,
+with minor changes to give syntaxBNF-3.1.1.13b.txt, after which it was
+updated to use BNF2 and the new scripts.  This is the FOF base from which
+hotptp-bnf2.txt was developed (but lacks explanantory comments about BNF2).
+syntaxBNF2-3.1.1.13c.txt enables old-syntax files to be parsed as well.
+syntaxBNF2-3.1.1.13d.txt removes <comment> and <system comment> as alternatives
+for <TPTP input> and changes their token rules into macro rules.
+
+make tptp       generates tptp-yl-parser from syntaxBNF2-3.1.1.13c.txt.
+
+Wed Feb 22 21:52:05 PST 2006: tptp-yl-parser worked correctly on all
+files in TPTP-v3.1.1/Problems/*/ including the two old-syntax files listed
+above.
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
+EVERYTHING AFTER THIS IS CHECKPOINTED IN FO/ and FO.tar AND IS NOT CURRENT
+FOR THE NEW SCRIPTS, WHICH EXPECT BNF2 FORMAT.  --- Feb 20, 2006.
+
+------------------------------------------------------------------------------
+
+syntaxBNF-3.1.1.13b.txt is based on email from geoff, Version 3.1.1.13.
+Minor bug fixed on Feb  4, 2006.
+Misc. changes on Feb. 11 and name changed to 13b.
+
+It was fed into scripts to produce syntaxBNF-1.lex0 and syntaxBNF-1.y.
+
+On Red Hat Fedora Linux, Intel Xeon (where lex points to flex, note "-l"),
+tptp-yl-parser was compiled as follows from syntaxBNF-1.lex0 and syntaxBNF-1.y
+
+lex -l syntaxBNF-1.lex0
+yacc -d -v syntaxBNF-1.y
+gcc -g -o tptp-yl-parser lex.yy.c y.tab.c -ly -ll
+
+It reads stdin.  E.g., "tptp-yl-parser < sample.txt".
+
+It outputs "syntax error" and exits on an error, with exit status 1.
+On success there is no output to stdout and the exit status is 0.
+
+tptp-yl-parser-verbose was compiled as follows (after running lex and yacc):
+
+gcc -g -DP_VERBOSE=1 -o tptp-yl-parser-verbose lex.yy.c y.tab.c -ly -ll
+
+It outputs parse trees on stdout.
+Not much help on locating a syntax error; try running in gdb maybe.
+
+--Allen Van Gelder
+
+Sun Feb  5 2006.  Version 3.1.1.13 fixed bnf w. updated translation
+placed on Internet.
+
+Sun Feb  5 21:33:18 PST 2006: tptp-yl-parser worked correctly on all
+files in TPTP-v3.1.1/Problems/*/.
+

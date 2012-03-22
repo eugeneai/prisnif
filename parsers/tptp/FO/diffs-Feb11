@@ -1,0 +1,122 @@
+0a1,4
+> %----Version 0.6 (HO TPTP version.internal development number)
+> 
+> %----DRAFT VERSION FOR EVALUATION OF HOF FEATURES.  Not in sync with TPTP.
+> 
+15c19
+< <annotated formula>  ::= <fof annotated> | <cnf annotated>
+---
+> <annotated formula>  ::= <hof annotated> | <cnf annotated>
+17c21,23
+< <fof annotated>      ::= fof(<name>,<formula role>,<fof formula><annotations>).
+---
+> %----Keyword fof means the same as hof, retained for backward compatibility.
+> <hof annotated>      ::= hof(<name>,<formula role>,<hof formula><annotations>). |
+>                          fof(<name>,<formula role>,<hof formula><annotations>).
+59,61c65,69
+< %----FOF formulae. All formulae must be closed.
+< <fof formula>        ::= <binary formula> | <unitary formula>
+< <binary formula>     ::= <nonassoc binary> | <assoc binary>
+---
+> %----HOF formulae. All formulae must be closed.
+> <hof formula>        ::= <binary formula> | <unitary formula>
+> <tptp operator>      ::= <unary connective> | <binary connective> |
+>                          <assoc connective> | <equality connective>
+> <binary formula>     ::= <nonassoc binary> | <assoc binary> | <apply term>
+73a82
+> <assoc connective>   ::= & | <vline>
+77,78c86,89
+<                          (<fof formula>) | <atomic formula>
+< <quantified formula> ::= <quantifier> [<variable list>] : <unitary formula>
+---
+>                          <lambda term> | <lower formula>
+> % | (<hof formula>)
+> 
+> <quantified formula> ::= <quantifier> [<variable decls>] : <unitary formula>
+89c100,142
+< <variable list>      ::= <variable> | <variable>,<variable list>
+---
+> 
+> 
+> <lower formula>      ::= <hof atom> | (<hof formula>)
+> 
+> %----<hof atom> is <atomic formula> in the context of <hof formula>.
+> %----<atomic formula> is retained for integrity of <cnf formula>.
+> <hof atom>           ::= <term> | <defined hof atom> | <typed constant>
+> <defined hof atom>   ::= $true | $false |
+>                          <lower formula> = <type term> |
+>                          <lower formula> = <lower formula> |
+>                          <lower formula> != <lower formula> 
+> 
+> 
+> 
+> %----<apply term> must have @ at top level.
+> %----<lambda term> can drop down to <term> immediately.
+> %----<term> cannot climb back up to <apply term>, or <lambda term>.
+> %----In this context &, |, ~, $true, $false are "macros" for
+> %----boolean functions that could be denoted with lambda terms.
+> %----E.g., & : o->o->o.
+> 
+> <apply term>         ::= <apply term> @ <unitary formula> |
+>                          <apply term> @ <type term> |
+>                          <unitary formula> @ <unitary formula> |
+>                          <unitary formula> @ <type term>
+> <lambda term>        ::= <lambda symbol> [<variable decls>] : <unitary formula>
+> 
+> %----@ (denoting apply) is left-associative and lambda is right-associative.
+> %----lambda [X] : lambda [Y] : f @ g (where f and g are <apply terms>s)
+> %----should be parsed as (lambda [X] : (lambda [Y] : f)) @ g.
+> %----Its Beta reduction is lambda [Y] : f[X:=g], a function of Y,
+> %----in accordance with the usual Currying.
+> %----(Notation follows Stansifer; [Benzmuller, Brown 2005] writes [g/X]f.)
+> %----If X occurs in g, it is outside the scope of the lambda [X] shown
+> %----and the Beta reduction needs to be preceded by a rename of the bound X.
+> %----Of course it is safer and clearer not to overwork bound variables.
+> %----Use parenthese to get lambda [X] : (lambda [Y] : f @ g), or
+> %----lambda [X] : (lambda [Y] : (f @ g)).
+> 
+> %----lambda might have a symbol in the future.
+> <lambda symbol>      ::= lambda | ^
+> 
+> <variable decls>     ::= <variable decl> | <variable decl>,<variable decls>
+90a144,162
+> %----<variable decl> is untyped or typed variable declaration.
+> <variable decl>      ::= <variable> | <typed variable>
+> <typed variable>     ::= <variable> : <type expr>
+> <typed constant>     ::= (<constant> : <type expr>)
+> 
+> %----<type term> is disjoint from <term>, but some <term>s can be types.
+> %----<map arrow> is right-associative: o->o->o means o->(o->o).
+> <type term>          ::= (<unitary type> <map arrow> <type expr>) |
+>                          <defined type>
+> <type expr>          ::= <unitary type> <map arrow> <type expr> |
+>                          <unitary type>
+> <unitary type>       ::= <atomic type> |
+>                          (<unitary type> <map arrow> <type expr>)
+> <atomic type>        ::= <term> | <defined type>
+> <defined type>       ::= $o | $i | $type
+> <map arrow>          ::= -> | >
+> 
+> 
+> 
+110,111c182,183
+< <defined atom>       ::= $true | $false |
+<                          <term> = <term> | <term> != <term>
+---
+> <defined atom>       ::= $true | $false | <term> <equality connective> <term>
+> <equality connective>  ::= = | !=
+126c198
+< <constant>           ::= <atomic word>
+---
+> <constant>           ::= <atomic word> | (<tptp operator>)
+229c301
+< <real>   ::= <signed integer><decimal part> | <unsigned integer><decimal part>
+---
+> <real>  ::= <signed integer><decimal part> | <unsigned integer><decimal part>
+238,239c310,312
+< <char>               ::= ... any printable ASCII character
+< <char or eoln>       ::= ... any printable ASCII character, including eoln
+---
+> %----"printing ASCII" includes those having ASCII codes 40-126 decimal.
+> <char>               ::= ... any printing ASCII character
+> <char or eoln>       ::= ... any printing ASCII character, plus eoln

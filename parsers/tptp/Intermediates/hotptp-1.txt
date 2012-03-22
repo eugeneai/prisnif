@@ -1,0 +1,439 @@
+/*----Version 2.9 (HO TPTP BNF2 version.internal development number) */
+
+/*----DRAFT VERSION FOR EVALUATION OF HOF FEATURES.  Not in sync with TPTP. */
+
+/*----Version 3.1.1.13b (TPTP version.internal development number) */
+/*----Intended uses of the various parts of the TPTP syntax are explained */
+/*----in the TPTP technical manual, linked from www.tptp.org. */
+/*----See the <comment> entries regarding text that can be discarded before  */
+/*----tokenizing for this syntax. */
+/*----White space is almost irrelevant, but all operators consisting of */
+/*----non-alphanumeric characters should be followed by a space. */
+/*----This simplifies unambiguous parsing especially for the Prolog people. */
+
+/*----This document uses BNF2, a meta-language close to the original BNF that */
+/*----was used to define Algol 60 [Naur et al, 1960], rather than EBNF. */
+/*----Grammar symbols are enclosed in < > and most characters not so */
+/*----enclosed stand for themselves. */
+/*----BNF2 uses some extensions to reflect the modern practice of separating */
+/*----the processing of production rules (context-free grammar, normally) */
+/*----from the recognition of tokens (regular expressions, normally), */
+/*----hence the suffix 2. */
+/*----This separation aids automated translation, using tools such as */
+/*----lex, yacc, flex, bison, and others. */
+/*----The extensions are signalled by use of one of these nonstandard */
+/*----meta-symbols (where a standard rulewould have ::=): :== or ::- or ::: . */
+
+/*----For example, when <real> appears in a grammar rule, it is a grammar */
+/*----symbol, and since it is not on the left side of any rule, it is */
+/*----a terminal symbol (token).  The DEFINITION of <real> is given */
+/*----by a lexical rule beginning <real> ::- ..., to distinguish it from a */
+/*----BNF grammar rule, such as <number> ::= ... . */
+/*----In an automated translation, the former occurrence would become a */
+/*----yacc/bison rule, and that latter occurrence would become a lex/flex rule. */
+/*----Macros may be introduced to aid in specifying tokens by using ::: . */
+/*----In this example, <digit> is a macro, not a token: */
+/*----<digit>  ::: [0-9] */
+
+/*----A different meta-symbol, :== , is used to define a strict language */
+/*----that excludes input sentences that have the correct form but incorrect */
+/*----contents. */
+/*----The design guideline is that a syntax error occurs when the parser */
+/*----does not know what the user is TRYING to say, */
+/*----while a semantic error occurs when the parser knows what the user */
+/*----is trying to say, but there is something wrong with it. */
+/*----The goal is to define a relaxed syntactic language that is amenable */
+/*----to automated parsing, then refine it to a strict language by means */
+/*----of semantic actions, which are typically hand-coded. */
+/*----Of course, various implementers will make varying choices of how much */
+/*----to automate parser generation, and how much to hand-code. */
+/*----Some semantic actions are specified using :==. */
+
+/*----Enumerated types are a simple example.  A relaxed rule and a strict */
+/*----rule may be given: */
+/*----<nonterminal> ::= <expr> */
+/*----<nonterminal> :== val1 | val2 | val3 ... . */
+/*----val1, val2, val3, ... are specific character sequences (strings) that are */
+/*----in the more general class <expr>, and they specify exactly which values */
+/*----are permitted for <nonterminal>.  The syntactic part of the parser */
+/*----may accept any instance of <expr> and leave the detailed checking of */
+/*----values to a semantic action. */
+/*----The lexical analyzer need not recognize specific values within <expr> */
+/*----as different tokens.  (The specific values should be attached to */
+/*----tokens as "lexical values" for later processing.) */
+
+/*----A more general form is */
+/*----<nonterminal> ::= <expr> */
+/*----<nonterminal> :== <expr_one> | <expr_two> ... */
+/*----The meaning is the same as in the first form, except that <expr_one>, */
+/*----<expr_two>, ... may be nonterminals as well as specific strings. */
+
+/*----A nonterminal that occurs ONLY in the strict language is defined */
+/*----with :== and has no ::= rule at all: */
+/*----<expr_one> :== <expr_three> ... */
+/*----This declares that <expr_one> is not needed for the */
+/*----relaxed syntactic language and this rule only describes part of the */
+/*----strict language. */
+
+/*----A line in this document that begins "% $$" provides additional */
+/*----syntactic or semantic information. */
+/*----Semantic information supplements the syntactic information in */
+/*----the BNF grammar rule. */
+/*----Syntactic information informally describes a construct that */
+/*----is too complicated to describe formally in the BNF2 framework, */
+/*----or a construct whose formal description might be possible, but would */
+/*----be so complicated that it would be difficult to work with. */
+/*----Escapes sequences in token definitions are a typical example. */
+
+/*-------------------------------------------------------------------------- */
+/*----Files. Empty file is OK. */
+TPTP_file _GRR TPTP_input *
+TPTP_input _GRR annotated_formula | include | comment | system_comment
+
+/*----Formula records */
+annotated_formula _GRR hof_annotated | cnf_annotated | TPTP_input_formula | TPTP_input_clause
+/*----Future languages may include ...  english | efof | tfof | mathml | ... */
+/*----Keyword fof means the same as hof, retained for backward compatibility. */
+hof_annotated _GRR HOF LPAREN name COMMA formula_role COMMA hof_formula annotations RPAREN PERIOD | HOF LPAREN name COMMA formula_role COMMA hof_definition annotations RPAREN PERIOD | FOF LPAREN name COMMA formula_role COMMA hof_formula annotations RPAREN PERIOD
+cnf_annotated _GRR CNF LPAREN name COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD
+annotations _GRR null | COMMA source | COMMA source COMMA useful_info
+
+/*----Types for problems. */
+/*----Note: The previous <source_type> from ... */
+/*----   <formula_role> ::= <user_role>-<source>  */
+/*----... is now gone. Parsers may choose to be tolerant of it for backwards  */
+/*----compatibility. */
+formula_role _GRR atomic_word
+formula_role _GRS AXIOM | HYPOTHESIS | DEFINITION | LEMMA | THEOREM | CONJECTURE | LEMMA_CONJECTURE | NEGATED_CONJECTURE | PLAIN | UNKNOWN
+/*----"axiom"s are accepted, without proof, as a basis for proving "conjecture"s  */
+/*----and "lemma_conjecture"s in FOF problems. In CNF problems "axiom"s are  */
+/*----accepted as part of the set whose satisfiability has to be established. */
+/*----There is no guarantee that the axioms of a problem are consistent. */
+/*----"hypothesis"s are assumed to be true for a particular problem, and are  */
+/*----used like "axiom"s. */
+/*----"definition"s are used to define symbols, and are used like "axiom"s. */
+/*----"lemma"s and "theorem"s have been proven from the "axiom"s, can be used  */
+/*----like "axiom"s, but are redundant wrt the "axiom"s. "lemma" is used as the  */
+/*----role of proven "lemma_conjecture"s, and "theorem" is used as the role of  */
+/*----proven "conjecture"s, in output. A problem containing a "lemma" or  */
+/*----"theorem" that is not redundant wrt the "axiom"s is ill-formed. "theorem"s */
+/*----are more important than "lemma"s from the user perspective. */
+/*----"conjecture"s occur in only FOF problems, and are to all be proven from  */
+/*----the "axiom"(-like) formulae. A problem is solved only when all  */
+/*----"conjecture"s are proven. */
+/*----"lemma_conjecture"s are expected to be provable, and may be useful to  */
+/*----prove, while proving "conjecture"s. */
+/*----"negated_conjecture"s ocuur in only CNF problems, and are formed from */
+/*----negation of a "conjecture" in a FOF to CNF conversion. */
+/*----"plain"s have no special user semantics, and can be used like "axiom"s. */
+/*----"unknown"s have unknown role, and this is an error situation. */
+
+/*----HOF formulae. All formulae must be closed. */
+hof_formula _GRR binary_formula | unitary_formula
+
+/*----HOF definition must be at top level. := is NOT included in <tptp_operator> */
+/*----The construct is EXPERIMENTAL and the syntax is flexible to give */
+/*----users plenty of rope.  Future versions might cut back or expand. */
+/*----Examples: */
+/*----const := <expr_not_containing_const>  Is pretty self-explanatory. */
+/*----(const : A) := <expr_not_containing_const but containing A>   Seems OK?? */
+/*----const := <expr_containing_const_recursively>   Be consistent with coq?? */
+/*----functor(<T1>,<T2>) := <expr_containing_<T1> and <T2>>   Skating on */
+/*----thin ice??  <T1> and <T2> are fof terms.  Maybe OK if right side is fof? */
+/*----Users are encouraged to supply <system_comment>s to explain how they */
+/*----intend any format other than the first one to be interpreted. */
+hof_definition _GRR defined_element GETS unitary_formula
+defined_element _GRR plain_term | typed_constant
+
+tptp_operator _GRR unary_connective | binary_connective | assoc_connective | equality_connective
+binary_formula _GRR nonassoc_binary | assoc_binary | apply_term
+/*----Only some binary connectives are associative */
+/*----There's no precedence amoung binary connectives */
+nonassoc_binary _GRR unitary_formula binary_connective unitary_formula
+binary_connective _GRR IFF | IMPLIES | IF | NIFF | NVLINE | NAMPERSAND
+/*----Associative connectives & and | are in <assoc_binary> */
+assoc_binary _GRR or_formula | and_formula
+or_formula _GRR unitary_formula VLINE unitary_formula more_or_formula *
+more_or_formula _GRR VLINE unitary_formula
+and_formula _GRR unitary_formula AMPERSAND unitary_formula more_and_formula *
+more_and_formula _GRR AMPERSAND unitary_formula
+assoc_connective _GRR AMPERSAND | VLINE
+/*----<unitary_formula> are in ()s or do not have a <binary_connective> at the  */
+/*----top level. */
+unitary_formula _GRR quantified_formula | unary_formula | lambda_term | lower_formula
+/* | (<hof_formula>) */
+
+quantified_formula _GRR quantifier LBRKT variable_decls RBRKT COLON unitary_formula
+quantifier _GRR EXCLAMATION | QUESTION
+/*----! is universal quantification and ? is existential. Syntactically, the  */
+/*----quantification is the left operand of :, and the <unitary_formula> is  */
+/*----the right operand. Although : is a binary operator syntactically, it is  */
+/*----not a <binary_connective>, and thus a <quantified_formula> is a  */
+/*----<unitary_formula>. */
+/*----Universal   example: ! [X,Y] : ((p(X) & p(Y)) => q(X,Y)). */
+/*----Existential example: ? [X,Y] : (p(X) & p(Y)) & ~ q(X,Y). */
+/*----Quantifiers have higher precedence than binary connectives, so in */
+/*----the existential example the quantifier applies to only (p(X) & p(Y)). */
+
+
+lower_formula _GRR hof_atom | LPAREN hof_formula RPAREN
+
+/*----<hof_atom> is <atomic_formula> in the context of <hof_formula>. */
+/*----<atomic_formula> is retained for integrity of <cnf_formula>. */
+hof_atom _GRR term | defined_hof_atom | typed_constant
+defined_hof_atom _GRR TOK_TRUE | TOK_FALSE | lower_formula EQUALS type_term | lower_formula EQUALS lower_formula | lower_formula NEQUALS lower_formula
+
+
+
+/*----<apply_term> must have @ at top level. */
+/*----<lambda_term> can drop down to <term> immediately. */
+/*----<term> cannot climb back up to <apply_term>, or <lambda_term>. */
+/*----In this context &, |, ~, $true, $false are "macros" for */
+/*----boolean functions that could be denoted with lambda terms. */
+/*----E.g., & : o->o->o. */
+
+apply_term _GRR apply_term AT_SIGN unitary_formula | apply_term AT_SIGN type_term | unitary_formula AT_SIGN unitary_formula | unitary_formula AT_SIGN type_term
+lambda_term _GRR lambda_symbol LBRKT variable_decls RBRKT COLON unitary_formula
+
+/*----@ (denoting apply) is left-associative and lambda is right-associative. */
+/*----lambda [X] : lambda [Y] : f @ g (where f and g are <apply_terms>s) */
+/*----should be parsed as (lambda [X] : (lambda [Y] : f)) @ g. */
+/*----Its Beta reduction is lambda [Y] : f[X:=g], a function of Y, */
+/*----in accordance with the usual Currying. */
+/*----(Notation follows Stansifer; [Benzmuller, Brown 2005] writes [g/X]f.) */
+/*----If X occurs in g, it is outside the scope of the lambda [X] shown */
+/*----and the Beta reduction needs to be preceded by a rename of the bound X. */
+/*----Of course it is safer and clearer not to overwork bound variables. */
+/*----Use parenthese to get lambda [X] : (lambda [Y] : f @ g), or */
+/*----lambda [X] : (lambda [Y] : (f @ g)). */
+
+/*----lambda might have a symbol in the future. */
+lambda_symbol _GRR LAMBDA | CARET
+
+variable_decls _GRR variable_decl | variable_decl COMMA variable_decls
+/*----Future variables may have sorts and existential counting */
+/*----<variable_decl> is untyped or typed variable declaration. */
+variable_decl _GRR variable | typed_variable
+typed_variable _GRR variable COLON type_expr
+typed_constant _GRR LPAREN constant COLON type_expr RPAREN
+
+/*----<type_term> is disjoint from <term>, but some <term>s can be types. */
+/*----<map_arrow> is right-associative: o->o->o means o->(o->o). */
+type_term _GRR LPAREN unitary_type map_arrow type_expr RPAREN | defined_type
+type_expr _GRR unitary_type map_arrow type_expr | unitary_type
+unitary_type _GRR atomic_type | LPAREN unitary_type map_arrow type_expr RPAREN
+atomic_type _GRR term | defined_type
+defined_type _GRR TOK_O | TOK_I | TOK_TYPE
+map_arrow _GRR MAP_TO |  GREATER 
+
+
+
+/*----Unary connectives bind more tightly than binary */
+unary_formula _GRR unary_connective unitary_formula
+unary_connective _GRR TILDE
+
+/*----CNF formulae (variables implicitly universally quantified) */
+cnf_formula _GRR LPAREN disjunction RPAREN | disjunction
+disjunction _GRR literal more_disjunction *
+more_disjunction _GRR VLINE literal
+literal _GRR atomic_formula | TILDE atomic_formula
+
+/*----Atoms (<predicate> is not used currently) */
+atomic_formula _GRR plain_atom | defined_atom | system_atom
+plain_atom _GRR plain_term
+/*----A <plain_atom> looks like a <plain_term>, but really we mean */
+/*----  <plain_atom>         ::= <proposition> | <predicate>(<arguments>) */
+/*----  <proposition>        ::= <atomic_word> */
+/*----  <predicate>          ::= <atomic_word> */
+/*----Using <plain_term> removes a reduce/reduce ambiguity in lex/yacc. */
+arguments _GRR term | term COMMA arguments
+defined_atom _GRR TOK_TRUE | TOK_FALSE | term equality_connective term
+equality_connective _GRR EQUALS | NEQUALS
+/*----Some systems still interprete equal/2 as equality. The use of equal/2 */
+/*----for other purposes is therefore discouraged. Please refrain from either  */
+/*----use. Use infix '=' for equality. Note: <term> != <term> is equivalent */
+/*----to ~ <term> = <term>.  Use of != is DEPRECATED and may be dropped soon. */
+/*----More defined atoms may be added in the future. */
+system_atom _GRR system_term
+/*----<system_atom>s are used for evaluable predicates that are available */
+/*----in particular tools. The predicate names are not controlled by the */
+/*----TPTP syntax, so use with due care. The same is true for <system_term>s. */
+
+/*----Terms */
+term _GRR function_term | variable
+function_term _GRR plain_term | defined_term | system_term
+plain_term _GRR constant | functor LPAREN arguments RPAREN
+constant _GRR atomic_word | LPAREN tptp_operator RPAREN
+functor _GRR atomic_word
+/*----<numbers>s and <distinct_object>s are always interpreted as themselves */
+defined_term _GRR number | distinct_object
+system_term _GRR system_constant | system_functor LPAREN arguments RPAREN
+system_functor _GRR atomic_system_word
+system_constant _GRR atomic_system_word
+variable _GRR upper_word
+
+/*----Formula sources */
+source _GRR general_function
+source _GRS dag_source | internal_source | external_source | UNKNOWN
+/*----Only a <dag_source> can be a <name>, i.e., derived formulae can be */
+/*----identified by a <name> or an <inference_record>  */
+dag_source _GRS name | inference_record
+inference_record _GRS INFERENCE LPAREN inference_rule COMMA useful_info COMMA LBRKT parent_info_list RBRKT RPAREN
+inference_rule _GRS atomic_word
+/*----Examples are        deduction | modus_tollens | modus_ponens | rewrite |  */
+/*                        resolution | paramodulation | factorization |  */
+/*                        cnf_conversion | cnf_refutation | ... */
+parent_info_list _GRS parent_info | parent_info COMMA parent_info_list
+parent_info _GRS source parent_details
+theory _GRS THEORY LPAREN theory_name RPAREN
+theory_name _GRS EQUALITY | AC
+/*----More theory names may be added in the future. */
+parent_details _GRS COLON atomic_word | null
+internal_source _GRS INTRODUCED LPAREN intro_type intro_info RPAREN
+intro_type _GRS DEFINITION | AXIOM_OF_CHOICE | TAUTOLOGY
+/*----This should be used to record the symbol being defined, or the function */
+/*----for the axiom of choice */
+intro_info _GRS COMMA useful_info | null
+external_source _GRS file_source | creator_source | theory
+file_source _GRS TOK_FILE LPAREN file_name COMMA file_node_name RPAREN
+file_node_name _GRS name | UNKNOWN
+creator_source _GRS CREATOR LPAREN creator_name creator_info RPAREN
+creator_name _GRS atomic_word
+creator_info _GRS COMMA useful_info | null
+
+/*----File name and Useful Info fields */
+file_name _GRR atomic_word
+useful_info _GRR general_list
+useful_info _GRS LBRKT RBRKT | LBRKT info_items RBRKT
+info_items _GRS info_item | info_item COMMA info_items
+info_item _GRS formula_item | inference_item | general_function
+/*----Useful info for formula records */
+formula_item _GRS description_item | iquote_item
+description_item _GRS DESCRIPTION LPAREN atomic_word RPAREN
+iquote_item _GRS IQUOTE LPAREN atomic_word RPAREN
+/*----Useful info for inference records */
+inference_item _GRS inference_status | refutation
+inference_status _GRS STATUS LPAREN status_value RPAREN
+/*----These are the status values from the SZS ontology */
+status_value _GRS TAU | TAC | EQV | THM | SAT | CAX | NOC | CSA | CTH | CEQ | UNC | UNS | SAB | SAM | SAR | SAP | CSP | CSR | CSM | CSB
+inference_info _GRS inference_rule LPAREN atomic_word COMMA general_list RPAREN
+refutation _GRS REFUTATION LPAREN file_source RPAREN
+/*----Useful info for creators is just <general_function> */
+
+/*----Include directives */
+include _GRR INCLUDE LPAREN file_name formula_selection RPAREN PERIOD
+formula_selection _GRR null | COMMA LBRKT name_list RBRKT
+name_list _GRR name | name COMMA name_list
+
+/*----General purpose */
+general_term _GRR general_function | general_list
+general_list _GRR LBRKT RBRKT | LBRKT general_arguments RBRKT
+general_function _GRR constant | functor LPAREN general_arguments RPAREN
+general_arguments _GRR general_term | general_term COMMA general_arguments
+
+name _GRR atomic_word | unsigned_integer
+atomic_word _GRR lower_word | single_quoted
+null _GRR
+
+/*----Numbers with different values are implicitly unequal; i.e. ~(3.0 = 3). */
+number _GRR real | integer
+integer _GRR signed_integer | unsigned_integer
+
+/*------------------------------------------------------------------------------ */
+/*----Rules from here on down are for defining tokens (terminal symbols) */
+/*----of the grammar, assuming they will be recognized by a lexical scanner. */
+
+/*----Usual regexp notation is used mostly, as in grep, lex, awk, sed, etc. */
+/*----[ ] denotes a selection of ONE of the enclosed characters; e.g. */
+/*----[0-9] means one digit.  Inside [ ], special meanings are disabled; */
+/*----e.g., [.] is a period whereas . is any character except a newline. */
+/*----[^abc] means any character EXCEPT a, b, or c.  [\^] matches a caret. */
+/*----[\\] matches a backslash.  See lex/flex documentation for details. */
+/*----For uniformity and safety, [ ] is placed around single characters even */
+/*----when not necessary. */
+
+/*----A ::- rule defines a token. */
+/*----A ::: rule defines a macro that is not a token. */
+/*----"..." means the definition is imprecise and manual coding is needed. */
+/*----"% $$" provides semantic information, and explains "...". */
+{digit}                _TRM  [0-9]
+{lower}                _TRM  [a-z]
+{upper}                _TRM  [A-Z]
+{alphanum}             _TRM  ({lower}|{upper}|{digit}|[_])
+{any_char}             _TRM  (.|\n)
+{ddollar}              _TRM  [$][$]
+
+{vline}                _TRT  [|] ...
+/* $$ token for <vline> is VLINE, conflicts with meta-symbol, hard-coded. */
+
+{real}                 _TRT  ({signed_integer}|{unsigned_integer}){decimal_part}
+{signed_integer}       _TRT  [+-]{unsigned_integer}
+{unsigned_integer}     _TRT  {digit}{digit}*
+{decimal_part}         _TRT  [.]{digit}{digit}*
+
+{upper_word}           _TRT  {upper}{alphanum}*
+{lower_word}           _TRT  {lower}{alphanum}*
+{atomic_system_word}   _TRT  {ddollar}{lower}{alphanum}*
+
+/*----System Comments are used for system specific annotation of anything. */
+/*----They look like comments (see next), so by default they are discarded. */
+/*----However, a wily user of the syntax can notice the $$ and store/extract */
+/*----information from the "comment". */
+/*----System specific annotations should begin $$, then identify the system, */
+/*----followed by a :, e.g., /* $$ Otter 3.3: Demodulator */
+
+/*----Comments. These may be retained for non-logical purposes. Comments */
+/*----can occur only between annotated formulae (see <TPTP_input>), but */
+/*----it seems likely that people will put them elsewhere and simply */
+/*----strip them before tokenising. */
+
+/* $$ A string that matches both <system_comment> and <comment> should be */
+/* $$ recognized as <system_comment>. */
+{system_comment}       _TRT  {system_comment_one}|{system_comment_multi}
+{comment}              _TRT  {comment_one}|{comment_multi}
+{system_comment_one}   _TRM  [%][ ]*{ddollar}.*
+{system_comment_multi} _TRM  [/][*][ ]*{ddollar}([^*]*[*][*]*[^/*])*[^*]*[*][*]*[/]
+/* $$ Approximately, [/][*][ ]*<ddollar><any_char>*[*][/] */
+/* $$ Correct regexp ends at FIRST [*][/] */
+/* $$ See comment for <comment_multi> below. */
+{comment_one}          _TRM  [%].*
+{comment_multi}        _TRM  [/][*]([^*]*[*][*]*[^/*])*[^*]*[*][*]*[/]
+/* $$ Approximately, [/][*]<any_char>*[*][/] */
+/* $$ Correct regexp ends at FIRST [*][/] */
+/* $$ BEWARE: lex will end at the LAST [*][/] in the whole file if you let it. */
+
+/* $$ <single_quoted> and <distinct_object> must contain only "printing ASCII", */
+/* $$ which includes space, and consists of ASCII codes 40-126 decimal. */
+
+{single_quoted}        _TRT  [']([^\\']|[\\][']|[\\][\\])*[']
+/* $$ ['].*['] would be OK except for escape sequences. */
+/* $$ \ is used as the escape character for ' and \ in <single_quoted>; */
+/* $$ i.e., \' is  backslash-quote and \\ is backslash-backslash. */
+/* $$ For input and output in TPTP syntax the \ is present. */
+
+/*----All <distinct_object>s are implicitly unequal; ~("a" = "b").  */
+{distinct_object}      _TRT  ["]([^\\"]|[\\]["]|[\\][\\])*["]
+/* $$ ["].*["] would be OK except for escape sequences. */
+/* $$ \ is used as the escape character for " and \ in <distinct_object>; */
+/* $$ i.e., \" is  backslash-quote and \\ is backslash-backslash. */
+/* $$ For input and output in TPTP syntax the \ is present. */
+
+
+/*------------------------------------------------------------------------------ */
+/*----If you are writing a new TPTP parser, you do not need to parse the old */
+/*----style TPTP formulae, i.e., ignore from here on down. */
+/*----Old style TPTP clauses and formulae */
+TPTP_FOF_file _GRR TPTP_FOF_input *
+TPTP_FOF_input _GRR TPTP_input_formula | include | comment
+TPTP_input_formula _GRR INPUT_FORMULA LPAREN name COMMA formula_role COMMA hof_formula RPAREN PERIOD
+TPTP_CNF_file _GRR TPTP_CNF_input *
+TPTP_CNF_input _GRR TPTP_input_clause | include | comment
+TPTP_input_clause _GRR INPUT_CLAUSE LPAREN name COMMA formula_role COMMA TPTP_literals RPAREN PERIOD
+
+/*----Old style TPTP CNF */
+TPTP_literals _GRR LBRKT RBRKT | LBRKT TPTP_literal_list RBRKT
+TPTP_literal_list    _GRR  TPTP_literal rest_TPTP_literals *
+rest_TPTP_literals _GRR COMMA TPTP_literal
+TPTP_literal _GRR TPTP_sign atomic_formula
+TPTP_sign _GRR PPLUS | MMINUS
+

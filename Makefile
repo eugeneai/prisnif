@@ -1,5 +1,6 @@
-.PHONY: all test clean 
+.PHONY: all test clean
 .PHONY: cleanall distrib distr distribution
+.PHONY: test
 
 MAINBRANCH=master
 
@@ -26,4 +27,6 @@ distr: distrib
 
 distribution: distrib
 
-
+test:	prisnif clean
+	# Task about John the boy with a lot of fingers.
+	./prisnif problems/john_boy 2000

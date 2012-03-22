@@ -1,0 +1,456 @@
+
+%{
+/* Compile with -DP_VERBOSE=1 for verbose output.                    */
+/* Compile with -DP_USERPROC=1 to #include p_user_proc.c.            */
+/*   p_user_proc.c should #define P_ACT, P_BUILD, P_TOKEN, P_PRINT to*/
+/*   different procedures from those below, and supply code.         */
+
+/* *_strict rules are documentation; unreachable; hand-code semantic actions.*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#ifndef P_VERBOSE
+#  define P_VERBOSE 0
+#endif
+#ifdef P_USERPROC
+#  include "p_user_proc.c"
+#else
+#  define P_ACT(ss) if(verbose)printf("%7d %s\n",yylineno,ss);
+#  define P_BUILD(sym,A,B,C,D,E,F,G,H,I,J) pBuildTree(sym,A,B,C,D,E,F,G,H,I,J)
+#  define P_TOKEN(tok,sym) pToken(tok,sym)
+#  define P_PRINT(ss) if(verbose){printf("\n\n");pPrintTree(ss,0);}
+#endif
+
+#define MAX_CH 10
+extern int yylineno;
+/* tptp_ff is just an example of lex-er interface; setting to 0 is no-op. */
+extern int tptp_ff;
+int verbose = P_VERBOSE;
+char pTokenBuf[512];
+
+typedef struct pTreeNode * pTree;
+struct pTreeNode {char* sym; pTree ch[MAX_CH+1];};
+
+pTree pBuildTree(char* sym, pTree A, pTree B, pTree C, pTree D,
+    pTree E, pTree F, pTree G, pTree H, pTree I, pTree J);
+pTree pBuildTree(char* sym, pTree A, pTree B, pTree C, pTree D,
+    pTree E, pTree F, pTree G, pTree H, pTree I, pTree J)
+{ pTree ss = (pTree)calloc(1,sizeof(struct pTreeNode));
+  ss->sym = sym;
+  ss->ch[0] = A; ss->ch[1] = B; ss->ch[2] = C; ss->ch[3] = D;
+  ss->ch[4] = E; ss->ch[5] = F; ss->ch[6] = G; ss->ch[7] = H;
+  ss->ch[8] = I; ss->ch[9] = J; ss->ch[10] = 0;
+  return ss; }
+
+pTree pToken(char* tok, char* sym);
+pTree pToken(char* tok, char* sym)
+{ pTree ss;
+  char* safeSym;
+  strcpy(pTokenBuf, tok);
+  strcat(pTokenBuf, sym);
+  safeSym = strdup(pTokenBuf);
+  ss = pBuildTree(safeSym,0,0,0,0,0,0,0,0,0,0);
+  return ss; }
+
+void pPrintTree(pTree ss, int depth);
+void pPrintTree(pTree ss, int depth)
+{ int i, d;
+  for (d = 0; d < depth; d++) printf("  ");
+  if (ss->ch[0] == 0) printf("%s\n", ss->sym); else printf("<%s>\n", ss->sym);
+  i = 0;
+  while(ss->ch[i] != 0) {pPrintTree(ss->ch[i], depth+1); i++;}
+  return; }
+%}
+
+%union {int ival; double dval; char* sval; void* pval;}
+
+%start  TPTP_file
+%token <sval> AMPERSAND
+%token <sval> AT_SIGN
+%token <sval> CARET
+%token <sval> CNF
+%token <sval> COLON
+%token <sval> COMMA
+%token <sval> EQUALS
+%token <sval> EXCLAMATION
+%token <sval> FOF
+%token <sval> GETS
+%token <sval> GREATER
+%token <sval> HOF
+%token <sval> IF
+%token <sval> IFF
+%token <sval> IMPLIES
+%token <sval> INCLUDE
+%token <sval> INPUT_CLAUSE
+%token <sval> INPUT_FORMULA
+%token <sval> LAMBDA
+%token <sval> LBRKT
+%token <sval> LPAREN
+%token <sval> MAP_TO
+%token <sval> MMINUS
+%token <sval> NAMPERSAND
+%token <sval> NEQUALS
+%token <sval> NIFF
+%token <sval> NVLINE
+%token <sval> PERIOD
+%token <sval> PPLUS
+%token <sval> QUESTION
+%token <sval> RBRKT
+%token <sval> RPAREN
+%token <sval> TILDE
+%token <sval> TOK_FALSE
+%token <sval> TOK_I
+%token <sval> TOK_O
+%token <sval> TOK_TRUE
+%token <sval> TOK_TYPE
+%token <sval> VLINE
+%token <sval> atomic_system_word
+%token <sval> comment
+%token <sval> decimal_part
+%token <sval> distinct_object
+%token <sval> lower_word
+%token <sval> real
+%token <sval> signed_integer
+%token <sval> single_quoted
+%token <sval> system_comment
+%token <sval> unrecognized
+%token <sval> unsigned_integer
+%token <sval> upper_word
+%%
+
+TPTP_file : null {P_ACT($<sval>$)}
+                    | TPTP_file TPTP_input {P_ACT($<sval>$)}
+                    ;
+
+TPTP_input : annotated_formula {P_ACT($<sval>$)}
+                    | include {P_ACT($<sval>$)}
+                    | comment {P_ACT($<sval>$)}
+                    | system_comment {P_ACT($<sval>$)}
+                    ;
+
+annotated_formula : hof_annotated {P_ACT($<sval>$)}
+                    | cnf_annotated {P_ACT($<sval>$)}
+                    | TPTP_input_formula {P_ACT($<sval>$)}
+                    | TPTP_input_clause {P_ACT($<sval>$)}
+                    ;
+
+hof_annotated : HOF LPAREN name COMMA formula_role COMMA hof_formula annotations RPAREN PERIOD {P_ACT($<sval>$)}
+                    | HOF LPAREN name COMMA formula_role COMMA hof_definition annotations RPAREN PERIOD {P_ACT($<sval>$)}
+                    | FOF LPAREN name COMMA formula_role COMMA hof_formula annotations RPAREN PERIOD {P_ACT($<sval>$)}
+                    ;
+
+cnf_annotated : CNF LPAREN name COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD {P_ACT($<sval>$)}
+                    ;
+
+annotations : null {P_ACT($<sval>$)}
+                    | COMMA source {P_ACT($<sval>$)}
+                    | COMMA source COMMA useful_info {P_ACT($<sval>$)}
+                    ;
+
+formula_role : atomic_word {P_ACT($<sval>$)}
+                    ;
+
+hof_formula : binary_formula {P_ACT($<sval>$)}
+                    | unitary_formula {P_ACT($<sval>$)}
+                    ;
+
+hof_definition : defined_element GETS unitary_formula {P_ACT($<sval>$)}
+                    ;
+
+defined_element : plain_term {P_ACT($<sval>$)}
+                    | typed_constant {P_ACT($<sval>$)}
+                    ;
+
+tptp_operator : unary_connective {P_ACT($<sval>$)}
+                    | binary_connective {P_ACT($<sval>$)}
+                    | assoc_connective {P_ACT($<sval>$)}
+                    | equality_connective {P_ACT($<sval>$)}
+                    ;
+
+binary_formula : nonassoc_binary {P_ACT($<sval>$)}
+                    | assoc_binary {P_ACT($<sval>$)}
+                    | apply_term {P_ACT($<sval>$)}
+                    ;
+
+nonassoc_binary : unitary_formula binary_connective unitary_formula {P_ACT($<sval>$)}
+                    ;
+
+binary_connective : IFF {P_ACT($<sval>$)}
+                    | IMPLIES {P_ACT($<sval>$)}
+                    | IF {P_ACT($<sval>$)}
+                    | NIFF {P_ACT($<sval>$)}
+                    | NVLINE {P_ACT($<sval>$)}
+                    | NAMPERSAND {P_ACT($<sval>$)}
+                    ;
+
+assoc_binary : or_formula {P_ACT($<sval>$)}
+                    | and_formula {P_ACT($<sval>$)}
+                    ;
+
+or_formula          : unitary_formula VLINE unitary_formula {P_ACT($<sval>$)}
+                    | unitary_formula VLINE or_formula {P_ACT($<sval>$)}
+                    ;
+
+and_formula         : unitary_formula AMPERSAND unitary_formula {P_ACT($<sval>$)}
+                    | unitary_formula AMPERSAND and_formula {P_ACT($<sval>$)}
+                    ;
+
+assoc_connective : AMPERSAND {P_ACT($<sval>$)}
+                    | VLINE {P_ACT($<sval>$)}
+                    ;
+
+unitary_formula : quantified_formula {P_ACT($<sval>$)}
+                    | unary_formula {P_ACT($<sval>$)}
+                    | lambda_term {P_ACT($<sval>$)}
+                    | lower_formula {P_ACT($<sval>$)}
+                    ;
+
+quantified_formula : quantifier LBRKT variable_decls RBRKT COLON unitary_formula {P_ACT($<sval>$)}
+                    ;
+
+quantifier : EXCLAMATION {P_ACT($<sval>$)}
+                    | QUESTION {P_ACT($<sval>$)}
+                    ;
+
+lower_formula : hof_atom {P_ACT($<sval>$)}
+                    | LPAREN hof_formula RPAREN {P_ACT($<sval>$)}
+                    ;
+
+hof_atom : term {P_ACT($<sval>$)}
+                    | defined_hof_atom {P_ACT($<sval>$)}
+                    | typed_constant {P_ACT($<sval>$)}
+                    ;
+
+defined_hof_atom : TOK_TRUE {P_ACT($<sval>$)}
+                    | TOK_FALSE {P_ACT($<sval>$)}
+                    | lower_formula EQUALS type_term {P_ACT($<sval>$)}
+                    | lower_formula EQUALS lower_formula {P_ACT($<sval>$)}
+                    | lower_formula NEQUALS lower_formula {P_ACT($<sval>$)}
+                    ;
+
+apply_term : apply_term AT_SIGN unitary_formula {P_ACT($<sval>$)}
+                    | apply_term AT_SIGN type_term {P_ACT($<sval>$)}
+                    | unitary_formula AT_SIGN unitary_formula {P_ACT($<sval>$)}
+                    | unitary_formula AT_SIGN type_term {P_ACT($<sval>$)}
+                    ;
+
+lambda_term : lambda_symbol LBRKT variable_decls RBRKT COLON unitary_formula {P_ACT($<sval>$)}
+                    ;
+
+lambda_symbol : LAMBDA {P_ACT($<sval>$)}
+                    | CARET {P_ACT($<sval>$)}
+                    ;
+
+variable_decls : variable_decl {P_ACT($<sval>$)}
+                    | variable_decl COMMA variable_decls {P_ACT($<sval>$)}
+                    ;
+
+variable_decl : variable {P_ACT($<sval>$)}
+                    | typed_variable {P_ACT($<sval>$)}
+                    ;
+
+typed_variable : variable COLON type_expr {P_ACT($<sval>$)}
+                    ;
+
+typed_constant : LPAREN constant COLON type_expr RPAREN {P_ACT($<sval>$)}
+                    ;
+
+type_term : LPAREN unitary_type map_arrow type_expr RPAREN {P_ACT($<sval>$)}
+                    | defined_type {P_ACT($<sval>$)}
+                    ;
+
+type_expr : unitary_type map_arrow type_expr {P_ACT($<sval>$)}
+                    | unitary_type {P_ACT($<sval>$)}
+                    ;
+
+unitary_type : atomic_type {P_ACT($<sval>$)}
+                    | LPAREN unitary_type map_arrow type_expr RPAREN {P_ACT($<sval>$)}
+                    ;
+
+atomic_type : term {P_ACT($<sval>$)}
+                    | defined_type {P_ACT($<sval>$)}
+                    ;
+
+defined_type : TOK_O {P_ACT($<sval>$)}
+                    | TOK_I {P_ACT($<sval>$)}
+                    | TOK_TYPE {P_ACT($<sval>$)}
+                    ;
+
+map_arrow : MAP_TO {P_ACT($<sval>$)}
+                    |  GREATER  {P_ACT($<sval>$)}
+                    ;
+
+unary_formula : unary_connective unitary_formula {P_ACT($<sval>$)}
+                    ;
+
+unary_connective : TILDE {P_ACT($<sval>$)}
+                    ;
+
+cnf_formula : LPAREN disjunction RPAREN {P_ACT($<sval>$)}
+                    | disjunction {P_ACT($<sval>$)}
+                    ;
+
+disjunction         : literal {P_ACT($<sval>$)}
+                    | literal VLINE disjunction {P_ACT($<sval>$)}
+                    ;
+
+literal : atomic_formula {P_ACT($<sval>$)}
+                    | TILDE atomic_formula {P_ACT($<sval>$)}
+                    ;
+
+atomic_formula : plain_atom {P_ACT($<sval>$)}
+                    | defined_atom {P_ACT($<sval>$)}
+                    | system_atom {P_ACT($<sval>$)}
+                    ;
+
+plain_atom : plain_term {P_ACT($<sval>$)}
+                    ;
+
+arguments : term {P_ACT($<sval>$)}
+                    | term COMMA arguments {P_ACT($<sval>$)}
+                    ;
+
+defined_atom : TOK_TRUE {P_ACT($<sval>$)}
+                    | TOK_FALSE {P_ACT($<sval>$)}
+                    | term equality_connective term {P_ACT($<sval>$)}
+                    ;
+
+equality_connective : EQUALS {P_ACT($<sval>$)}
+                    | NEQUALS {P_ACT($<sval>$)}
+                    ;
+
+system_atom : system_term {P_ACT($<sval>$)}
+                    ;
+
+term : function_term {P_ACT($<sval>$)}
+                    | variable {P_ACT($<sval>$)}
+                    ;
+
+function_term : plain_term {P_ACT($<sval>$)}
+                    | defined_term {P_ACT($<sval>$)}
+                    | system_term {P_ACT($<sval>$)}
+                    ;
+
+plain_term : constant {P_ACT($<sval>$)}
+                    | functor LPAREN arguments RPAREN {P_ACT($<sval>$)}
+                    ;
+
+constant : atomic_word {P_ACT($<sval>$)}
+                    | LPAREN tptp_operator RPAREN {P_ACT($<sval>$)}
+                    ;
+
+functor : atomic_word {P_ACT($<sval>$)}
+                    ;
+
+defined_term : number {P_ACT($<sval>$)}
+                    | distinct_object {P_ACT($<sval>$)}
+                    ;
+
+system_term : system_constant {P_ACT($<sval>$)}
+                    | system_functor LPAREN arguments RPAREN {P_ACT($<sval>$)}
+                    ;
+
+system_functor : atomic_system_word {P_ACT($<sval>$)}
+                    ;
+
+system_constant : atomic_system_word {P_ACT($<sval>$)}
+                    ;
+
+variable : upper_word {P_ACT($<sval>$)}
+                    ;
+
+source : general_function {P_ACT($<sval>$)}
+                    ;
+
+file_name : atomic_word {P_ACT($<sval>$)}
+                    ;
+
+useful_info : general_list {P_ACT($<sval>$)}
+                    ;
+
+include : INCLUDE LPAREN file_name formula_selection RPAREN PERIOD {P_ACT($<sval>$)}
+                    ;
+
+formula_selection : null {P_ACT($<sval>$)}
+                    | COMMA LBRKT name_list RBRKT {P_ACT($<sval>$)}
+                    ;
+
+name_list : name {P_ACT($<sval>$)}
+                    | name COMMA name_list {P_ACT($<sval>$)}
+                    ;
+
+general_term : general_function {P_ACT($<sval>$)}
+                    | general_list {P_ACT($<sval>$)}
+                    ;
+
+general_list : LBRKT RBRKT {P_ACT($<sval>$)}
+                    | LBRKT general_arguments RBRKT {P_ACT($<sval>$)}
+                    ;
+
+general_function : constant {P_ACT($<sval>$)}
+                    | functor LPAREN general_arguments RPAREN {P_ACT($<sval>$)}
+                    ;
+
+general_arguments : general_term {P_ACT($<sval>$)}
+                    | general_term COMMA general_arguments {P_ACT($<sval>$)}
+                    ;
+
+name : atomic_word {P_ACT($<sval>$)}
+                    | unsigned_integer {P_ACT($<sval>$)}
+                    ;
+
+atomic_word : lower_word {P_ACT($<sval>$)}
+                    | single_quoted {P_ACT($<sval>$)}
+                    ;
+
+null : {P_ACT($<sval>$)}
+                    ;
+
+number : real {P_ACT($<sval>$)}
+                    | integer {P_ACT($<sval>$)}
+                    ;
+
+integer : signed_integer {P_ACT($<sval>$)}
+                    | unsigned_integer {P_ACT($<sval>$)}
+                    ;
+
+TPTP_FOF_file : null {P_ACT($<sval>$)}
+                    | TPTP_FOF_file TPTP_FOF_input {P_ACT($<sval>$)}
+                    ;
+
+TPTP_FOF_input : TPTP_input_formula {P_ACT($<sval>$)}
+                    | include {P_ACT($<sval>$)}
+                    | comment {P_ACT($<sval>$)}
+                    ;
+
+TPTP_input_formula : INPUT_FORMULA LPAREN name COMMA formula_role COMMA hof_formula RPAREN PERIOD {P_ACT($<sval>$)}
+                    ;
+
+TPTP_CNF_file : null {P_ACT($<sval>$)}
+                    | TPTP_CNF_file TPTP_CNF_input {P_ACT($<sval>$)}
+                    ;
+
+TPTP_CNF_input : TPTP_input_clause {P_ACT($<sval>$)}
+                    | include {P_ACT($<sval>$)}
+                    | comment {P_ACT($<sval>$)}
+                    ;
+
+TPTP_input_clause : INPUT_CLAUSE LPAREN name COMMA formula_role COMMA TPTP_literals RPAREN PERIOD {P_ACT($<sval>$)}
+                    ;
+
+TPTP_literals : LBRKT RBRKT {P_ACT($<sval>$)}
+                    | LBRKT TPTP_literal_list RBRKT {P_ACT($<sval>$)}
+                    ;
+
+TPTP_literal_list   : TPTP_literal {P_ACT($<sval>$)}
+                    | TPTP_literal COMMA TPTP_literal_list {P_ACT($<sval>$)}
+                    ;
+
+TPTP_literal : TPTP_sign atomic_formula {P_ACT($<sval>$)}
+                    ;
+
+TPTP_sign : PPLUS {P_ACT($<sval>$)}
+                    | MMINUS {P_ACT($<sval>$)}
+                    ;
+

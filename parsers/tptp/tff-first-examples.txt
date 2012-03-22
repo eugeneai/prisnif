@@ -1,0 +1,11 @@
+tff(1,axiom,$true).
+
+tff(2,type, x : (int -> (int * int))).
+
+tff(3,type, (x : (int -> (int * int)))).
+
+tff(4,type, p : (int -> $oType)).
+
+tff(5,conjecture, ! [X: (int -> (int * int)), Y]: ((X = x) => ~ (X = Y)) ).
+
+tff(6,axiom, ! [X: int]: (p(X) | ~ p(X)) ).

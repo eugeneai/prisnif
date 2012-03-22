@@ -1,0 +1,8 @@
+# let rec power = function (a, b)
+  ->
+  match b with 0 -> 1.0
+  | x -> a*.(power (a, (b-1)));;
+val power : float * int -> float = <fun>
+
+---------------------------
+Note that "function" means "lambda" and "->" means "." (: in THF etc).

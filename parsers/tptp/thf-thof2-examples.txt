@@ -1,0 +1,77 @@
+% thf-thof2-examples.txt
+% Syntax adapted from original as follows:
+%    nat(A) becomes (nat * A)    makes no sense, but (nat @ A) is illegal
+%    nat(I) becomes (nat * I)    at present
+%    $type  becomes  $tType
+%    i      becomes  $i
+% Note that formula role is definition or type_definition but ":=" isn't used.
+% --AVG  Aug. 29, 2006
+/*------------------------------------------------------------------------ */
+/* File     : SYN001^1 : TPTP v4.0.0. Released v4.0.0. */
+/* Domain   : Syntactic */
+/* Problem  :  */
+/* Version  : With type definitions */
+/* English  :  */
+
+/* Refs     : [BB05]  Benzmueller & Brown (2005), A Structured Set of Higher */
+/*          : Hindley (or Seldin) ... Basic Simple Type Theory  */
+/* Source   : [BB05] */
+/* Names    :  */
+
+/* Status   : Theorem (SEMANTICS) */
+/* Rating   : ? v4.0.0 */
+/* Syntax   :  */
+
+/* Comments :  */
+/*------------------------------------------------------------------------ */
+thf(nat_defn,type_definition,
+    ! [A] : (nat * A) = ((A > A) > A > A)   ).
+
+thf(successor_defn,definition,
+    ( successor
+    = ( ! [A: $tType] :
+        ^ [Z: (nat * A),X: (A > A),Y: A] : 
+          (X @ (Z @ X @ Y)) ) )   ).
+
+/*succ = [A: tp] */
+/*    \ [z: tm ((A --> A) --> A --> A)] */
+/*    \ [x: tm (A --> A)] */
+/*    \ [y: tm A] x @ (z @ x @ y). */
+
+thf(zero,definition,
+    ( zero
+    = ( ! [A: $tType] :
+        ^ [F: (A>A),Y: A] :  Y ) )   ).
+   
+thf(one,definition,
+    ( one
+    = ( ! [A: $tType] :
+        ^ [F: (A>A),Y: A] : (F @ Y) ) )   ).
+   
+thf(plus_defn,definition,
+    ( plus
+    = ( ! [A: $tType] :
+        ^ [M: (nat * A),N: (nat * A)] : 
+        ^ [X: (A>A),Y: A] :
+          (M @ X @ (N @ X @ Y)) ) )   ).
+
+thf(times_defn,definition,
+    ( times
+    = ( ! [A: $tType] :
+        ^ [M: (nat * A),N: (nat * A)] : 
+          (N @ (plus @ M) @ zero) ) )   ).
+
+thf(carstens_times_defn,definition,
+    ( times
+    = ( ! [A: $tType] :
+        ^ [M: (nat * A),N: (nat * A),S: (nat * A),Z: (nat * A)] :
+          (M @ (N @ S) @ Z)
+      )
+    )
+   ).
+
+thf(prove_this,conjecture,
+    ! [I: $i] :
+    ? [N: (nat * I)] : 
+      (times @ N @ one) = ( ^ [F: (I>I)] : F )   ).
+/*------------------------------------------------------------------------ */
