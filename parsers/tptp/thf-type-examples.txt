@@ -1,0 +1,83 @@
+% Examples: from TPTP/Proposals/HOL.html updated for Feb. 21 2006 language,
+% which includes definitions via ':='.  -- A.V.G.
+% and updated again for Post-TPTP-Tea-Party (PTPTPTP ?!?) language
+% as of Aug. 29, 2006  -- A.V.G.
+% ESPECIALLY NOTE: colon should be followed by whitespace.
+
+% conjecture that binary "or" is commutative.
+thf(b, conjecture,
+    ! [P: ((($o * $o) -> $o) -> $o)] :
+      ( ( P @ (|) ) 
+        =>
+          letrec [second := ^ [Pair]: ($false @ Pair),
+                  first := ^ [Pair]: ($true @ Pair)] :
+              ( P @ ^ [Args] : ( (second @ Args) | (first @ Args) ) )
+      )
+   ).
+
+
+% conjecture that "=" is commutative on functions of the same type.
+thf(d, conjecture,
+    ! [B: $tType, A: $tType] :
+    ! [P: ((((B -> A) * (B -> A)) > $o) > $o)] :
+      ( ( P 
+        @ ( (=) @ ( B -> A ) )
+        )
+        =>
+        ( P @ ^ [Args] :
+              letrec [first := ($true @ Args), second := ($false @ Args)]:
+                  (second = first)
+        )
+      )
+  ).
+
+% *_ax assume 'not', 'or', 'eq' have axioms somewhere; names suggest intended
+% interpretations, but these are normal constants.  Illustrates syntax.
+
+thf(a_type, type, not : ($o -> $o)).
+thf(a_ax, conjecture,
+    ! [P: ($o > $o)] : ! [Y: $o] :
+      ( ( P @ not @ Y ) 
+        =>
+        ( P @ ^ [X: $o] : ( not @ ( not @ ( not @ X) ) ) @ Y)
+      )
+   ).
+
+% conjecture that binary "or" is commutative.
+thf(b_ax, conjecture,
+    ! [P: ((($o * $o) > $o) > $o)] : ! [X: $o, Y: $o] :
+      ( ( P @ or @ (X, Y)) => ( P @ or @ (Y, X)) )
+   ).
+
+
+thf(1,type, (a : (b -> c))).
+
+thf(2,type, (a : ((b -> c)))).
+
+thf(3,type, (a : ((b -> c) + nil))).
+
+thf(4,type, a : ((b -> c) + nil)).
+
+thf(5,definition, list := ^ [A]: ((A * list) + nil)).
+
+thf(6, type, cons : ^ [A]: ((A * list) -> list)).
+
+thf(7, type, first : ^ [A]: (list -> A)).
+
+thf(8, type, rest : (list -> list)).
+
+% Define "set" as a polymorphic type with parameter A.
+% See (10) for discussion.  See also thf-thof2-examples.txt.
+thf(9, definition, set := ^ [A]: (A -> A -> $oType)).
+
+% Note that the "A"s in the definition of "set" do not get captured in "member".
+% Renaming the bound variable "A" to "B" would not change the meaning.
+thf(10, definition, member := ^ [A: $tType]: ^ [X: A, SA: set]: (SA @ A @ X) ).
+
+% setLambda: $tType-> $oType is supposed to be the FUNCTION corresponding to
+% the TYPE "set of elements of type A".
+% If foo is a function of type (B-> $oType) for some value of B, then
+% (setLambda @ (int * int) @ foo) = true iff B = (int * int).
+% But this looks very suspicious: E.g., Beta reduction does not work.
+thf(12, definition, setLambda := ^ [A: $tType]: ^ [F: (B-> $oType)]: (B = A) ).
+

@@ -1,0 +1,30 @@
+ghotptp.txt is based on
+
+    http://gtps.math.cmu.edu/cebrown/landau/ghotptp.txt.gz
+
+created by Chad Brown about October 2006, with 8789459 bytes.
+It has 13788 lines, one thf sentence per line.
+
+I selected the longest line, which is line 7318 with 7015 characters, into
+ghotptp-longest.txt.  Then I ran
+
+hotptp-yl-parser-verbose < ghotptp-longest.txt > ghotptp-longest.tree
+
+egrep -v '^ *<.*>$' ghotptp-longest.tree | awk '{i=match($0,"[^ ]");s=substr($0,1,(i-1)/2);print s $2;}' > ghotptp-longest.tokens
+
+The second command extracts the tokens with their indentation, one token
+per line, into
+
+    ghotptp-longest.tokens.
+
+There appear to be 1296 tokens.
+Matching parens and square brackets line up under each other.
+Relative indentation of unrelated tokens (e.g., ^ and @) is not easy
+to interpret; however, relative indentation of various occurrences of
+the same token is reliable.
+Thus, it is evident that @ is being parsed as left-associative.
+
+Other visual checking should be done to confirm that the sentence is being
+parsed as intended.
+
+--Allen Van Gelder, Nov. 3, 2006.

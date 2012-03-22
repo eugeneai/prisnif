@@ -1,0 +1,70 @@
+
+%{
+#include <string.h>
+#include "y.tab.h"
+
+extern int tptp_ff;
+int tptp_ff = 0;
+/* %Start: INITIAL begin sentence, B before formula, FF formula finished. */
+/* For now, FF is unreachable; tptp_ff always 0; example only. */
+%}
+%Start B FF
+%%
+
+"&"    {yylval.sval = strdup(yytext); return(AMPERSAND);}
+<INITIAL>"cnf"    {BEGIN B; {yylval.sval = strdup(yytext); return(CNF);}}
+":"    {yylval.sval = strdup(yytext); return(COLON);}
+","    {if (tptp_ff){BEGIN FF;} {yylval.sval = strdup(yytext); return(COMMA);}}
+<FF>"creator"    {yylval.sval = strdup(yytext); return(CREATOR);}
+"$$"    {yylval.sval = strdup(yytext); return(DDOLLAR);}
+<FF>"description"    {yylval.sval = strdup(yytext); return(DESCRIPTION);}
+"="    {yylval.sval = strdup(yytext); return(EQUALS);}
+"!"    {yylval.sval = strdup(yytext); return(EXCLAMATION);}
+<INITIAL>"fof"    {BEGIN B; {yylval.sval = strdup(yytext); return(FOF);}}
+"<="    {yylval.sval = strdup(yytext); return(IF);}
+"<=>"    {yylval.sval = strdup(yytext); return(IFF);}
+"=>"    {yylval.sval = strdup(yytext); return(IMPLIES);}
+<INITIAL>"include"    {BEGIN B; {yylval.sval = strdup(yytext); return(INCLUDE);}}
+<FF>"inference"    {yylval.sval = strdup(yytext); return(INFERENCE);}
+<FF>"introduced"    {yylval.sval = strdup(yytext); return(INTRODUCED);}
+<FF>"iquote"    {yylval.sval = strdup(yytext); return(IQUOTE);}
+"["    {yylval.sval = strdup(yytext); return(LBRKT);}
+"("    {yylval.sval = strdup(yytext); return(LPAREN);}
+"-"    {yylval.sval = strdup(yytext); return(MINUS);}
+"~&"    {yylval.sval = strdup(yytext); return(NAMPERSAND);}
+"!="    {yylval.sval = strdup(yytext); return(NEQUALS);}
+"<~>"    {yylval.sval = strdup(yytext); return(NIFF);}
+"~|"    {yylval.sval = strdup(yytext); return(NVLINE);}
+"."    {BEGIN INITIAL; tptp_ff = 0; {yylval.sval = strdup(yytext); return(PERIOD);}}
+"+"    {yylval.sval = strdup(yytext); return(PLUS);}
+"?"    {yylval.sval = strdup(yytext); return(QUESTION);}
+"]"    {yylval.sval = strdup(yytext); return(RBRKT);}
+<FF>"refutation"    {yylval.sval = strdup(yytext); return(REFUTATION);}
+")"    {yylval.sval = strdup(yytext); return(RPAREN);}
+"*"    {yylval.sval = strdup(yytext); return(STAR);}
+<FF>"status"    {yylval.sval = strdup(yytext); return(STATUS);}
+<FF>"theory"    {yylval.sval = strdup(yytext); return(THEORY);}
+"~"    {yylval.sval = strdup(yytext); return(TILDE);}
+"$false"    {yylval.sval = strdup(yytext); return(TOK_FALSE);}
+<FF>"file"    {yylval.sval = strdup(yytext); return(TOK_FILE);}
+"$true"    {yylval.sval = strdup(yytext); return(TOK_TRUE);}
+"|"    {yylval.sval = strdup(yytext); return(VLINE);}
+"%"[ \t]*"$$".*$    {yylval.sval = strdup(yytext); return(system_comment);}
+"/*"[ \t]*"$$".*"*/"    {yylval.sval = strdup(yytext); return(system_comment);}
+"%"[ \t]*[^$].*$    {yylval.sval = strdup(yytext); return(comment);}
+"/*"[ \t]*[^$].*"*/"    {yylval.sval = strdup(yytext); return(comment);}
+"%"[ \t]*"$"[^$].*$    {yylval.sval = strdup(yytext); return(comment);}
+"/*"[ \t]*"$"[^$].*"*/"    {yylval.sval = strdup(yytext); return(comment);}
+[$][$][a-z][a-z0-9A-Z_]*    {yylval.sval = strdup(yytext); return(atomic_system_word);}
+[A-Z][a-z0-9A-Z_]*    {yylval.sval = strdup(yytext); return(upper_word);}
+[a-z][a-z0-9A-Z_]*    {yylval.sval = strdup(yytext); return(lower_word);}
+[']([\040-\046]|[\050-\133]|[\135-\176]|[\\][\\]|[\\]['])*[']    {yylval.sval = strdup(yytext); return(single_quoted);}
+[+-]?[0-9][0-9]*[.][0-9][0-9]*    {yylval.sval = strdup(yytext); return(real);}
+[0-9][0-9]*    {yylval.sval = strdup(yytext); return(unsigned_integer);}
+[+-][0-9][0-9]*    {yylval.sval = strdup(yytext); return(signed_integer);}
+["]([\040-\041]|[\043-\133]|[\135-\176]|[\\][\\]|[\\]["])*["]    {yylval.sval = strdup(yytext); return(distinct_object);}
+[ \t\n]    ;
+[\000-\040]|[\177]    ;
+[\041-\176]    return(unrecognized);
+%%
+

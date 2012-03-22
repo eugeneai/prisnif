@@ -1,0 +1,6252 @@
+Terminals unused in grammar
+
+   unrecognized
+
+
+Grammar
+
+    0 $accept: TPTP_file $end
+
+    1 TPTP_file: null
+    2          | TPTP_file TPTP_input
+
+    3 TPTP_input: annotated_formula
+    4           | include
+
+    5 annotated_formula: fof_annotated
+    6                  | cnf_annotated
+    7                  | thf_annotated
+    8                  | tff_annotated
+
+    9 fof_annotated: _LIT_fof LPAREN name COMMA formula_role COMMA fof_formula annotations RPAREN PERIOD
+
+   10 cnf_annotated: _LIT_cnf LPAREN name COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD
+
+   11 thf_annotated: _LIT_thf LPAREN name COMMA formula_role COMMA thf_formula annotations RPAREN PERIOD
+
+   12 tff_annotated: _LIT_tff LPAREN name COMMA formula_role COMMA tff_formula annotations RPAREN PERIOD
+
+   13 annotations: null
+   14            | COMMA source optional_info
+
+   15 formula_role: lower_word
+
+   16 fof_formula: binary_formula
+   17            | unitary_formula
+
+   18 binary_formula: nonassoc_binary
+   19               | assoc_binary
+
+   20 nonassoc_binary: unitary_formula binary_connective unitary_formula
+
+   21 binary_connective: LESS_EQUALS_GREATER
+   22                  | EQUALS_GREATER
+   23                  | LESS_EQUALS
+   24                  | LESS_TILDE_GREATER
+   25                  | TILDE_VLINE
+   26                  | TILDE_AMPERSAND
+
+   27 assoc_binary: or_formula
+   28             | and_formula
+
+   29 or_formula: unitary_formula VLINE unitary_formula
+   30           | unitary_formula VLINE or_formula
+
+   31 and_formula: unitary_formula AMPERSAND unitary_formula
+   32            | unitary_formula AMPERSAND and_formula
+
+   33 assoc_connective: VLINE
+   34                 | AMPERSAND
+
+   35 unitary_formula: quantified_formula
+   36                | unary_formula
+   37                | atomic_formula
+   38                | LPAREN fof_formula RPAREN
+
+   39 quantified_formula: quantifier LBRKT variable_list RBRKT COLON unitary_formula
+
+   40 quantifier: EXCLAMATION
+   41           | QUESTION
+
+   42 variable_list: variable
+   43              | variable COMMA variable_list
+
+   44 unary_formula: unary_connective unitary_formula
+
+   45 unary_connective: TILDE
+
+   46 cnf_formula: LPAREN disjunction RPAREN
+   47            | disjunction
+
+   48 disjunction: literal
+   49            | literal VLINE disjunction
+
+   50 literal: atomic_formula
+   51        | TILDE atomic_formula
+
+   52 thf_formula: thf_binary_formula
+   53            | thf_unitary_formula
+   54            | thf_definition
+
+   55 thf_binary_formula: thf_nonassoc_formula
+   56                   | thf_assoc_formula
+   57                   | thf_apply_formula
+   58                   | thf_equality
+   59                   | thf_binary_type
+
+   60 thf_nonassoc_formula: thf_unitary_formula binary_connective thf_unitary_formula
+
+   61 thf_equality: thf_unitary_formula EQUALS thf_unitary_formula
+
+   62 thf_assoc_formula: thf_or_formula
+   63                  | thf_and_formula
+
+   64 thf_or_formula: thf_unitary_formula VLINE thf_unitary_formula
+   65               | thf_or_formula VLINE thf_unitary_formula
+
+   66 thf_and_formula: thf_unitary_formula AMPERSAND thf_unitary_formula
+   67                | thf_and_formula AMPERSAND thf_unitary_formula
+
+   68 thf_unitary_formula: thf_atom
+   69                    | thf_let_rec
+   70                    | thf_abstraction
+   71                    | thf_unary_formula
+   72                    | thf_quantified_formula
+   73                    | LPAREN thf_tuple RPAREN
+   74                    | LPAREN thf_binary_formula RPAREN
+   75                    | LPAREN thf_unitary_formula RPAREN
+
+   76 thf_quantified_formula: thf_quantifier LBRKT thf_variable_list RBRKT COLON thf_unitary_formula
+
+   77 thf_quantifier: EXCLAMATION
+   78               | QUESTION
+
+   79 thf_variable_list: thf_variable
+   80                  | thf_variable COMMA thf_variable_list
+
+   81 thf_unary_formula: unary_connective thf_unitary_formula
+
+   82 thf_abstraction: thf_lambda LBRKT thf_variable_list RBRKT COLON thf_unitary_formula
+
+   83 thf_lambda: _LIT_lambda
+   84           | CARET
+
+   85 thf_apply_formula: thf_apply_formula AT_SIGN thf_unitary_formula
+   86                  | thf_unitary_formula AT_SIGN thf_unitary_formula
+
+   87 thf_tuple: thf_unitary_formula COMMA thf_tuple
+   88          | thf_unitary_formula COMMA thf_unitary_formula
+
+   89 thf_atom: thf_typed_atom
+   90         | thf_untyped_atom
+
+   91 thf_typed_atom: thf_typed_constant
+   92               | thf_typed_variable
+
+   93 thf_untyped_atom: thf_untyped_constant
+   94                 | thf_untyped_variable
+
+   95 thf_variable: thf_untyped_variable
+   96             | thf_typed_variable
+
+   97 thf_typed_variable: thf_untyped_variable COLON thf_unitary_type
+
+   98 thf_untyped_variable: variable
+
+   99 thf_typed_constant: thf_untyped_constant COLON thf_unitary_type
+
+  100 thf_untyped_constant: atomic_word
+  101                     | number
+  102                     | distinct_object
+  103                     | atomic_system_word
+  104                     | thf_defined_word
+  105                     | LPAREN tptp_operator RPAREN
+
+  106 thf_defined_word: defined_type
+  107                 | defined_prop
+
+  108 tptp_operator: unary_connective
+  109              | binary_connective
+  110              | assoc_connective
+  111              | quantifier
+  112              | EQUALS
+
+  113 thf_binary_type: thf_mapping_type
+  114                | thf_xprod_type
+  115                | thf_union_type
+
+  116 thf_mapping_type: thf_unitary_type map_arrow thf_mapping_type
+  117                 | thf_unitary_type map_arrow thf_unitary_type
+
+  118 thf_xprod_type: thf_xprod_type STAR thf_unitary_type
+  119               | thf_unitary_type STAR thf_unitary_type
+
+  120 thf_union_type: thf_union_type plus thf_unitary_type
+  121               | thf_unitary_type plus thf_unitary_type
+
+  122 thf_unitary_type: thf_unitary_formula
+
+  123 map_arrow: MINUS_GREATER
+  124          | GREATER
+
+  125 thf_let_rec: _LIT_letrec LBRKT thf_definition_list RBRKT COLON thf_unitary_formula
+
+  126 thf_definition_list: thf_definition
+  127                    | thf_definition COMMA thf_definition_list
+
+  128 thf_definition: atomic_word COLON_EQUALS thf_unitary_formula
+  129               | LPAREN thf_definition RPAREN
+
+  130 tff_formula: tff_binary_formula
+  131            | tff_unitary_formula
+  132            | tff_typed_atom
+
+  133 tff_binary_formula: tff_nonassoc_binary
+  134                   | tff_assoc_binary
+
+  135 tff_nonassoc_binary: tff_unitary_formula binary_connective tff_unitary_formula
+
+  136 tff_assoc_binary: tff_or_formula
+  137                 | tff_and_formula
+
+  138 tff_or_formula: tff_unitary_formula VLINE tff_unitary_formula
+  139               | tff_unitary_formula VLINE tff_or_formula
+
+  140 tff_and_formula: tff_unitary_formula AMPERSAND tff_unitary_formula
+  141                | tff_unitary_formula AMPERSAND tff_and_formula
+
+  142 tff_unitary_formula: tff_quantified_formula
+  143                    | tff_unary_formula
+  144                    | atomic_formula
+  145                    | LPAREN tff_binary_formula RPAREN
+  146                    | LPAREN tff_unitary_formula RPAREN
+
+  147 tff_quantified_formula: quantifier LBRKT tff_variable_list RBRKT COLON tff_unitary_formula
+
+  148 tff_variable_list: tff_variable
+  149                  | tff_variable COMMA tff_variable_list
+
+  150 tff_unary_formula: unary_connective tff_unitary_formula
+
+  151 tff_typed_atom: tff_untyped_atom COLON tff_type_spec
+  152               | LPAREN tff_typed_atom RPAREN
+
+  153 tff_untyped_atom: functor
+  154                 | defined_term
+  155                 | system_functor
+
+  156 tff_variable: tff_untyped_variable
+  157             | tff_typed_variable
+
+  158 tff_typed_variable: tff_untyped_variable COLON tff_type_spec
+
+  159 tff_untyped_variable: variable
+
+  160 tff_type_spec: tff_untyped_atom
+  161              | defined_type
+  162              | tff_type_expr
+  163              | LPAREN tff_type_spec RPAREN
+
+  164 tff_type_expr: LPAREN tff_binary_type RPAREN
+
+  165 tff_binary_type: tff_mapping_type
+  166                | tff_xprod_type
+  167                | tff_union_type
+
+  168 tff_mapping_type: tff_unitary_type map_arrow tff_mapping_type
+  169                 | tff_unitary_type map_arrow tff_unitary_type
+
+  170 tff_xprod_type: tff_xprod_type STAR tff_unitary_type
+  171               | tff_unitary_type STAR tff_unitary_type
+
+  172 tff_union_type: tff_union_type plus tff_unitary_type
+  173               | tff_unitary_type plus tff_unitary_type
+
+  174 tff_unitary_type: tff_untyped_atom
+  175                 | defined_type
+  176                 | tff_type_expr
+
+  177 atomic_formula: plain_atom
+  178               | defined_atom
+  179               | system_atom
+
+  180 plain_atom: plain_term
+
+  181 arguments: term
+  182          | term COMMA arguments
+
+  183 defined_atom: defined_prop
+  184             | defined_pred LPAREN arguments RPAREN
+  185             | term defined_infix_pred term
+
+  186 defined_infix_pred: EQUALS
+  187                   | EXCLAMATION_EQUALS
+
+  188 defined_prop: trueProp
+  189             | falseProp
+
+  190 defined_pred: atomic_defined_word
+
+  191 defined_type: oType
+  192             | iType
+  193             | tType
+
+  194 system_atom: system_term
+
+  195 term: function_term
+  196     | variable
+
+  197 function_term: plain_term
+  198              | defined_term
+  199              | system_term
+
+  200 plain_term: constant
+  201           | functor LPAREN arguments RPAREN
+
+  202 constant: atomic_word
+
+  203 functor: atomic_word
+
+  204 defined_term: number
+  205             | distinct_object
+
+  206 system_term: system_constant
+  207            | system_functor LPAREN arguments RPAREN
+
+  208 system_functor: atomic_system_word
+
+  209 system_constant: atomic_system_word
+
+  210 variable: upper_word
+
+  211 source: general_term
+
+  212 optional_info: COMMA useful_info
+  213              | null
+
+  214 useful_info: general_term_list
+
+  215 include: _LIT_include LPAREN file_name formula_selection RPAREN PERIOD
+
+  216 formula_selection: COMMA LBRKT name_list RBRKT
+  217                  | null
+
+  218 name_list: name
+  219          | name COMMA name_list
+
+  220 general_term: general_data
+  221             | general_data COLON general_term
+  222             | general_list
+
+  223 general_data: atomic_word
+  224             | atomic_word LPAREN general_arguments RPAREN
+  225             | number
+  226             | distinct_object
+
+  227 general_arguments: general_term
+  228                  | general_term COMMA general_arguments
+
+  229 general_list: LBRKT RBRKT
+  230             | LBRKT general_term_list RBRKT
+
+  231 general_term_list: general_term
+  232                  | general_term COMMA general_term_list
+
+  233 name: atomic_word
+  234     | unsigned_integer
+
+  235 atomic_word: lower_word
+  236            | single_quoted
+
+  237 atomic_defined_word: dollar_word
+
+  238 atomic_system_word: dollar_dollar_word
+
+  239 number: real
+  240       | signed_integer
+  241       | unsigned_integer
+
+  242 file_name: atomic_word
+
+  243 null: /* empty */
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+AMPERSAND (258) 31 32 34 66 67 140 141
+AT_SIGN (259) 85 86
+CARET (260) 84
+COLON (261) 39 76 82 97 99 125 147 151 158 221
+COLON_EQUALS (262) 128
+COMMA (263) 9 10 11 12 14 43 80 87 88 127 149 182 212 216 219 228 232
+EQUALS (264) 61 112 186
+EQUALS_GREATER (265) 22
+EXCLAMATION (266) 40 77
+EXCLAMATION_EQUALS (267) 187
+GREATER (268) 124
+LBRKT (269) 39 76 82 125 147 216 229 230
+LESS_EQUALS (270) 23
+LESS_EQUALS_GREATER (271) 21
+LESS_TILDE_GREATER (272) 24
+LPAREN (273) 9 10 11 12 38 46 73 74 75 105 129 145 146 152 163 164
+    184 201 207 215 224
+MINUS_GREATER (274) 123
+PERIOD (275) 9 10 11 12 215
+QUESTION (276) 41 78
+RBRKT (277) 39 76 82 125 147 216 229 230
+RPAREN (278) 9 10 11 12 38 46 73 74 75 105 129 145 146 152 163 164
+    184 201 207 215 224
+STAR (279) 118 119 170 171
+TILDE (280) 45 51
+TILDE_AMPERSAND (281) 26
+TILDE_VLINE (282) 25
+VLINE (283) 29 30 33 49 64 65 138 139
+_LIT_cnf (284) 10
+_LIT_fof (285) 9
+_LIT_include (286) 215
+_LIT_lambda (287) 83
+_LIT_letrec (288) 125
+_LIT_tff (289) 12
+_LIT_thf (290) 11
+distinct_object (291) 102 205 226
+dollar_dollar_word (292) 238
+dollar_word (293) 237
+falseProp (294) 189
+iType (295) 192
+lower_word (296) 15 235
+oType (297) 191
+plus (298) 120 121 172 173
+real (299) 239
+signed_integer (300) 240
+single_quoted (301) 236
+tType (302) 193
+trueProp (303) 188
+unrecognized (304)
+unsigned_integer (305) 234 241
+upper_word (306) 210
+
+
+Nonterminals, with rules where they appear
+
+$accept (52)
+    on left: 0
+TPTP_file (53)
+    on left: 1 2, on right: 0 2
+TPTP_input (54)
+    on left: 3 4, on right: 2
+annotated_formula (55)
+    on left: 5 6 7 8, on right: 3
+fof_annotated (56)
+    on left: 9, on right: 5
+cnf_annotated (57)
+    on left: 10, on right: 6
+thf_annotated (58)
+    on left: 11, on right: 7
+tff_annotated (59)
+    on left: 12, on right: 8
+annotations (60)
+    on left: 13 14, on right: 9 10 11 12
+formula_role (61)
+    on left: 15, on right: 9 10 11 12
+fof_formula (62)
+    on left: 16 17, on right: 9 38
+binary_formula (63)
+    on left: 18 19, on right: 16
+nonassoc_binary (64)
+    on left: 20, on right: 18
+binary_connective (65)
+    on left: 21 22 23 24 25 26, on right: 20 60 109 135
+assoc_binary (66)
+    on left: 27 28, on right: 19
+or_formula (67)
+    on left: 29 30, on right: 27 30
+and_formula (68)
+    on left: 31 32, on right: 28 32
+assoc_connective (69)
+    on left: 33 34, on right: 110
+unitary_formula (70)
+    on left: 35 36 37 38, on right: 17 20 29 30 31 32 39 44
+quantified_formula (71)
+    on left: 39, on right: 35
+quantifier (72)
+    on left: 40 41, on right: 39 111 147
+variable_list (73)
+    on left: 42 43, on right: 39 43
+unary_formula (74)
+    on left: 44, on right: 36
+unary_connective (75)
+    on left: 45, on right: 44 81 108 150
+cnf_formula (76)
+    on left: 46 47, on right: 10
+disjunction (77)
+    on left: 48 49, on right: 46 47 49
+literal (78)
+    on left: 50 51, on right: 48 49
+thf_formula (79)
+    on left: 52 53 54, on right: 11
+thf_binary_formula (80)
+    on left: 55 56 57 58 59, on right: 52 74
+thf_nonassoc_formula (81)
+    on left: 60, on right: 55
+thf_equality (82)
+    on left: 61, on right: 58
+thf_assoc_formula (83)
+    on left: 62 63, on right: 56
+thf_or_formula (84)
+    on left: 64 65, on right: 62 65
+thf_and_formula (85)
+    on left: 66 67, on right: 63 67
+thf_unitary_formula (86)
+    on left: 68 69 70 71 72 73 74 75, on right: 53 60 61 64 65 66 67
+    75 76 81 82 85 86 87 88 122 125 128
+thf_quantified_formula (87)
+    on left: 76, on right: 72
+thf_quantifier (88)
+    on left: 77 78, on right: 76
+thf_variable_list (89)
+    on left: 79 80, on right: 76 80 82
+thf_unary_formula (90)
+    on left: 81, on right: 71
+thf_abstraction (91)
+    on left: 82, on right: 70
+thf_lambda (92)
+    on left: 83 84, on right: 82
+thf_apply_formula (93)
+    on left: 85 86, on right: 57 85
+thf_tuple (94)
+    on left: 87 88, on right: 73 87
+thf_atom (95)
+    on left: 89 90, on right: 68
+thf_typed_atom (96)
+    on left: 91 92, on right: 89
+thf_untyped_atom (97)
+    on left: 93 94, on right: 90
+thf_variable (98)
+    on left: 95 96, on right: 79 80
+thf_typed_variable (99)
+    on left: 97, on right: 92 96
+thf_untyped_variable (100)
+    on left: 98, on right: 94 95 97
+thf_typed_constant (101)
+    on left: 99, on right: 91
+thf_untyped_constant (102)
+    on left: 100 101 102 103 104 105, on right: 93 99
+thf_defined_word (103)
+    on left: 106 107, on right: 104
+tptp_operator (104)
+    on left: 108 109 110 111 112, on right: 105
+thf_binary_type (105)
+    on left: 113 114 115, on right: 59
+thf_mapping_type (106)
+    on left: 116 117, on right: 113 116
+thf_xprod_type (107)
+    on left: 118 119, on right: 114 118
+thf_union_type (108)
+    on left: 120 121, on right: 115 120
+thf_unitary_type (109)
+    on left: 122, on right: 97 99 116 117 118 119 120 121
+map_arrow (110)
+    on left: 123 124, on right: 116 117 168 169
+thf_let_rec (111)
+    on left: 125, on right: 69
+thf_definition_list (112)
+    on left: 126 127, on right: 125 127
+thf_definition (113)
+    on left: 128 129, on right: 54 126 127 129
+tff_formula (114)
+    on left: 130 131 132, on right: 12
+tff_binary_formula (115)
+    on left: 133 134, on right: 130 145
+tff_nonassoc_binary (116)
+    on left: 135, on right: 133
+tff_assoc_binary (117)
+    on left: 136 137, on right: 134
+tff_or_formula (118)
+    on left: 138 139, on right: 136 139
+tff_and_formula (119)
+    on left: 140 141, on right: 137 141
+tff_unitary_formula (120)
+    on left: 142 143 144 145 146, on right: 131 135 138 139 140 141
+    146 147 150
+tff_quantified_formula (121)
+    on left: 147, on right: 142
+tff_variable_list (122)
+    on left: 148 149, on right: 147 149
+tff_unary_formula (123)
+    on left: 150, on right: 143
+tff_typed_atom (124)
+    on left: 151 152, on right: 132 152
+tff_untyped_atom (125)
+    on left: 153 154 155, on right: 151 160 174
+tff_variable (126)
+    on left: 156 157, on right: 148 149
+tff_typed_variable (127)
+    on left: 158, on right: 157
+tff_untyped_variable (128)
+    on left: 159, on right: 156 158
+tff_type_spec (129)
+    on left: 160 161 162 163, on right: 151 158 163
+tff_type_expr (130)
+    on left: 164, on right: 162 176
+tff_binary_type (131)
+    on left: 165 166 167, on right: 164
+tff_mapping_type (132)
+    on left: 168 169, on right: 165 168
+tff_xprod_type (133)
+    on left: 170 171, on right: 166 170
+tff_union_type (134)
+    on left: 172 173, on right: 167 172
+tff_unitary_type (135)
+    on left: 174 175 176, on right: 168 169 170 171 172 173
+atomic_formula (136)
+    on left: 177 178 179, on right: 37 50 51 144
+plain_atom (137)
+    on left: 180, on right: 177
+arguments (138)
+    on left: 181 182, on right: 182 184 201 207
+defined_atom (139)
+    on left: 183 184 185, on right: 178
+defined_infix_pred (140)
+    on left: 186 187, on right: 185
+defined_prop (141)
+    on left: 188 189, on right: 107 183
+defined_pred (142)
+    on left: 190, on right: 184
+defined_type (143)
+    on left: 191 192 193, on right: 106 161 175
+system_atom (144)
+    on left: 194, on right: 179
+term (145)
+    on left: 195 196, on right: 181 182 185
+function_term (146)
+    on left: 197 198 199, on right: 195
+plain_term (147)
+    on left: 200 201, on right: 180 197
+constant (148)
+    on left: 202, on right: 200
+functor (149)
+    on left: 203, on right: 153 201
+defined_term (150)
+    on left: 204 205, on right: 154 198
+system_term (151)
+    on left: 206 207, on right: 194 199
+system_functor (152)
+    on left: 208, on right: 155 207
+system_constant (153)
+    on left: 209, on right: 206
+variable (154)
+    on left: 210, on right: 42 43 98 159 196
+source (155)
+    on left: 211, on right: 14
+optional_info (156)
+    on left: 212 213, on right: 14
+useful_info (157)
+    on left: 214, on right: 212
+include (158)
+    on left: 215, on right: 4
+formula_selection (159)
+    on left: 216 217, on right: 215
+name_list (160)
+    on left: 218 219, on right: 216 219
+general_term (161)
+    on left: 220 221 222, on right: 211 221 227 228 231 232
+general_data (162)
+    on left: 223 224 225 226, on right: 220 221
+general_arguments (163)
+    on left: 227 228, on right: 224 228
+general_list (164)
+    on left: 229 230, on right: 222
+general_term_list (165)
+    on left: 231 232, on right: 214 230 232
+name (166)
+    on left: 233 234, on right: 9 10 11 12 218 219
+atomic_word (167)
+    on left: 235 236, on right: 100 128 202 203 223 224 233 242
+atomic_defined_word (168)
+    on left: 237, on right: 190
+atomic_system_word (169)
+    on left: 238, on right: 103 208 209
+number (170)
+    on left: 239 240 241, on right: 101 204 225
+file_name (171)
+    on left: 242, on right: 215
+null (172)
+    on left: 243, on right: 1 13 213 217
+
+
+state 0
+
+    0 $accept: . TPTP_file $end
+
+    $default  reduce using rule 243 (null)
+
+    TPTP_file  go to state 1
+    null       go to state 2
+
+
+state 1
+
+    0 $accept: TPTP_file . $end
+    2 TPTP_file: TPTP_file . TPTP_input
+
+    $end          shift, and go to state 3
+    _LIT_cnf      shift, and go to state 4
+    _LIT_fof      shift, and go to state 5
+    _LIT_include  shift, and go to state 6
+    _LIT_tff      shift, and go to state 7
+    _LIT_thf      shift, and go to state 8
+
+    TPTP_input         go to state 9
+    annotated_formula  go to state 10
+    fof_annotated      go to state 11
+    cnf_annotated      go to state 12
+    thf_annotated      go to state 13
+    tff_annotated      go to state 14
+    include            go to state 15
+
+
+state 2
+
+    1 TPTP_file: null .
+
+    $default  reduce using rule 1 (TPTP_file)
+
+
+state 3
+
+    0 $accept: TPTP_file $end .
+
+    $default  accept
+
+
+state 4
+
+   10 cnf_annotated: _LIT_cnf . LPAREN name COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD
+
+    LPAREN  shift, and go to state 16
+
+
+state 5
+
+    9 fof_annotated: _LIT_fof . LPAREN name COMMA formula_role COMMA fof_formula annotations RPAREN PERIOD
+
+    LPAREN  shift, and go to state 17
+
+
+state 6
+
+  215 include: _LIT_include . LPAREN file_name formula_selection RPAREN PERIOD
+
+    LPAREN  shift, and go to state 18
+
+
+state 7
+
+   12 tff_annotated: _LIT_tff . LPAREN name COMMA formula_role COMMA tff_formula annotations RPAREN PERIOD
+
+    LPAREN  shift, and go to state 19
+
+
+state 8
+
+   11 thf_annotated: _LIT_thf . LPAREN name COMMA formula_role COMMA thf_formula annotations RPAREN PERIOD
+
+    LPAREN  shift, and go to state 20
+
+
+state 9
+
+    2 TPTP_file: TPTP_file TPTP_input .
+
+    $default  reduce using rule 2 (TPTP_file)
+
+
+state 10
+
+    3 TPTP_input: annotated_formula .
+
+    $default  reduce using rule 3 (TPTP_input)
+
+
+state 11
+
+    5 annotated_formula: fof_annotated .
+
+    $default  reduce using rule 5 (annotated_formula)
+
+
+state 12
+
+    6 annotated_formula: cnf_annotated .
+
+    $default  reduce using rule 6 (annotated_formula)
+
+
+state 13
+
+    7 annotated_formula: thf_annotated .
+
+    $default  reduce using rule 7 (annotated_formula)
+
+
+state 14
+
+    8 annotated_formula: tff_annotated .
+
+    $default  reduce using rule 8 (annotated_formula)
+
+
+state 15
+
+    4 TPTP_input: include .
+
+    $default  reduce using rule 4 (TPTP_input)
+
+
+state 16
+
+   10 cnf_annotated: _LIT_cnf LPAREN . name COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD
+
+    lower_word        shift, and go to state 21
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 23
+
+    name         go to state 24
+    atomic_word  go to state 25
+
+
+state 17
+
+    9 fof_annotated: _LIT_fof LPAREN . name COMMA formula_role COMMA fof_formula annotations RPAREN PERIOD
+
+    lower_word        shift, and go to state 21
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 23
+
+    name         go to state 26
+    atomic_word  go to state 25
+
+
+state 18
+
+  215 include: _LIT_include LPAREN . file_name formula_selection RPAREN PERIOD
+
+    lower_word     shift, and go to state 21
+    single_quoted  shift, and go to state 22
+
+    atomic_word  go to state 27
+    file_name    go to state 28
+
+
+state 19
+
+   12 tff_annotated: _LIT_tff LPAREN . name COMMA formula_role COMMA tff_formula annotations RPAREN PERIOD
+
+    lower_word        shift, and go to state 21
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 23
+
+    name         go to state 29
+    atomic_word  go to state 25
+
+
+state 20
+
+   11 thf_annotated: _LIT_thf LPAREN . name COMMA formula_role COMMA thf_formula annotations RPAREN PERIOD
+
+    lower_word        shift, and go to state 21
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 23
+
+    name         go to state 30
+    atomic_word  go to state 25
+
+
+state 21
+
+  235 atomic_word: lower_word .
+
+    $default  reduce using rule 235 (atomic_word)
+
+
+state 22
+
+  236 atomic_word: single_quoted .
+
+    $default  reduce using rule 236 (atomic_word)
+
+
+state 23
+
+  234 name: unsigned_integer .
+
+    $default  reduce using rule 234 (name)
+
+
+state 24
+
+   10 cnf_annotated: _LIT_cnf LPAREN name . COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 31
+
+
+state 25
+
+  233 name: atomic_word .
+
+    $default  reduce using rule 233 (name)
+
+
+state 26
+
+    9 fof_annotated: _LIT_fof LPAREN name . COMMA formula_role COMMA fof_formula annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 32
+
+
+state 27
+
+  242 file_name: atomic_word .
+
+    $default  reduce using rule 242 (file_name)
+
+
+state 28
+
+  215 include: _LIT_include LPAREN file_name . formula_selection RPAREN PERIOD
+
+    COMMA  shift, and go to state 33
+
+    $default  reduce using rule 243 (null)
+
+    formula_selection  go to state 34
+    null               go to state 35
+
+
+state 29
+
+   12 tff_annotated: _LIT_tff LPAREN name . COMMA formula_role COMMA tff_formula annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 36
+
+
+state 30
+
+   11 thf_annotated: _LIT_thf LPAREN name . COMMA formula_role COMMA thf_formula annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 37
+
+
+state 31
+
+   10 cnf_annotated: _LIT_cnf LPAREN name COMMA . formula_role COMMA cnf_formula annotations RPAREN PERIOD
+
+    lower_word  shift, and go to state 38
+
+    formula_role  go to state 39
+
+
+state 32
+
+    9 fof_annotated: _LIT_fof LPAREN name COMMA . formula_role COMMA fof_formula annotations RPAREN PERIOD
+
+    lower_word  shift, and go to state 38
+
+    formula_role  go to state 40
+
+
+state 33
+
+  216 formula_selection: COMMA . LBRKT name_list RBRKT
+
+    LBRKT  shift, and go to state 41
+
+
+state 34
+
+  215 include: _LIT_include LPAREN file_name formula_selection . RPAREN PERIOD
+
+    RPAREN  shift, and go to state 42
+
+
+state 35
+
+  217 formula_selection: null .
+
+    $default  reduce using rule 217 (formula_selection)
+
+
+state 36
+
+   12 tff_annotated: _LIT_tff LPAREN name COMMA . formula_role COMMA tff_formula annotations RPAREN PERIOD
+
+    lower_word  shift, and go to state 38
+
+    formula_role  go to state 43
+
+
+state 37
+
+   11 thf_annotated: _LIT_thf LPAREN name COMMA . formula_role COMMA thf_formula annotations RPAREN PERIOD
+
+    lower_word  shift, and go to state 38
+
+    formula_role  go to state 44
+
+
+state 38
+
+   15 formula_role: lower_word .
+
+    $default  reduce using rule 15 (formula_role)
+
+
+state 39
+
+   10 cnf_annotated: _LIT_cnf LPAREN name COMMA formula_role . COMMA cnf_formula annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 45
+
+
+state 40
+
+    9 fof_annotated: _LIT_fof LPAREN name COMMA formula_role . COMMA fof_formula annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 46
+
+
+state 41
+
+  216 formula_selection: COMMA LBRKT . name_list RBRKT
+
+    lower_word        shift, and go to state 21
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 23
+
+    name_list    go to state 47
+    name         go to state 48
+    atomic_word  go to state 25
+
+
+state 42
+
+  215 include: _LIT_include LPAREN file_name formula_selection RPAREN . PERIOD
+
+    PERIOD  shift, and go to state 49
+
+
+state 43
+
+   12 tff_annotated: _LIT_tff LPAREN name COMMA formula_role . COMMA tff_formula annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 50
+
+
+state 44
+
+   11 thf_annotated: _LIT_thf LPAREN name COMMA formula_role . COMMA thf_formula annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 51
+
+
+state 45
+
+   10 cnf_annotated: _LIT_cnf LPAREN name COMMA formula_role COMMA . cnf_formula annotations RPAREN PERIOD
+
+    LPAREN              shift, and go to state 52
+    TILDE               shift, and go to state 53
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    cnf_formula          go to state 63
+    disjunction          go to state 64
+    literal              go to state 65
+    atomic_formula       go to state 66
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 46
+
+    9 fof_annotated: _LIT_fof LPAREN name COMMA formula_role COMMA . fof_formula annotations RPAREN PERIOD
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 87
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    fof_formula          go to state 90
+    binary_formula       go to state 91
+    nonassoc_binary      go to state 92
+    assoc_binary         go to state 93
+    or_formula           go to state 94
+    and_formula          go to state 95
+    unitary_formula      go to state 96
+    quantified_formula   go to state 97
+    quantifier           go to state 98
+    unary_formula        go to state 99
+    unary_connective     go to state 100
+    atomic_formula       go to state 101
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 47
+
+  216 formula_selection: COMMA LBRKT name_list . RBRKT
+
+    RBRKT  shift, and go to state 102
+
+
+state 48
+
+  218 name_list: name .
+  219          | name . COMMA name_list
+
+    COMMA  shift, and go to state 103
+
+    $default  reduce using rule 218 (name_list)
+
+
+state 49
+
+  215 include: _LIT_include LPAREN file_name formula_selection RPAREN PERIOD .
+
+    $default  reduce using rule 215 (include)
+
+
+state 50
+
+   12 tff_annotated: _LIT_tff LPAREN name COMMA formula_role COMMA . tff_formula annotations RPAREN PERIOD
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 104
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    quantifier              go to state 105
+    unary_connective        go to state 106
+    tff_formula             go to state 107
+    tff_binary_formula      go to state 108
+    tff_nonassoc_binary     go to state 109
+    tff_assoc_binary        go to state 110
+    tff_or_formula          go to state 111
+    tff_and_formula         go to state 112
+    tff_unitary_formula     go to state 113
+    tff_quantified_formula  go to state 114
+    tff_unary_formula       go to state 115
+    tff_typed_atom          go to state 116
+    tff_untyped_atom        go to state 117
+    atomic_formula          go to state 118
+    plain_atom              go to state 67
+    defined_atom            go to state 68
+    defined_prop            go to state 69
+    defined_pred            go to state 70
+    system_atom             go to state 71
+    term                    go to state 72
+    function_term           go to state 73
+    plain_term              go to state 74
+    constant                go to state 75
+    functor                 go to state 119
+    defined_term            go to state 120
+    system_term             go to state 78
+    system_functor          go to state 121
+    system_constant         go to state 80
+    variable                go to state 81
+    atomic_word             go to state 82
+    atomic_defined_word     go to state 83
+    atomic_system_word      go to state 84
+    number                  go to state 85
+
+
+state 51
+
+   11 thf_annotated: _LIT_thf LPAREN name COMMA formula_role COMMA . thf_formula annotations RPAREN PERIOD
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 124
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_formula             go to state 133
+    thf_binary_formula      go to state 134
+    thf_nonassoc_formula    go to state 135
+    thf_equality            go to state 136
+    thf_assoc_formula       go to state 137
+    thf_or_formula          go to state 138
+    thf_and_formula         go to state 139
+    thf_unitary_formula     go to state 140
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_apply_formula       go to state 146
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_binary_type         go to state 155
+    thf_mapping_type        go to state 156
+    thf_xprod_type          go to state 157
+    thf_union_type          go to state 158
+    thf_unitary_type        go to state 159
+    thf_let_rec             go to state 160
+    thf_definition          go to state 161
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 165
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 52
+
+   46 cnf_formula: LPAREN . disjunction RPAREN
+
+    TILDE               shift, and go to state 53
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    disjunction          go to state 168
+    literal              go to state 65
+    atomic_formula       go to state 66
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 53
+
+   51 literal: TILDE . atomic_formula
+
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    atomic_formula       go to state 169
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 54
+
+  205 defined_term: distinct_object .
+
+    $default  reduce using rule 205 (defined_term)
+
+
+state 55
+
+  238 atomic_system_word: dollar_dollar_word .
+
+    $default  reduce using rule 238 (atomic_system_word)
+
+
+state 56
+
+  237 atomic_defined_word: dollar_word .
+
+    $default  reduce using rule 237 (atomic_defined_word)
+
+
+state 57
+
+  189 defined_prop: falseProp .
+
+    $default  reduce using rule 189 (defined_prop)
+
+
+state 58
+
+  239 number: real .
+
+    $default  reduce using rule 239 (number)
+
+
+state 59
+
+  240 number: signed_integer .
+
+    $default  reduce using rule 240 (number)
+
+
+state 60
+
+  188 defined_prop: trueProp .
+
+    $default  reduce using rule 188 (defined_prop)
+
+
+state 61
+
+  241 number: unsigned_integer .
+
+    $default  reduce using rule 241 (number)
+
+
+state 62
+
+  210 variable: upper_word .
+
+    $default  reduce using rule 210 (variable)
+
+
+state 63
+
+   10 cnf_annotated: _LIT_cnf LPAREN name COMMA formula_role COMMA cnf_formula . annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 170
+
+    $default  reduce using rule 243 (null)
+
+    annotations  go to state 171
+    null         go to state 172
+
+
+state 64
+
+   47 cnf_formula: disjunction .
+
+    $default  reduce using rule 47 (cnf_formula)
+
+
+state 65
+
+   48 disjunction: literal .
+   49            | literal . VLINE disjunction
+
+    VLINE  shift, and go to state 173
+
+    $default  reduce using rule 48 (disjunction)
+
+
+state 66
+
+   50 literal: atomic_formula .
+
+    $default  reduce using rule 50 (literal)
+
+
+state 67
+
+  177 atomic_formula: plain_atom .
+
+    $default  reduce using rule 177 (atomic_formula)
+
+
+state 68
+
+  178 atomic_formula: defined_atom .
+
+    $default  reduce using rule 178 (atomic_formula)
+
+
+state 69
+
+  183 defined_atom: defined_prop .
+
+    $default  reduce using rule 183 (defined_atom)
+
+
+state 70
+
+  184 defined_atom: defined_pred . LPAREN arguments RPAREN
+
+    LPAREN  shift, and go to state 174
+
+
+state 71
+
+  179 atomic_formula: system_atom .
+
+    $default  reduce using rule 179 (atomic_formula)
+
+
+state 72
+
+  185 defined_atom: term . defined_infix_pred term
+
+    EQUALS              shift, and go to state 175
+    EXCLAMATION_EQUALS  shift, and go to state 176
+
+    defined_infix_pred  go to state 177
+
+
+state 73
+
+  195 term: function_term .
+
+    $default  reduce using rule 195 (term)
+
+
+state 74
+
+  180 plain_atom: plain_term .
+  197 function_term: plain_term .
+
+    EQUALS              reduce using rule 197 (function_term)
+    EXCLAMATION_EQUALS  reduce using rule 197 (function_term)
+    $default            reduce using rule 180 (plain_atom)
+
+
+state 75
+
+  200 plain_term: constant .
+
+    $default  reduce using rule 200 (plain_term)
+
+
+state 76
+
+  201 plain_term: functor . LPAREN arguments RPAREN
+
+    LPAREN  shift, and go to state 178
+
+
+state 77
+
+  198 function_term: defined_term .
+
+    $default  reduce using rule 198 (function_term)
+
+
+state 78
+
+  194 system_atom: system_term .
+  199 function_term: system_term .
+
+    EQUALS              reduce using rule 199 (function_term)
+    EXCLAMATION_EQUALS  reduce using rule 199 (function_term)
+    $default            reduce using rule 194 (system_atom)
+
+
+state 79
+
+  207 system_term: system_functor . LPAREN arguments RPAREN
+
+    LPAREN  shift, and go to state 179
+
+
+state 80
+
+  206 system_term: system_constant .
+
+    $default  reduce using rule 206 (system_term)
+
+
+state 81
+
+  196 term: variable .
+
+    $default  reduce using rule 196 (term)
+
+
+state 82
+
+  202 constant: atomic_word .
+  203 functor: atomic_word .
+
+    COLON     reduce using rule 203 (functor)
+    LPAREN    reduce using rule 203 (functor)
+    $default  reduce using rule 202 (constant)
+
+
+state 83
+
+  190 defined_pred: atomic_defined_word .
+
+    $default  reduce using rule 190 (defined_pred)
+
+
+state 84
+
+  208 system_functor: atomic_system_word .
+  209 system_constant: atomic_system_word .
+
+    COLON     reduce using rule 208 (system_functor)
+    LPAREN    reduce using rule 208 (system_functor)
+    $default  reduce using rule 209 (system_constant)
+
+
+state 85
+
+  204 defined_term: number .
+
+    $default  reduce using rule 204 (defined_term)
+
+
+state 86
+
+   40 quantifier: EXCLAMATION .
+
+    $default  reduce using rule 40 (quantifier)
+
+
+state 87
+
+   38 unitary_formula: LPAREN . fof_formula RPAREN
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 87
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    fof_formula          go to state 180
+    binary_formula       go to state 91
+    nonassoc_binary      go to state 92
+    assoc_binary         go to state 93
+    or_formula           go to state 94
+    and_formula          go to state 95
+    unitary_formula      go to state 96
+    quantified_formula   go to state 97
+    quantifier           go to state 98
+    unary_formula        go to state 99
+    unary_connective     go to state 100
+    atomic_formula       go to state 101
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 88
+
+   41 quantifier: QUESTION .
+
+    $default  reduce using rule 41 (quantifier)
+
+
+state 89
+
+   45 unary_connective: TILDE .
+
+    $default  reduce using rule 45 (unary_connective)
+
+
+state 90
+
+    9 fof_annotated: _LIT_fof LPAREN name COMMA formula_role COMMA fof_formula . annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 170
+
+    $default  reduce using rule 243 (null)
+
+    annotations  go to state 181
+    null         go to state 172
+
+
+state 91
+
+   16 fof_formula: binary_formula .
+
+    $default  reduce using rule 16 (fof_formula)
+
+
+state 92
+
+   18 binary_formula: nonassoc_binary .
+
+    $default  reduce using rule 18 (binary_formula)
+
+
+state 93
+
+   19 binary_formula: assoc_binary .
+
+    $default  reduce using rule 19 (binary_formula)
+
+
+state 94
+
+   27 assoc_binary: or_formula .
+
+    $default  reduce using rule 27 (assoc_binary)
+
+
+state 95
+
+   28 assoc_binary: and_formula .
+
+    $default  reduce using rule 28 (assoc_binary)
+
+
+state 96
+
+   17 fof_formula: unitary_formula .
+   20 nonassoc_binary: unitary_formula . binary_connective unitary_formula
+   29 or_formula: unitary_formula . VLINE unitary_formula
+   30           | unitary_formula . VLINE or_formula
+   31 and_formula: unitary_formula . AMPERSAND unitary_formula
+   32            | unitary_formula . AMPERSAND and_formula
+
+    AMPERSAND            shift, and go to state 182
+    EQUALS_GREATER       shift, and go to state 183
+    LESS_EQUALS          shift, and go to state 184
+    LESS_EQUALS_GREATER  shift, and go to state 185
+    LESS_TILDE_GREATER   shift, and go to state 186
+    TILDE_AMPERSAND      shift, and go to state 187
+    TILDE_VLINE          shift, and go to state 188
+    VLINE                shift, and go to state 189
+
+    $default  reduce using rule 17 (fof_formula)
+
+    binary_connective  go to state 190
+
+
+state 97
+
+   35 unitary_formula: quantified_formula .
+
+    $default  reduce using rule 35 (unitary_formula)
+
+
+state 98
+
+   39 quantified_formula: quantifier . LBRKT variable_list RBRKT COLON unitary_formula
+
+    LBRKT  shift, and go to state 191
+
+
+state 99
+
+   36 unitary_formula: unary_formula .
+
+    $default  reduce using rule 36 (unitary_formula)
+
+
+state 100
+
+   44 unary_formula: unary_connective . unitary_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 87
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unitary_formula      go to state 192
+    quantified_formula   go to state 97
+    quantifier           go to state 98
+    unary_formula        go to state 99
+    unary_connective     go to state 100
+    atomic_formula       go to state 101
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 101
+
+   37 unitary_formula: atomic_formula .
+
+    $default  reduce using rule 37 (unitary_formula)
+
+
+state 102
+
+  216 formula_selection: COMMA LBRKT name_list RBRKT .
+
+    $default  reduce using rule 216 (formula_selection)
+
+
+state 103
+
+  219 name_list: name COMMA . name_list
+
+    lower_word        shift, and go to state 21
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 23
+
+    name_list    go to state 193
+    name         go to state 48
+    atomic_word  go to state 25
+
+
+state 104
+
+  145 tff_unitary_formula: LPAREN . tff_binary_formula RPAREN
+  146                    | LPAREN . tff_unitary_formula RPAREN
+  152 tff_typed_atom: LPAREN . tff_typed_atom RPAREN
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 104
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    quantifier              go to state 105
+    unary_connective        go to state 106
+    tff_binary_formula      go to state 194
+    tff_nonassoc_binary     go to state 109
+    tff_assoc_binary        go to state 110
+    tff_or_formula          go to state 111
+    tff_and_formula         go to state 112
+    tff_unitary_formula     go to state 195
+    tff_quantified_formula  go to state 114
+    tff_unary_formula       go to state 115
+    tff_typed_atom          go to state 196
+    tff_untyped_atom        go to state 117
+    atomic_formula          go to state 118
+    plain_atom              go to state 67
+    defined_atom            go to state 68
+    defined_prop            go to state 69
+    defined_pred            go to state 70
+    system_atom             go to state 71
+    term                    go to state 72
+    function_term           go to state 73
+    plain_term              go to state 74
+    constant                go to state 75
+    functor                 go to state 119
+    defined_term            go to state 120
+    system_term             go to state 78
+    system_functor          go to state 121
+    system_constant         go to state 80
+    variable                go to state 81
+    atomic_word             go to state 82
+    atomic_defined_word     go to state 83
+    atomic_system_word      go to state 84
+    number                  go to state 85
+
+
+state 105
+
+  147 tff_quantified_formula: quantifier . LBRKT tff_variable_list RBRKT COLON tff_unitary_formula
+
+    LBRKT  shift, and go to state 197
+
+
+state 106
+
+  150 tff_unary_formula: unary_connective . tff_unitary_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 198
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    quantifier              go to state 105
+    unary_connective        go to state 106
+    tff_unitary_formula     go to state 199
+    tff_quantified_formula  go to state 114
+    tff_unary_formula       go to state 115
+    atomic_formula          go to state 118
+    plain_atom              go to state 67
+    defined_atom            go to state 68
+    defined_prop            go to state 69
+    defined_pred            go to state 70
+    system_atom             go to state 71
+    term                    go to state 72
+    function_term           go to state 73
+    plain_term              go to state 74
+    constant                go to state 75
+    functor                 go to state 76
+    defined_term            go to state 77
+    system_term             go to state 78
+    system_functor          go to state 79
+    system_constant         go to state 80
+    variable                go to state 81
+    atomic_word             go to state 82
+    atomic_defined_word     go to state 83
+    atomic_system_word      go to state 84
+    number                  go to state 85
+
+
+state 107
+
+   12 tff_annotated: _LIT_tff LPAREN name COMMA formula_role COMMA tff_formula . annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 170
+
+    $default  reduce using rule 243 (null)
+
+    annotations  go to state 200
+    null         go to state 172
+
+
+state 108
+
+  130 tff_formula: tff_binary_formula .
+
+    $default  reduce using rule 130 (tff_formula)
+
+
+state 109
+
+  133 tff_binary_formula: tff_nonassoc_binary .
+
+    $default  reduce using rule 133 (tff_binary_formula)
+
+
+state 110
+
+  134 tff_binary_formula: tff_assoc_binary .
+
+    $default  reduce using rule 134 (tff_binary_formula)
+
+
+state 111
+
+  136 tff_assoc_binary: tff_or_formula .
+
+    $default  reduce using rule 136 (tff_assoc_binary)
+
+
+state 112
+
+  137 tff_assoc_binary: tff_and_formula .
+
+    $default  reduce using rule 137 (tff_assoc_binary)
+
+
+state 113
+
+  131 tff_formula: tff_unitary_formula .
+  135 tff_nonassoc_binary: tff_unitary_formula . binary_connective tff_unitary_formula
+  138 tff_or_formula: tff_unitary_formula . VLINE tff_unitary_formula
+  139               | tff_unitary_formula . VLINE tff_or_formula
+  140 tff_and_formula: tff_unitary_formula . AMPERSAND tff_unitary_formula
+  141                | tff_unitary_formula . AMPERSAND tff_and_formula
+
+    AMPERSAND            shift, and go to state 201
+    EQUALS_GREATER       shift, and go to state 183
+    LESS_EQUALS          shift, and go to state 184
+    LESS_EQUALS_GREATER  shift, and go to state 185
+    LESS_TILDE_GREATER   shift, and go to state 186
+    TILDE_AMPERSAND      shift, and go to state 187
+    TILDE_VLINE          shift, and go to state 188
+    VLINE                shift, and go to state 202
+
+    $default  reduce using rule 131 (tff_formula)
+
+    binary_connective  go to state 203
+
+
+state 114
+
+  142 tff_unitary_formula: tff_quantified_formula .
+
+    $default  reduce using rule 142 (tff_unitary_formula)
+
+
+state 115
+
+  143 tff_unitary_formula: tff_unary_formula .
+
+    $default  reduce using rule 143 (tff_unitary_formula)
+
+
+state 116
+
+  132 tff_formula: tff_typed_atom .
+
+    $default  reduce using rule 132 (tff_formula)
+
+
+state 117
+
+  151 tff_typed_atom: tff_untyped_atom . COLON tff_type_spec
+
+    COLON  shift, and go to state 204
+
+
+state 118
+
+  144 tff_unitary_formula: atomic_formula .
+
+    $default  reduce using rule 144 (tff_unitary_formula)
+
+
+state 119
+
+  153 tff_untyped_atom: functor .
+  201 plain_term: functor . LPAREN arguments RPAREN
+
+    LPAREN  shift, and go to state 178
+
+    $default  reduce using rule 153 (tff_untyped_atom)
+
+
+state 120
+
+  154 tff_untyped_atom: defined_term .
+  198 function_term: defined_term .
+
+    COLON     reduce using rule 154 (tff_untyped_atom)
+    $default  reduce using rule 198 (function_term)
+
+
+state 121
+
+  155 tff_untyped_atom: system_functor .
+  207 system_term: system_functor . LPAREN arguments RPAREN
+
+    LPAREN  shift, and go to state 179
+
+    $default  reduce using rule 155 (tff_untyped_atom)
+
+
+state 122
+
+   84 thf_lambda: CARET .
+
+    $default  reduce using rule 84 (thf_lambda)
+
+
+state 123
+
+   77 thf_quantifier: EXCLAMATION .
+
+    $default  reduce using rule 77 (thf_quantifier)
+
+
+state 124
+
+   73 thf_unitary_formula: LPAREN . thf_tuple RPAREN
+   74                    | LPAREN . thf_binary_formula RPAREN
+   75                    | LPAREN . thf_unitary_formula RPAREN
+  105 thf_untyped_constant: LPAREN . tptp_operator RPAREN
+  129 thf_definition: LPAREN . thf_definition RPAREN
+
+    AMPERSAND            shift, and go to state 205
+    CARET                shift, and go to state 122
+    EQUALS               shift, and go to state 206
+    EQUALS_GREATER       shift, and go to state 183
+    EXCLAMATION          shift, and go to state 207
+    LESS_EQUALS          shift, and go to state 184
+    LESS_EQUALS_GREATER  shift, and go to state 185
+    LESS_TILDE_GREATER   shift, and go to state 186
+    LPAREN               shift, and go to state 124
+    QUESTION             shift, and go to state 208
+    TILDE                shift, and go to state 89
+    TILDE_AMPERSAND      shift, and go to state 187
+    TILDE_VLINE          shift, and go to state 188
+    VLINE                shift, and go to state 209
+    _LIT_lambda          shift, and go to state 126
+    _LIT_letrec          shift, and go to state 127
+    distinct_object      shift, and go to state 128
+    dollar_dollar_word   shift, and go to state 55
+    falseProp            shift, and go to state 57
+    iType                shift, and go to state 129
+    lower_word           shift, and go to state 21
+    oType                shift, and go to state 130
+    real                 shift, and go to state 58
+    signed_integer       shift, and go to state 59
+    single_quoted        shift, and go to state 22
+    tType                shift, and go to state 131
+    trueProp             shift, and go to state 60
+    unsigned_integer     shift, and go to state 61
+    upper_word           shift, and go to state 62
+
+    binary_connective       go to state 210
+    assoc_connective        go to state 211
+    quantifier              go to state 212
+    unary_connective        go to state 213
+    thf_binary_formula      go to state 214
+    thf_nonassoc_formula    go to state 135
+    thf_equality            go to state 136
+    thf_assoc_formula       go to state 137
+    thf_or_formula          go to state 138
+    thf_and_formula         go to state 139
+    thf_unitary_formula     go to state 215
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_apply_formula       go to state 146
+    thf_tuple               go to state 216
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    tptp_operator           go to state 217
+    thf_binary_type         go to state 155
+    thf_mapping_type        go to state 156
+    thf_xprod_type          go to state 157
+    thf_union_type          go to state 158
+    thf_unitary_type        go to state 159
+    thf_let_rec             go to state 160
+    thf_definition          go to state 218
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 165
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 125
+
+   78 thf_quantifier: QUESTION .
+
+    $default  reduce using rule 78 (thf_quantifier)
+
+
+state 126
+
+   83 thf_lambda: _LIT_lambda .
+
+    $default  reduce using rule 83 (thf_lambda)
+
+
+state 127
+
+  125 thf_let_rec: _LIT_letrec . LBRKT thf_definition_list RBRKT COLON thf_unitary_formula
+
+    LBRKT  shift, and go to state 219
+
+
+state 128
+
+  102 thf_untyped_constant: distinct_object .
+
+    $default  reduce using rule 102 (thf_untyped_constant)
+
+
+state 129
+
+  192 defined_type: iType .
+
+    $default  reduce using rule 192 (defined_type)
+
+
+state 130
+
+  191 defined_type: oType .
+
+    $default  reduce using rule 191 (defined_type)
+
+
+state 131
+
+  193 defined_type: tType .
+
+    $default  reduce using rule 193 (defined_type)
+
+
+state 132
+
+   81 thf_unary_formula: unary_connective . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 221
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 133
+
+   11 thf_annotated: _LIT_thf LPAREN name COMMA formula_role COMMA thf_formula . annotations RPAREN PERIOD
+
+    COMMA  shift, and go to state 170
+
+    $default  reduce using rule 243 (null)
+
+    annotations  go to state 223
+    null         go to state 172
+
+
+state 134
+
+   52 thf_formula: thf_binary_formula .
+
+    $default  reduce using rule 52 (thf_formula)
+
+
+state 135
+
+   55 thf_binary_formula: thf_nonassoc_formula .
+
+    $default  reduce using rule 55 (thf_binary_formula)
+
+
+state 136
+
+   58 thf_binary_formula: thf_equality .
+
+    $default  reduce using rule 58 (thf_binary_formula)
+
+
+state 137
+
+   56 thf_binary_formula: thf_assoc_formula .
+
+    $default  reduce using rule 56 (thf_binary_formula)
+
+
+state 138
+
+   62 thf_assoc_formula: thf_or_formula .
+   65 thf_or_formula: thf_or_formula . VLINE thf_unitary_formula
+
+    VLINE  shift, and go to state 224
+
+    $default  reduce using rule 62 (thf_assoc_formula)
+
+
+state 139
+
+   63 thf_assoc_formula: thf_and_formula .
+   67 thf_and_formula: thf_and_formula . AMPERSAND thf_unitary_formula
+
+    AMPERSAND  shift, and go to state 225
+
+    $default  reduce using rule 63 (thf_assoc_formula)
+
+
+state 140
+
+   53 thf_formula: thf_unitary_formula .
+   60 thf_nonassoc_formula: thf_unitary_formula . binary_connective thf_unitary_formula
+   61 thf_equality: thf_unitary_formula . EQUALS thf_unitary_formula
+   64 thf_or_formula: thf_unitary_formula . VLINE thf_unitary_formula
+   66 thf_and_formula: thf_unitary_formula . AMPERSAND thf_unitary_formula
+   86 thf_apply_formula: thf_unitary_formula . AT_SIGN thf_unitary_formula
+  122 thf_unitary_type: thf_unitary_formula .
+
+    AMPERSAND            shift, and go to state 226
+    AT_SIGN              shift, and go to state 227
+    EQUALS               shift, and go to state 228
+    EQUALS_GREATER       shift, and go to state 183
+    LESS_EQUALS          shift, and go to state 184
+    LESS_EQUALS_GREATER  shift, and go to state 185
+    LESS_TILDE_GREATER   shift, and go to state 186
+    TILDE_AMPERSAND      shift, and go to state 187
+    TILDE_VLINE          shift, and go to state 188
+    VLINE                shift, and go to state 229
+
+    COMMA     reduce using rule 53 (thf_formula)
+    RPAREN    reduce using rule 53 (thf_formula)
+    $default  reduce using rule 122 (thf_unitary_type)
+
+    binary_connective  go to state 230
+
+
+state 141
+
+   72 thf_unitary_formula: thf_quantified_formula .
+
+    $default  reduce using rule 72 (thf_unitary_formula)
+
+
+state 142
+
+   76 thf_quantified_formula: thf_quantifier . LBRKT thf_variable_list RBRKT COLON thf_unitary_formula
+
+    LBRKT  shift, and go to state 231
+
+
+state 143
+
+   71 thf_unitary_formula: thf_unary_formula .
+
+    $default  reduce using rule 71 (thf_unitary_formula)
+
+
+state 144
+
+   70 thf_unitary_formula: thf_abstraction .
+
+    $default  reduce using rule 70 (thf_unitary_formula)
+
+
+state 145
+
+   82 thf_abstraction: thf_lambda . LBRKT thf_variable_list RBRKT COLON thf_unitary_formula
+
+    LBRKT  shift, and go to state 232
+
+
+state 146
+
+   57 thf_binary_formula: thf_apply_formula .
+   85 thf_apply_formula: thf_apply_formula . AT_SIGN thf_unitary_formula
+
+    AT_SIGN  shift, and go to state 233
+
+    $default  reduce using rule 57 (thf_binary_formula)
+
+
+state 147
+
+   68 thf_unitary_formula: thf_atom .
+
+    $default  reduce using rule 68 (thf_unitary_formula)
+
+
+state 148
+
+   89 thf_atom: thf_typed_atom .
+
+    $default  reduce using rule 89 (thf_atom)
+
+
+state 149
+
+   90 thf_atom: thf_untyped_atom .
+
+    $default  reduce using rule 90 (thf_atom)
+
+
+state 150
+
+   92 thf_typed_atom: thf_typed_variable .
+
+    $default  reduce using rule 92 (thf_typed_atom)
+
+
+state 151
+
+   94 thf_untyped_atom: thf_untyped_variable .
+   97 thf_typed_variable: thf_untyped_variable . COLON thf_unitary_type
+
+    COLON  shift, and go to state 234
+
+    $default  reduce using rule 94 (thf_untyped_atom)
+
+
+state 152
+
+   91 thf_typed_atom: thf_typed_constant .
+
+    $default  reduce using rule 91 (thf_typed_atom)
+
+
+state 153
+
+   93 thf_untyped_atom: thf_untyped_constant .
+   99 thf_typed_constant: thf_untyped_constant . COLON thf_unitary_type
+
+    COLON  shift, and go to state 235
+
+    $default  reduce using rule 93 (thf_untyped_atom)
+
+
+state 154
+
+  104 thf_untyped_constant: thf_defined_word .
+
+    $default  reduce using rule 104 (thf_untyped_constant)
+
+
+state 155
+
+   59 thf_binary_formula: thf_binary_type .
+
+    $default  reduce using rule 59 (thf_binary_formula)
+
+
+state 156
+
+  113 thf_binary_type: thf_mapping_type .
+
+    $default  reduce using rule 113 (thf_binary_type)
+
+
+state 157
+
+  114 thf_binary_type: thf_xprod_type .
+  118 thf_xprod_type: thf_xprod_type . STAR thf_unitary_type
+
+    STAR  shift, and go to state 236
+
+    $default  reduce using rule 114 (thf_binary_type)
+
+
+state 158
+
+  115 thf_binary_type: thf_union_type .
+  120 thf_union_type: thf_union_type . plus thf_unitary_type
+
+    plus  shift, and go to state 237
+
+    $default  reduce using rule 115 (thf_binary_type)
+
+
+state 159
+
+  116 thf_mapping_type: thf_unitary_type . map_arrow thf_mapping_type
+  117                 | thf_unitary_type . map_arrow thf_unitary_type
+  119 thf_xprod_type: thf_unitary_type . STAR thf_unitary_type
+  121 thf_union_type: thf_unitary_type . plus thf_unitary_type
+
+    GREATER        shift, and go to state 238
+    MINUS_GREATER  shift, and go to state 239
+    STAR           shift, and go to state 240
+    plus           shift, and go to state 241
+
+    map_arrow  go to state 242
+
+
+state 160
+
+   69 thf_unitary_formula: thf_let_rec .
+
+    $default  reduce using rule 69 (thf_unitary_formula)
+
+
+state 161
+
+   54 thf_formula: thf_definition .
+
+    $default  reduce using rule 54 (thf_formula)
+
+
+state 162
+
+  107 thf_defined_word: defined_prop .
+
+    $default  reduce using rule 107 (thf_defined_word)
+
+
+state 163
+
+  106 thf_defined_word: defined_type .
+
+    $default  reduce using rule 106 (thf_defined_word)
+
+
+state 164
+
+   98 thf_untyped_variable: variable .
+
+    $default  reduce using rule 98 (thf_untyped_variable)
+
+
+state 165
+
+  100 thf_untyped_constant: atomic_word .
+  128 thf_definition: atomic_word . COLON_EQUALS thf_unitary_formula
+
+    COLON_EQUALS  shift, and go to state 243
+
+    $default  reduce using rule 100 (thf_untyped_constant)
+
+
+state 166
+
+  103 thf_untyped_constant: atomic_system_word .
+
+    $default  reduce using rule 103 (thf_untyped_constant)
+
+
+state 167
+
+  101 thf_untyped_constant: number .
+
+    $default  reduce using rule 101 (thf_untyped_constant)
+
+
+state 168
+
+   46 cnf_formula: LPAREN disjunction . RPAREN
+
+    RPAREN  shift, and go to state 244
+
+
+state 169
+
+   51 literal: TILDE atomic_formula .
+
+    $default  reduce using rule 51 (literal)
+
+
+state 170
+
+   14 annotations: COMMA . source optional_info
+
+    LBRKT             shift, and go to state 245
+    distinct_object   shift, and go to state 246
+    lower_word        shift, and go to state 21
+    real              shift, and go to state 58
+    signed_integer    shift, and go to state 59
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 61
+
+    source        go to state 247
+    general_term  go to state 248
+    general_data  go to state 249
+    general_list  go to state 250
+    atomic_word   go to state 251
+    number        go to state 252
+
+
+state 171
+
+   10 cnf_annotated: _LIT_cnf LPAREN name COMMA formula_role COMMA cnf_formula annotations . RPAREN PERIOD
+
+    RPAREN  shift, and go to state 253
+
+
+state 172
+
+   13 annotations: null .
+
+    $default  reduce using rule 13 (annotations)
+
+
+state 173
+
+   49 disjunction: literal VLINE . disjunction
+
+    TILDE               shift, and go to state 53
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    disjunction          go to state 254
+    literal              go to state 65
+    atomic_formula       go to state 66
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 174
+
+  184 defined_atom: defined_pred LPAREN . arguments RPAREN
+
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    arguments           go to state 255
+    term                go to state 256
+    function_term       go to state 73
+    plain_term          go to state 257
+    constant            go to state 75
+    functor             go to state 76
+    defined_term        go to state 77
+    system_term         go to state 258
+    system_functor      go to state 79
+    system_constant     go to state 80
+    variable            go to state 81
+    atomic_word         go to state 82
+    atomic_system_word  go to state 84
+    number              go to state 85
+
+
+state 175
+
+  186 defined_infix_pred: EQUALS .
+
+    $default  reduce using rule 186 (defined_infix_pred)
+
+
+state 176
+
+  187 defined_infix_pred: EXCLAMATION_EQUALS .
+
+    $default  reduce using rule 187 (defined_infix_pred)
+
+
+state 177
+
+  185 defined_atom: term defined_infix_pred . term
+
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    term                go to state 259
+    function_term       go to state 73
+    plain_term          go to state 257
+    constant            go to state 75
+    functor             go to state 76
+    defined_term        go to state 77
+    system_term         go to state 258
+    system_functor      go to state 79
+    system_constant     go to state 80
+    variable            go to state 81
+    atomic_word         go to state 82
+    atomic_system_word  go to state 84
+    number              go to state 85
+
+
+state 178
+
+  201 plain_term: functor LPAREN . arguments RPAREN
+
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    arguments           go to state 260
+    term                go to state 256
+    function_term       go to state 73
+    plain_term          go to state 257
+    constant            go to state 75
+    functor             go to state 76
+    defined_term        go to state 77
+    system_term         go to state 258
+    system_functor      go to state 79
+    system_constant     go to state 80
+    variable            go to state 81
+    atomic_word         go to state 82
+    atomic_system_word  go to state 84
+    number              go to state 85
+
+
+state 179
+
+  207 system_term: system_functor LPAREN . arguments RPAREN
+
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    arguments           go to state 261
+    term                go to state 256
+    function_term       go to state 73
+    plain_term          go to state 257
+    constant            go to state 75
+    functor             go to state 76
+    defined_term        go to state 77
+    system_term         go to state 258
+    system_functor      go to state 79
+    system_constant     go to state 80
+    variable            go to state 81
+    atomic_word         go to state 82
+    atomic_system_word  go to state 84
+    number              go to state 85
+
+
+state 180
+
+   38 unitary_formula: LPAREN fof_formula . RPAREN
+
+    RPAREN  shift, and go to state 262
+
+
+state 181
+
+    9 fof_annotated: _LIT_fof LPAREN name COMMA formula_role COMMA fof_formula annotations . RPAREN PERIOD
+
+    RPAREN  shift, and go to state 263
+
+
+state 182
+
+   31 and_formula: unitary_formula AMPERSAND . unitary_formula
+   32            | unitary_formula AMPERSAND . and_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 87
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    and_formula          go to state 264
+    unitary_formula      go to state 265
+    quantified_formula   go to state 97
+    quantifier           go to state 98
+    unary_formula        go to state 99
+    unary_connective     go to state 100
+    atomic_formula       go to state 101
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 183
+
+   22 binary_connective: EQUALS_GREATER .
+
+    $default  reduce using rule 22 (binary_connective)
+
+
+state 184
+
+   23 binary_connective: LESS_EQUALS .
+
+    $default  reduce using rule 23 (binary_connective)
+
+
+state 185
+
+   21 binary_connective: LESS_EQUALS_GREATER .
+
+    $default  reduce using rule 21 (binary_connective)
+
+
+state 186
+
+   24 binary_connective: LESS_TILDE_GREATER .
+
+    $default  reduce using rule 24 (binary_connective)
+
+
+state 187
+
+   26 binary_connective: TILDE_AMPERSAND .
+
+    $default  reduce using rule 26 (binary_connective)
+
+
+state 188
+
+   25 binary_connective: TILDE_VLINE .
+
+    $default  reduce using rule 25 (binary_connective)
+
+
+state 189
+
+   29 or_formula: unitary_formula VLINE . unitary_formula
+   30           | unitary_formula VLINE . or_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 87
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    or_formula           go to state 266
+    unitary_formula      go to state 267
+    quantified_formula   go to state 97
+    quantifier           go to state 98
+    unary_formula        go to state 99
+    unary_connective     go to state 100
+    atomic_formula       go to state 101
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 190
+
+   20 nonassoc_binary: unitary_formula binary_connective . unitary_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 87
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unitary_formula      go to state 268
+    quantified_formula   go to state 97
+    quantifier           go to state 98
+    unary_formula        go to state 99
+    unary_connective     go to state 100
+    atomic_formula       go to state 101
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 191
+
+   39 quantified_formula: quantifier LBRKT . variable_list RBRKT COLON unitary_formula
+
+    upper_word  shift, and go to state 62
+
+    variable_list  go to state 269
+    variable       go to state 270
+
+
+state 192
+
+   44 unary_formula: unary_connective unitary_formula .
+
+    $default  reduce using rule 44 (unary_formula)
+
+
+state 193
+
+  219 name_list: name COMMA name_list .
+
+    $default  reduce using rule 219 (name_list)
+
+
+state 194
+
+  145 tff_unitary_formula: LPAREN tff_binary_formula . RPAREN
+
+    RPAREN  shift, and go to state 271
+
+
+state 195
+
+  135 tff_nonassoc_binary: tff_unitary_formula . binary_connective tff_unitary_formula
+  138 tff_or_formula: tff_unitary_formula . VLINE tff_unitary_formula
+  139               | tff_unitary_formula . VLINE tff_or_formula
+  140 tff_and_formula: tff_unitary_formula . AMPERSAND tff_unitary_formula
+  141                | tff_unitary_formula . AMPERSAND tff_and_formula
+  146 tff_unitary_formula: LPAREN tff_unitary_formula . RPAREN
+
+    AMPERSAND            shift, and go to state 201
+    EQUALS_GREATER       shift, and go to state 183
+    LESS_EQUALS          shift, and go to state 184
+    LESS_EQUALS_GREATER  shift, and go to state 185
+    LESS_TILDE_GREATER   shift, and go to state 186
+    RPAREN               shift, and go to state 272
+    TILDE_AMPERSAND      shift, and go to state 187
+    TILDE_VLINE          shift, and go to state 188
+    VLINE                shift, and go to state 202
+
+    binary_connective  go to state 203
+
+
+state 196
+
+  152 tff_typed_atom: LPAREN tff_typed_atom . RPAREN
+
+    RPAREN  shift, and go to state 273
+
+
+state 197
+
+  147 tff_quantified_formula: quantifier LBRKT . tff_variable_list RBRKT COLON tff_unitary_formula
+
+    upper_word  shift, and go to state 62
+
+    tff_variable_list     go to state 274
+    tff_variable          go to state 275
+    tff_typed_variable    go to state 276
+    tff_untyped_variable  go to state 277
+    variable              go to state 278
+
+
+state 198
+
+  145 tff_unitary_formula: LPAREN . tff_binary_formula RPAREN
+  146                    | LPAREN . tff_unitary_formula RPAREN
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 198
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    quantifier              go to state 105
+    unary_connective        go to state 106
+    tff_binary_formula      go to state 194
+    tff_nonassoc_binary     go to state 109
+    tff_assoc_binary        go to state 110
+    tff_or_formula          go to state 111
+    tff_and_formula         go to state 112
+    tff_unitary_formula     go to state 195
+    tff_quantified_formula  go to state 114
+    tff_unary_formula       go to state 115
+    atomic_formula          go to state 118
+    plain_atom              go to state 67
+    defined_atom            go to state 68
+    defined_prop            go to state 69
+    defined_pred            go to state 70
+    system_atom             go to state 71
+    term                    go to state 72
+    function_term           go to state 73
+    plain_term              go to state 74
+    constant                go to state 75
+    functor                 go to state 76
+    defined_term            go to state 77
+    system_term             go to state 78
+    system_functor          go to state 79
+    system_constant         go to state 80
+    variable                go to state 81
+    atomic_word             go to state 82
+    atomic_defined_word     go to state 83
+    atomic_system_word      go to state 84
+    number                  go to state 85
+
+
+state 199
+
+  150 tff_unary_formula: unary_connective tff_unitary_formula .
+
+    $default  reduce using rule 150 (tff_unary_formula)
+
+
+state 200
+
+   12 tff_annotated: _LIT_tff LPAREN name COMMA formula_role COMMA tff_formula annotations . RPAREN PERIOD
+
+    RPAREN  shift, and go to state 279
+
+
+state 201
+
+  140 tff_and_formula: tff_unitary_formula AMPERSAND . tff_unitary_formula
+  141                | tff_unitary_formula AMPERSAND . tff_and_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 198
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    quantifier              go to state 105
+    unary_connective        go to state 106
+    tff_and_formula         go to state 280
+    tff_unitary_formula     go to state 281
+    tff_quantified_formula  go to state 114
+    tff_unary_formula       go to state 115
+    atomic_formula          go to state 118
+    plain_atom              go to state 67
+    defined_atom            go to state 68
+    defined_prop            go to state 69
+    defined_pred            go to state 70
+    system_atom             go to state 71
+    term                    go to state 72
+    function_term           go to state 73
+    plain_term              go to state 74
+    constant                go to state 75
+    functor                 go to state 76
+    defined_term            go to state 77
+    system_term             go to state 78
+    system_functor          go to state 79
+    system_constant         go to state 80
+    variable                go to state 81
+    atomic_word             go to state 82
+    atomic_defined_word     go to state 83
+    atomic_system_word      go to state 84
+    number                  go to state 85
+
+
+state 202
+
+  138 tff_or_formula: tff_unitary_formula VLINE . tff_unitary_formula
+  139               | tff_unitary_formula VLINE . tff_or_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 198
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    quantifier              go to state 105
+    unary_connective        go to state 106
+    tff_or_formula          go to state 282
+    tff_unitary_formula     go to state 283
+    tff_quantified_formula  go to state 114
+    tff_unary_formula       go to state 115
+    atomic_formula          go to state 118
+    plain_atom              go to state 67
+    defined_atom            go to state 68
+    defined_prop            go to state 69
+    defined_pred            go to state 70
+    system_atom             go to state 71
+    term                    go to state 72
+    function_term           go to state 73
+    plain_term              go to state 74
+    constant                go to state 75
+    functor                 go to state 76
+    defined_term            go to state 77
+    system_term             go to state 78
+    system_functor          go to state 79
+    system_constant         go to state 80
+    variable                go to state 81
+    atomic_word             go to state 82
+    atomic_defined_word     go to state 83
+    atomic_system_word      go to state 84
+    number                  go to state 85
+
+
+state 203
+
+  135 tff_nonassoc_binary: tff_unitary_formula binary_connective . tff_unitary_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 198
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    quantifier              go to state 105
+    unary_connective        go to state 106
+    tff_unitary_formula     go to state 284
+    tff_quantified_formula  go to state 114
+    tff_unary_formula       go to state 115
+    atomic_formula          go to state 118
+    plain_atom              go to state 67
+    defined_atom            go to state 68
+    defined_prop            go to state 69
+    defined_pred            go to state 70
+    system_atom             go to state 71
+    term                    go to state 72
+    function_term           go to state 73
+    plain_term              go to state 74
+    constant                go to state 75
+    functor                 go to state 76
+    defined_term            go to state 77
+    system_term             go to state 78
+    system_functor          go to state 79
+    system_constant         go to state 80
+    variable                go to state 81
+    atomic_word             go to state 82
+    atomic_defined_word     go to state 83
+    atomic_system_word      go to state 84
+    number                  go to state 85
+
+
+state 204
+
+  151 tff_typed_atom: tff_untyped_atom COLON . tff_type_spec
+
+    LPAREN              shift, and go to state 285
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 286
+    tff_type_spec       go to state 287
+    tff_type_expr       go to state 288
+    defined_type        go to state 289
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 205
+
+   34 assoc_connective: AMPERSAND .
+
+    $default  reduce using rule 34 (assoc_connective)
+
+
+state 206
+
+  112 tptp_operator: EQUALS .
+
+    $default  reduce using rule 112 (tptp_operator)
+
+
+state 207
+
+   40 quantifier: EXCLAMATION .
+   77 thf_quantifier: EXCLAMATION .
+
+    LBRKT     reduce using rule 77 (thf_quantifier)
+    $default  reduce using rule 40 (quantifier)
+
+
+state 208
+
+   41 quantifier: QUESTION .
+   78 thf_quantifier: QUESTION .
+
+    LBRKT     reduce using rule 78 (thf_quantifier)
+    $default  reduce using rule 41 (quantifier)
+
+
+state 209
+
+   33 assoc_connective: VLINE .
+
+    $default  reduce using rule 33 (assoc_connective)
+
+
+state 210
+
+  109 tptp_operator: binary_connective .
+
+    $default  reduce using rule 109 (tptp_operator)
+
+
+state 211
+
+  110 tptp_operator: assoc_connective .
+
+    $default  reduce using rule 110 (tptp_operator)
+
+
+state 212
+
+  111 tptp_operator: quantifier .
+
+    $default  reduce using rule 111 (tptp_operator)
+
+
+state 213
+
+   81 thf_unary_formula: unary_connective . thf_unitary_formula
+  108 tptp_operator: unary_connective .
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    $default  reduce using rule 108 (tptp_operator)
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 221
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 214
+
+   74 thf_unitary_formula: LPAREN thf_binary_formula . RPAREN
+
+    RPAREN  shift, and go to state 295
+
+
+state 215
+
+   60 thf_nonassoc_formula: thf_unitary_formula . binary_connective thf_unitary_formula
+   61 thf_equality: thf_unitary_formula . EQUALS thf_unitary_formula
+   64 thf_or_formula: thf_unitary_formula . VLINE thf_unitary_formula
+   66 thf_and_formula: thf_unitary_formula . AMPERSAND thf_unitary_formula
+   75 thf_unitary_formula: LPAREN thf_unitary_formula . RPAREN
+   86 thf_apply_formula: thf_unitary_formula . AT_SIGN thf_unitary_formula
+   87 thf_tuple: thf_unitary_formula . COMMA thf_tuple
+   88          | thf_unitary_formula . COMMA thf_unitary_formula
+  122 thf_unitary_type: thf_unitary_formula .
+
+    AMPERSAND            shift, and go to state 226
+    AT_SIGN              shift, and go to state 227
+    COMMA                shift, and go to state 296
+    EQUALS               shift, and go to state 228
+    EQUALS_GREATER       shift, and go to state 183
+    LESS_EQUALS          shift, and go to state 184
+    LESS_EQUALS_GREATER  shift, and go to state 185
+    LESS_TILDE_GREATER   shift, and go to state 186
+    RPAREN               shift, and go to state 297
+    TILDE_AMPERSAND      shift, and go to state 187
+    TILDE_VLINE          shift, and go to state 188
+    VLINE                shift, and go to state 229
+
+    $default  reduce using rule 122 (thf_unitary_type)
+
+    binary_connective  go to state 230
+
+
+state 216
+
+   73 thf_unitary_formula: LPAREN thf_tuple . RPAREN
+
+    RPAREN  shift, and go to state 298
+
+
+state 217
+
+  105 thf_untyped_constant: LPAREN tptp_operator . RPAREN
+
+    RPAREN  shift, and go to state 299
+
+
+state 218
+
+  129 thf_definition: LPAREN thf_definition . RPAREN
+
+    RPAREN  shift, and go to state 300
+
+
+state 219
+
+  125 thf_let_rec: _LIT_letrec LBRKT . thf_definition_list RBRKT COLON thf_unitary_formula
+
+    LPAREN         shift, and go to state 301
+    lower_word     shift, and go to state 21
+    single_quoted  shift, and go to state 22
+
+    thf_definition_list  go to state 302
+    thf_definition       go to state 303
+    atomic_word          go to state 304
+
+
+state 220
+
+   73 thf_unitary_formula: LPAREN . thf_tuple RPAREN
+   74                    | LPAREN . thf_binary_formula RPAREN
+   75                    | LPAREN . thf_unitary_formula RPAREN
+  105 thf_untyped_constant: LPAREN . tptp_operator RPAREN
+
+    AMPERSAND            shift, and go to state 205
+    CARET                shift, and go to state 122
+    EQUALS               shift, and go to state 206
+    EQUALS_GREATER       shift, and go to state 183
+    EXCLAMATION          shift, and go to state 207
+    LESS_EQUALS          shift, and go to state 184
+    LESS_EQUALS_GREATER  shift, and go to state 185
+    LESS_TILDE_GREATER   shift, and go to state 186
+    LPAREN               shift, and go to state 220
+    QUESTION             shift, and go to state 208
+    TILDE                shift, and go to state 89
+    TILDE_AMPERSAND      shift, and go to state 187
+    TILDE_VLINE          shift, and go to state 188
+    VLINE                shift, and go to state 209
+    _LIT_lambda          shift, and go to state 126
+    _LIT_letrec          shift, and go to state 127
+    distinct_object      shift, and go to state 128
+    dollar_dollar_word   shift, and go to state 55
+    falseProp            shift, and go to state 57
+    iType                shift, and go to state 129
+    lower_word           shift, and go to state 21
+    oType                shift, and go to state 130
+    real                 shift, and go to state 58
+    signed_integer       shift, and go to state 59
+    single_quoted        shift, and go to state 22
+    tType                shift, and go to state 131
+    trueProp             shift, and go to state 60
+    unsigned_integer     shift, and go to state 61
+    upper_word           shift, and go to state 62
+
+    binary_connective       go to state 210
+    assoc_connective        go to state 211
+    quantifier              go to state 212
+    unary_connective        go to state 213
+    thf_binary_formula      go to state 214
+    thf_nonassoc_formula    go to state 135
+    thf_equality            go to state 136
+    thf_assoc_formula       go to state 137
+    thf_or_formula          go to state 138
+    thf_and_formula         go to state 139
+    thf_unitary_formula     go to state 215
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_apply_formula       go to state 146
+    thf_tuple               go to state 216
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    tptp_operator           go to state 217
+    thf_binary_type         go to state 155
+    thf_mapping_type        go to state 156
+    thf_xprod_type          go to state 157
+    thf_union_type          go to state 158
+    thf_unitary_type        go to state 159
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 221
+
+   81 thf_unary_formula: unary_connective thf_unitary_formula .
+
+    $default  reduce using rule 81 (thf_unary_formula)
+
+
+state 222
+
+  100 thf_untyped_constant: atomic_word .
+
+    $default  reduce using rule 100 (thf_untyped_constant)
+
+
+state 223
+
+   11 thf_annotated: _LIT_thf LPAREN name COMMA formula_role COMMA thf_formula annotations . RPAREN PERIOD
+
+    RPAREN  shift, and go to state 305
+
+
+state 224
+
+   65 thf_or_formula: thf_or_formula VLINE . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 306
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 225
+
+   67 thf_and_formula: thf_and_formula AMPERSAND . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 307
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 226
+
+   66 thf_and_formula: thf_unitary_formula AMPERSAND . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 308
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 227
+
+   86 thf_apply_formula: thf_unitary_formula AT_SIGN . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 309
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 228
+
+   61 thf_equality: thf_unitary_formula EQUALS . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 310
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 229
+
+   64 thf_or_formula: thf_unitary_formula VLINE . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 311
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 230
+
+   60 thf_nonassoc_formula: thf_unitary_formula binary_connective . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 312
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 231
+
+   76 thf_quantified_formula: thf_quantifier LBRKT . thf_variable_list RBRKT COLON thf_unitary_formula
+
+    upper_word  shift, and go to state 62
+
+    thf_variable_list     go to state 313
+    thf_variable          go to state 314
+    thf_typed_variable    go to state 315
+    thf_untyped_variable  go to state 316
+    variable              go to state 164
+
+
+state 232
+
+   82 thf_abstraction: thf_lambda LBRKT . thf_variable_list RBRKT COLON thf_unitary_formula
+
+    upper_word  shift, and go to state 62
+
+    thf_variable_list     go to state 317
+    thf_variable          go to state 314
+    thf_typed_variable    go to state 315
+    thf_untyped_variable  go to state 316
+    variable              go to state 164
+
+
+state 233
+
+   85 thf_apply_formula: thf_apply_formula AT_SIGN . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 318
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 234
+
+   97 thf_typed_variable: thf_untyped_variable COLON . thf_unitary_type
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 319
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_unitary_type        go to state 320
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 235
+
+   99 thf_typed_constant: thf_untyped_constant COLON . thf_unitary_type
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 319
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_unitary_type        go to state 321
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 236
+
+  118 thf_xprod_type: thf_xprod_type STAR . thf_unitary_type
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 319
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_unitary_type        go to state 322
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 237
+
+  120 thf_union_type: thf_union_type plus . thf_unitary_type
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 319
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_unitary_type        go to state 323
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 238
+
+  124 map_arrow: GREATER .
+
+    $default  reduce using rule 124 (map_arrow)
+
+
+state 239
+
+  123 map_arrow: MINUS_GREATER .
+
+    $default  reduce using rule 123 (map_arrow)
+
+
+state 240
+
+  119 thf_xprod_type: thf_unitary_type STAR . thf_unitary_type
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 319
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_unitary_type        go to state 324
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 241
+
+  121 thf_union_type: thf_unitary_type plus . thf_unitary_type
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 319
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_unitary_type        go to state 325
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 242
+
+  116 thf_mapping_type: thf_unitary_type map_arrow . thf_mapping_type
+  117                 | thf_unitary_type map_arrow . thf_unitary_type
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 319
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_mapping_type        go to state 326
+    thf_unitary_type        go to state 327
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 243
+
+  128 thf_definition: atomic_word COLON_EQUALS . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 328
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 244
+
+   46 cnf_formula: LPAREN disjunction RPAREN .
+
+    $default  reduce using rule 46 (cnf_formula)
+
+
+state 245
+
+  229 general_list: LBRKT . RBRKT
+  230             | LBRKT . general_term_list RBRKT
+
+    LBRKT             shift, and go to state 245
+    RBRKT             shift, and go to state 329
+    distinct_object   shift, and go to state 246
+    lower_word        shift, and go to state 21
+    real              shift, and go to state 58
+    signed_integer    shift, and go to state 59
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 61
+
+    general_term       go to state 330
+    general_data       go to state 249
+    general_list       go to state 250
+    general_term_list  go to state 331
+    atomic_word        go to state 251
+    number             go to state 252
+
+
+state 246
+
+  226 general_data: distinct_object .
+
+    $default  reduce using rule 226 (general_data)
+
+
+state 247
+
+   14 annotations: COMMA source . optional_info
+
+    COMMA  shift, and go to state 332
+
+    $default  reduce using rule 243 (null)
+
+    optional_info  go to state 333
+    null           go to state 334
+
+
+state 248
+
+  211 source: general_term .
+
+    $default  reduce using rule 211 (source)
+
+
+state 249
+
+  220 general_term: general_data .
+  221             | general_data . COLON general_term
+
+    COLON  shift, and go to state 335
+
+    $default  reduce using rule 220 (general_term)
+
+
+state 250
+
+  222 general_term: general_list .
+
+    $default  reduce using rule 222 (general_term)
+
+
+state 251
+
+  223 general_data: atomic_word .
+  224             | atomic_word . LPAREN general_arguments RPAREN
+
+    LPAREN  shift, and go to state 336
+
+    $default  reduce using rule 223 (general_data)
+
+
+state 252
+
+  225 general_data: number .
+
+    $default  reduce using rule 225 (general_data)
+
+
+state 253
+
+   10 cnf_annotated: _LIT_cnf LPAREN name COMMA formula_role COMMA cnf_formula annotations RPAREN . PERIOD
+
+    PERIOD  shift, and go to state 337
+
+
+state 254
+
+   49 disjunction: literal VLINE disjunction .
+
+    $default  reduce using rule 49 (disjunction)
+
+
+state 255
+
+  184 defined_atom: defined_pred LPAREN arguments . RPAREN
+
+    RPAREN  shift, and go to state 338
+
+
+state 256
+
+  181 arguments: term .
+  182          | term . COMMA arguments
+
+    COMMA  shift, and go to state 339
+
+    $default  reduce using rule 181 (arguments)
+
+
+state 257
+
+  197 function_term: plain_term .
+
+    $default  reduce using rule 197 (function_term)
+
+
+state 258
+
+  199 function_term: system_term .
+
+    $default  reduce using rule 199 (function_term)
+
+
+state 259
+
+  185 defined_atom: term defined_infix_pred term .
+
+    $default  reduce using rule 185 (defined_atom)
+
+
+state 260
+
+  201 plain_term: functor LPAREN arguments . RPAREN
+
+    RPAREN  shift, and go to state 340
+
+
+state 261
+
+  207 system_term: system_functor LPAREN arguments . RPAREN
+
+    RPAREN  shift, and go to state 341
+
+
+state 262
+
+   38 unitary_formula: LPAREN fof_formula RPAREN .
+
+    $default  reduce using rule 38 (unitary_formula)
+
+
+state 263
+
+    9 fof_annotated: _LIT_fof LPAREN name COMMA formula_role COMMA fof_formula annotations RPAREN . PERIOD
+
+    PERIOD  shift, and go to state 342
+
+
+state 264
+
+   32 and_formula: unitary_formula AMPERSAND and_formula .
+
+    $default  reduce using rule 32 (and_formula)
+
+
+state 265
+
+   31 and_formula: unitary_formula . AMPERSAND unitary_formula
+   31            | unitary_formula AMPERSAND unitary_formula .
+   32            | unitary_formula . AMPERSAND and_formula
+
+    AMPERSAND  shift, and go to state 182
+
+    $default  reduce using rule 31 (and_formula)
+
+
+state 266
+
+   30 or_formula: unitary_formula VLINE or_formula .
+
+    $default  reduce using rule 30 (or_formula)
+
+
+state 267
+
+   29 or_formula: unitary_formula . VLINE unitary_formula
+   29           | unitary_formula VLINE unitary_formula .
+   30           | unitary_formula . VLINE or_formula
+
+    VLINE  shift, and go to state 189
+
+    $default  reduce using rule 29 (or_formula)
+
+
+state 268
+
+   20 nonassoc_binary: unitary_formula binary_connective unitary_formula .
+
+    $default  reduce using rule 20 (nonassoc_binary)
+
+
+state 269
+
+   39 quantified_formula: quantifier LBRKT variable_list . RBRKT COLON unitary_formula
+
+    RBRKT  shift, and go to state 343
+
+
+state 270
+
+   42 variable_list: variable .
+   43              | variable . COMMA variable_list
+
+    COMMA  shift, and go to state 344
+
+    $default  reduce using rule 42 (variable_list)
+
+
+state 271
+
+  145 tff_unitary_formula: LPAREN tff_binary_formula RPAREN .
+
+    $default  reduce using rule 145 (tff_unitary_formula)
+
+
+state 272
+
+  146 tff_unitary_formula: LPAREN tff_unitary_formula RPAREN .
+
+    $default  reduce using rule 146 (tff_unitary_formula)
+
+
+state 273
+
+  152 tff_typed_atom: LPAREN tff_typed_atom RPAREN .
+
+    $default  reduce using rule 152 (tff_typed_atom)
+
+
+state 274
+
+  147 tff_quantified_formula: quantifier LBRKT tff_variable_list . RBRKT COLON tff_unitary_formula
+
+    RBRKT  shift, and go to state 345
+
+
+state 275
+
+  148 tff_variable_list: tff_variable .
+  149                  | tff_variable . COMMA tff_variable_list
+
+    COMMA  shift, and go to state 346
+
+    $default  reduce using rule 148 (tff_variable_list)
+
+
+state 276
+
+  157 tff_variable: tff_typed_variable .
+
+    $default  reduce using rule 157 (tff_variable)
+
+
+state 277
+
+  156 tff_variable: tff_untyped_variable .
+  158 tff_typed_variable: tff_untyped_variable . COLON tff_type_spec
+
+    COLON  shift, and go to state 347
+
+    $default  reduce using rule 156 (tff_variable)
+
+
+state 278
+
+  159 tff_untyped_variable: variable .
+
+    $default  reduce using rule 159 (tff_untyped_variable)
+
+
+state 279
+
+   12 tff_annotated: _LIT_tff LPAREN name COMMA formula_role COMMA tff_formula annotations RPAREN . PERIOD
+
+    PERIOD  shift, and go to state 348
+
+
+state 280
+
+  141 tff_and_formula: tff_unitary_formula AMPERSAND tff_and_formula .
+
+    $default  reduce using rule 141 (tff_and_formula)
+
+
+state 281
+
+  140 tff_and_formula: tff_unitary_formula . AMPERSAND tff_unitary_formula
+  140                | tff_unitary_formula AMPERSAND tff_unitary_formula .
+  141                | tff_unitary_formula . AMPERSAND tff_and_formula
+
+    AMPERSAND  shift, and go to state 201
+
+    $default  reduce using rule 140 (tff_and_formula)
+
+
+state 282
+
+  139 tff_or_formula: tff_unitary_formula VLINE tff_or_formula .
+
+    $default  reduce using rule 139 (tff_or_formula)
+
+
+state 283
+
+  138 tff_or_formula: tff_unitary_formula . VLINE tff_unitary_formula
+  138               | tff_unitary_formula VLINE tff_unitary_formula .
+  139               | tff_unitary_formula . VLINE tff_or_formula
+
+    VLINE  shift, and go to state 202
+
+    $default  reduce using rule 138 (tff_or_formula)
+
+
+state 284
+
+  135 tff_nonassoc_binary: tff_unitary_formula binary_connective tff_unitary_formula .
+
+    $default  reduce using rule 135 (tff_nonassoc_binary)
+
+
+state 285
+
+  163 tff_type_spec: LPAREN . tff_type_spec RPAREN
+  164 tff_type_expr: LPAREN . tff_binary_type RPAREN
+
+    LPAREN              shift, and go to state 285
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 349
+    tff_type_spec       go to state 350
+    tff_type_expr       go to state 351
+    tff_binary_type     go to state 352
+    tff_mapping_type    go to state 353
+    tff_xprod_type      go to state 354
+    tff_union_type      go to state 355
+    tff_unitary_type    go to state 356
+    defined_type        go to state 357
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 286
+
+  160 tff_type_spec: tff_untyped_atom .
+
+    $default  reduce using rule 160 (tff_type_spec)
+
+
+state 287
+
+  151 tff_typed_atom: tff_untyped_atom COLON tff_type_spec .
+
+    $default  reduce using rule 151 (tff_typed_atom)
+
+
+state 288
+
+  162 tff_type_spec: tff_type_expr .
+
+    $default  reduce using rule 162 (tff_type_spec)
+
+
+state 289
+
+  161 tff_type_spec: defined_type .
+
+    $default  reduce using rule 161 (tff_type_spec)
+
+
+state 290
+
+  153 tff_untyped_atom: functor .
+
+    $default  reduce using rule 153 (tff_untyped_atom)
+
+
+state 291
+
+  154 tff_untyped_atom: defined_term .
+
+    $default  reduce using rule 154 (tff_untyped_atom)
+
+
+state 292
+
+  155 tff_untyped_atom: system_functor .
+
+    $default  reduce using rule 155 (tff_untyped_atom)
+
+
+state 293
+
+  203 functor: atomic_word .
+
+    $default  reduce using rule 203 (functor)
+
+
+state 294
+
+  208 system_functor: atomic_system_word .
+
+    $default  reduce using rule 208 (system_functor)
+
+
+state 295
+
+   74 thf_unitary_formula: LPAREN thf_binary_formula RPAREN .
+
+    $default  reduce using rule 74 (thf_unitary_formula)
+
+
+state 296
+
+   87 thf_tuple: thf_unitary_formula COMMA . thf_tuple
+   88          | thf_unitary_formula COMMA . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 358
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_tuple               go to state 359
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 297
+
+   75 thf_unitary_formula: LPAREN thf_unitary_formula RPAREN .
+
+    $default  reduce using rule 75 (thf_unitary_formula)
+
+
+state 298
+
+   73 thf_unitary_formula: LPAREN thf_tuple RPAREN .
+
+    $default  reduce using rule 73 (thf_unitary_formula)
+
+
+state 299
+
+  105 thf_untyped_constant: LPAREN tptp_operator RPAREN .
+
+    $default  reduce using rule 105 (thf_untyped_constant)
+
+
+state 300
+
+  129 thf_definition: LPAREN thf_definition RPAREN .
+
+    $default  reduce using rule 129 (thf_definition)
+
+
+state 301
+
+  129 thf_definition: LPAREN . thf_definition RPAREN
+
+    LPAREN         shift, and go to state 301
+    lower_word     shift, and go to state 21
+    single_quoted  shift, and go to state 22
+
+    thf_definition  go to state 218
+    atomic_word     go to state 304
+
+
+state 302
+
+  125 thf_let_rec: _LIT_letrec LBRKT thf_definition_list . RBRKT COLON thf_unitary_formula
+
+    RBRKT  shift, and go to state 360
+
+
+state 303
+
+  126 thf_definition_list: thf_definition .
+  127                    | thf_definition . COMMA thf_definition_list
+
+    COMMA  shift, and go to state 361
+
+    $default  reduce using rule 126 (thf_definition_list)
+
+
+state 304
+
+  128 thf_definition: atomic_word . COLON_EQUALS thf_unitary_formula
+
+    COLON_EQUALS  shift, and go to state 243
+
+
+state 305
+
+   11 thf_annotated: _LIT_thf LPAREN name COMMA formula_role COMMA thf_formula annotations RPAREN . PERIOD
+
+    PERIOD  shift, and go to state 362
+
+
+state 306
+
+   65 thf_or_formula: thf_or_formula VLINE thf_unitary_formula .
+
+    $default  reduce using rule 65 (thf_or_formula)
+
+
+state 307
+
+   67 thf_and_formula: thf_and_formula AMPERSAND thf_unitary_formula .
+
+    $default  reduce using rule 67 (thf_and_formula)
+
+
+state 308
+
+   66 thf_and_formula: thf_unitary_formula AMPERSAND thf_unitary_formula .
+
+    $default  reduce using rule 66 (thf_and_formula)
+
+
+state 309
+
+   86 thf_apply_formula: thf_unitary_formula AT_SIGN thf_unitary_formula .
+
+    $default  reduce using rule 86 (thf_apply_formula)
+
+
+state 310
+
+   61 thf_equality: thf_unitary_formula EQUALS thf_unitary_formula .
+
+    $default  reduce using rule 61 (thf_equality)
+
+
+state 311
+
+   64 thf_or_formula: thf_unitary_formula VLINE thf_unitary_formula .
+
+    $default  reduce using rule 64 (thf_or_formula)
+
+
+state 312
+
+   60 thf_nonassoc_formula: thf_unitary_formula binary_connective thf_unitary_formula .
+
+    $default  reduce using rule 60 (thf_nonassoc_formula)
+
+
+state 313
+
+   76 thf_quantified_formula: thf_quantifier LBRKT thf_variable_list . RBRKT COLON thf_unitary_formula
+
+    RBRKT  shift, and go to state 363
+
+
+state 314
+
+   79 thf_variable_list: thf_variable .
+   80                  | thf_variable . COMMA thf_variable_list
+
+    COMMA  shift, and go to state 364
+
+    $default  reduce using rule 79 (thf_variable_list)
+
+
+state 315
+
+   96 thf_variable: thf_typed_variable .
+
+    $default  reduce using rule 96 (thf_variable)
+
+
+state 316
+
+   95 thf_variable: thf_untyped_variable .
+   97 thf_typed_variable: thf_untyped_variable . COLON thf_unitary_type
+
+    COLON  shift, and go to state 234
+
+    $default  reduce using rule 95 (thf_variable)
+
+
+state 317
+
+   82 thf_abstraction: thf_lambda LBRKT thf_variable_list . RBRKT COLON thf_unitary_formula
+
+    RBRKT  shift, and go to state 365
+
+
+state 318
+
+   85 thf_apply_formula: thf_apply_formula AT_SIGN thf_unitary_formula .
+
+    $default  reduce using rule 85 (thf_apply_formula)
+
+
+state 319
+
+  122 thf_unitary_type: thf_unitary_formula .
+
+    $default  reduce using rule 122 (thf_unitary_type)
+
+
+state 320
+
+   97 thf_typed_variable: thf_untyped_variable COLON thf_unitary_type .
+
+    $default  reduce using rule 97 (thf_typed_variable)
+
+
+state 321
+
+   99 thf_typed_constant: thf_untyped_constant COLON thf_unitary_type .
+
+    $default  reduce using rule 99 (thf_typed_constant)
+
+
+state 322
+
+  118 thf_xprod_type: thf_xprod_type STAR thf_unitary_type .
+
+    $default  reduce using rule 118 (thf_xprod_type)
+
+
+state 323
+
+  120 thf_union_type: thf_union_type plus thf_unitary_type .
+
+    $default  reduce using rule 120 (thf_union_type)
+
+
+state 324
+
+  119 thf_xprod_type: thf_unitary_type STAR thf_unitary_type .
+
+    $default  reduce using rule 119 (thf_xprod_type)
+
+
+state 325
+
+  121 thf_union_type: thf_unitary_type plus thf_unitary_type .
+
+    $default  reduce using rule 121 (thf_union_type)
+
+
+state 326
+
+  116 thf_mapping_type: thf_unitary_type map_arrow thf_mapping_type .
+
+    $default  reduce using rule 116 (thf_mapping_type)
+
+
+state 327
+
+  116 thf_mapping_type: thf_unitary_type . map_arrow thf_mapping_type
+  117                 | thf_unitary_type . map_arrow thf_unitary_type
+  117                 | thf_unitary_type map_arrow thf_unitary_type .
+
+    GREATER        shift, and go to state 238
+    MINUS_GREATER  shift, and go to state 239
+
+    $default  reduce using rule 117 (thf_mapping_type)
+
+    map_arrow  go to state 242
+
+
+state 328
+
+  128 thf_definition: atomic_word COLON_EQUALS thf_unitary_formula .
+
+    $default  reduce using rule 128 (thf_definition)
+
+
+state 329
+
+  229 general_list: LBRKT RBRKT .
+
+    $default  reduce using rule 229 (general_list)
+
+
+state 330
+
+  231 general_term_list: general_term .
+  232                  | general_term . COMMA general_term_list
+
+    COMMA  shift, and go to state 366
+
+    $default  reduce using rule 231 (general_term_list)
+
+
+state 331
+
+  230 general_list: LBRKT general_term_list . RBRKT
+
+    RBRKT  shift, and go to state 367
+
+
+state 332
+
+  212 optional_info: COMMA . useful_info
+
+    LBRKT             shift, and go to state 245
+    distinct_object   shift, and go to state 246
+    lower_word        shift, and go to state 21
+    real              shift, and go to state 58
+    signed_integer    shift, and go to state 59
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 61
+
+    useful_info        go to state 368
+    general_term       go to state 330
+    general_data       go to state 249
+    general_list       go to state 250
+    general_term_list  go to state 369
+    atomic_word        go to state 251
+    number             go to state 252
+
+
+state 333
+
+   14 annotations: COMMA source optional_info .
+
+    $default  reduce using rule 14 (annotations)
+
+
+state 334
+
+  213 optional_info: null .
+
+    $default  reduce using rule 213 (optional_info)
+
+
+state 335
+
+  221 general_term: general_data COLON . general_term
+
+    LBRKT             shift, and go to state 245
+    distinct_object   shift, and go to state 246
+    lower_word        shift, and go to state 21
+    real              shift, and go to state 58
+    signed_integer    shift, and go to state 59
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 61
+
+    general_term  go to state 370
+    general_data  go to state 249
+    general_list  go to state 250
+    atomic_word   go to state 251
+    number        go to state 252
+
+
+state 336
+
+  224 general_data: atomic_word LPAREN . general_arguments RPAREN
+
+    LBRKT             shift, and go to state 245
+    distinct_object   shift, and go to state 246
+    lower_word        shift, and go to state 21
+    real              shift, and go to state 58
+    signed_integer    shift, and go to state 59
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 61
+
+    general_term       go to state 371
+    general_data       go to state 249
+    general_arguments  go to state 372
+    general_list       go to state 250
+    atomic_word        go to state 251
+    number             go to state 252
+
+
+state 337
+
+   10 cnf_annotated: _LIT_cnf LPAREN name COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD .
+
+    $default  reduce using rule 10 (cnf_annotated)
+
+
+state 338
+
+  184 defined_atom: defined_pred LPAREN arguments RPAREN .
+
+    $default  reduce using rule 184 (defined_atom)
+
+
+state 339
+
+  182 arguments: term COMMA . arguments
+
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    arguments           go to state 373
+    term                go to state 256
+    function_term       go to state 73
+    plain_term          go to state 257
+    constant            go to state 75
+    functor             go to state 76
+    defined_term        go to state 77
+    system_term         go to state 258
+    system_functor      go to state 79
+    system_constant     go to state 80
+    variable            go to state 81
+    atomic_word         go to state 82
+    atomic_system_word  go to state 84
+    number              go to state 85
+
+
+state 340
+
+  201 plain_term: functor LPAREN arguments RPAREN .
+
+    $default  reduce using rule 201 (plain_term)
+
+
+state 341
+
+  207 system_term: system_functor LPAREN arguments RPAREN .
+
+    $default  reduce using rule 207 (system_term)
+
+
+state 342
+
+    9 fof_annotated: _LIT_fof LPAREN name COMMA formula_role COMMA fof_formula annotations RPAREN PERIOD .
+
+    $default  reduce using rule 9 (fof_annotated)
+
+
+state 343
+
+   39 quantified_formula: quantifier LBRKT variable_list RBRKT . COLON unitary_formula
+
+    COLON  shift, and go to state 374
+
+
+state 344
+
+   43 variable_list: variable COMMA . variable_list
+
+    upper_word  shift, and go to state 62
+
+    variable_list  go to state 375
+    variable       go to state 270
+
+
+state 345
+
+  147 tff_quantified_formula: quantifier LBRKT tff_variable_list RBRKT . COLON tff_unitary_formula
+
+    COLON  shift, and go to state 376
+
+
+state 346
+
+  149 tff_variable_list: tff_variable COMMA . tff_variable_list
+
+    upper_word  shift, and go to state 62
+
+    tff_variable_list     go to state 377
+    tff_variable          go to state 275
+    tff_typed_variable    go to state 276
+    tff_untyped_variable  go to state 277
+    variable              go to state 278
+
+
+state 347
+
+  158 tff_typed_variable: tff_untyped_variable COLON . tff_type_spec
+
+    LPAREN              shift, and go to state 285
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 286
+    tff_type_spec       go to state 378
+    tff_type_expr       go to state 288
+    defined_type        go to state 289
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 348
+
+   12 tff_annotated: _LIT_tff LPAREN name COMMA formula_role COMMA tff_formula annotations RPAREN PERIOD .
+
+    $default  reduce using rule 12 (tff_annotated)
+
+
+state 349
+
+  160 tff_type_spec: tff_untyped_atom .
+  174 tff_unitary_type: tff_untyped_atom .
+
+    RPAREN    reduce using rule 160 (tff_type_spec)
+    $default  reduce using rule 174 (tff_unitary_type)
+
+
+state 350
+
+  163 tff_type_spec: LPAREN tff_type_spec . RPAREN
+
+    RPAREN  shift, and go to state 379
+
+
+state 351
+
+  162 tff_type_spec: tff_type_expr .
+  176 tff_unitary_type: tff_type_expr .
+
+    RPAREN    reduce using rule 162 (tff_type_spec)
+    $default  reduce using rule 176 (tff_unitary_type)
+
+
+state 352
+
+  164 tff_type_expr: LPAREN tff_binary_type . RPAREN
+
+    RPAREN  shift, and go to state 380
+
+
+state 353
+
+  165 tff_binary_type: tff_mapping_type .
+
+    $default  reduce using rule 165 (tff_binary_type)
+
+
+state 354
+
+  166 tff_binary_type: tff_xprod_type .
+  170 tff_xprod_type: tff_xprod_type . STAR tff_unitary_type
+
+    STAR  shift, and go to state 381
+
+    $default  reduce using rule 166 (tff_binary_type)
+
+
+state 355
+
+  167 tff_binary_type: tff_union_type .
+  172 tff_union_type: tff_union_type . plus tff_unitary_type
+
+    plus  shift, and go to state 382
+
+    $default  reduce using rule 167 (tff_binary_type)
+
+
+state 356
+
+  168 tff_mapping_type: tff_unitary_type . map_arrow tff_mapping_type
+  169                 | tff_unitary_type . map_arrow tff_unitary_type
+  171 tff_xprod_type: tff_unitary_type . STAR tff_unitary_type
+  173 tff_union_type: tff_unitary_type . plus tff_unitary_type
+
+    GREATER        shift, and go to state 238
+    MINUS_GREATER  shift, and go to state 239
+    STAR           shift, and go to state 383
+    plus           shift, and go to state 384
+
+    map_arrow  go to state 385
+
+
+state 357
+
+  161 tff_type_spec: defined_type .
+  175 tff_unitary_type: defined_type .
+
+    RPAREN    reduce using rule 161 (tff_type_spec)
+    $default  reduce using rule 175 (tff_unitary_type)
+
+
+state 358
+
+   87 thf_tuple: thf_unitary_formula . COMMA thf_tuple
+   88          | thf_unitary_formula . COMMA thf_unitary_formula
+   88          | thf_unitary_formula COMMA thf_unitary_formula .
+
+    COMMA  shift, and go to state 296
+
+    $default  reduce using rule 88 (thf_tuple)
+
+
+state 359
+
+   87 thf_tuple: thf_unitary_formula COMMA thf_tuple .
+
+    $default  reduce using rule 87 (thf_tuple)
+
+
+state 360
+
+  125 thf_let_rec: _LIT_letrec LBRKT thf_definition_list RBRKT . COLON thf_unitary_formula
+
+    COLON  shift, and go to state 386
+
+
+state 361
+
+  127 thf_definition_list: thf_definition COMMA . thf_definition_list
+
+    LPAREN         shift, and go to state 301
+    lower_word     shift, and go to state 21
+    single_quoted  shift, and go to state 22
+
+    thf_definition_list  go to state 387
+    thf_definition       go to state 303
+    atomic_word          go to state 304
+
+
+state 362
+
+   11 thf_annotated: _LIT_thf LPAREN name COMMA formula_role COMMA thf_formula annotations RPAREN PERIOD .
+
+    $default  reduce using rule 11 (thf_annotated)
+
+
+state 363
+
+   76 thf_quantified_formula: thf_quantifier LBRKT thf_variable_list RBRKT . COLON thf_unitary_formula
+
+    COLON  shift, and go to state 388
+
+
+state 364
+
+   80 thf_variable_list: thf_variable COMMA . thf_variable_list
+
+    upper_word  shift, and go to state 62
+
+    thf_variable_list     go to state 389
+    thf_variable          go to state 314
+    thf_typed_variable    go to state 315
+    thf_untyped_variable  go to state 316
+    variable              go to state 164
+
+
+state 365
+
+   82 thf_abstraction: thf_lambda LBRKT thf_variable_list RBRKT . COLON thf_unitary_formula
+
+    COLON  shift, and go to state 390
+
+
+state 366
+
+  232 general_term_list: general_term COMMA . general_term_list
+
+    LBRKT             shift, and go to state 245
+    distinct_object   shift, and go to state 246
+    lower_word        shift, and go to state 21
+    real              shift, and go to state 58
+    signed_integer    shift, and go to state 59
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 61
+
+    general_term       go to state 330
+    general_data       go to state 249
+    general_list       go to state 250
+    general_term_list  go to state 391
+    atomic_word        go to state 251
+    number             go to state 252
+
+
+state 367
+
+  230 general_list: LBRKT general_term_list RBRKT .
+
+    $default  reduce using rule 230 (general_list)
+
+
+state 368
+
+  212 optional_info: COMMA useful_info .
+
+    $default  reduce using rule 212 (optional_info)
+
+
+state 369
+
+  214 useful_info: general_term_list .
+
+    $default  reduce using rule 214 (useful_info)
+
+
+state 370
+
+  221 general_term: general_data COLON general_term .
+
+    $default  reduce using rule 221 (general_term)
+
+
+state 371
+
+  227 general_arguments: general_term .
+  228                  | general_term . COMMA general_arguments
+
+    COMMA  shift, and go to state 392
+
+    $default  reduce using rule 227 (general_arguments)
+
+
+state 372
+
+  224 general_data: atomic_word LPAREN general_arguments . RPAREN
+
+    RPAREN  shift, and go to state 393
+
+
+state 373
+
+  182 arguments: term COMMA arguments .
+
+    $default  reduce using rule 182 (arguments)
+
+
+state 374
+
+   39 quantified_formula: quantifier LBRKT variable_list RBRKT COLON . unitary_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 87
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unitary_formula      go to state 394
+    quantified_formula   go to state 97
+    quantifier           go to state 98
+    unary_formula        go to state 99
+    unary_connective     go to state 100
+    atomic_formula       go to state 101
+    plain_atom           go to state 67
+    defined_atom         go to state 68
+    defined_prop         go to state 69
+    defined_pred         go to state 70
+    system_atom          go to state 71
+    term                 go to state 72
+    function_term        go to state 73
+    plain_term           go to state 74
+    constant             go to state 75
+    functor              go to state 76
+    defined_term         go to state 77
+    system_term          go to state 78
+    system_functor       go to state 79
+    system_constant      go to state 80
+    variable             go to state 81
+    atomic_word          go to state 82
+    atomic_defined_word  go to state 83
+    atomic_system_word   go to state 84
+    number               go to state 85
+
+
+state 375
+
+   43 variable_list: variable COMMA variable_list .
+
+    $default  reduce using rule 43 (variable_list)
+
+
+state 376
+
+  147 tff_quantified_formula: quantifier LBRKT tff_variable_list RBRKT COLON . tff_unitary_formula
+
+    EXCLAMATION         shift, and go to state 86
+    LPAREN              shift, and go to state 198
+    QUESTION            shift, and go to state 88
+    TILDE               shift, and go to state 89
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    dollar_word         shift, and go to state 56
+    falseProp           shift, and go to state 57
+    lower_word          shift, and go to state 21
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    quantifier              go to state 105
+    unary_connective        go to state 106
+    tff_unitary_formula     go to state 395
+    tff_quantified_formula  go to state 114
+    tff_unary_formula       go to state 115
+    atomic_formula          go to state 118
+    plain_atom              go to state 67
+    defined_atom            go to state 68
+    defined_prop            go to state 69
+    defined_pred            go to state 70
+    system_atom             go to state 71
+    term                    go to state 72
+    function_term           go to state 73
+    plain_term              go to state 74
+    constant                go to state 75
+    functor                 go to state 76
+    defined_term            go to state 77
+    system_term             go to state 78
+    system_functor          go to state 79
+    system_constant         go to state 80
+    variable                go to state 81
+    atomic_word             go to state 82
+    atomic_defined_word     go to state 83
+    atomic_system_word      go to state 84
+    number                  go to state 85
+
+
+state 377
+
+  149 tff_variable_list: tff_variable COMMA tff_variable_list .
+
+    $default  reduce using rule 149 (tff_variable_list)
+
+
+state 378
+
+  158 tff_typed_variable: tff_untyped_variable COLON tff_type_spec .
+
+    $default  reduce using rule 158 (tff_typed_variable)
+
+
+state 379
+
+  163 tff_type_spec: LPAREN tff_type_spec RPAREN .
+
+    $default  reduce using rule 163 (tff_type_spec)
+
+
+state 380
+
+  164 tff_type_expr: LPAREN tff_binary_type RPAREN .
+
+    $default  reduce using rule 164 (tff_type_expr)
+
+
+state 381
+
+  170 tff_xprod_type: tff_xprod_type STAR . tff_unitary_type
+
+    LPAREN              shift, and go to state 396
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 397
+    tff_type_expr       go to state 398
+    tff_unitary_type    go to state 399
+    defined_type        go to state 400
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 382
+
+  172 tff_union_type: tff_union_type plus . tff_unitary_type
+
+    LPAREN              shift, and go to state 396
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 397
+    tff_type_expr       go to state 398
+    tff_unitary_type    go to state 401
+    defined_type        go to state 400
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 383
+
+  171 tff_xprod_type: tff_unitary_type STAR . tff_unitary_type
+
+    LPAREN              shift, and go to state 396
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 397
+    tff_type_expr       go to state 398
+    tff_unitary_type    go to state 402
+    defined_type        go to state 400
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 384
+
+  173 tff_union_type: tff_unitary_type plus . tff_unitary_type
+
+    LPAREN              shift, and go to state 396
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 397
+    tff_type_expr       go to state 398
+    tff_unitary_type    go to state 403
+    defined_type        go to state 400
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 385
+
+  168 tff_mapping_type: tff_unitary_type map_arrow . tff_mapping_type
+  169                 | tff_unitary_type map_arrow . tff_unitary_type
+
+    LPAREN              shift, and go to state 396
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 397
+    tff_type_expr       go to state 398
+    tff_mapping_type    go to state 404
+    tff_unitary_type    go to state 405
+    defined_type        go to state 400
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 386
+
+  125 thf_let_rec: _LIT_letrec LBRKT thf_definition_list RBRKT COLON . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 406
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 387
+
+  127 thf_definition_list: thf_definition COMMA thf_definition_list .
+
+    $default  reduce using rule 127 (thf_definition_list)
+
+
+state 388
+
+   76 thf_quantified_formula: thf_quantifier LBRKT thf_variable_list RBRKT COLON . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 407
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 389
+
+   80 thf_variable_list: thf_variable COMMA thf_variable_list .
+
+    $default  reduce using rule 80 (thf_variable_list)
+
+
+state 390
+
+   82 thf_abstraction: thf_lambda LBRKT thf_variable_list RBRKT COLON . thf_unitary_formula
+
+    CARET               shift, and go to state 122
+    EXCLAMATION         shift, and go to state 123
+    LPAREN              shift, and go to state 220
+    QUESTION            shift, and go to state 125
+    TILDE               shift, and go to state 89
+    _LIT_lambda         shift, and go to state 126
+    _LIT_letrec         shift, and go to state 127
+    distinct_object     shift, and go to state 128
+    dollar_dollar_word  shift, and go to state 55
+    falseProp           shift, and go to state 57
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    trueProp            shift, and go to state 60
+    unsigned_integer    shift, and go to state 61
+    upper_word          shift, and go to state 62
+
+    unary_connective        go to state 132
+    thf_unitary_formula     go to state 408
+    thf_quantified_formula  go to state 141
+    thf_quantifier          go to state 142
+    thf_unary_formula       go to state 143
+    thf_abstraction         go to state 144
+    thf_lambda              go to state 145
+    thf_atom                go to state 147
+    thf_typed_atom          go to state 148
+    thf_untyped_atom        go to state 149
+    thf_typed_variable      go to state 150
+    thf_untyped_variable    go to state 151
+    thf_typed_constant      go to state 152
+    thf_untyped_constant    go to state 153
+    thf_defined_word        go to state 154
+    thf_let_rec             go to state 160
+    defined_prop            go to state 162
+    defined_type            go to state 163
+    variable                go to state 164
+    atomic_word             go to state 222
+    atomic_system_word      go to state 166
+    number                  go to state 167
+
+
+state 391
+
+  232 general_term_list: general_term COMMA general_term_list .
+
+    $default  reduce using rule 232 (general_term_list)
+
+
+state 392
+
+  228 general_arguments: general_term COMMA . general_arguments
+
+    LBRKT             shift, and go to state 245
+    distinct_object   shift, and go to state 246
+    lower_word        shift, and go to state 21
+    real              shift, and go to state 58
+    signed_integer    shift, and go to state 59
+    single_quoted     shift, and go to state 22
+    unsigned_integer  shift, and go to state 61
+
+    general_term       go to state 371
+    general_data       go to state 249
+    general_arguments  go to state 409
+    general_list       go to state 250
+    atomic_word        go to state 251
+    number             go to state 252
+
+
+state 393
+
+  224 general_data: atomic_word LPAREN general_arguments RPAREN .
+
+    $default  reduce using rule 224 (general_data)
+
+
+state 394
+
+   39 quantified_formula: quantifier LBRKT variable_list RBRKT COLON unitary_formula .
+
+    $default  reduce using rule 39 (quantified_formula)
+
+
+state 395
+
+  147 tff_quantified_formula: quantifier LBRKT tff_variable_list RBRKT COLON tff_unitary_formula .
+
+    $default  reduce using rule 147 (tff_quantified_formula)
+
+
+state 396
+
+  164 tff_type_expr: LPAREN . tff_binary_type RPAREN
+
+    LPAREN              shift, and go to state 396
+    distinct_object     shift, and go to state 54
+    dollar_dollar_word  shift, and go to state 55
+    iType               shift, and go to state 129
+    lower_word          shift, and go to state 21
+    oType               shift, and go to state 130
+    real                shift, and go to state 58
+    signed_integer      shift, and go to state 59
+    single_quoted       shift, and go to state 22
+    tType               shift, and go to state 131
+    unsigned_integer    shift, and go to state 61
+
+    tff_untyped_atom    go to state 397
+    tff_type_expr       go to state 398
+    tff_binary_type     go to state 352
+    tff_mapping_type    go to state 353
+    tff_xprod_type      go to state 354
+    tff_union_type      go to state 355
+    tff_unitary_type    go to state 356
+    defined_type        go to state 400
+    functor             go to state 290
+    defined_term        go to state 291
+    system_functor      go to state 292
+    atomic_word         go to state 293
+    atomic_system_word  go to state 294
+    number              go to state 85
+
+
+state 397
+
+  174 tff_unitary_type: tff_untyped_atom .
+
+    $default  reduce using rule 174 (tff_unitary_type)
+
+
+state 398
+
+  176 tff_unitary_type: tff_type_expr .
+
+    $default  reduce using rule 176 (tff_unitary_type)
+
+
+state 399
+
+  170 tff_xprod_type: tff_xprod_type STAR tff_unitary_type .
+
+    $default  reduce using rule 170 (tff_xprod_type)
+
+
+state 400
+
+  175 tff_unitary_type: defined_type .
+
+    $default  reduce using rule 175 (tff_unitary_type)
+
+
+state 401
+
+  172 tff_union_type: tff_union_type plus tff_unitary_type .
+
+    $default  reduce using rule 172 (tff_union_type)
+
+
+state 402
+
+  171 tff_xprod_type: tff_unitary_type STAR tff_unitary_type .
+
+    $default  reduce using rule 171 (tff_xprod_type)
+
+
+state 403
+
+  173 tff_union_type: tff_unitary_type plus tff_unitary_type .
+
+    $default  reduce using rule 173 (tff_union_type)
+
+
+state 404
+
+  168 tff_mapping_type: tff_unitary_type map_arrow tff_mapping_type .
+
+    $default  reduce using rule 168 (tff_mapping_type)
+
+
+state 405
+
+  168 tff_mapping_type: tff_unitary_type . map_arrow tff_mapping_type
+  169                 | tff_unitary_type . map_arrow tff_unitary_type
+  169                 | tff_unitary_type map_arrow tff_unitary_type .
+
+    GREATER        shift, and go to state 238
+    MINUS_GREATER  shift, and go to state 239
+
+    $default  reduce using rule 169 (tff_mapping_type)
+
+    map_arrow  go to state 385
+
+
+state 406
+
+  125 thf_let_rec: _LIT_letrec LBRKT thf_definition_list RBRKT COLON thf_unitary_formula .
+
+    $default  reduce using rule 125 (thf_let_rec)
+
+
+state 407
+
+   76 thf_quantified_formula: thf_quantifier LBRKT thf_variable_list RBRKT COLON thf_unitary_formula .
+
+    $default  reduce using rule 76 (thf_quantified_formula)
+
+
+state 408
+
+   82 thf_abstraction: thf_lambda LBRKT thf_variable_list RBRKT COLON thf_unitary_formula .
+
+    $default  reduce using rule 82 (thf_abstraction)
+
+
+state 409
+
+  228 general_arguments: general_term COMMA general_arguments .
+
+    $default  reduce using rule 228 (general_arguments)

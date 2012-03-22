@@ -1,0 +1,13759 @@
+%PDF-1.1
+%âãÏÓ
+2 0 obj
+<<
+/Length 8910
+>>
+stream
+BT
+/T14 1 Tf
+0.12 0 0 -0.12 136.44 666.18 Tm
+0 g
+BX /GS1 gs EX
+0 Tc
+(Extending)Tj
+646 0 TD
+(the)Tj
+234 0 TD
+(TPTP)Tj
+414.9999 0 TD
+(Language)Tj
+602.0002 0 TD
+(to)Tj
+164 0 TD
+(Higher-Order)Tj
+-1858.0001 150 TD
+(Logic)Tj
+357 0 TD
+(with)Tj
+307 0 TD
+(Automated)Tj
+706.0001 0 TD
+0 Tw
+(P)Tj
+88 0 TD
+(arser)Tj
+334.9998 0 TD
+(Generation)Tj
+/T13 1 Tf
+-1271.9998 287.9995 TD
+[(Allen)-28000(V)]TJ
+274 0 TD
+[(an)-27000(Gelder)]TJ
+/T12 1 Tf
+356 -29.9995 TD
+(1)Tj
+/T13 1 Tf
+65 29.9995 TD
+[(and)-27000(Geo\013)-28000(Sutcli\013e)]TJ
+/T12 1 Tf
+673 -29.9995 TD
+(2)Tj
+/T11 1 Tf
+-2019.0001 173 TD
+(1)Tj
+/T10 1 Tf
+73 31 TD
+(Univ)Tj
+161 0 TD
+(ersit)Tj
+143.0001 0 TD
+[(y)-25000(o)0(f)-26000(California)-28000(at)-26000(San)]TJ
+725 0 TD
+[(ta)-26000(Cruz,)-26000(USA,)]TJ
+/T9 1 Tf
+507.9998 0 TD
+(http://www.cse.ucsc.edu/~avg)Tj
+/T11 1 Tf
+-1107.9998 60 TD
+(2)Tj
+/T10 1 Tf
+72.9999 31.9995 TD
+(Univ)Tj
+161 0 TD
+(ersit)Tj
+142.9999 0 TD
+[(y)-25000(o)0(f)-26000(Miami,)-27000(USA,)]TJ
+/T9 1 Tf
+621.0002 0 TD
+(geoff@cs.miami.edu)Tj
+/T8 1 Tf
+-1351 327.0005 TD
+(Abstract.)Tj
+/T10 1 Tf
+404.9999 0 TD
+[(A)-19000(stable)-20000(prop)-2000(osal)-21000(for)-21000(extending)-19000(the)-19000(\014rst-order)-20000(TPTP)-21000(\(Thou-)]TJ
+-404.9999 92 TD
+[(sands)-26000(of)-27000(Problems)-25000(for)-27000(Theorem)-25000(Pro)]TJ
+1196 0 TD
+(v)Tj
+39 0 TD
+[(ers\))-26000(language)-27000(to)-26000(higher-order)-26000(logic,)]TJ
+-1235 91 TD
+[(based)-29000(primarily)-29000(on)-29000(lam)]TJ
+788 0 TD
+[(b)-2000(da-calculus)-29000(expressions,)-30000(is)-30000(presen)]TJ
+1163 0 TD
+[(ted.)-28000(The)-30000(pur-)]TJ
+-1951 91 TD
+[(p)-2000(ose)-22000(of)-21000(the)-21000(system)-20000(is)-21000(to)-21000(facilitate)-23000(sharing)-21000(of)-22000(theorem-pro)]TJ
+1859 0 TD
+[(ving)-19000(problems)-21000(in)]TJ
+-1859 92 TD
+[(higher-order)-29000(logic)-30000(among)-28000(man)]TJ
+1015 0 TD
+[(y)-27000(researc)]TJ
+295.9998 0 TD
+[(hers.)-30000(Design)-29000(goals)-31000(are)-29000(discussed.)]TJ
+-1310.9998 91 TD
+(BNF2,)Tj
+257.9999 0 TD
+(a)Tj
+74 0 TD
+(new)Tj
+168 0 TD
+[(sp)-2000(eci\014cation)]TJ
+448.0001 0 TD
+(language,)Tj
+350.9998 0 TD
+(is)Tj
+87 0 TD
+(presen)Tj
+212 0 TD
+(ted.)Tj
+164.0002 0 TD
+(Unix/Lin)Tj
+310.9998 0 TD
+(ux)Tj
+118 0 TD
+(scripts)Tj
+-2190.9998 91 TD
+[(translate)-26000(the)-25000(sp)-2000(eci\014cation)-26000(do)-2000(cumen)]TJ
+1189 0 TD
+23 Tc
+[(ti)23000(n)]TJ
+115 0 TD
+0 Tc
+[(to)-25000(a)]TJ
+/T7 1 Tf
+156.9998 0 TD
+(lex)Tj
+/T10 1 Tf
+124 0 TD
+[(scanner)-25000(and)]TJ
+/T7 1 Tf
+426 0 TD
+(yac)Tj
+107 0 TD
+(c)Tj
+/T10 1 Tf
+65.0002 0 TD
+(parser.)Tj
+/T6 1 Tf
+-2419 277 TD
+(1)Tj
+168 0 TD
+(In)Tj
+101 0 TD
+[(tro)-3000(duction)]TJ
+/T13 1 Tf
+-269 164 TD
+[(The)-31000(goal)-30000(of)-30000(this)-32000(w)]TJ
+674 0 TD
+[(ork)-29000(is)-31000(to)-31000(extend)-31000(the)-31000(curren)]TJ
+989.0001 0 TD
+[(t)-30000(TPTP)-30000(\(Thousands)-31000(of)-30000(Problems)]TJ
+-1663.0001 99 TD
+[(for)-27000(Theorem)-26000(Pro)]TJ
+607.0001 0 TD
+(v)Tj
+41.9999 0 TD
+[(ers\))-25000(language)-26000([SZS04)]TJ
+754.9999 0 TD
+[(])-27000(t)0(o)-28000(include)-27000(adequate)-27000(supp)-2000(ort)-27000(for)-27000(higher-)]TJ
+-1403.9999 100 TD
+(order)Tj
+227.0001 0 TD
+(logic,)Tj
+225.9999 0 TD
+(while)Tj
+226 0 TD
+(con)Tj
+123 0 TD
+(tin)Tj
+99.0001 0 TD
+(uing)Tj
+193 0 TD
+(to)Tj
+110.9998 0 TD
+(recognize)Tj
+369.0002 0 TD
+(the)Tj
+153 0 TD
+(existing)Tj
+316 0 TD
+(\014rst-order)Tj
+397.9998 0 TD
+(language.)Tj
+379.0002 0 TD
+(It)Tj
+-2820 99 TD
+(w)Tj
+58 0 TD
+[(as)-31000(motiv)]TJ
+311 0 TD
+[(ated)-32000(b)]TJ
+233 0 TD
+[(y)-32000(a)-31000(panel)-32000(discussion)-31000(at)-32000(the)]TJ
+1022.0001 0 TD
+(W)Tj
+78 0 TD
+[(orkshop)-30000(on)-32000(Exp)-2000(erimen)]TJ
+827.9998 0 TD
+[(tally)-31000(Suc-)]TJ
+-2530 100 TD
+(cessful)Tj
+269 0 TD
+(Automated)Tj
+444.0001 0 TD
+(Reasoning)Tj
+406 0 TD
+(in)Tj
+103.9998 0 TD
+(Higher-Order)Tj
+518 0 TD
+(Logic)Tj
+230 0 TD
+(held)Tj
+188 0 TD
+(in)Tj
+104.0002 0 TD
+(conjunction)Tj
+457 0 TD
+(with)Tj
+-2720 100 TD
+(LP)Tj
+102.0001 0 TD
+[(AR-12,)-30000(Decem)]TJ
+528.9999 0 TD
+[(b)-2000(e)0(r)-32000(2005.)-30000(The)-32000(panel)-31000(discussion)-31000(con)]TJ
+1287.0001 0 TD
+(v)Tj
+41.9998 0 TD
+(ey)Tj
+79.0002 0 TD
+[(ed)-30000(the)-32000(desire)-31000(to)-32000(ha)]TJ
+692 0 TD
+(v)Tj
+42 0 TD
+30 Tc
+(ea)Tj
+-2773 99 TD
+0 Tc
+[(common)-30000(language)-30000(in)-31000(whic)]TJ
+949.0001 0 TD
+31 Tc
+(hv)Tj
+116 0 TD
+0 Tc
+[(arious)-29000(researc)]TJ
+498 0 TD
+[(hers)-28000(could)-31000(express)-30000(b)-2000(enc)]TJ
+861 0 TD
+[(hmark)-30000(prob-)]TJ
+-2424 100 TD
+[(lems)-24000(in)-23000(higher-order)-21000(logics)-23000(that)-23000(w)]TJ
+1201.0001 0 TD
+[(ould)-23000(b)-2000(e)-24000(con)]TJ
+412 0 TD
+[(tributed)-24000(to)-23000(a)-23000(common)-23000(library)-22000(along)]TJ
+-1613.0001 100 TD
+[(the)-28000(lines)-28000(of)-27000(the)-28000(TPTP)-27000(problem)-27000(library)-26000([SS98)]TJ
+1621.9999 0 TD
+(].)Tj
+-1496.9999 99 TD
+[(The)-27000(new)-28000(language)-26000(dev)]TJ
+812.0001 0 TD
+[(elop)-2000(ed)-27000(in)-28000(this)-28000(pro)-5000(ject)-27000(is)-27000(ten)]TJ
+999 0 TD
+(tativ)Tj
+171 0 TD
+[(ely)-27000(named)-28000(HOTPTP)]TJ
+753 0 TD
+(.)Tj
+-2860 100 TD
+[(Some)-27000(of)-28000(the)-28000(design)-27000(goals)-26000(w)]TJ
+978.9999 0 TD
+(ere)Tj
+-943.9999 120 TD
+(1.)Tj
+106 0 TD
+[(The)-26000(rules)-25000(of)-25000(the)-26000(language)-24000(should)-25000(b)-2000(e)-26000(simple)-26000(and)-25000(regular,)-24000(so)-25000(that)-25000(h)]TJ
+2355 0 TD
+[(umans)-25000(can)]TJ
+-2355 98.9998 TD
+[(understand)-27000(them)-29000(without)-28000(to)-2000(o)-27000(m)]TJ
+1167.9999 0 TD
+(uc)Tj
+81.0002 0 TD
+[(h)-27000(trouble.)]TJ
+-1355.0001 108.0002 TD
+(2.)Tj
+106 0 TD
+[(The)-32000(rules)-31000(of)-32000(the)-32000(language)-30000(should)-31000(b)-2000(e)-32000(presen)]TJ
+1587.9999 0 TD
+[(ted)-31000(in)-32000(a)-31000(s)0(p)-2000(eci\014cation)-32000(do)-2000(cumen)]TJ
+1121.0002 0 TD
+(t)Tj
+-2709 100 TD
+(that)Tj
+193 0 TD
+(has)Tj
+162 0 TD
+(su\016cien)Tj
+289 0 TD
+(t)Tj
+73 0 TD
+(formalit)Tj
+287.0001 0 TD
+(y)Tj
+83.9998 0 TD
+(and)Tj
+174 0 TD
+(rigor)Tj
+212 0 TD
+(to)Tj
+115 0 TD
+2 Tc
+(be)Tj
+126.0002 0 TD
+0 Tc
+(unam)Tj
+201 0 TD
+(biguous,)Tj
+341 0 TD
+(y)Tj
+41.9998 0 TD
+(et)Tj
+110.0002 0 TD
+(is)Tj
+97 0 TD
+(not)Tj
+160.9998 0 TD
+(so)Tj
+-2667 99.9999 TD
+(tec)Tj
+104 0 TD
+[(hnical)-27000(and)-28000(complicated)-27000(that)-28000(its)-28000(meaning)-27000(is)-27000(obscured.)]TJ
+-210 108 TD
+(3.)Tj
+106 0 TD
+[(The)-26000(language)-24000(should)-25000(b)-2000(e)-26000(amenable)-25000(to)]TJ
+/T5 1 Tf
+1350.9999 0 TD
+(str)Tj
+93 0 TD
+(aightforwar)Tj
+405 0 TD
+(d)Tj
+/T13 1 Tf
+79.0002 0 TD
+[(automated)-25000(parser)-24000(gen-)]TJ
+-1928.0001 99 TD
+[(eration,)-23000(with)-25000(established)-23000(to)-2000(ols)-24000(suc)]TJ
+1219.9999 0 TD
+23 Tc
+[(ha)23000(s)]TJ
+/T5 1 Tf
+168 0 TD
+0 Tc
+(lex)Tj
+/T13 1 Tf
+131 0 TD
+(and)Tj
+/T5 1 Tf
+158.0002 0 TD
+(yac)Tj
+115.9998 0 TD
+(c)Tj
+/T13 1 Tf
+38 0 TD
+25 Tc
+[(,o)25000(r)]TJ
+/T5 1 Tf
+146.0002 0 TD
+0 Tc
+(\015ex)Tj
+/T13 1 Tf
+159.9998 0 TD
+(and)Tj
+/T5 1 Tf
+158.0002 0 TD
+(bison)Tj
+/T13 1 Tf
+186 0 TD
+[(.)-24000(These)]TJ
+-2481 100 TD
+[(to)-2000(ols)]TJ
+210 0 TD
+(accept)Tj
+266 0 TD
+(LALR-1)Tj
+332.9999 0 TD
+(languages.)Tj
+410 0 TD
+(It)Tj
+98.0002 0 TD
+(w)Tj
+57.9998 0 TD
+(ould)Tj
+193 0 TD
+2 Tc
+(be)Tj
+121 0 TD
+0 Tc
+(undesirable)Tj
+447 0 TD
+(to)Tj
+110.0002 0 TD
+(rely)Tj
+172 0 TD
+(on)Tj
+123.9998 0 TD
+(tric)Tj
+123.0002 0 TD
+(ks)Tj
+-2665 99 TD
+[(and)-28000(extensions)-26000(that)-28000(migh)]TJ
+918.9999 0 TD
+[(t)-28000(b)-2000(e)-28000(supp)-2000(orted)-27000(in)-28000(one)-27000(to)-2000(ol)-28000(and)-27000(not)-28000(another.)]TJ
+-1024.9999 108 TD
+(4.)Tj
+106 0 TD
+[(It)-22000(should)-22000(b)-2000(e)-23000(straigh)]TJ
+699 0 TD
+(tforw)Tj
+189.9999 0 TD
+[(ard)-19000(to)-21000(set)-22000(up)-23000(a)-21000(Prolog)-20000(parser)-20000(for)-22000(the)-22000(language,)-20000(using)]TJ
+-888.9999 100.0001 TD
+(Prolog's)Tj
+/T4 1 Tf
+320 0 TD
+(read\(\))Tj
+/T13 1 Tf
+289 0 TD
+[(pro)-2000(cedure)-27000(to)-28000(accomplish)-26000(most)-28000(of)-27000(the)-28000(parsing)-27000(drudgery)]TJ
+1964.9999 0 TD
+(.)Tj
+-2715 119.9999 TD
+[(The)-21000(rules)-19000(of)-21000(the)-21000(TPTP)-19000(language,)-19000(as)-20000(released)-19000(with)-21000(TPTP)-19000(v3.0.0,)-19000(already)-19000(ac)]TJ
+2652 0 TD
+(hiev)Tj
+148.0002 0 TD
+(ed)Tj
+-2800 100 TD
+(goals)Tj
+218 0 TD
+(\(1\),)Tj
+168 0 TD
+(\(2\),)Tj
+167 0 TD
+(and)Tj
+172 0 TD
+(\(4\))Tj
+144.0001 0 TD
+[(ab)-2000(o)]TJ
+130 0 TD
+(v)Tj
+41.9998 0 TD
+(e)Tj
+74.0002 0 TD
+(quite)Tj
+219.9998 0 TD
+(w)Tj
+58.0002 0 TD
+(ell.)Tj
+144 0 TD
+(The)Tj
+181 0 TD
+(\014rst)Tj
+181 0 TD
+(step)Tj
+187 0 TD
+(of)Tj
+103.9998 0 TD
+(the)Tj
+154.0002 0 TD
+[(pro)-5000(ject)]TJ
+294 0 TD
+(w)Tj
+57.9998 0 TD
+(as)Tj
+112 0 TD
+(to)Tj
+-2808 98.9999 TD
+(ac)Tj
+77.0001 0 TD
+(hiev)Tj
+147.9999 0 TD
+(e)Tj
+73 0 TD
+(goal)Tj
+184.0001 0 TD
+(\(3\).)Tj
+165.9999 0 TD
+(During)Tj
+289.9999 0 TD
+(this)Tj
+171.0002 0 TD
+(initial)Tj
+249 0 TD
+(phase,)Tj
+263 0 TD
+(a)Tj
+79 0 TD
+(few)Tj
+158.9998 0 TD
+(am)Tj
+109.0002 0 TD
+(biguities)Tj
+340.9998 0 TD
+(w)Tj
+58 0 TD
+(ere)Tj
+143.0002 0 TD
+(disco)Tj
+178.9998 0 TD
+(v)Tj
+42.0002 0 TD
+(ered)Tj
+ET
+endstream
+endobj
+3 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB ]
+/Font <<
+/T4 4 0 R
+/T5 5 0 R
+/T6 6 0 R
+/T7 7 0 R
+/T8 8 0 R
+/T9 9 0 R
+/T10 10 0 R
+/T11 11 0 R
+/T12 12 0 R
+/T13 13 0 R
+/T14 14 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+18 0 obj
+<<
+/Length 12045
+>>
+stream
+BT
+/T13 1 Tf
+0.12 0 0 -0.12 134.76 666.18 Tm
+0 g
+BX /GS1 gs EX
+0 Tc
+[(in)-30000(the)-31000(existing)-30000(language,)-28000(and)-30000(minor)-30000(revisions)-29000(of)-30000(the)-31000(rules)-29000(w)]TJ
+2178 0 TD
+[(ere)-29000(implemen)]TJ
+484.0002 0 TD
+[(ted)-31000(to)]TJ
+-2662 100 TD
+(remo)Tj
+179 0 TD
+0 Tw
+(v)Tj
+42 0 TD
+[(e)-28000(these)-30000(am)]TJ
+389 0 TD
+[(biguities)-29000(without)-30000(c)]TJ
+680.0001 0 TD
+[(hanging)-29000(the)-30000(underlying)-29000(language.)-28000(F)]TJ
+1294 0 TD
+(ollo)Tj
+128 0 TD
+(wing)Tj
+-2712 100 TD
+(that)Tj
+191 0 TD
+(w)Tj
+58.0001 0 TD
+(ork,)Tj
+178.9999 0 TD
+(the)Tj
+154.0001 0 TD
+(task)Tj
+189.9999 0 TD
+(of)Tj
+105 0 TD
+(extending)Tj
+392.0001 0 TD
+(the)Tj
+153.9998 0 TD
+(language)Tj
+357 0 TD
+(to)Tj
+113.0002 0 TD
+[(accommo)-2000(date)]TJ
+533.9998 0 TD
+(higher)Tj
+265 0 TD
+(order)Tj
+-2692 99 TD
+[(constructs)-27000(b)-2000(egan.)]TJ
+125 100 TD
+(Brie\015y)Tj
+235 0 TD
+[(,)-27000(the)-28000(con)]TJ
+316.0001 0 TD
+[(tributions)-26000(arising)-27000(from)-27000(this)-28000(pro)-5000(ject)-27000(are:)]TJ
+-641.0001 108 TD
+(1.)Tj
+106 0 TD
+(The)Tj
+179 0 TD
+(dev)Tj
+125.0001 0 TD
+(elopmen)Tj
+297.9999 0 TD
+(t)Tj
+67.9999 0 TD
+(of)Tj
+103.0002 0 TD
+(BNF2,)Tj
+276 0 TD
+(a)Tj
+78 0 TD
+(new)Tj
+179.9998 0 TD
+(v)Tj
+39.0002 0 TD
+(arian)Tj
+184 0 TD
+(t)Tj
+67 0 TD
+(of)Tj
+102.9998 0 TD
+(Bac)Tj
+136.0002 0 TD
+(kus-Naur)Tj
+368 0 TD
+(form.)Tj
+228 0 TD
+(BNF2)Tj
+253 0 TD
+(is)Tj
+-2685 100 TD
+(orien)Tj
+179 0 TD
+(ted)Tj
+149 0 TD
+(to)Tj
+72 0 TD
+(w)Tj
+58 0 TD
+(ard)Tj
+155 0 TD
+(the)Tj
+150 0 TD
+[(mo)-2000(dern)]TJ
+310.0001 0 TD
+(practice)Tj
+320.9998 0 TD
+(of)Tj
+102.0002 0 TD
+(t)Tj
+29.9998 0 TD
+(w)Tj
+58.0002 0 TD
+(o-lev)Tj
+171.9998 0 TD
+(el)Tj
+93 0 TD
+(syn)Tj
+121.0002 0 TD
+(tax)Tj
+152 0 TD
+(for)Tj
+133.9998 0 TD
+(programming)Tj
+-2256 99 TD
+[(languages)-26000(and)-27000(is)-28000(easy)-26000(for)-27000(h)]TJ
+976.9999 0 TD
+[(umans)-28000(to)-27000(read.)]TJ
+-1082.9999 108 TD
+(2.)Tj
+106 0 TD
+(Unix/Lin)Tj
+336.0001 0 TD
+[(ux)-27000(scripts)-27000(to)-28000(translate)-26000(BNF2)-28000(in)]TJ
+1141 0 TD
+[(to)-27000(input)-29000(readable)-26000(b)]TJ
+698.9998 0 TD
+(y)Tj
+/T5 1 Tf
+71.0002 0 TD
+(lex)Tj
+/T13 1 Tf
+136 0 TD
+(and)Tj
+/T5 1 Tf
+161 0 TD
+(yac)Tj
+116 0 TD
+(c)Tj
+/T13 1 Tf
+37.9998 0 TD
+(.)Tj
+-2804 108 TD
+(3.)Tj
+106 0 TD
+[(Stable)-29000(BNF2)-29000(rules)-28000(that)-29000(extend)-29000(the)-29000(TPTP)-28000(language)-27000(and)-28000(accept)-29000(a)-28000(v)]TJ
+2437 0 TD
+(ariet)Tj
+165.0002 0 TD
+28 Tc
+[(yo)28000(f)]TJ
+-2602 100 TD
+0 Tc
+[(higher-order)-25000(logic)-27000(expressions)-26000(in)-28000(a)-27000(h)]TJ
+1308.0001 0 TD
+[(uman-readable)-26000(language.)]TJ
+-1449.0001 108 TD
+(Soft)Tj
+143 0 TD
+(w)Tj
+58 0 TD
+[(are)-26000(and)-28000(do)-2000(cumen)]TJ
+623 0 TD
+[(ts)-27000(are)-27000(at)]TJ
+/T4 1 Tf
+332.0001 0 TD
+(http://www.cse.uc)Tj
+746.9998 0 TD
+(sc)Tj
+87 0 TD
+(.ed)Tj
+131 0 TD
+(u/)Tj
+87.0002 0 TD
+(~av)Tj
+131 0 TD
+(g/)Tj
+87 0 TD
+(TPT)Tj
+131 0 TD
+(Pp)Tj
+87 0 TD
+(ar)Tj
+87 0 TD
+(ser)Tj
+/T13 1 Tf
+131 0 TD
+(.)Tj
+/T6 1 Tf
+-2862 200 TD
+(2)Tj
+168 0 TD
+[(Sp)-3000(eci\014cations)]TJ
+701.0001 0 TD
+(with)Tj
+255 0 TD
+(BNF2)Tj
+/T13 1 Tf
+-1124.0001 158 TD
+[(The)-31000(TPTP)-29000(language)-29000(w)]TJ
+844.0001 0 TD
+[(as)-29000(sp)-2000(eci\014ed)-31000(in)-31000(TPTP)-29000(v3.0.0)-29000(using)-30000(the)-31000(original)-29000(standard)]TJ
+-844.0001 99 TD
+(Bac)Tj
+136 0 TD
+[(kus-Naur)-30000(form)-31000(\(BNF\))]TJ
+835.9999 0 TD
+[([Ne60],)-32000(with)-32000(informal)-32000(explanations)-31000(to)-32000(get)-31000(o)]TJ
+1587.0002 0 TD
+(v)Tj
+42 0 TD
+[(er)-31000(some)]TJ
+-2601 100 TD
+(rough)Tj
+245 0 TD
+[(sp)-2000(ots.)]TJ
+247 0 TD
+(In)Tj
+112.9999 0 TD
+(this)Tj
+172.0001 0 TD
+(simple)Tj
+268.0001 0 TD
+(and)Tj
+170 0 TD
+(easy-to-read)Tj
+478 0 TD
+(format,)Tj
+302.9998 0 TD
+(whic)Tj
+164.0002 0 TD
+(h)Tj
+83 0 TD
+(is)Tj
+92 0 TD
+(found)Tj
+241.9998 0 TD
+(in)Tj
+107.0002 0 TD
+(man)Tj
+154.9998 0 TD
+(y)Tj
+-2839 98.9998 TD
+[(programming-language)-31000(texts,)]TJ
+1102.0001 0 TD
+(grammar)Tj
+363 0 TD
+(sym)Tj
+143.9998 0 TD
+[(b)-2000(ols)]TJ
+180.0002 0 TD
+(are)Tj
+147 0 TD
+(enclosed)Tj
+334.9998 0 TD
+(in)Tj
+/T3 1 Tf
+104.0002 0 TD
+(<)Tj
+100 0 TD
+(>)Tj
+/T13 1 Tf
+64.9998 0 TD
+(,)Tj
+58.0002 0 TD
+(and)Tj
+168.9998 0 TD
+(the)Tj
+-2767 100 TD
+(only)Tj
+194 0 TD
+(meta-sym)Tj
+352 0 TD
+[(b)-2000(ols)]TJ
+185 0 TD
+(are)Tj
+150 0 TD
+(the)Tj
+154.9999 0 TD
+[(pro)-2000(duction)]TJ
+435.0002 0 TD
+(sym)Tj
+143.9998 0 TD
+2 Tc
+[(bo)2000(l)]TJ
+152 0 TD
+0 Tc
+(\\)Tj
+/T4 1 Tf
+42 0 TD
+(::=)Tj
+/T13 1 Tf
+132 0 TD
+(",)Tj
+102.0002 0 TD
+(the)Tj
+155 0 TD
+(alternativ)Tj
+352 0 TD
+(e)Tj
+75 0 TD
+(sym)Tj
+144 0 TD
+2 Tc
+[(bo)2000(l)]TJ
+-2769 100.0002 TD
+0 Tc
+(\\)Tj
+/T4 1 Tf
+42 0 TD
+(|)Tj
+/T13 1 Tf
+44 0 TD
+(",)Tj
+102 0 TD
+(and)Tj
+172 0 TD
+(the)Tj
+154.0001 0 TD
+[(rep)-2000(etition)]TJ
+391.9999 0 TD
+(sym)Tj
+144.0001 0 TD
+2 Tc
+[(bo)2000(l)]TJ
+151 0 TD
+0 Tc
+(\\)Tj
+/T4 1 Tf
+41.9998 0 TD
+(*)Tj
+/T13 1 Tf
+44.0002 0 TD
+(";)Tj
+102 0 TD
+(an)Tj
+86 0 TD
+(y)Tj
+81 0 TD
+(other)Tj
+227.9998 0 TD
+(c)Tj
+35.0002 0 TD
+(haracter)Tj
+339 0 TD
+(sequence)Tj
+355 0 TD
+(stands)Tj
+269.9998 0 TD
+(for)Tj
+-2783 98.9998 TD
+[(itself,)-29000(and)-29000(is)-29000(called)-28000(a)]TJ
+/T5 1 Tf
+780 0 TD
+(self-de)Tj
+223.9999 0 TD
+(clar)Tj
+132 0 TD
+(e)Tj
+34.0002 0 TD
+[(d)-32000(token)]TJ
+/T13 1 Tf
+267 0 TD
+[(.)-29000(More)-28000(sophisticated)-28000(v)]TJ
+807 0 TD
+(arian)Tj
+183.9998 0 TD
+[(ts)-28000(ha)]TJ
+179.0002 0 TD
+(v)Tj
+42 0 TD
+[(e)-28000(b)-2000(een)]TJ
+-2649 100 TD
+[(prop)-2000(osed)-27000(o)]TJ
+394 0 TD
+(v)Tj
+42 0 TD
+[(er)-25000(the)-28000(y)]TJ
+280 0 TD
+[(ears;)-26000(see)-28000(Section)-27000(5.)]TJ
+-591 100 TD
+[(While)-31000(trying)-30000(to)-30000(write)-30000(scripts)-30000(to)-31000(translate)-29000(BNF)-31000(in)]TJ
+1808.0001 0 TD
+[(to)-30000(inputs)-31000(for)]TJ
+/T5 1 Tf
+491 0 TD
+(lex)Tj
+/T13 1 Tf
+139 0 TD
+(and)Tj
+/T5 1 Tf
+163.9998 0 TD
+(yac)Tj
+116.0002 0 TD
+(c)Tj
+/T13 1 Tf
+-2843 99 TD
+(it)Tj
+92 0 TD
+(w)Tj
+58 0 TD
+(as)Tj
+110 0 TD
+(realized)Tj
+313 0 TD
+(that)Tj
+189 0 TD
+(standard)Tj
+354.9999 0 TD
+(BNF)Tj
+211 0 TD
+(is)Tj
+92.0002 0 TD
+(ill-suited)Tj
+351 0 TD
+(for)Tj
+135 0 TD
+[(sp)-2000(ecifying)]TJ
+/T5 1 Tf
+395 0 TD
+(tokens)Tj
+/T13 1 Tf
+226.9998 0 TD
+(.)Tj
+59.0002 0 TD
+(That)Tj
+215.9998 0 TD
+(is,)Tj
+-2803 100 TD
+[(the)-24000(mo)-2000(dern)-24000(t)]TJ
+468 0 TD
+(w)Tj
+58.0001 0 TD
+(o-lev)Tj
+171.9999 0 TD
+[(el)-22000(st)]TJ
+145 0 TD
+[(yle)-24000(of)-24000(programming-language)-19000(sp)-2000(eci\014cation)-24000(de\014nes)]TJ
+/T5 1 Tf
+1811.9999 0 TD
+(tokens)Tj
+/T13 1 Tf
+-2655 99 TD
+[(using)-28000(regular)-28000(expressions,)-27000(and)-28000(de\014nes)]TJ
+/T5 1 Tf
+1395.0001 0 TD
+(gr)Tj
+69 0 TD
+[(ammar)-32000(symb)]TJ
+463 0 TD
+(ols)Tj
+/T13 1 Tf
+133 0 TD
+[(using)-28000(con)]TJ
+341 0 TD
+[(text-free)-28000(pro-)]TJ
+-2401 100 TD
+(duction)Tj
+310 0 TD
+(rules.)Tj
+233 0 TD
+(A)Tj
+101 0 TD
+(lexical)Tj
+266 0 TD
+(analyzer)Tj
+341.0001 0 TD
+(parses)Tj
+261 0 TD
+(the)Tj
+153.9998 0 TD
+(ra)Tj
+73.0002 0 TD
+(w)Tj
+97 0 TD
+(input)Tj
+232 0 TD
+(in)Tj
+67 0 TD
+(to)Tj
+111.9998 0 TD
+(tok)Tj
+116.0002 0 TD
+(ens,)Tj
+176 0 TD
+(while)Tj
+227.9998 0 TD
+(the)Tj
+-2767 100 TD
+[(pro)-2000(duction)]TJ
+430 0 TD
+(rules)Tj
+207 0 TD
+(treat)Tj
+211 0 TD
+(tok)Tj
+116.0001 0 TD
+(ens)Tj
+150 0 TD
+(as)Tj
+110 0 TD
+(terminal)Tj
+340 0 TD
+(sym)Tj
+144 0 TD
+[(b)-2000(ols.)]TJ
+203 0 TD
+(This)Tj
+197.9998 0 TD
+(distinction)Tj
+418 0 TD
+(is)Tj
+92.0002 0 TD
+(blurred)Tj
+-2619 99.0002 TD
+(in)Tj
+109 0 TD
+(standard)Tj
+359 0 TD
+(BNF.)Tj
+238 0 TD
+(Another)Tj
+336.9999 0 TD
+[(asp)-2000(ect)]TJ
+269.0002 0 TD
+(of)Tj
+106 0 TD
+(the)Tj
+154.9998 0 TD
+(TPTP)Tj
+273 0 TD
+(language)Tj
+358 0 TD
+(that)Tj
+192 0 TD
+(w)Tj
+58 0 TD
+(as)Tj
+114 0 TD
+(observ)Tj
+233.0002 0 TD
+(ed)Tj
+-2801 99.9998 TD
+(w)Tj
+58 0 TD
+[(as)-30000(that)-31000(some)-30000(pro)-2000(duction)-31000(rules)-30000(w)]TJ
+1184.9999 0 TD
+(en)Tj
+81.0002 0 TD
+31 Tc
+[(tb)29000(e)31000(y)]TJ
+190 0 TD
+0 Tc
+[(ond)-30000(sp)-2000(ecifying)-31000(the)]TJ
+/T5 1 Tf
+699 0 TD
+(form)Tj
+/T13 1 Tf
+207.9998 0 TD
+[(of)-31000(the)-31000(input,)]TJ
+-2421 100 TD
+[(and)-32000(sp)-2000(eci\014ed)-32000(a)-32000(list)-32000(of)-32000(acceptable)-32000(w)]TJ
+1290.0001 0 TD
+[(ords.)-30000(This)-32000(presen)]TJ
+630.9998 0 TD
+[(ted)-32000(a)-32000(con\015ict)-32000(in)-32000(that)-32000(suc)]TJ
+915.0002 0 TD
+(h)Tj
+-2836 99.0002 TD
+(w)Tj
+58 0 TD
+[(ords)-31000(b)-2000(ecame)-32000(self-declared)-31000(tok)]TJ
+1081.0001 0 TD
+[(ens.)-32000(Without)]TJ
+510 0 TD
+[(making)-32000(a)-32000(con)]TJ
+495 0 TD
+(text-sensitiv)Tj
+442 0 TD
+[(e)-31000(lexical)]TJ
+-2586 100 TD
+[(analyzer,)-26000(suc)]TJ
+467 0 TD
+27 Tc
+(hw)Tj
+131 0 TD
+0 Tc
+[(ords)-27000(b)-2000(ecame)-27000(una)]TJ
+610.0001 0 TD
+(v)Tj
+38.9998 0 TD
+[(ailable)-27000(for)-27000(user)-27000(iden)]TJ
+716.0002 0 TD
+(ti\014ers.)Tj
+-1838.0001 99 TD
+(T)Tj
+53 0 TD
+24 Tc
+(oo)Tj
+106 0 TD
+0 Tc
+(v)Tj
+42 0 TD
+[(ercome)-23000(these)-25000(limitations)-26000(of)-25000(standard)-24000(BNF)-25000(w)]TJ
+1595.9999 0 TD
+[(e)-25000(designed)-25000(BNF2,)-25000(a)-25000(simple)]TJ
+-1921.9999 100 TD
+(extension)Tj
+375 0 TD
+(of)Tj
+102.0001 0 TD
+(BNF)Tj
+211 0 TD
+(that)Tj
+188 0 TD
+(preserv)Tj
+261 0 TD
+(es)Tj
+103 0 TD
+(the)Tj
+150.9998 0 TD
+(easy-to-read)Tj
+477.0002 0 TD
+(format)Tj
+277.9998 0 TD
+(for)Tj
+134 0 TD
+[(pro)-2000(duction)]TJ
+431.0002 0 TD
+(rules)Tj
+-2711 99.9999 TD
+(and)Tj
+173 0 TD
+(adds)Tj
+206 0 TD
+(di\013eren)Tj
+268 0 TD
+(t)Tj
+71 0 TD
+(formats)Tj
+315.0001 0 TD
+(to)Tj
+113 0 TD
+[(sp)-2000(ecify)]TJ
+287 0 TD
+(seman)Tj
+225 0 TD
+(tic)Tj
+130 0 TD
+(rules,)Tj
+233.9998 0 TD
+(tok)Tj
+116.0002 0 TD
+(ens,)Tj
+177.9998 0 TD
+(and)Tj
+173.0002 0 TD
+(macros)Tj
+293.9998 0 TD
+(for)Tj
+-2783 99 TD
+(tok)Tj
+116 0 TD
+(ens.)Tj
+/T5 1 Tf
+163 0 TD
+(Semantic)Tj
+/T13 1 Tf
+363 0 TD
+[(pro)-2000(duction)-25000(rules)-25000(are)-24000(ignored)-24000(for)-24000(purp)-2000(oses)-25000(of)-25000(syn)]TJ
+1726.0001 0 TD
+[(tactic)-24000(parsing,)]TJ
+-2368 100 TD
+(but)Tj
+158.0001 0 TD
+(are)Tj
+144.9999 0 TD
+(a)Tj
+40 0 TD
+(v)Tj
+39.0001 0 TD
+[(ailable)-32000(to)]TJ
+375 0 TD
+[(sp)-2000(ecify)]TJ
+281 0 TD
+(more)Tj
+214 0 TD
+(detail)Tj
+237 0 TD
+[(ab)-2000(out)]TJ
+243 0 TD
+(the)Tj
+149 0 TD
+(seman)Tj
+225 0 TD
+(tic)Tj
+125 0 TD
+(con)Tj
+122.9998 0 TD
+(ten)Tj
+113 0 TD
+(t)Tj
+65.0002 0 TD
+(of)Tj
+100.9998 0 TD
+(certain)Tj
+-2633 100 TD
+(sen)Tj
+114 0 TD
+(ten)Tj
+113.0001 0 TD
+[(tial)-29000(forms.)-28000(All)-30000(the)-29000(extensions)-29000(are)-28000(implemen)]TJ
+1574 0 TD
+[(ted)-29000(b)]TJ
+188 0 TD
+[(y)-29000(using)-29000(additional)-28000(meta-)]TJ
+-1989.0001 99 TD
+(sym)Tj
+144 0 TD
+[(b)-2000(ols)-32000(to)-32000(sp)-2000(ecify)]TJ
+564.0001 0 TD
+(v)Tj
+38.9999 0 TD
+[(arious)-31000(rule)-32000(t)]TJ
+450.9999 0 TD
+[(yp)-2000(es,)-32000(according)-31000(to)-32000(the)]TJ
+850.0002 0 TD
+(follo)Tj
+153 0 TD
+[(wing)-32000(table.)-32000(As)]TJ
+565.9998 0 TD
+(the)Tj
+-2767 100 TD
+[(table)-21000(sho)]TJ
+320 0 TD
+[(ws,)-19000(a)-20000(sym)]TJ
+341 0 TD
+[(b)-2000(o)0(l)-20000(that)-21000(has)-20000(a)]TJ
+/T5 1 Tf
+509.0001 0 TD
+(semantic)Tj
+/T13 1 Tf
+345.9998 0 TD
+[(rule)-20000(m)]TJ
+226 0 TD
+[(ust)-21000(also)-19000(ha)]TJ
+377.0002 0 TD
+(v)Tj
+42 0 TD
+[(e)-19000(a)-20000(normal)-20000(grammar)]TJ
+-2161 99 TD
+[(rule)-22000(if)-23000(it)-23000(app)-2000(ears)-22000(on)-22000(the)-23000(righ)]TJ
+1003.0001 0 TD
+[(t)-22000(side)-23000(of)-22000(an)]TJ
+391 0 TD
+[(y)-22000(normal)-22000(grammar)-20000(rule.)-23000(The)-22000(string)-22000(\\)]TJ
+/T4 1 Tf
+1316 0 TD
+(<=>)Tj
+/T13 1 Tf
+131.9998 0 TD
+(")Tj
+-2842 100 TD
+[(and)-26000(follo)]TJ
+313 0 TD
+[(wing)-26000(strings)-25000(are)-26000(self-declared)-25000(tok)]TJ
+1189.9999 0 TD
+[(ens:)-26000(grammar)-25000(sym)]TJ
+664 0 TD
+[(b)-2000(ols)-25000(m)]TJ
+238.0002 0 TD
+[(ust)-27000(consist)-26000(of)]TJ
+-2405 100 TD
+(alphan)Tj
+243 0 TD
+[(umerics.)-31000(The)]TJ
+508.0001 0 TD
+(righ)Tj
+141.9999 0 TD
+[(t)-32000(sides)-32000(of)-32000(tok)]TJ
+483.0001 0 TD
+[(en)-32000(and)-32000(macro)-31000(rules)-32000(are)]TJ
+/T5 1 Tf
+882.9998 0 TD
+(lex)Tj
+/T13 1 Tf
+108 0 TD
+[(-ready)-31000(regular)]TJ
+-2367 98.9999 TD
+[(expressions,)-26000(except)-28000(that)-27000(\\)]TJ
+/T4 1 Tf
+937.9999 0 TD
+(<)Tj
+87.0002 0 TD
+(>)Tj
+/T13 1 Tf
+44 0 TD
+[(")-27000(need)-28000(to)-27000(b)-2000(e)-28000(con)]TJ
+600 0 TD
+(v)Tj
+42 0 TD
+[(erted)-26000(to)-28000(\\)]TJ
+/T4 1 Tf
+354.9998 0 TD
+({)Tj
+86 0 TD
+(})Tj
+/T13 1 Tf
+44 0 TD
+(".)Tj
+ET
+endstream
+endobj
+19 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB ]
+/Font <<
+/T3 20 0 R
+/T4 4 0 R
+/T5 5 0 R
+/T6 6 0 R
+/T13 13 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+22 0 obj
+<<
+/Length 9306
+>>
+stream
+BT
+/F4 1 Tf
+7.97 0 0 7.97 194.064 665.412 Tm
+0 g
+BX /GS1 gs EX
+0.002 Tc
+(Design)Tj
+-0.5782 -1.2045 TD
+0.006 Tc
+[(L)8(angua)12(g)12(e)]TJ
+ET
+0 G
+0 J 0 j 0.797 w 10 M []0 d
+1 i 
+178.564 624.301 m
+178.564 635.06 l
+232.139 635.06 l
+232.139 613.541 l
+178.564 613.541 l
+s
+BT
+/F2 1 Tf
+7.97 0 0 7.97 184.56 627.204 Tm
+0.001 Tc
+(Speci\002cation)Tj
+0.8672 -1.2045 TD
+-0.002 Tc
+[(in)-261(BNF2)]TJ
+ET
+203.235 639.602 m
+205.309 635.459 l
+207.38 639.604 l
+205.308 637.945 l
+f
+205.302 652.944 m
+205.308 637.945 l
+223.492 585.997 m
+223.492 596.756 l
+263.654 596.756 l
+263.654 575.237 l
+223.492 575.237 l
+s
+BT
+7.97 0 0 7.97 229.584 588.9 Tm
+0.006 Tc
+[(Input)7(s)-219(t)7(o)]TJ
+-0.012 -1.2045 TD
+0.004 Tc
+[(l)5(e)14(x,)-240(yacc)]TJ
+ET
+228.073 598.619 m
+232.469 597.155 l
+231.003 601.55 l
+230.71 598.913 l
+f
+216.476 613.142 m
+230.71 598.913 l
+S
+BT
+7.97 0 0 7.97 231.933 613.783 Tm
+0 Tc
+[(tran)-6(slatio)-6(n)]TJ
+0.807 -1.2045 TD
+-0.004 Tc
+[(sc)-6(r)-8(i)-3(p)-10(t)-3(s)]TJ
+ET
+261.124 547.789 m
+261.124 558.548 l
+302.521 558.548 l
+302.521 537.029 l
+261.124 537.029 l
+s
+BT
+7.97 0 0 7.97 270.768 550.692 Tm
+0.004 Tc
+[(S)6(ource)]TJ
+-0.4577 -1.2045 TD
+[(C)9(ode)-238(\(C)9(\))]TJ
+ET
+266.314 560.41 m
+270.71 558.947 l
+269.243 563.342 l
+268.951 560.704 l
+f
+254.801 574.838 m
+268.951 560.704 l
+S
+BT
+7.97 0 0 7.97 266.215 572.04 Tm
+0.002 Tc
+[(yacc,)-230(le)12(x)]TJ
+ET
+213.799 640.042 m
+213.121 635.459 l
+217.195 637.667 l
+214.546 637.496 l
+f
+297.804 558.947 m
+329.115 580.888 235.039 666.785 214.546 637.496 c
+296.452 509.485 m
+296.452 520.244 l
+343.699 520.244 l
+343.699 498.725 l
+296.452 498.725 l
+s
+BT
+7.97 0 0 7.97 302.448 512.388 Tm
+[(Ex)8(ecutable)]TJ
+0.9756 -1.2045 TD
+-0.014 Tc
+[(Pa)-16(r)-18(s)-10(e)-16(r)]TJ
+ET
+304.596 522.111 m
+308.99 520.643 l
+307.528 525.039 l
+307.233 522.402 l
+f
+293.024 536.63 m
+307.233 522.402 l
+S
+BT
+7.97 0 0 7.97 304.465 533.77 Tm
+0 Tc
+[(co)-6(m)-5(p)-6(ile)]TJ
+/F4 1 Tf
+-18.706 6.9171 TD
+0.004 Tc
+(Human)Tj
+0.0361 -1.2045 TD
+0.002 Tc
+[(Re)12(vie)12(w)]TJ
+ET
+178.095 599.958 m
+176.634 595.561 l
+181.028 597.031 l
+178.391 597.321 l
+f
+194.179 613.142 m
+178.391 597.321 l
+S
+173.589 630.621 m
+178.128 631.554 l
+174.658 634.625 l
+175.725 632.195 l
+f
+164.517 595.561 m
+161.167 608.009 165.673 634.878 175.725 632.195 c
+S
+BT
+7.97 0 0 7.97 139.678 619.126 Tm
+[(Re)12(vis)6(e)]TJ
+ET
+182.98 528.685 m
+182.98 549.008 l
+227.7 549.008 l
+227.7 508.361 l
+182.98 508.361 l
+s
+BT
+/F2 1 Tf
+7.97 0 0 7.97 194.736 541.092 Tm
+0.006 Tc
+[(P)8(r)2(ol)7(og)]TJ
+0.0843 -1.2045 TD
+-0.014 Tc
+[(Pa)-16(r)-18(s)-10(e)-16(r)]TJ
+0.3613 -1.1925 TD
+-0.001 Tc
+(with)Tj
+-1.1684 -1.2045 TD
+0 Tc
+[(Sem)-5(a)-2(n)-6(tics)]TJ
+ET
+203.233 553.552 m
+205.305 549.407 l
+207.378 553.551 l
+205.305 551.893 l
+f
+205.312 613.142 m
+205.305 551.893 l
+S
+BT
+/F4 1 Tf
+7.97 0 0 7.97 210.11 559.465 Tm
+0.005 Tc
+(hand-code)Tj
+ET
+198.592 608.517 m
+198.87 613.142 l
+195.003 610.59 l
+197.626 610.989 l
+f
+193.342 549.407 m
+182.628 567.968 188.152 594.583 197.626 610.989 c
+S
+BT
+/F2 1 Tf
+7.97 0 0 7.97 139.011 557.412 Tm
+[(Errors)8(,)]TJ
+/F4 1 Tf
+2.9994 0 TD
+0.002 Tc
+[(Re)12(vis)6(e)]TJ
+/F2 1 Tf
+12.4961 -9.8529 TD
+0.004 Tc
+[(T)73(e)2(s)8(t)-248(on)-243(HOL)-240(Exampl)5(es)8(,)]TJ
+1.9392 -1.1925 TD
+0.003 Tc
+[(TPTP)-248(Library)57(,)]TJ
+-0.7468 -1.2045 TD
+[(and)-232(T)0(S)5(T)0(P)-248(L)0(ibrary)]TJ
+ET
+308.163 490.256 m
+308.155 485.623 l
+311.867 488.397 l
+309.271 487.845 l
+f
+314.532 498.326 m
+309.271 487.845 l
+S
+272.43 485.979 m
+277.05 485.623 l
+274.563 489.532 l
+274.918 486.902 l
+f
+228.061 515.025 m
+274.918 486.902 l
+375.556 471.277 m
+375.556 482.036 l
+417.631 482.036 l
+417.631 460.517 l
+375.556 460.517 l
+s
+BT
+7.97 0 0 7.97 385.584 474.18 Tm
+0.001 Tc
+(DONE)Tj
+-0.5059 -1.2045 TD
+0.005 Tc
+[(\(for)-228(n)-1(o)23(w)4(\))]TJ
+ET
+371.072 469.204 m
+375.216 471.277 l
+371.072 473.349 l
+372.729 471.277 l
+f
+344.195 471.277 m
+372.729 471.276 l
+S
+219.397 639.772 m
+217.704 635.459 l
+222.17 636.692 l
+219.552 637.123 l
+f
+336.452 485.623 m
+395.833 509.621 265.296 678.319 219.552 637.123 c
+S
+BT
+7.97 0 0 7.97 300.399 612.802 Tm
+[(Errors)8(,)]TJ
+/F4 1 Tf
+2.9994 0 TD
+0.002 Tc
+[(Re)12(vis)6(e)]TJ
+/T8 1 Tf
+0.12 0 0 -0.12 134.76 430.38 Tm
+0 Tc
+[(Fig.)-15000(1.)]TJ
+/T10 1 Tf
+263 0 TD
+(Ov)Tj
+99 0 TD
+[(erview)-29000(of)-31000(the)-30000(system)-29000(ev)]TJ
+803.0001 0 TD
+[(aluate)-31000(a)-30000(prop)-2000(osed)-31000(HOTPTP)-31000(language.)-31000(Human)-29000(ac-)]TJ
+-1165.0001 91.0002 TD
+[(tivities)-26000(are)-27000(sho)]TJ
+492 0 TD
+[(wn)-25000(in)]TJ
+/T7 1 Tf
+212.9999 0 TD
+(italics)Tj
+/T10 1 Tf
+198.0001 0 TD
+0 Tw
+(.)Tj
+/T7 1 Tf
+-728 242 TD
+(Meta-)Tj
+243 0 TD
+(R)Tj
+54 0 TD
+(ule)Tj
+-318 90.9998 TD
+(Symb)Tj
+174 0 TD
+[(ol)-31000(T)]TJ
+139 0 TD
+(yp)Tj
+72.0001 0 TD
+(e)Tj
+227.9999 0 TD
+(Examples)Tj
+/T10 1 Tf
+346.0001 0 TD
+[(\(some)-25000(are)-27000(simpli\014ed)-25000(from)-25000(the)-25000(TPTP)-27000(language\))]TJ
+ET
+q
+311.76 0 0 -0.48 151.788 376.248 cm
+BI
+/W 1
+/H 1
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 1>>
+ID P 
+EI
+Q
+BT
+/T9 1 Tf
+0.12 0 0 -0.12 160.68 368.1 Tm
+(::=)Tj
+/T10 1 Tf
+202 0 TD
+(Grammar)Tj
+/T9 1 Tf
+349 0 TD
+(<TPTP)Tj
+235.0001 0 TD
+(input>)Tj
+352.9998 0 TD
+(::=)Tj
+157.0002 0 TD
+(<annotated)Tj
+431 0 TD
+(formula>)Tj
+352.9998 0 TD
+(|)Tj
+79.0002 0 TD
+(<comment>)Tj
+-1608.0001 91.0002 TD
+(<nonassoc)Tj
+392.0001 0 TD
+(op>)Tj
+195.9998 0 TD
+(::=)Tj
+157.0002 0 TD
+(<=>)Tj
+157 0 TD
+(|)Tj
+77.9998 0 TD
+(=>)Tj
+118 0 TD
+(|)Tj
+78.0002 0 TD
+(<=)Tj
+118 0 TD
+(|)Tj
+78.9998 0 TD
+(<~>)Tj
+-1372.9999 92 TD
+(<formula)Tj
+353.0001 0 TD
+(role>)Tj
+234.9998 0 TD
+(::=)Tj
+157.0002 0 TD
+(<lower)Tj
+274 0 TD
+(word>)Tj
+-1570.0001 90.9998 TD
+(:==)Tj
+/T10 1 Tf
+202 0 TD
+(Seman)Tj
+221.0001 0 TD
+(tic)Tj
+/T9 1 Tf
+127.9999 0 TD
+(<formula)Tj
+353.0001 0 TD
+(role>)Tj
+234.9998 0 TD
+(:==)Tj
+157.0002 0 TD
+(axiom)Tj
+234.9998 0 TD
+(|)Tj
+79.0002 0 TD
+(conjecture)Tj
+431 0 TD
+(|)Tj
+79 0 TD
+(lemma)Tj
+234.9998 0 TD
+(|)Tj
+-1058.9998 91.0002 TD
+(theorem)Tj
+314 0 TD
+(|)Tj
+77.9998 0 TD
+(negated_conjecture)Tj
+-1687.9999 92 TD
+(::-)Tj
+/T10 1 Tf
+202 0 TD
+(T)Tj
+49 0 TD
+(ok)Tj
+77 0 TD
+(en)Tj
+/T9 1 Tf
+223 0 TD
+(<lower)Tj
+273.9999 0 TD
+(word>)Tj
+314 0 TD
+(::-)Tj
+157.0002 0 TD
+(<lower><alphanum>*)Tj
+-1296.0001 90.9998 TD
+(::=)Tj
+/T10 1 Tf
+202 0 TD
+(Macro)Tj
+/T9 1 Tf
+349 0 TD
+(<lower>)Tj
+587.9999 0 TD
+(:::)Tj
+157.0002 0 TD
+([a-z])Tj
+-745.0001 91.0002 TD
+(<alphanum>)Tj
+587.9999 0 TD
+(:::)Tj
+157.0002 0 TD
+([A-Za-z0-9_])Tj
+ET
+q
+311.76 0 0 -0.48 151.788 288.168 cm
+BI
+/W 1
+/H 1
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 1>>
+ID P 
+EI
+Q
+BT
+/T6 1 Tf
+0.12 0 0 -0.12 134.76 267.78 Tm
+(3)Tj
+168 0 TD
+(System)Tj
+391 0 TD
+(Description)Tj
+/T13 1 Tf
+-559 160.0002 TD
+[(This)-23000(section)-23000(describ)-2000(es)-22000(the)-23000(system)-23000(that)-23000(ev)]TJ
+1466.9999 0 TD
+[(aluates)-22000(a)-23000(prop)-2000(osed)-22000(HOTPTP)-22000(language,)]TJ
+-1466.9999 99.9999 TD
+(based)Tj
+240 0 TD
+(on)Tj
+123 0 TD
+(a)Tj
+78 0 TD
+(BNF2)Tj
+253 0 TD
+[(sp)-2000(eci\014cation)]TJ
+482.0001 0 TD
+[(do)-2000(cumen)]TJ
+323 0 TD
+(t)Tj
+67.9998 0 TD
+[(pro)-2000(duced)]TJ
+371.0002 0 TD
+(man)Tj
+155 0 TD
+(ually)Tj
+171 0 TD
+(.)Tj
+57.9998 0 TD
+(The)Tj
+179.0002 0 TD
+(system)Tj
+284 0 TD
+(in-)Tj
+-2785 99 TD
+(cludes)Tj
+256 0 TD
+[(b)-2000(oth)]TJ
+202.0001 0 TD
+(man)Tj
+155 0 TD
+(ual)Tj
+144 0 TD
+(and)Tj
+167.9999 0 TD
+(automated)Tj
+421.9999 0 TD
+(elemen)Tj
+247.0002 0 TD
+(ts.)Tj
+121.9998 0 TD
+(This)Tj
+195.0002 0 TD
+(is)Tj
+90 0 TD
+(not)Tj
+153.9998 0 TD
+(a)Tj
+76.0002 0 TD
+(system)Tj
+281 0 TD
+(to)Tj
+108 0 TD
+[(pro)-2000(cess)]TJ
+-2620 100 TD
+(an)Tj
+128 0 TD
+(arbitrary)Tj
+366 0 TD
+(BNF2)Tj
+257.0001 0 TD
+[(do)-2000(cumen)]TJ
+323 0 TD
+(t;)Tj
+95 0 TD
+(its)Tj
+128.9998 0 TD
+(main)Tj
+220.0002 0 TD
+[(purp)-2000(ose)]TJ
+323.9998 0 TD
+(is)Tj
+96.0002 0 TD
+(to)Tj
+114 0 TD
+[(supp)-2000(ort)]TJ
+319.9998 0 TD
+(TPTP-related)Tj
+-2372 100 TD
+(dev)Tj
+125 0 TD
+(elopmen)Tj
+298 0 TD
+[(t.)-27000(Figure)-27000(1)-27000(pro)]TJ
+532.0001 0 TD
+[(vides)-26000(an)-28000(o)]TJ
+365 0 TD
+(v)Tj
+42 0 TD
+(erview.)Tj
+-1237.0001 99 TD
+[(The)-32000(primary)-32000(automated)-32000(part)-32000(of)]TJ
+1202.0001 0 TD
+(the)Tj
+148 0 TD
+(system)Tj
+281 0 TD
+[(generates)-31000(an)-32000(executable)]TJ
+904 0 TD
+(parser)Tj
+-2660 100 TD
+[(from)-32000(a)-31000(BNF2)-32000(sp)-2000(eci\014cation)-32000(do)-2000(cumen)]TJ
+1324.0001 0 TD
+[(t)-32000(for)-31000(HOTPTP)]TJ
+548.9998 0 TD
+[(,)-31000(follo)]TJ
+207 0 TD
+[(wing)-31000(the)]TJ
+350.0002 0 TD
+(righ)Tj
+142 0 TD
+[(t)-31000(branc)]TJ
+265 0 TD
+(h)Tj
+-2837 99 TD
+[(of)-28000(the)-29000(diagram.)-27000(This)-28000(parser)-27000(is)-28000(extremely)-28000(simple,)-29000(to)-28000(ensure)-27000(that)-29000(the)-29000(input)-29000(b)-2000(eing)]TJ
+0 100 TD
+(c)Tj
+35 0 TD
+(hec)Tj
+118 0 TD
+(k)Tj
+42 0 TD
+[(ed)-24000(is)-26000(really)-24000(in)-26000(the)-25000(language)-24000(of)-25000(the)-26000(sp)-2000(eci\014cation)-25000(do)-2000(cumen)]TJ
+2020.9999 0 TD
+[(t.)-26000(The)-25000(\014rst)-26000(step)-25000(to)]TJ
+-2216 100 TD
+[(generate)-23000(a)-24000(parser)-23000(is)-24000(to)-24000(translate)-24000(the)-24000(\(ASCI)-2000(I)-26000(text\))-25000(BNF2)-24000(sp)-2000(eci\014cation)-24000(do)-2000(cumen)]TJ
+2827 0 TD
+(t,)Tj
+-2827 98.9999 TD
+(sa)Tj
+73 0 TD
+(y)Tj
+/T4 1 Tf
+86 0 TD
+(hotptp-bnf2.txt)Tj
+/T13 1 Tf
+659 0 TD
+(,)Tj
+59 0 TD
+(in)Tj
+66.9999 0 TD
+(to)Tj
+115.0002 0 TD
+(a)Tj
+83.9998 0 TD
+(pair)Tj
+184.0002 0 TD
+(of)Tj
+108.9998 0 TD
+(\014les,)Tj
+/T4 1 Tf
+203.0002 0 TD
+(hotptp-1.lex0)Tj
+/T13 1 Tf
+609 0 TD
+(and)Tj
+/T4 1 Tf
+175 0 TD
+(hotptp-1.y)Tj
+/T13 1 Tf
+440 0 TD
+(,)Tj
+ET
+endstream
+endobj
+23 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB ]
+/Font <<
+/F2 24 0 R
+/F4 25 0 R
+/T4 4 0 R
+/T6 6 0 R
+/T7 7 0 R
+/T8 8 0 R
+/T9 9 0 R
+/T10 10 0 R
+/T13 13 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+27 0 obj
+<<
+/Length 12869
+>>
+stream
+BT
+/T13 1 Tf
+0.12 0 0 -0.12 134.76 666.18 Tm
+0 g
+BX /GS1 gs EX
+0 Tc
+(whic)Tj
+164 0 TD
+0 Tw
+(h)Tj
+80 0 TD
+[(are)-32000(input)]TJ
+371 0 TD
+(\014les)Tj
+173.0001 0 TD
+(for)Tj
+/T5 1 Tf
+132.9999 0 TD
+(lex)Tj
+/T13 1 Tf
+141.0001 0 TD
+(\(or)Tj
+/T5 1 Tf
+140 0 TD
+(\015ex)Tj
+/T13 1 Tf
+136 0 TD
+(\))Tj
+65.9998 0 TD
+(and)Tj
+/T5 1 Tf
+167.0002 0 TD
+(yac)Tj
+116 0 TD
+(c)Tj
+/T13 1 Tf
+77 0 TD
+(\(or)Tj
+/T5 1 Tf
+139.9998 0 TD
+(bison)Tj
+/T13 1 Tf
+192 0 TD
+(\).)Tj
+90.0002 0 TD
+(Unix/Lin)Tj
+336 0 TD
+(ux)Tj
+123.9998 0 TD
+(scripts)Tj
+-2646 100 TD
+[(accomplish)-28000(this)-28000(translation,)-27000(in)]TJ
+1099.0001 0 TD
+(v)Tj
+41.9998 0 TD
+(oking)Tj
+/T5 1 Tf
+224.0002 0 TD
+(se)Tj
+68 0 TD
+(d)Tj
+/T13 1 Tf
+42 0 TD
+(,)Tj
+/T5 1 Tf
+52 0 TD
+(awk)Tj
+/T13 1 Tf
+135 0 TD
+(,)Tj
+/T5 1 Tf
+52 0 TD
+(gr)Tj
+69 0 TD
+(ep)Tj
+/T13 1 Tf
+80 0 TD
+(,)Tj
+/T5 1 Tf
+51.9998 0 TD
+(sort)Tj
+/T13 1 Tf
+139 0 TD
+[(,)-28000(etc.)-29000(No)-28000(errors)-26000(are)-27000(de-)]TJ
+-2054 100 TD
+[(tected)-27000(during)-26000(this)-28000(step.)-26000(There)-27000(is)-26000(a)-27000(clear)-25000(corresp)-2000(ondence)-25000(b)-2000(e)0(t)]TJ
+2151 0 TD
+(w)Tj
+57.9998 0 TD
+[(een)-27000(grammar)-25000(rules)]TJ
+-2209 99 TD
+(in)Tj
+/T4 1 Tf
+104 0 TD
+(hotptp-bnf2.txt)Tj
+/T13 1 Tf
+688 0 TD
+(and)Tj
+/T4 1 Tf
+167.9999 0 TD
+(hotptp-1.y)Tj
+/T13 1 Tf
+440.0002 0 TD
+31 Tc
+(.T)Tj
+107 0 TD
+0 Tc
+(ok)Tj
+83.9998 0 TD
+(ens)Tj
+149 0 TD
+(ha)Tj
+86.0002 0 TD
+(v)Tj
+42 0 TD
+(e)Tj
+70 0 TD
+(mnemonic)Tj
+403.9998 0 TD
+(names)Tj
+261 0 TD
+(and)Tj
+168 0 TD
+(are)Tj
+-2771 100 TD
+[(easy)-27000(to)-27000(lo)-2000(cate)-27000(in)]TJ
+/T4 1 Tf
+623 0 TD
+(hotptp-1.lex0)Tj
+/T13 1 Tf
+572.0001 0 TD
+(.)Tj
+-1070.0001 99 TD
+(The)Tj
+176 0 TD
+[(analysis)-32000(and)]TJ
+484.9999 0 TD
+(compilation)Tj
+458.0002 0 TD
+(of)Tj
+/T4 1 Tf
+107 0 TD
+(hotptp-1.y)Tj
+/T13 1 Tf
+469 0 TD
+(b)Tj
+44 0 TD
+(y)Tj
+/T5 1 Tf
+76.9998 0 TD
+(yac)Tj
+116.0002 0 TD
+(c)Tj
+/T13 1 Tf
+76.9998 0 TD
+(or)Tj
+/T5 1 Tf
+108 0 TD
+(bison)Tj
+/T13 1 Tf
+226.0002 0 TD
+(is)Tj
+89.9998 0 TD
+(a)Tj
+75 0 TD
+(critical)Tj
+-2633 100 TD
+(step.)Tj
+207 0 TD
+(Grammar)Tj
+388.0001 0 TD
+(errors)Tj
+244.9999 0 TD
+(and)Tj
+169.0001 0 TD
+(am)Tj
+108.9998 0 TD
+(biguities)Tj
+341 0 TD
+(are)Tj
+147.0002 0 TD
+(often)Tj
+218 0 TD
+[(lo)-2000(cated)]TJ
+296.9998 0 TD
+(here)Tj
+188 0 TD
+(after)Tj
+205.0002 0 TD
+(the)Tj
+150.9998 0 TD
+(BNF2)Tj
+-2665 100 TD
+[(do)-2000(cumen)]TJ
+323 0 TD
+[(t)-21000(has)-21000(passed)-20000(h)]TJ
+496 0 TD
+[(uman)-21000(insp)-2000(ection.)-22000(The)-21000(default)-21000(library)-20000(routines)-20000(are)-20000(used)-22000(for)]TJ
+-819 99 TD
+[(all)-26000(pro)-2000(cedures)-24000(that)-27000(are)-25000(exp)-2000(ected)-26000(to)-26000(b)-2000(e)-26000(supplied)-26000(b)]TJ
+1771.0001 0 TD
+[(y)-26000(the)-26000(programmer.)-24000(A)-26000(standard)]TJ
+-1771.0001 100 TD
+(seman)Tj
+225 0 TD
+(tic)Tj
+125 0 TD
+(action)Tj
+256 0 TD
+(is)Tj
+89.0001 0 TD
+(attac)Tj
+182.9999 0 TD
+(hed)Tj
+162.9999 0 TD
+(to)Tj
+107 0 TD
+(eac)Tj
+114.0002 0 TD
+(h)Tj
+78.9998 0 TD
+[(grammar)-32000(rule,)]TJ
+558.0002 0 TD
+(whic)Tj
+164 0 TD
+(h)Tj
+80 0 TD
+(builds)Tj
+251 0 TD
+(a)Tj
+75 0 TD
+(naiv)Tj
+153 0 TD
+(e)Tj
+69.9998 0 TD
+(parse)Tj
+-2692 100 TD
+[(tree)-32000(for)-31000(eac)]TJ
+416 0 TD
+[(h)-31000(sen)]TJ
+191.0001 0 TD
+[(tence,)-32000(whic)]TJ
+408 0 TD
+32 Tc
+[(hm)32000(a)]TJ
+187 0 TD
+0 Tc
+[(y)-31000(b)-2000(e)-32000(prin)]TJ
+338 0 TD
+[(ted)-32000(in)-32000(v)]TJ
+289.9998 0 TD
+[(erb)-2000(ose)-31000(mo)-2000(de.)-32000(A)-32000(syn)]TJ
+727.0002 0 TD
+[(tax)-31000(error)]TJ
+-2557 99 TD
+[(causes)-31000(\\syn)]TJ
+422 0 TD
+[(tax)-31000(error")-29000(on)-32000(the)]TJ
+/T4 1 Tf
+665.0001 0 TD
+(stderr)Tj
+/T13 1 Tf
+294 0 TD
+[(stream)-31000(and)-32000(a)-32000(nonzero)-30000(exit)]TJ
+999 0 TD
+[(co)-2000(de;)-31000(the)]TJ
+365.9998 0 TD
+(exit)Tj
+-2746 100 TD
+[(co)-2000(de)-27000(is)-28000(zero)-26000(up)-2000(on)-28000(success.)]TJ
+125 99 TD
+(T)Tj
+53 0 TD
+[(esting)-27000(against)-26000(the)-27000(full)-28000(TPTP)-27000(Problem)-26000(library)-26000(requires)-26000(sev)]TJ
+2101 0 TD
+[(eral)-25000(min)]TJ
+296.0002 0 TD
+[(utes.)-28000(All)]TJ
+-2575 100 TD
+(\014les)Tj
+175 0 TD
+(with)Tj
+197 0 TD
+(extension)Tj
+375 0 TD
+(\\)Tj
+/T4 1 Tf
+42.0001 0 TD
+(.p)Tj
+/T13 1 Tf
+87.9999 0 TD
+(")Tj
+76.9999 0 TD
+(should)Tj
+271.0002 0 TD
+2 Tc
+(be)Tj
+121 0 TD
+0 Tc
+(accepted,)Tj
+373 0 TD
+(whereas)Tj
+322.9998 0 TD
+(the)Tj
+151.0002 0 TD
+(TSTP)Tj
+258 0 TD
+(library)Tj
+278.9998 0 TD
+(con-)Tj
+-2730 100 TD
+[(tains)-29000(\014les)-30000(that)-30000(are)-28000(kno)]TJ
+826.0001 0 TD
+[(wn)-29000(to)-30000(ha)]TJ
+325 0 TD
+(v)Tj
+41.9998 0 TD
+[(e)-28000(syn)]TJ
+186 0 TD
+[(tax)-29000(errors.)-27000(The)-30000(most)-29000(v)]TJ
+828.0002 0 TD
+[(olatile)-29000(\014les)-29000(are)-29000(the)]TJ
+-2207 99 TD
+(HOL)Tj
+218 0 TD
+(examples,)Tj
+392 0 TD
+(whic)Tj
+164 0 TD
+(h)Tj
+85 0 TD
+(use)Tj
+154.0001 0 TD
+(the)Tj
+154.9998 0 TD
+(higher)Tj
+265.0002 0 TD
+(order)Tj
+228 0 TD
+(extensions.)Tj
+434 0 TD
+(When)Tj
+254 0 TD
+(a)Tj
+79.9998 0 TD
+(syn)Tj
+121.0002 0 TD
+(tax)Tj
+156 0 TD
+(error)Tj
+-2706 100 TD
+(or)Tj
+112 0 TD
+[(unexp)-2000(ected)]TJ
+449 0 TD
+(parse)Tj
+229 0 TD
+(tree)Tj
+177.0001 0 TD
+[(o)-2000(ccurs,)]TJ
+290 0 TD
+(analysis)Tj
+322.9998 0 TD
+(is)Tj
+94.0002 0 TD
+(needed)Tj
+288 0 TD
+(to)Tj
+112 0 TD
+(determine)Tj
+399 0 TD
+(if)Tj
+86 0 TD
+(fault)Tj
+206.9998 0 TD
+(lies)Tj
+-2766 100 TD
+[(with)-25000(the)-24000(form)]TJ
+492 0 TD
+[(ula)-23000(or)-24000(the)-24000(language)-22000(sp)-2000(eci\014cation.)-24000(Based)-23000(on)-24000(a)]TJ
+1598.9999 0 TD
+(v)Tj
+39 0 TD
+[(ailable)-23000(examples,)-24000(the)]TJ
+-2130 99 TD
+[(HOTPTP)-23000(language)-23000(has)-24000(stabilized)-24000(after)-24000(ab)-2000(out)-24000(ten)-24000(iterations)-24000(of)-24000(the)-25000(left)-25000(branc)]TJ
+2746 0 TD
+23 Tc
+[(ho)23000(f)]TJ
+-2746 100 TD
+0 Tc
+[(the)-28000(system)-27000(diagram.)]TJ
+/T6 1 Tf
+0 199 TD
+(4)Tj
+168 0 TD
+(The)Tj
+229 0 TD
+(HOTPTP)Tj
+518 0 TD
+(Syn)Tj
+180.0001 0 TD
+(tax)Tj
+195 0 TD
+[(Prop)-3000(osal)]TJ
+/T13 1 Tf
+-1290.0001 150 TD
+[(The)-24000(complete)-24000(BNF2)-23000(do)-2000(cumen)]TJ
+1077.0001 0 TD
+[(t)-24000(for)-23000(the)-24000(prop)-2000(osed)-23000(HOTPTP)-23000(syn)]TJ
+1173 0 TD
+[(tax)-23000(is)-23000(a)]TJ
+260 0 TD
+(v)Tj
+39 0 TD
+[(ailable)-23000(as)]TJ
+/T4 1 Tf
+-2549 90.9998 TD
+(hotptp-bnf2.txt)Tj
+/T13 1 Tf
+684 0 TD
+[(at)-29000(the)-30000(URL)-31000(giv)]TJ
+561.0001 0 TD
+[(en)-28000(at)-30000(the)-30000(end)-30000(of)-30000(Section)-30000(1.)-29000(The)-30000(follo)]TJ
+1329 0 TD
+[(wing)-29000(ex-)]TJ
+-2574 92.0002 TD
+[(ample)-26000(illustrates)-25000(man)]TJ
+780 0 TD
+[(y)-25000(o)0(f)-25000(the)-26000(features)-25000(added)-26000(to)-25000(express)-25000(higher)-24000(order)-25000(constructs.)]TJ
+-780 91 TD
+(TPTP)Tj
+267 0 TD
+(follo)Tj
+153.0001 0 TD
+(ws)Tj
+126.9999 0 TD
+(the)Tj
+149 0 TD
+[(Prolog)-32000(con)]TJ
+394.0001 0 TD
+(v)Tj
+42 0 TD
+(en)Tj
+81 0 TD
+(tion)Tj
+176 0 TD
+(that)Tj
+187 0 TD
+(v)Tj
+38.9998 0 TD
+(ariables)Tj
+312.0002 0 TD
+[(b)-2000(egin)]TJ
+230 0 TD
+(with)Tj
+195.9998 0 TD
+(capital)Tj
+279.0002 0 TD
+(letters,)Tj
+-2632 91 TD
+[(and)-27000(uses)-28000(\\?")-27000(for)]TJ
+/T2 1 Tf
+615 0 TD
+(9)Tj
+/T13 1 Tf
+73.0001 0 TD
+[(and)-28000(\\!")-27000(for)]TJ
+/T2 1 Tf
+422.9998 0 TD
+(8)Tj
+/T13 1 Tf
+47.0002 0 TD
+(.)Tj
+/T9 1 Tf
+-1080.0001 142 TD
+(hof\(1,)Tj
+275 0 TD
+(definition,)Tj
+-118 90.9998 TD
+(set_union)Tj
+393 0 TD
+(:=)Tj
+117.0001 0 TD
+(lambda)Tj
+275 0 TD
+([A:)Tj
+157 0 TD
+($type]:)Tj
+313.9998 0 TD
+(lambda)Tj
+274 0 TD
+([D:)Tj
+157 0 TD
+(\(\(A->)Tj
+236.0002 0 TD
+($o\)->)Tj
+235 0 TD
+($o\),)Tj
+196 0 TD
+(X:)Tj
+118 0 TD
+(A]:)Tj
+-1962 91.0002 TD
+(?)Tj
+78.9999 0 TD
+([S:)Tj
+157.0001 0 TD
+(\(A->)Tj
+196 0 TD
+($o\)]:)Tj
+235 0 TD
+(\()Tj
+78.9998 0 TD
+(\(D)Tj
+117.0002 0 TD
+(@)Tj
+79 0 TD
+(S\))Tj
+117.9998 0 TD
+(&)Tj
+78.0002 0 TD
+(\(S)Tj
+118 0 TD
+(@)Tj
+77.9998 0 TD
+(X\))Tj
+118 0 TD
+(\))Tj
+78.0002 0 TD
+(\).)Tj
+/T13 1 Tf
+-2150 150 TD
+[(The)-30000(new)-31000(op)-2000(erator)-28000(\\)]TJ
+/T4 1 Tf
+726.0001 0 TD
+(:=)Tj
+/T13 1 Tf
+88 0 TD
+[(")-29000(p)-2000(ermits)-31000(a)-30000(de\014nition)-31000(at)-30000(the)-31000(top)-30000(lev)]TJ
+1323 0 TD
+[(el)-30000(of)-31000(a)-30000(\\form)]TJ
+469 0 TD
+(ula")Tj
+-2731 100 TD
+[(\(Hudak)-29000(uses)-29000(\\)]TJ
+/T2 1 Tf
+521 0 TD
+(\021)Tj
+/T13 1 Tf
+65 0 TD
+[(")-27000([Hud89]\).)-29000(Other)-28000(new)-29000(op)-2000(erators)-27000(are:)-28000(\\)]TJ
+/T4 1 Tf
+1423.9999 0 TD
+(lambda)Tj
+/T13 1 Tf
+264.0002 0 TD
+[(")-26000(for)-28000(lam)]TJ
+327.9998 0 TD
+[(b)-2000(d)0(a)-29000(ab-)]TJ
+-2602 99 TD
+[(straction,)-25000(\\)]TJ
+/T4 1 Tf
+410 0 TD
+(@)Tj
+/T13 1 Tf
+44 0 TD
+[(")-25000(for)-25000(application,)-25000(and)-26000(\\)]TJ
+/T4 1 Tf
+843.9999 0 TD
+(->)Tj
+/T13 1 Tf
+88 0 TD
+[(")-24000(for)-26000(t)]TJ
+222.0002 0 TD
+[(yp)-2000(e)-26000(mappings.)-25000(The)-26000(colon)-25000(\\)]TJ
+/T4 1 Tf
+976 0 TD
+(:)Tj
+/T13 1 Tf
+43.9998 0 TD
+[(")-25000(o)0(p)-2000(er-)]TJ
+-2628 100 TD
+[(ator)-22000(has)-22000(sev)]TJ
+426.0001 0 TD
+[(eral)-21000(new)-23000(meanings,)-23000(for)-22000(t)]TJ
+857.9998 0 TD
+[(yping)-23000(and)-22000(lam)]TJ
+512.0002 0 TD
+[(b)-2000(d)0(a)-23000(expressions.)-21000(Also,)-23000(\\)]TJ
+/T4 1 Tf
+857.9998 0 TD
+(^)Tj
+/T13 1 Tf
+44.0002 0 TD
+22 Tc
+[("i)22000(sa)]TJ
+-2698 99.9999 TD
+0 Tc
+(synon)Tj
+209 0 TD
+[(ym)-22000(for)]TJ
+/T4 1 Tf
+257 0 TD
+(lambda)Tj
+/T13 1 Tf
+285.0001 0 TD
+[(and)-22000(\\)]TJ
+/T4 1 Tf
+198 0 TD
+(>)Tj
+/T13 1 Tf
+44 0 TD
+[(")-22000(i)0(s)-23000(a)-22000(synon)]TJ
+415.9998 0 TD
+[(ym)-22000(for)-22000(\\)]TJ
+/T4 1 Tf
+299.0002 0 TD
+(->)Tj
+/T13 1 Tf
+88 0 TD
+[(".)-22000(W)]TJ
+165 0 TD
+[(e)-23000(call)-22000(these)-23000(new)-23000(op)-2000(erators)]TJ
+-1961.0001 99 TD
+[(the)-28000(HOF)-28000(op)-2000(erators.)]TJ
+125 100 TD
+(Logical)Tj
+301.0001 0 TD
+[(op)-2000(erators)]TJ
+381.9999 0 TD
+(and)Tj
+176.0001 0 TD
+(HOF)Tj
+223 0 TD
+[(op)-2000(erators)]TJ
+382 0 TD
+(can)Tj
+165.9998 0 TD
+2 Tc
+(be)Tj
+128.0002 0 TD
+0 Tc
+(mixed)Tj
+261 0 TD
+(in)Tj
+/T3 1 Tf
+110.9998 0 TD
+(\025)Tj
+/T13 1 Tf
+48 0 TD
+(/)Tj
+/T4 1 Tf
+42.0002 0 TD
+(@)Tj
+/T13 1 Tf
+86 0 TD
+(expressions,,)Tj
+-2431 100 TD
+[(sub)-5000(ject)]TJ
+295 0 TD
+(to)Tj
+108 0 TD
+(using)Tj
+224 0 TD
+(paren)Tj
+202 0 TD
+(theses)Tj
+250.9999 0 TD
+(as)Tj
+108.0002 0 TD
+(needed.)Tj
+306 0 TD
+(F)Tj
+46.9998 0 TD
+(ollo)Tj
+128.0002 0 TD
+(wing)Tj
+203.9998 0 TD
+(the)Tj
+150.0002 0 TD
+[(general)-32000(principle)]TJ
+640 0 TD
+(in)Tj
+103.9998 0 TD
+(the)Tj
+-2767 99 TD
+(TPTP)Tj
+277.0001 0 TD
+(language,)Tj
+384.9999 0 TD
+(an)Tj
+/T5 1 Tf
+131 0 TD
+(apply)Tj
+233.0001 0 TD
+(expr)Tj
+150 0 TD
+(ession)Tj
+/T13 1 Tf
+220 0 TD
+(,)Tj
+67 0 TD
+(using)Tj
+233.9998 0 TD
+(one)Tj
+168 0 TD
+(or)Tj
+118.0002 0 TD
+(more)Tj
+223 0 TD
+(binary)Tj
+276.9998 0 TD
+(\\)Tj
+/T4 1 Tf
+42.0002 0 TD
+(@)Tj
+/T13 1 Tf
+44 0 TD
+(")Tj
+83.9998 0 TD
+[(op)-2000(era-)]TJ
+-2653 100 TD
+[(tors,)-27000(m)]TJ
+257 0 TD
+[(ust)-28000(b)-2000(e)-28000(paren)]TJ
+454 0 TD
+[(thesized;)-27000(ho)]TJ
+427.0001 0 TD
+(w)Tj
+58 0 TD
+(ev)Tj
+79 0 TD
+[(er,)-25000(the)-28000(unary)-27000(op)-2000(erator)]TJ
+/T3 1 Tf
+833.9998 0 TD
+(\025X)Tj
+/T13 1 Tf
+152.0002 0 TD
+[(and)-27000(its)-28000(argumen)]TJ
+590 0 TD
+(t)Tj
+-2851 99 TD
+(need)Tj
+208.0001 0 TD
+(not)Tj
+160.9999 0 TD
+2 Tc
+[(be)2000(.)]TJ
+150 0 TD
+0 Tc
+(Note)Tj
+214.0001 0 TD
+(that)Tj
+194 0 TD
+(\\)Tj
+/T4 1 Tf
+41.9998 0 TD
+(@)Tj
+/T13 1 Tf
+44.0002 0 TD
+(")Tj
+82 0 TD
+(is)Tj
+96.9998 0 TD
+[(left-asso)-2000(ciativ)]TJ
+496.0002 0 TD
+(e,)Tj
+100 0 TD
+(\\)Tj
+/T4 1 Tf
+41.9998 0 TD
+(->)Tj
+/T13 1 Tf
+88.0002 0 TD
+(")Tj
+82 0 TD
+(is)Tj
+96.9998 0 TD
+(righ)Tj
+142.0002 0 TD
+[(t-asso)-2000(ciativ)]TJ
+411 0 TD
+(e,)Tj
+98 0 TD
+(and)Tj
+-2748 100 TD
+(\\)Tj
+/T4 1 Tf
+42 0 TD
+(:)Tj
+/T13 1 Tf
+44 0 TD
+(")Tj
+77 0 TD
+(is)Tj
+91 0 TD
+(righ)Tj
+142 0 TD
+[(t-asso)-2000(ciativ)]TJ
+411.0001 0 TD
+(e,)Tj
+92.9999 0 TD
+(follo)Tj
+152.9999 0 TD
+(wing)Tj
+206.0002 0 TD
+(usual)Tj
+224.9998 0 TD
+(lam)Tj
+132 0 TD
+[(b)-2000(da-calculus)]TJ
+486 0 TD
+(con)Tj
+123.0002 0 TD
+(v)Tj
+41.9998 0 TD
+(en)Tj
+81.0002 0 TD
+(tions.)Tj
+233 0 TD
+[(Asso)-2000(cia-)]TJ
+-2581 100 TD
+[(tivities)-25000(of)-24000(existing)-24000(TPTP)-23000(op)-2000(erators)-23000(carry)-22000(o)]TJ
+1540.0001 0 TD
+(v)Tj
+42 0 TD
+[(er.)-23000(The)-25000(lam)]TJ
+416 0 TD
+[(b)-2000(d)0(a)-24000(expression)-22000(sho)]TJ
+675 0 TD
+[(wn)-24000(is:)]TJ
+/T3 1 Tf
+-2673 98.9999 TD
+(\025A)Tj
+/T13 1 Tf
+110 0 TD
+(:)Tj
+/T3 1 Tf
+24 0 TD
+5 Tc
+(\034:)Tj
+105 0 TD
+0 Tc
+(\025D)Tj
+/T13 1 Tf
+119.0001 0 TD
+1 Tc
+[(:\()1000(\()]TJ
+/T3 1 Tf
+87.9999 0 TD
+0 Tc
+(A)Tj
+/T2 1 Tf
+62.0001 0 TD
+(!)Tj
+/T3 1 Tf
+83.9999 0 TD
+(o)Tj
+/T13 1 Tf
+40.0001 0 TD
+(\))Tj
+/T2 1 Tf
+32 0 TD
+(!)Tj
+/T3 1 Tf
+82.9999 0 TD
+(o)Tj
+/T13 1 Tf
+40 0 TD
+(\))Tj
+/T3 1 Tf
+32 0 TD
+(:)Tj
+65 0 TD
+(\025X)Tj
+/T13 1 Tf
+124.0001 0 TD
+(:)Tj
+/T3 1 Tf
+23 0 TD
+(A:)Tj
+/T2 1 Tf
+127 0 TD
+(9)Tj
+/T3 1 Tf
+45.9998 0 TD
+(S)Tj
+/T13 1 Tf
+56 0 TD
+(:\()Tj
+/T3 1 Tf
+55.0002 0 TD
+(A)Tj
+/T2 1 Tf
+62 0 TD
+(!)Tj
+/T3 1 Tf
+83.9998 0 TD
+(o)Tj
+/T13 1 Tf
+40.0002 0 TD
+(\))Tj
+/T3 1 Tf
+32 0 TD
+(:)Tj
+/T13 1 Tf
+64.9998 0 TD
+(\(\()Tj
+/T3 1 Tf
+64.0002 0 TD
+(D)Tj
+/T13 1 Tf
+99 0 TD
+(@)Tj
+/T3 1 Tf
+91.9998 0 TD
+(S)Tj
+/T13 1 Tf
+56 0 TD
+(\))Tj
+/T2 1 Tf
+64.0002 0 TD
+(^)Tj
+/T13 1 Tf
+88 0 TD
+(\()Tj
+/T3 1 Tf
+32 0 TD
+(S)Tj
+/T13 1 Tf
+83.9998 0 TD
+(@)Tj
+/T3 1 Tf
+92.0002 0 TD
+(X)Tj
+/T13 1 Tf
+76 0 TD
+(\)\).)Tj
+ET
+endstream
+endobj
+28 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB ]
+/Font <<
+/T2 29 0 R
+/T3 20 0 R
+/T4 4 0 R
+/T5 5 0 R
+/T6 6 0 R
+/T9 9 0 R
+/T13 13 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+31 0 obj
+<<
+/Length 11617
+>>
+stream
+BT
+/T13 1 Tf
+0.12 0 0 -0.12 149.76 666.18 Tm
+0 g
+BX /GS1 gs EX
+0 Tc
+0 Tw
+(V)Tj
+55.0001 0 TD
+[(ariables)-20000(can)-22000(b)-2000(e)-23000(t)]TJ
+584 0 TD
+[(yp)-2000(ed)-22000(at)-22000(the)-22000(p)-2000(oin)]TJ
+587 0 TD
+[(t)-23000(where)-21000(they)-23000(are)-21000(b)-2000(ound,)-22000(but)-23000(not)-22000(elsewhere.)]TJ
+-1351.0001 100 TD
+(T)Tj
+58 0 TD
+[(yping)-28000(is)-28000(not)-28000(required.)-28000(Builtin)-29000(base)-27000(t)]TJ
+1307.0001 0 TD
+[(yp)-2000(es)-29000(are)]TJ
+/T4 1 Tf
+330 0 TD
+($type)Tj
+/T13 1 Tf
+245.9998 0 TD
+[(\(the)-29000(set)-29000(of)-28000(t)]TJ
+432.0002 0 TD
+[(yp)-2000(es\),)]TJ
+/T4 1 Tf
+246 0 TD
+($i)Tj
+/T13 1 Tf
+115 0 TD
+(\(the)Tj
+-2734 100 TD
+(set)Tj
+140 0 TD
+(of)Tj
+106 0 TD
+(individuals\),)Tj
+488 0 TD
+(and)Tj
+/T4 1 Tf
+173.0001 0 TD
+($o)Tj
+/T13 1 Tf
+125 0 TD
+(\(the)Tj
+185.9998 0 TD
+(set)Tj
+141 0 TD
+(of)Tj
+105.0002 0 TD
+(truth)Tj
+227.9998 0 TD
+(v)Tj
+39.0002 0 TD
+(alues\).)Tj
+273.9998 0 TD
+(User-de\014ned)Tj
+489.0002 0 TD
+(base)Tj
+195.9998 0 TD
+(t)Tj
+30.0002 0 TD
+[(yp)-2000(es)]TJ
+-2720 99 TD
+[(can)-28000(b)-2000(e)-29000(constan)]TJ
+543 0 TD
+[(ts)-28000(or)-28000(functional)-28000(terms.)-29000(Comp)-2000(ound)-28000(t)]TJ
+1298.9999 0 TD
+[(yp)-2000(es)-29000(ma)]TJ
+300 0 TD
+[(y)-28000(b)-2000(e)-29000(built)-29000(from)-29000(base)]TJ
+-2142 100 TD
+(t)Tj
+30.0001 0 TD
+[(yp)-2000(es)]TJ
+197.9999 0 TD
+(with)Tj
+197 0 TD
+(\\)Tj
+/T4 1 Tf
+42 0 TD
+(->)Tj
+/T13 1 Tf
+87.9999 0 TD
+(".)Tj
+99.0001 0 TD
+(Constan)Tj
+299.0001 0 TD
+(ts)Tj
+99 0 TD
+(can)Tj
+160 0 TD
+2 Tc
+(be)Tj
+121 0 TD
+0 Tc
+(t)Tj
+30 0 TD
+[(yp)-2000(ed)]TJ
+211 0 TD
+(where)Tj
+247.9998 0 TD
+(they)Tj
+195 0 TD
+[(o)-2000(ccur)]TJ
+232.0002 0 TD
+(in)Tj
+104.9998 0 TD
+(a)Tj
+77.0002 0 TD
+(form)Tj
+167 0 TD
+(ula;)Tj
+168.9998 0 TD
+(the)Tj
+-2767 99 TD
+(syn)Tj
+121.0001 0 TD
+[(tax)-22000(is)]TJ
+/T4 1 Tf
+218 0 TD
+(\(c:)Tj
+175 0 TD
+(\(int->)Tj
+304.9999 0 TD
+(int\)\))Tj
+/T13 1 Tf
+240.0001 0 TD
+(or)Tj
+/T4 1 Tf
+97 0 TD
+(\(c:)Tj
+175 0 TD
+(A\))Tj
+/T13 1 Tf
+88 0 TD
+[(,)-21000(etc.)-23000(Other)-22000(expressions)-21000(cannot)-23000(b)-2000(e)-23000(t)]TJ
+1265 0 TD
+[(yp)-2000(ed.)]TJ
+-2684 100 TD
+(F)Tj
+47 0 TD
+(or)Tj
+113 0 TD
+(example,)Tj
+/T4 1 Tf
+359 0 TD
+(\(g\(U,)Tj
+262 0 TD
+(V\))Tj
+130 0 TD
+(:)Tj
+88.0001 0 TD
+(\(int->)Tj
+304.9998 0 TD
+(int->)Tj
+261 0 TD
+(int\)\))Tj
+/T13 1 Tf
+257 0 TD
+(is)Tj
+94 0 TD
+[(imp)-2000(ossible)]TJ
+416.0002 0 TD
+(\(but)Tj
+194.9998 0 TD
+(the)Tj
+154.0002 0 TD
+(apply)Tj
+-2681 100 TD
+(expression)Tj
+/T4 1 Tf
+400 0 TD
+(\(g:)Tj
+175 0 TD
+(\(int->)Tj
+305 0 TD
+(int->)Tj
+260.9999 0 TD
+(int\)\))Tj
+262 0 TD
+(@)Tj
+87.0002 0 TD
+(U)Tj
+87 0 TD
+(@)Tj
+87 0 TD
+(V)Tj
+/T13 1 Tf
+70.9998 0 TD
+[(is)-28000(accepted\).)]TJ
+-1609.9999 99 TD
+[(Op)-2000(erators)]TJ
+402 0 TD
+(other)Tj
+229 0 TD
+(than)Tj
+205.0001 0 TD
+(the)Tj
+154.9998 0 TD
+(HOF)Tj
+220 0 TD
+[(op)-2000(erators)]TJ
+379 0 TD
+(can)Tj
+164 0 TD
+2 Tc
+(be)Tj
+125 0 TD
+0 Tc
+(treated)Tj
+297.0002 0 TD
+(as)Tj
+113.9998 0 TD
+(constan)Tj
+276 0 TD
+(ts)Tj
+103.0002 0 TD
+(b)Tj
+44 0 TD
+(y)Tj
+-2838 100 TD
+(enclosing)Tj
+369 0 TD
+(them)Tj
+225 0 TD
+(in)Tj
+110 0 TD
+(paren)Tj
+202 0 TD
+(theses,)Tj
+279.9999 0 TD
+(as)Tj
+116.0002 0 TD
+(in)Tj
+/T4 1 Tf
+108.9998 0 TD
+(\(&\))Tj
+/T13 1 Tf
+172.0002 0 TD
+(or)Tj
+/T4 1 Tf
+114.9998 0 TD
+(\(~\))Tj
+/T13 1 Tf
+171.0002 0 TD
+(or)Tj
+/T4 1 Tf
+114.9998 0 TD
+(\(=\))Tj
+/T13 1 Tf
+172.0002 0 TD
+(etc.)Tj
+170 0 TD
+(The)Tj
+183 0 TD
+(expression)Tj
+/T4 1 Tf
+-2509 100 TD
+(\()Tj
+87 0 TD
+(\(&\))Tj
+175 0 TD
+(@)Tj
+87 0 TD
+(X)Tj
+87 0 TD
+(@)Tj
+87 0 TD
+(Y)Tj
+87 0 TD
+(\))Tj
+/T13 1 Tf
+72.0001 0 TD
+[(is)-27000(accepted.)]TJ
+-557.0001 99 TD
+(A)Tj
+103 0 TD
+(\014rst-order)Tj
+401 0 TD
+(st)Tj
+63 0 TD
+(yle)Tj
+143.9999 0 TD
+(functional)Tj
+403.0002 0 TD
+(term)Tj
+212 0 TD
+(can)Tj
+164.9998 0 TD
+[(app)-2000(ear)]TJ
+288 0 TD
+(where)Tj
+253.0002 0 TD
+(a)Tj
+/T3 1 Tf
+82 0 TD
+(\025)Tj
+/T13 1 Tf
+48 0 TD
+(/)Tj
+/T4 1 Tf
+41.9998 0 TD
+(@)Tj
+/T13 1 Tf
+84.0002 0 TD
+(expression)Tj
+413 0 TD
+(is)Tj
+-2826 100 TD
+[(needed,)-24000(but)]TJ
+/T3 1 Tf
+445.0001 0 TD
+(\025)Tj
+/T13 1 Tf
+47.9999 0 TD
+(/)Tj
+/T4 1 Tf
+42 0 TD
+(@)Tj
+/T13 1 Tf
+44 0 TD
+(/)Tj
+/T2 1 Tf
+42 0 TD
+(!)Tj
+/T13 1 Tf
+106 0 TD
+[(expressions)-23000(cannot)-23000(app)-2000(ear)-24000(inside)-24000(a)-24000(functional)-24000(term.)-24000(That)-24000(is,)]TJ
+/T4 1 Tf
+-727 99 TD
+(p\(\(S)Tj
+218 0 TD
+(@)Tj
+87.0001 0 TD
+(X\)\))Tj
+/T13 1 Tf
+159 0 TD
+[(is)-27000(imp)-2000(ossible,)-28000(but)]TJ
+/T4 1 Tf
+663 0 TD
+(\(S)Tj
+131 0 TD
+(@)Tj
+87 0 TD
+(p\(X\)\))Tj
+/T13 1 Tf
+244.9998 0 TD
+[(is)-28000(accepted.)]TJ
+/T6 1 Tf
+-1589.9999 183.9998 TD
+(5)Tj
+168 0 TD
+(Related)Tj
+415.0001 0 TD
+(W)Tj
+106.9999 0 TD
+(ork)Tj
+198.0001 0 TD
+(and)Tj
+215.9998 0 TD
+(Ac)Tj
+132 0 TD
+(kno)Tj
+174 0 TD
+(wledgmen)Tj
+486 0 TD
+(ts)Tj
+/T13 1 Tf
+-1895.9999 149 TD
+[(Other)-18000(v)]TJ
+270 0 TD
+(arian)Tj
+184 0 TD
+[(ts)-17000(of)-19000(BNF)-19000(ha)]TJ
+448 0 TD
+(v)Tj
+41.9999 0 TD
+[(e)-17000(b)-2000(een)-19000(prop)-2000(osed)-18000(b)-2000(efore)-18000(BNF2.)-18000(Extended)-19000(BNF)-19000(\(EBNF\))]TJ
+-943.9999 100 TD
+(w)Tj
+58 0 TD
+(as)Tj
+111 0 TD
+(designed)Tj
+346 0 TD
+(b)Tj
+44 0 TD
+(y)Tj
+80.0001 0 TD
+(a)Tj
+78.9999 0 TD
+(standards)Tj
+388.0001 0 TD
+(committee)Tj
+415 0 TD
+(to)Tj
+111 0 TD
+(ha)Tj
+86 0 TD
+(v)Tj
+41.9998 0 TD
+(e)Tj
+72.0002 0 TD
+(great)Tj
+221.9998 0 TD
+(generalit)Tj
+313 0 TD
+(y)Tj
+79 0 TD
+(but)Tj
+161.0002 0 TD
+(is)Tj
+93 0 TD
+(quite)Tj
+-2700 100 TD
+[(complicated,)-24000(with)-26000(ab)-2000(out)-24000(a)-25000(dozen)-24000(meta-sym)]TJ
+1552.9999 0 TD
+[(b)-2000(ols,)-23000(and)-25000(do)-2000(es)-24000(not)-25000(distinguish)-25000(tok)]TJ
+1214 0 TD
+(ens)Tj
+-2767 99 TD
+[(from)-32000(grammar)-30000(sym)]TJ
+704.9999 0 TD
+[(b)-2000(ols.)-32000(Lab)-2000(eled)-32000(BNF)-32000(\(LBNF\))]TJ
+1049 0 TD
+[(is)-32000(designed)-32000(to)-32000(generate)-31000(parsers)]TJ
+-1753.9999 100 TD
+[(automatically)-32000([FR05],)]TJ
+830 0 TD
+(and)Tj
+167.9999 0 TD
+(distinguishes)Tj
+496.0002 0 TD
+(tok)Tj
+115.9998 0 TD
+(ens)Tj
+149 0 TD
+(from)Tj
+202.0002 0 TD
+[(grammar)-31000(sym)]TJ
+504.9998 0 TD
+[(b)-2000(ols,)]TJ
+202.0002 0 TD
+(but)Tj
+158 0 TD
+(is)Tj
+-2826 99.0002 TD
+(ev)Tj
+79 0 TD
+[(en)-27000(more)-27000(complicated)-27000(than)-28000(EBNF.)]TJ
+46 100 TD
+[(HOTPTP)-18000(requiremen)]TJ
+782.0001 0 TD
+[(ts)-18000(w)]TJ
+140.9998 0 TD
+[(ere)-18000(culled)-20000(from)-19000(Hudak's)-19000(exp)-2000(osition)-19000(of)-19000(lam)]TJ
+1467 0 TD
+[(b)-2000(d)0(a)-19000(calcu-)]TJ
+-2515 100 TD
+[(lus)-24000([Hud89],)-24000(and)-24000(descriptions)-23000(of)]TJ
+/T5 1 Tf
+1159.9999 0 TD
+(Co)Tj
+97.0002 0 TD
+(q)Tj
+/T13 1 Tf
+70 0 TD
+([F)Tj
+69.9998 0 TD
+(eRL],)Tj
+/T5 1 Tf
+220 0 TD
+(LF)Tj
+/T13 1 Tf
+142 0 TD
+([HHP93)Tj
+287 0 TD
+[(],)-24000(and)]TJ
+/T5 1 Tf
+228.0002 0 TD
+(ELF)Tj
+/T13 1 Tf
+197.9998 0 TD
+([Pfe94)Tj
+224 0 TD
+[(].)-25000(W)]TJ
+149.0002 0 TD
+(e)Tj
+-2845 99 TD
+[(thank)-25000(Chad)-25000(Bro)]TJ
+586 0 TD
+[(wn)-24000(and)-25000(Chris)-25000(Benzm)-2000(\177)]TJ
+757.0001 0 TD
+[(uller)-24000(for)-25000(con)]TJ
+434 0 TD
+[(tributing)-25000(examples)-24000(of)-25000(form)]TJ
+961.9998 0 TD
+(ulas)Tj
+-2739 100 TD
+[(that)-28000(should)-27000(b)-2000(e)-28000(expressible)-27000(in)-28000(HOTPTP)-26000(syn)]TJ
+1579.9999 0 TD
+[(tax,)-27000(based)-27000(on)-27000(their)-28000(w)]TJ
+771.0002 0 TD
+[(ork)-26000([BB05)]TJ
+369 0 TD
+(].)Tj
+/T6 1 Tf
+-2720 182.9998 TD
+(References)Tj
+/T10 1 Tf
+0 133.0002 TD
+([BB05])Tj
+307 0 TD
+[(C.)-31000(Benzm)-2000(\177)]TJ
+336 0 TD
+[(uller)-30000(and)-29000(C.)-31000(Bro)]TJ
+559.0001 0 TD
+(wn.)Tj
+166 0 TD
+[(A)-29000(Structured)-29000(Set)-29000(of)-30000(Higher-Order)-29000(Problems.)]TJ
+-1061.0001 91.9998 TD
+(In)Tj
+/T7 1 Tf
+96 0 TD
+(Pr)Tj
+80.0001 0 TD
+(o)Tj
+34.9999 0 TD
+[(c.)-28000(18th)-29000(The)]TJ
+383.0001 0 TD
+(or)Tj
+67 0 TD
+[(em)-28000(Pr)]TJ
+206 0 TD
+[(oving)-28000(in)-28000(Higher)-28000(Or)]TJ
+635.9998 0 TD
+[(der)-28000(L)]TJ
+178.0002 0 TD
+(o)Tj
+35 0 TD
+(gics)Tj
+/T10 1 Tf
+125 0 TD
+[(,)-27000(pages)-27000(66{81,)-27000(2005.)]TJ
+-2148 83.0002 TD
+([F)Tj
+65 0 TD
+(eRL])Tj
+242 0 TD
+[(D.)-26000(F)]TJ
+150.0001 0 TD
+(elt)Tj
+82.9999 0 TD
+(y)Tj
+/T7 1 Tf
+66 0 TD
+[(et)-28000(al.)]TJ
+/T10 1 Tf
+204 0 TD
+[(The)-26000(Co)-2000(q)-26000(Pro)-2000(of)-28000(Assistan)]TJ
+809.0001 0 TD
+(t.)Tj
+84.9998 0 TD
+(h)Tj
+41.0002 0 TD
+[(ttp://pauillac.inria.fr/co)-2000(q,)-30000(URL.)]TJ
+-1745.0001 83 TD
+([FR05])Tj
+307 0 TD
+[(M.)-29000(F)]TJ
+164 0 TD
+[(orsb)-2000(erg)-28000(and)-28000(A.)-28000(Ran)]TJ
+668.0001 0 TD
+(ta.)Tj
+130 0 TD
+[(The)-28000(Lab)-2000(elled)-29000(BNF)-28000(Grammar)-27000(F)]TJ
+1059.9998 0 TD
+(ormalism.)Tj
+369.0002 0 TD
+(T)Tj
+49 0 TD
+(ec)Tj
+66 0 TD
+(h-)Tj
+-2506 91 TD
+[(nical)-27000(rep)-2000(ort,)-26000(Chalmers,)-26000(Gothen)]TJ
+1046.9999 0 TD
+[(burg,)-26000(Sw)]TJ
+297.0002 0 TD
+[(eden,)-25000(2005.)]TJ
+-1344.0001 91.9998 TD
+(h)Tj
+41 0 TD
+(ttp://www.cs.c)Tj
+503.0001 0 TD
+(halmers.se/)Tj
+/T1 1 Tf
+383.9998 0 TD
+(\030)Tj
+/T10 1 Tf
+60.0002 0 TD
+(markus/BNF)Tj
+444.9998 0 TD
+(C.)Tj
+-1739.9999 83.0002 TD
+([HHP93])Tj
+328 0 TD
+[(R.)-32000(Harp)-2000(er,)]TJ
+399 0 TD
+[(F.)-32000(Honsell,)]TJ
+401.9999 0 TD
+[(and)-32000(G.)]TJ
+270.0002 0 TD
+(Plotkin.)Tj
+320 0 TD
+32 Tc
+(AF)Tj
+133.9998 0 TD
+0 Tc
+(ramew)Tj
+220.0002 0 TD
+[(ork)-32000(for)]TJ
+265 0 TD
+[(De\014ning)-31000(Logics.)]TJ
+/T7 1 Tf
+-2031.0001 91 TD
+[(Journal)-28000(of)-28000(the)-28000(A)]TJ
+555 0 TD
+(CM)Tj
+/T10 1 Tf
+124.0001 0 TD
+[(,)-26000(40\(1\):143{184,)-30000(1993.)]TJ
+-986.0001 83 TD
+([Hud89])Tj
+307 0 TD
+(P)Tj
+46 0 TD
+[(.)-31000(Hudak.)]TJ
+346 0 TD
+[(Conception,)-32000(Ev)]TJ
+522.9999 0 TD
+[(olution,)-32000(and)-31000(Application)-32000(of)-32000(F)]TJ
+1001.0002 0 TD
+[(unctional)-31000(Program-)]TJ
+-1916.0001 91.9999 TD
+[(ming)-25000(Languages.)]TJ
+/T7 1 Tf
+599 0 TD
+(A)Tj
+55.0001 0 TD
+[(CM)-27000(Computing)-28000(Surveys)]TJ
+/T10 1 Tf
+797 0 TD
+[(,)-28000(21:359{411,)-30000(1989.)]TJ
+-1758.0001 83.0001 TD
+([Ne60])Tj
+307 0 TD
+(P)Tj
+46 0 TD
+[(.)-22000(Naur)]TJ
+/T7 1 Tf
+233 0 TD
+[(et)-24000(al.)]TJ
+/T10 1 Tf
+194 0 TD
+[(Rep)-2000(ort)-21000(on)-22000(Algorithmic)-21000(Language)-23000(ALGOL)-21000(60.)]TJ
+/T7 1 Tf
+1540.9999 0 TD
+(Communic)Tj
+359 0 TD
+(ations)Tj
+-2373 90.9999 TD
+[(of)-27000(the)-29000(A)]TJ
+272.9999 0 TD
+(CM)Tj
+/T10 1 Tf
+124.0001 0 TD
+[(,)-25000(3:299{314,)-30000(1960.)]TJ
+-704 83 TD
+([Pfe94])Tj
+307 0 TD
+[(F.)-30000(Pfenning.)]TJ
+464 0 TD
+[(ELF:)-30000(A)-29000(meta-language)-29000(for)-30000(deductiv)]TJ
+1211.0001 0 TD
+[(e)-28000(systems)-29000(\(system)-28000(descrip-)]TJ
+-1675.0001 91.0001 TD
+(tion\).)Tj
+218 0 TD
+(In)Tj
+/T7 1 Tf
+96 0 TD
+(CADE)Tj
+/T10 1 Tf
+222 0 TD
+[(,)-25000(1994.)]TJ
+-843 83.9999 TD
+([SS98])Tj
+307 0 TD
+(G.)Tj
+115 0 TD
+(Sutcli\013e)Tj
+304.0001 0 TD
+(and)Tj
+157.9999 0 TD
+(C.B.)Tj
+185.0001 0 TD
+(Suttner.)Tj
+331 0 TD
+(The)Tj
+165.9998 0 TD
+(TPTP)Tj
+248.0002 0 TD
+(Problem)Tj
+317 0 TD
+(Library:)Tj
+305 0 TD
+(CNF)Tj
+196.9998 0 TD
+(Release)Tj
+-2326 91.0001 TD
+(v1.2.1.)Tj
+/T7 1 Tf
+254 0 TD
+[(Journal)-28000(of)-27000(A)]TJ
+427.0001 0 TD
+(utomate)Tj
+263 0 TD
+30 Tc
+(dR)Tj
+120.9998 0 TD
+0 Tc
+(e)Tj
+31 0 TD
+(asoning)Tj
+/T10 1 Tf
+254.0002 0 TD
+[(,)-27000(21\(2\):177{203,)-30000(1998.)]TJ
+-1657.0001 82.9999 TD
+([SZS04])Tj
+307 0 TD
+[(G.)-21000(Sutcli\013e,)-20000(J.)-21000(Zimmer,)-19000(and)-20000(S.)-20000(Sc)]TJ
+1100.0001 0 TD
+(h)Tj
+40.9998 0 TD
+[(ulz.)-24000(TSTP)-21000(Data-Exc)]TJ
+685.0002 0 TD
+[(hange)-20000(F)]TJ
+260 0 TD
+[(ormats)-20000(for)-21000(Au-)]TJ
+-2086 91 TD
+[(tomated)-27000(Theorem)-27000(Pro)]TJ
+749.0001 0 TD
+[(ving)-27000(T)]TJ
+219 0 TD
+[(o)-2000(ols.)]TJ
+190.9998 0 TD
+(In)Tj
+/T7 1 Tf
+97.0002 0 TD
+(Distribute)Tj
+326 0 TD
+[(d)-31000(Constr)]TJ
+290.9998 0 TD
+[(aint)-30000(Pr)]TJ
+241 0 TD
+[(oblem)-30000(Solving)]TJ
+-2114 91.9999 TD
+[(and)-28000(R)]TJ
+201.0001 0 TD
+(e)Tj
+31 0 TD
+[(asoning)-29000(in)-27000(Multi-A)]TJ
+636 0 TD
+[(gent)-29000(Systems)]TJ
+/T10 1 Tf
+432 0 TD
+[(,)-27000(pages)-27000(201{215.)-28000(IOS)-25000(Press,)-27000(2004.)]TJ
+ET
+endstream
+endobj
+32 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB ]
+/Font <<
+/T1 33 0 R
+/T2 29 0 R
+/T3 20 0 R
+/T4 4 0 R
+/T5 5 0 R
+/T6 6 0 R
+/T7 7 0 R
+/T10 10 0 R
+/T13 13 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+34 0 obj
+<<
+/Type /Halftone
+/HalftoneType 1
+/HalftoneName (Default)
+/Frequency 60
+/Angle 45
+/SpotFunction /Round
+>>
+endobj
+15 0 obj
+<<
+/Type /ExtGState
+/SA false
+/OP false
+/HT /Default
+>>
+endobj
+35 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+33 0 obj
+<<
+/Name /T1
+/Type /Font
+/Subtype /Type3
+/Resources 35 0 R
+/FontBBox [4 10 55 28]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 24
+/LastChar 24
+/Encoding 36 0 R
+/CharProcs 37 0 R
+/Widths [60 ]
+>>
+endobj
+36 0 obj
+<<
+/Type /Encoding
+/Differences [24/AO ]
+>>
+endobj
+37 0 obj
+<<
+/AO 38 0 R
+>>
+endobj
+38 0 obj
+<<
+/Length 155
+>>
+stream
+60 0 4 10 55 28 d1
+q
+51 0 0 18 4.1 9.9 cm
+BI
+/W 51
+/H 18
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 51>>
+ID ' ”4ĞzzOD^kÕ Ã]6º4ªÁ‚éŠíp×k†­ 
+EI
+Q
+endstream
+endobj
+39 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+29 0 obj
+<<
+/Name /T2
+/Type /Font
+/Subtype /Type3
+/Resources 39 0 R
+/FontBBox [0 -2 77 58]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 17
+/LastChar 94
+/Encoding 40 0 R
+/CharProcs 41 0 R
+/Widths [65 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+83 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 47 46 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 55 ]
+>>
+endobj
+40 0 obj
+<<
+/Type /Encoding
+/Differences [17/AH 33/AX 56/BK /BL 94/CM ]
+>>
+endobj
+41 0 obj
+<<
+/AH 42 0 R
+/AX 43 0 R
+/BK 44 0 R
+/BL 45 0 R
+/CM 46 0 R
+>>
+endobj
+42 0 obj
+<<
+/Length 137
+>>
+stream
+65 0 5 1 59 41 d1
+q
+54 0 0 40 5.1 0.9 cm
+BI
+/W 54
+/H 40
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID #%=¨ÿşGJ{Qÿü”ö   
+EI
+Q
+endstream
+endobj
+43 0 obj
+<<
+/Length 156
+>>
+stream
+83 0 5 -1 77 43 d1
+q
+72 0 0 44 5.1 -1.1 cm
+BI
+/W 72
+/H 44
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 72>>
+ID *ÿ»ıßvı»{·nİ»GÎƒØRd:
+•*TµJ—¥ªë×_ø €
+EI
+Q
+endstream
+endobj
+44 0 obj
+<<
+/Length 179
+>>
+stream
+47 0 0 -2 46 58 d1
+q
+46 0 0 60 0.1 -2.1 cm
+BI
+/W 46
+/H 60
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 46>>
+ID #à•4í}ëkûÖ×öÒıëkûÖ×öÒıŠşÖLGöÒıëkûÖ×öÒıëkûÖ×öÒıëkûÖ×ö+Úş×ö­@ @
+EI
+Q
+endstream
+endobj
+45 0 obj
+<<
+/Length 146
+>>
+stream
+46 0 4 0 41 58 d1
+q
+37 0 0 58 4.1 -0.1 cm
+BI
+/W 37
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID #†=È“ÿÿÿÿÿòá¦»‘'ÿÿÿÿÿäpÔ]¨ €
+EI
+Q
+endstream
+endobj
+46 0 obj
+<<
+/Length 174
+>>
+stream
+55 0 4 -2 50 50 d1
+q
+46 0 0 52 4.1 -2.1 cm
+BI
+/W 46
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 46>>
+ID  útı?éú&ïô›ş·úMş“¤ßôõ¿Òoô›ş·úMş“¤ßôõ¿Òoô›ş·úMı;M@ @
+EI
+Q
+endstream
+endobj
+47 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+20 0 obj
+<<
+/Name /T3
+/Type /Font
+/Subtype /Type3
+/Resources 47 0 R
+/FontBBox [2 -4 70 60]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 21
+/LastChar 111
+/Encoding 48 0 R
+/CharProcs 49 0 R
+/Widths [48 0 0 0 0 0 0 36 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 23 0 65 0 65 0 0 62 0 0 69 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 51 0 
+0 0 0 69 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 40 ]
+>>
+endobj
+48 0 obj
+<<
+/Type /Encoding
+/Differences [21/AL 28/AS 58/BM 60/BO 62/BQ 65/BT 68/BW 
+83/CB 88/CG 111/D3 ]
+>>
+endobj
+49 0 obj
+<<
+/AL 50 0 R
+/AS 51 0 R
+/BM 52 0 R
+/BO 53 0 R
+/BQ 54 0 R
+/BT 55 0 R
+/BW 56 0 R
+/CB 57 0 R
+/CG 58 0 R
+/D3 59 0 R
+>>
+endobj
+50 0 obj
+<<
+/Length 175
+>>
+stream
+48 0 4 -1 45 58 d1
+q
+41 0 0 59 4.1 -1.1 cm
+BI
+/W 41
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID ',80íîşßöÿ·ı¿íÿoûÛöıiÖ‹Iº].“uét›¥Òêİ.—Iº].­Òét›¥öõl à  
+EI
+Q
+endstream
+endobj
+51 0 obj
+<<
+/Length 150
+>>
+stream
+36 0 2 -1 42 36 d1
+q
+40 0 0 37 2.1 -1.1 cm
+BI
+/W 40
+/H 37
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID 'ØMU*&s'At½%K¥écê¿ú_×ú_×ê¿×êÔ @
+EI
+Q
+endstream
+endobj
+52 0 obj
+<<
+/Length 121
+>>
+stream
+23 0 7 0 16 9 d1
+q
+9 0 0 9 7.1 -0.1 cm
+BI
+/W 9
+/H 9
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 9>>
+ID 1BŸûPÂ€ €
+EI
+Q
+endstream
+endobj
+53 0 obj
+<<
+/Length 196
+>>
+stream
+65 0 7 -4 57 46 d1
+q
+50 0 0 50 7.1 -4.1 cm
+BI
+/W 50
+/H 50
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID  ´&%(AB
+P‚„ ¡(AB
+P‚„ ¡(AB
+‚ ½‡aÃpÃ†0á‡8aÃpÃ†0á‡8aÃpÃ†Ã†   
+EI
+Q
+endstream
+endobj
+54 0 obj
+<<
+/Length 196
+>>
+stream
+65 0 7 -4 57 46 d1
+q
+50 0 0 50 7.1 -4.1 cm
+BI
+/W 50
+/H 50
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID #ôÃ†0á‡8aÃpÃ†0á‡8aÃpÃ†0á‡ÃxJ„ ¡(AB
+P‚„ ¡(AB
+P‚„T…a@ @
+EI
+Q
+endstream
+endobj
+55 0 obj
+<<
+/Length 179
+>>
+stream
+62 0 3 0 59 60 d1
+q
+56 0 0 60 3.1 -0.1 cm
+BI
+/W 56
+/H 60
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 56>>
+ID %^ë__Zú~úúé¥ş—K÷KïK¥ş—ú]}t¯ô¾º^:ú9}/İ/½.—ú_éuéuº|*É¨0kúø €
+EI
+Q
+endstream
+endobj
+56 0 obj
+<<
+/Length 187
+>>
+stream
+69 0 3 0 65 57 d1
+q
+62 0 0 57 3.1 -0.1 cm
+BI
+/W 62
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 62>>
+ID :•Ã’âš‚háº·ßWÛ«ÿWŞ¿ºı¯×Ö¿_­/ëúÒşµ×Uú¥ı%ê«ÒÕtª—KIp•Rá-A& Ù…Ò0  
+EI
+Q
+endstream
+endobj
+57 0 obj
+<<
+/Length 206
+>>
+stream
+51 0 4 -2 53 59 d1
+q
+49 0 0 61 4.1 -2.1 cm
+BI
+/W 49
+/H 61
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 49>>
+ID )¡5„G0Ö ÚÒUôºOê“ÒÿZ×ÿÖ¿¿÷o\!;aÛ·àÜ“0°÷½ÿ›şÿªúÿê—ú[J¾ÒÚ[	Q7-0`‚Ğb- 
+EI
+Q
+endstream
+endobj
+58 0 obj
+<<
+/Length 199
+>>
+stream
+69 0 2 0 70 57 d1
+q
+68 0 0 57 2.1 -0.1 cm
+BI
+/W 68
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 68>>
+ID :ƒr@g×©Œ	…vJİt®–Òé[K¥zÚ]+it®–ÒëbµkûÓ£¤İzMÒé=+×Iº]'¥tºM×¤ô®—Iº]^8&œEP 
+EI
+Q
+endstream
+endobj
+59 0 obj
+<<
+/Length 170
+>>
+stream
+40 0 3 -1 39 37 d1
+q
+36 0 0 38 3.1 -1.1 cm
+BI
+/W 36
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID #—Aá&é]'¥tºM¯Zé/¯_ê½Wúúş’õ×Õ´ºWKi]+h+%AA‚€ €
+EI
+Q
+endstream
+endobj
+60 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+4 0 obj
+<<
+/Name /T4
+/Type /Font
+/Subtype /Type3
+/Resources 60 0 R
+/FontBBox [-1 -19 44 58]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 36
+/LastChar 126
+/Encoding 61 0 R
+/CharProcs 62 0 R
+/Widths [44 0 44 0 44 44 44 0 44 44 44 44 44 44 44 0 
+0 0 0 0 0 0 44 0 44 44 44 0 44 44 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 44 0 0 44 
+44 44 44 0 44 44 0 0 0 0 44 0 0 44 44 44 
+44 44 44 44 44 44 0 0 44 44 44 44 44 0 44 44 
+44 44 44 44 44 44 0 44 44 44 44 ]
+>>
+endobj
+61 0 obj
+<<
+/Type /Encoding
+/Differences [36/B0 38/B2 40/B4 /B5 /B6 44/B8 /B9 /BA /BB /BC /BD /BE 58/BM 60/BO /BP /BQ 64/BS /BT 80/C8 83/CB 
+/CC /CD /CE 88/CG /CH 94/CM 97/CP /CQ /CR 
+/CS /CT /CU /CV /CW /CX 108/D0 /D1 /D2 /D3 /D4 114/D6 /D7 
+/D8 /D9 /DA /DB /DC /DD 123/DF /DG /DH /DI ]
+>>
+endobj
+62 0 obj
+<<
+/B0 63 0 R
+/B2 64 0 R
+/B4 65 0 R
+/B5 66 0 R
+/B6 67 0 R
+/B8 68 0 R
+/B9 69 0 R
+/BA 70 0 R
+/BB 71 0 R
+/BC 72 0 R
+/BD 73 0 R
+/BE 74 0 R
+/BM 75 0 R
+/BO 76 0 R
+/BP 77 0 R
+/BQ 78 0 R
+/BS 79 0 R
+/BT 80 0 R
+/C8 81 0 R
+/CB 82 0 R
+/CC 83 0 R
+/CD 84 0 R
+/CE 85 0 R
+/CG 86 0 R
+/CH 87 0 R
+/CM 88 0 R
+/CP 89 0 R
+/CQ 90 0 R
+/CR 91 0 R
+/CS 92 0 R
+/CT 93 0 R
+/CU 94 0 R
+/CV 95 0 R
+/CW 96 0 R
+/CX 97 0 R
+/D0 98 0 R
+/D1 99 0 R
+/D2 100 0 R
+/D3 101 0 R
+/D4 102 0 R
+/D6 103 0 R
+/D7 104 0 R
+/D8 105 0 R
+/D9 106 0 R
+/DA 107 0 R
+/DB 108 0 R
+/DC 109 0 R
+/DD 110 0 R
+/DF 111 0 R
+/DG 112 0 R
+/DH 113 0 R
+/DI 114 0 R
+>>
+endobj
+63 0 obj
+<<
+/Length 204
+>>
+stream
+44 0 5 -7 38 58 d1
+q
+33 0 0 65 5.1 -7.1 cm
+BI
+/W 33
+/H 65
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID :ÔÿÿÂp:!&; X7…†éo¯¯uş¿ÿ{_íã¾Ãğ}ÁØpÃ†á‡òoá¾ï1ï>ıÓÿÿ¯õú¾»êŞzV¬EZµ(0Paÿµ 
+EI
+Q
+endstream
+endobj
+64 0 obj
+<<
+/Length 198
+>>
+stream
+44 0 2 -1 40 52 d1
+q
+38 0 0 53 2.1 -1.1 cm
+BI
+/W 38
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID $'Nè”tşêúÿÿÿ¯®¦Âî“uô½ZôÉôRÚ¯éuTºkZÚÑ!õJúºêê“kú¤ßØıw ƒßşÓİ>ÓVÑí,S¦­=¦0ƒP 
+EI
+Q
+endstream
+endobj
+65 0 obj
+<<
+/Length 166
+>>
+stream
+44 0 14 -8 36 58 d1
+q
+22 0 0 66 14.1 -8.1 cm
+BI
+/W 22
+/H 66
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 22>>
+ID )èMU*T*T©RÕu]Rõ×®¿®¿ÿÿÿû¿û¿İı½ßwİ»víÛ°íÛw@ @
+EI
+Q
+endstream
+endobj
+66 0 obj
+<<
+/Length 163
+>>
+stream
+44 0 7 -8 29 58 d1
+q
+22 0 0 66 7.1 -8.1 cm
+BI
+/W 22
+/H 66
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 22>>
+ID #Ô÷nÜ7nİ»vï»îöşï÷öÿÿÿ­]zëÒ®«ªÒ¥J•(J•-jÂ€ €
+EI
+Q
+endstream
+endobj
+67 0 obj
+<<
+/Length 169
+>>
+stream
+44 0 6 7 37 43 d1
+q
+31 0 0 36 6.1 6.9 cm
+BI
+/W 31
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID :TÿÿË¬PƒÂõ‡…½C
+PÂµ/:pƒ„"É¸u¼,=oXaGÿö   
+EI
+Q
+endstream
+endobj
+68 0 obj
+<<
+/Length 143
+>>
+stream
+44 0 15 -12 29 11 d1
+q
+14 0 0 23 15.1 -12.1 cm
+BI
+/W 14
+/H 23
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 14>>
+ID 6t:~îæe^´«	BTµ…a@ @
+EI
+Q
+endstream
+endobj
+69 0 obj
+<<
+/Length 124
+>>
+stream
+44 0 5 22 38 28 d1
+q
+33 0 0 6 5.1 21.9 cm
+BI
+/W 33
+/H 6
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID #ƒM?Ú€ €
+EI
+Q
+endstream
+endobj
+70 0 obj
+<<
+/Length 129
+>>
+stream
+44 0 16 0 27 11 d1
+q
+11 0 0 11 16.1 -0.1 cm
+BI
+/W 11
+/H 11
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 11>>
+ID 0téÓÿjÕ¨ €
+EI
+Q
+endstream
+endobj
+71 0 obj
+<<
+/Length 160
+>>
+stream
+44 0 5 -7 38 58 d1
+q
+33 0 0 65 5.1 -7.1 cm
+BI
+/W 33
+/H 65
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID  U5Ö«ªêº®½u]WUÕu]zêº®«ªë×UÕu]WU×®«ªêº®¾¯ 
+EI
+Q
+endstream
+endobj
+72 0 obj
+<<
+/Length 177
+>>
+stream
+44 0 4 -1 39 52 d1
+q
+35 0 0 53 4.1 -1.1 cm
+BI
+/W 35
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID :pƒ§Nˆ¸è İ&ôô›ı&ÿI¿éëş·ÿÿÿÿÿö¯_ÿí¥ÿÛKöÒÚŞ¶¶Ò°ÂV*Õ¨aC
+  
+EI
+Q
+endstream
+endobj
+73 0 obj
+<<
+/Length 152
+>>
+stream
+44 0 9 0 37 52 d1
+q
+28 0 0 52 9.1 -0.1 cm
+BI
+/W 28
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID !Ôı}kZÂÈà½r~»ÇÿÿÿÿÿÿÿÿÿÿÿüTı¨ €
+EI
+Q
+endstream
+endobj
+74 0 obj
+<<
+/Length 175
+>>
+stream
+44 0 4 0 39 52 d1
+q
+35 0 0 52 4.1 -0.1 cm
+BI
+/W 35
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID $	As„'AÑ	î‚ğƒÒoO[ï»ßı­¬}jº®«J•iR¥J ©R¥	PT©R5:I„–†¾Ô @
+EI
+Q
+endstream
+endobj
+75 0 obj
+<<
+/Length 139
+>>
+stream
+44 0 16 0 27 36 d1
+q
+11 0 0 36 16.1 -0.1 cm
+BI
+/W 11
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 11>>
+ID 0téÓÿjÕ¨ÿş`éÓ§şÕ«P 
+EI
+Q
+endstream
+endobj
+76 0 obj
+<<
+/Length 166
+>>
+stream
+44 0 5 4 38 46 d1
+q
+33 0 0 42 5.1 3.9 cm
+BI
+/W 33
+/H 42
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID  T&¡B¥*P‚ ¡*
+ ¡*
+ ¡*_v7aÃv7aÃv7aÃÜ0í‡á¨ €
+EI
+Q
+endstream
+endobj
+77 0 obj
+<<
+/Length 133
+>>
+stream
+44 0 3 15 40 35 d1
+q
+37 0 0 20 3.1 14.9 cm
+BI
+/W 37
+/H 20
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID #†?ÃQÿ.PŸí@ @
+EI
+Q
+endstream
+endobj
+78 0 obj
+<<
+/Length 166
+>>
+stream
+44 0 5 4 38 46 d1
+q
+33 0 0 42 5.1 3.9 cm
+BI
+/W 33
+/H 42
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID #ÔğğíÃÜ0á»°á»°á»}BT%ABT%ABT%*P‚¥……«
+  
+EI
+Q
+endstream
+endobj
+79 0 obj
+<<
+/Length 196
+>>
+stream
+44 0 4 0 39 51 d1
+q
+35 0 0 51 4.1 -0.1 cm
+BI
+/W 35
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID 5‹'	Ó¢n‚zMèĞC¤ŸZK¤G~“kOI?Oú¯Tÿÿÿÿÿÿ÷jï_ı®ÛJö½´¶Å[kµm«a…³YÛM†¬+jPÂƒ 
+EI
+Q
+endstream
+endobj
+80 0 obj
+<<
+/Length 168
+>>
+stream
+44 0 2 0 41 52 d1
+q
+39 0 0 52 2.1 -0.1 cm
+BI
+/W 39
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID 5ŸşŸÉıÓş·ÿ÷¥ÿÿI¿ÿô›ÿÿúMãşŸÉÿé7ÿş·§‘ÁÍöµ·­< @
+EI
+Q
+endstream
+endobj
+81 0 obj
+<<
+/Length 163
+>>
+stream
+44 0 2 0 39 51 d1
+q
+37 0 0 51 2.1 -0.1 cm
+BI
+/W 37
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID #Š¼;sÄH	Ãğßoııïÿÿúõ×ı.áqZÂÖ$¯ÿÿÿÿÿäp^Ÿö   
+EI
+Q
+endstream
+endobj
+82 0 obj
+<<
+/Length 194
+>>
+stream
+44 0 4 -1 39 52 d1
+q
+35 0 0 53 4.1 -1.1 cm
+BI
+/W 35
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID (gANƒá´Dı§¤úz¾¾ÿÿöÕÇ{°ìC²aÃr15ƒÉp°nß·‘Û§ÿÿÚ_Ú[\4²Ÿ¬›…Á…hP 
+EI
+Q
+endstream
+endobj
+83 0 obj
+<<
+/Length 152
+>>
+stream
+44 0 2 0 41 51 d1
+q
+39 0 0 51 2.1 -0.1 cm
+BI
+/W 39
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID #†­?äHÿÿÿÿÿkj8ÿÿÿÿÿÿÿÿÿÿÿÿÉÃG§kÀ @
+EI
+Q
+endstream
+endobj
+84 0 obj
+<<
+/Length 171
+>>
+stream
+44 0 0 -1 43 51 d1
+q
+43 0 0 52 0.1 -1.1 cm
+BI
+/W 43
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 43>>
+ID #‚æ€½4ÿÚjxˆÂÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÚŞ¿µ½mm¥m,0¶*Ô0­A‚€ €
+EI
+Q
+endstream
+endobj
+85 0 obj
+<<
+/Length 170
+>>
+stream
+44 0 2 -1 41 51 d1
+q
+39 0 0 52 2.1 -1.1 cm
+BI
+/W 39
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID #‚SOı¦ Éµ½û[×ÿµ½û[×ÿûiÿ¶—ÿûiÿ½mû×ö¿½µÿµ 
+EI
+Q
+endstream
+endobj
+86 0 obj
+<<
+/Length 179
+>>
+stream
+44 0 2 0 41 51 d1
+q
+39 0 0 51 2.1 -0.1 cm
+BI
+/W 39
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID .x©ï×v§È29ßt·Ş¶·­­ëkzÇkÚö½¯OÓô÷DŸî¯««êêúº¾®¯««êûÈààˆ8öµ·­< @
+EI
+Q
+endstream
+endobj
+87 0 obj
+<<
+/Length 166
+>>
+stream
+44 0 2 0 41 51 d1
+q
+39 0 0 51 2.1 -0.1 cm
+BI
+/W 39
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID #‚SOı¦§–kzÚßÚW÷W]Õ×u¥oën¿zëb¾¯«ÿÿÿÿÿşC§ı¨ €
+EI
+Q
+endstream
+endobj
+88 0 obj
+<<
+/Length 142
+>>
+stream
+44 0 8 39 35 51 d1
+q
+27 0 0 12 8.1 38.9 cm
+BI
+/W 27
+/H 12
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 27>>
+ID $Pƒ„ áNÒnxAÚjÂ@ @
+EI
+Q
+endstream
+endobj
+89 0 obj
+<<
+/Length 175
+>>
+stream
+44 0 4 0 43 36 d1
+q
+39 0 0 36 4.1 -0.1 cm
+BI
+/W 39
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID >	 ğéäZ>†í<0®/üÔ”ˆ,,-yè…#@¼.—¯ÿşûk°¶-Ó¶C@ğÂp`ƒP 
+EI
+Q
+endstream
+endobj
+90 0 obj
+<<
+/Length 172
+>>
+stream
+44 0 1 0 40 51 d1
+q
+39 0 0 51 1.1 -0.1 cm
+BI
+/W 39
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID #…§ıçËÿÿÿóÂğAğƒÅï ˜ğA½ôŞ¾ŞŸş÷ÿÿÿın¿ÒÚí.»K%ŠÖHuÃ
+Ğ`   
+EI
+Q
+endstream
+endobj
+91 0 obj
+<<
+/Length 161
+>>
+stream
+44 0 6 0 39 36 d1
+q
+33 0 0 36 6.1 -0.1 cm
+BI
+/W 33
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID :A8ZtBS@º^š¤ZëÒÿÿı¿»‘i·Ú¶•ƒ±V¡¨aA‚€ €
+EI
+Q
+endstream
+endobj
+92 0 obj
+<<
+/Length 177
+>>
+stream
+44 0 3 0 42 51 d1
+q
+39 0 0 51 3.1 -0.1 cm
+BI
+/W 39
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID "ÓşòL¿ÿÿü†/>‡Z"v‚IôôŸ]'ı}ÿÿÿÿ}×û[[ka­†È5È;k,0š€ €
+EI
+Q
+endstream
+endobj
+93 0 obj
+<<
+/Length 166
+>>
+stream
+44 0 4 0 39 36 d1
+q
+35 0 0 36 4.1 -0.1 cm
+BI
+/W 35
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID :	p:!=ĞAº7®“zzú½Òãş²@W»oi·°Õ°–,1V¡…(0P 
+EI
+Q
+endstream
+endobj
+94 0 obj
+<<
+/Length 156
+>>
+stream
+44 0 3 0 36 51 d1
+q
+33 0 0 51 3.1 -0.1 cm
+BI
+/W 33
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID "„'MQ0´š×Çÿüÿµ$ÿÿÿÿÿÿÿÿÿ—ªÚ€ €
+EI
+Q
+endstream
+endobj
+95 0 obj
+<<
+/Length 205
+>>
+stream
+44 0 2 -19 42 37 d1
+q
+40 0 0 56 2.1 -19.1 cm
+BI
+/W 40
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID  cÅ	Â'XT@Ãä^Aj“miÆ·§ÿÿÿío[[iXa*¨,›…Ãû·PCAĞtè‹[ ½ÓÖôÿÿö¶ÒÃa„¬%b¡…j( €
+EI
+Q
+endstream
+endobj
+96 0 obj
+<<
+/Length 166
+>>
+stream
+44 0 1 0 42 51 d1
+q
+41 0 0 51 1.1 -0.1 cm
+BI
+/W 41
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID #…§ıçËÿÿÿóÂğğŸOA9á>¯O¯_õÿÿÿÿÿÿÿÿÿÿÿò8p¦ŸûM@ @
+EI
+Q
+endstream
+endobj
+97 0 obj
+<<
+/Length 150
+>>
+stream
+44 0 7 0 38 52 d1
+q
+31 0 0 52 7.1 -0.1 cm
+BI
+/W 31
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID !Ğƒôÿµá…äpcu¿ËÿÿÿÿÿÿÿÿÿÈá›OÚ€ €
+EI
+Q
+endstream
+endobj
+98 0 obj
+<<
+/Length 146
+>>
+stream
+44 0 5 0 39 51 d1
+q
+34 0 0 51 5.1 -0.1 cm
+BI
+/W 34
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID #ÿ¼è_ÿÿÿÿÿÿÿÿÿÿÿÿÿÿò85Sö   
+EI
+Q
+endstream
+endobj
+99 0 obj
+<<
+/Length 178
+>>
+stream
+44 0 -1 0 44 36 d1
+q
+45 0 0 36 -0.9 -0.1 cm
+BI
+/W 45
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 45>>
+ID #ŠpauM;\\àCaMªôÓê½Wÿş«ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿşG…²}VÛU]Ş  
+EI
+Q
+endstream
+endobj
+100 0 obj
+<<
+/Length 160
+>>
+stream
+44 0 1 0 42 36 d1
+q
+41 0 0 36 1.1 -0.1 cm
+BI
+/W 41
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID #…>-0ğŸNÇ>xxO«Óë×ıÿÿÿÿÿÿÿÿÿÿüé§şÓP 
+EI
+Q
+endstream
+endobj
+101 0 obj
+<<
+/Length 165
+>>
+stream
+44 0 4 0 39 36 d1
+q
+35 0 0 36 4.1 -0.1 cm
+BI
+/W 35
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID !‰8AÂ=ĞAºMá­éé7ÿÒoÿÿşÕëû[ÖÖÚ[[iXa+jPÂ† @
+EI
+Q
+endstream
+endobj
+102 0 obj
+<<
+/Length 179
+>>
+stream
+44 0 1 -18 40 36 d1
+q
+39 0 0 54 1.1 -18.1 cm
+BI
+/W 39
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID #…>-0AğƒÅÛŸ8&7 Ş›×ÛÓÿŞÿÿÿÿ­×ú[]¥×ia„±ZÉ¸apÁqÿÿÿÿù§ı¨ €
+EI
+Q
+endstream
+endobj
+103 0 obj
+<<
+/Length 154
+>>
+stream
+44 0 2 0 40 36 d1
+q
+38 0 0 36 2.1 -0.1 cm
+BI
+/W 38
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID #ƒ”L|'Ân¤äˆKÄ	­5¡×Ö¿×ÿÿÿÿÿ#†U?í@ @
+EI
+Q
+endstream
+endobj
+104 0 obj
+<<
+/Length 175
+>>
+stream
+44 0 6 0 38 36 d1
+q
+32 0 0 36 6.1 -0.1 cm
+BI
+/W 32
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID 4n‚ZÑüzO¯ÿÛVä(†A}aÃ9Ô1%Äƒr;m7ŞÿµºØ\0K°²p `   
+EI
+Q
+endstream
+endobj
+105 0 obj
+<<
+/Length 153
+>>
+stream
+44 0 2 0 37 46 d1
+q
+35 0 0 46 2.1 -0.1 cm
+BI
+/W 35
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID (tÿÿÿäpi§ı©9ÿÿÿÿÿó£éÿÿÚºXalV¡«
+( €
+EI
+Q
+endstream
+endobj
+106 0 obj
+<<
+/Length 158
+>>
+stream
+44 0 1 0 42 36 d1
+q
+41 0 0 36 1.1 -0.1 cm
+BI
+/W 41
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID #…'M?şï>GRÿÿÿÿÿÿÿÿÿÿÿÿş¿ëµ¶j·d0ğ`š€ €
+EI
+Q
+endstream
+endobj
+107 0 obj
+<<
+/Length 159
+>>
+stream
+44 0 2 0 41 36 d1
+q
+39 0 0 36 2.1 -0.1 cm
+BI
+/W 39
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID #††+v´ïSÆk?ío_ÚŞ¿µ½kzşÖõı­ëû[×ö·¯ãµíZ€ €
+EI
+Q
+endstream
+endobj
+108 0 obj
+<<
+/Length 169
+>>
+stream
+44 0 1 0 42 36 d1
+q
+41 0 0 36 1.1 -0.1 cm
+BI
+/W 41
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID #†ZÛÖpÉsÿÿÿÛKÿçÏéÿíétÿşXÿÿÖûınıoÿÿïOXãşŸ÷«M@ @
+EI
+Q
+endstream
+endobj
+109 0 obj
+<<
+/Length 172
+>>
+stream
+44 0 2 0 41 36 d1
+q
+39 0 0 36 2.1 -0.1 cm
+BI
+/W 39
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID .xšı¦¦d”ô­¥n­¯JÚVêÇkV¯N»¢cºWWÓt›­Ò}7JêÜCÚÖŞ´ğ 
+EI
+Q
+endstream
+endobj
+110 0 obj
+<<
+/Length 179
+>>
+stream
+44 0 2 -18 41 36 d1
+q
+39 0 0 54 2.1 -18.1 cm
+BI
+/W 39
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID #††)Ş»µSÆk;]Õş»«û[×ö·¯Û__·ô¿oé_ßêÇõk×^ºózÂ©¯K	zX«V­X( €
+EI
+Q
+endstream
+endobj
+111 0 obj
+<<
+/Length 169
+>>
+stream
+44 0 5 -7 38 58 d1
+q
+33 0 0 65 5.1 -7.1 cm
+BI
+/W 33
+/H 65
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID *‚aB¥D/ÁPZÿÿÿÿÿÿş°”G)aaÛ™…ƒÃwÿÿÿÿÿÿÿvÈ.;aÃƒP 
+EI
+Q
+endstream
+endobj
+112 0 obj
+<<
+/Length 138
+>>
+stream
+44 0 19 -7 25 58 d1
+q
+6 0 0 65 19.1 -7.1 cm
+BI
+/W 6
+/H 65
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 6>>
+ID #ºÿÿÿÿÿÿÿÿÿÿÿÿÿÿşÔ @
+EI
+Q
+endstream
+endobj
+113 0 obj
+<<
+/Length 169
+>>
+stream
+44 0 5 -7 38 58 d1
+q
+33 0 0 65 5.1 -7.1 cm
+BI
+/W 33
+/H 65
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID #‰@ğğíÌÂÁá»ÿÿÿÿÿÿÿ»d°áR¢à¨-ÿÿÿÿÿÿXJ#ƒ°°¬ @
+EI
+Q
+endstream
+endobj
+114 0 obj
+<<
+/Length 141
+>>
+stream
+44 0 7 41 36 51 d1
+q
+29 0 0 10 7.1 40.9 cm
+BI
+/W 29
+/H 10
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID 32E4Âj˜TÒ¢+Š¤ÖZaZ( €
+EI
+Q
+endstream
+endobj
+115 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+5 0 obj
+<<
+/Name /T5
+/Type /Font
+/Subtype /Type3
+/Resources 115 0 R
+/FontBBox [-2 -17 69 59]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 13
+/LastChar 121
+/Encoding 116 0 R
+/CharProcs 117 0 R
+/Widths [49 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+30 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 59 0 56 54 0 0 0 0 0 52 
+0 0 0 0 0 0 47 0 0 0 0 0 0 0 0 0 
+0 0 0 0 42 38 38 42 38 25 38 42 25 0 38 21 
+68 47 42 42 38 35 34 28 0 0 55 39 40 ]
+>>
+endobj
+116 0 obj
+<<
+/Type /Encoding
+/Differences [13/AD 45/B9 67/BV 69/BX /BY 76/C4 
+83/CB 97/CP /CQ /CR /CS /CT /CU /CV /CW /CX 107/CZ /D0 
+/D1 /D2 /D3 /D4 /D5 /D6 /D7 /D8 119/DB /DC /DD ]
+>>
+endobj
+117 0 obj
+<<
+/AD 118 0 R
+/B9 119 0 R
+/BV 120 0 R
+/BX 121 0 R
+/BY 122 0 R
+/C4 123 0 R
+/CB 124 0 R
+/CP 125 0 R
+/CQ 126 0 R
+/CR 127 0 R
+/CS 128 0 R
+/CT 129 0 R
+/CU 130 0 R
+/CV 131 0 R
+/CW 132 0 R
+/CX 133 0 R
+/CZ 134 0 R
+/D0 135 0 R
+/D1 136 0 R
+/D2 137 0 R
+/D3 138 0 R
+/D4 139 0 R
+/D5 140 0 R
+/D6 141 0 R
+/D7 142 0 R
+/D8 143 0 R
+/DB 144 0 R
+/DC 145 0 R
+/DD 146 0 R
+>>
+endobj
+118 0 obj
+<<
+/Length 215
+>>
+stream
+49 0 -2 -17 53 59 d1
+q
+55 0 0 76 -1.9 -17.1 cm
+BI
+/W 55
+/H 76
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID "A ˜ ‰Mè ŞCIVµ×ì±ô†¿×ô«ıZ××ş¤€ÖşFN_ë_Uş¿­këÿUô¿õú®¿G/ızëª¯ÿş•T½ºî½Š¤\¥üÅPŸÒ¯ë®]+( €
+EI
+Q
+endstream
+endobj
+119 0 obj
+<<
+/Length 123
+>>
+stream
+30 0 7 16 28 21 d1
+q
+21 0 0 5 7.1 15.9 cm
+BI
+/W 21
+/H 5
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 21>>
+ID #†z€ €
+EI
+Q
+endstream
+endobj
+120 0 obj
+<<
+/Length 202
+>>
+stream
+59 0 12 -2 67 59 d1
+q
+55 0 0 61 12.1 -2.1 cm
+BI
+/W 55
+/H 61
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID  b’a…4¡&ø@ƒk&Ö‚b©<%ÒzUIézéUz^ºÕ/ô¿T¾>—õ×õ×ÿ‘;ıu[úŞºúëm/WKkt¶•°•´†† ¬T0SP° 
+EI
+Q
+endstream
+endobj
+121 0 obj
+<<
+/Length 185
+>>
+stream
+56 0 5 0 61 57 d1
+q
+56 0 0 57 5.1 -0.1 cm
+BI
+/W 56
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 56>>
+ID !†ß‘”á(j¿}¯ı~«ÿGKÿUş:®µúé.´?¬¿}Wê¿(µ_Ö½qô¾ª¾´¿ª]u]j½-©NMASê  
+EI
+Q
+endstream
+endobj
+122 0 obj
+<<
+/Length 173
+>>
+stream
+54 0 5 0 60 57 d1
+q
+55 0 0 57 5.1 -0.1 cm
+BI
+/W 55
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID !†×‘šÂP>Õ_úÿ_úıWş¾tº¯ñÕ~«ı%Ö¡qëÑú¯×ş«õ_è}~½~½~©É¨ş  
+EI
+Q
+endstream
+endobj
+123 0 obj
+<<
+/Length 165
+>>
+stream
+52 0 5 0 51 57 d1
+q
+46 0 0 57 5.1 -0.1 cm
+BI
+/W 46
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 46>>
+ID !©&µ_¯_¯_¯_¯_¯_¯_¯^—ÕzÒşµ×UÖ«ëKÖ©uĞZ‚RjŸP 
+EI
+Q
+endstream
+endobj
+124 0 obj
+<<
+/Length 199
+>>
+stream
+47 0 6 -2 53 59 d1
+q
+47 0 0 61 6.1 -2.1 cm
+BI
+/W 47
+/H 61
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 47>>
+ID $ÅPƒáûZ6´Ié=.“_¥şµ¯ÿ­û»x<ƒÁØv7ÁåX$şşówÿÕ}õKı/ÓK¥´¶•pÂ]†Ó´Z
+  
+EI
+Q
+endstream
+endobj
+125 0 obj
+<<
+/Length 175
+>>
+stream
+42 0 9 -1 43 37 d1
+q
+34 0 0 38 9.1 -1.1 cm
+BI
+/W 34
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID 5p‰[1PL].“×¤Õ.¾–µú_ZÖ¿õ­kÿ_ZÁ×é~ºÿ[­t»j½[	:ÃÅCP 
+EI
+Q
+endstream
+endobj
+126 0 obj
+<<
+/Length 177
+>>
+stream
+38 0 9 -1 37 58 d1
+q
+28 0 0 59 9.1 -1.1 cm
+BI
+/W 28
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID ')€Oæƒ×õ×õ×õ×õÑÃàƒè»„&õé½t¯ëõëıW¯õ^«ı}ké×_]+¥ºº[Já+ Á@ @
+EI
+Q
+endstream
+endobj
+127 0 obj
+<<
+/Length 164
+>>
+stream
+38 0 9 -1 38 37 d1
+q
+29 0 0 38 9.1 -1.1 cm
+BI
+/W 29
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID 58D±ĞA¸JÒtRUë]*ãK×_×_ıÁ/zº[Jép•°‚¶(b0P 
+EI
+Q
+endstream
+endobj
+128 0 obj
+<<
+/Length 190
+>>
+stream
+42 0 9 -1 46 58 d1
+q
+37 0 0 59 9.1 -1.1 cm
+BI
+/W 37
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID #DTyzızızızù¨ê>+kA1ÒªO^“ÒªúZş©}kê¿Ö¾«ıª9ëı}W_ëu®—mW£C«a'Xb˜¨`ƒ
+  
+EI
+Q
+endstream
+endobj
+129 0 obj
+<<
+/Length 172
+>>
+stream
+38 0 9 -1 38 37 d1
+q
+29 0 0 38 9.1 -1.1 cm
+BI
+/W 29
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID 58D±Â	ºM¥¥¥¥¯JµIxK„O	ˆ,†‘—]ş¿¯zÚWK¥l%p‚¶+¡‚€ €
+EI
+Q
+endstream
+endobj
+130 0 obj
+<<
+/Length 182
+>>
+stream
+25 0 -2 -17 36 59 d1
+q
+38 0 0 76 -1.9 -17.1 cm
+BI
+/W 38
+/H 76
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID  G:'•¤UëZíq®¿õ×şº’½u)Ç¯ıuÿ®¿õ×şºÿ×_úëúëıVbá:ık¯¬$¯Ø…@ @
+EI
+Q
+endstream
+endobj
+131 0 obj
+<<
+/Length 188
+>>
+stream
+38 0 4 -17 40 37 d1
+q
+36 0 0 54 4.1 -17.1 cm
+BI
+/W 36
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID %Î8D­˜¨&--'KWJ«ékê«õ¯ªÿZú¯õş«ıêë×­´®¶Â,}Šá…Qëõë©‹„×ÕRét¬$¶PÄ(0   
+EI
+Q
+endstream
+endobj
+132 0 obj
+<<
+/Length 184
+>>
+stream
+42 0 5 -1 43 58 d1
+q
+38 0 0 59 5.1 -1.1 cm
+BI
+/W 38
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID :ø'òõıuıuıuıtx| øEã¡	½^Ÿ]/Ş½%__úÖµÿ­k__Uô ½~ªµªÿı*×­_J®–˜¨h0   
+EI
+Q
+endstream
+endobj
+133 0 obj
+<<
+/Length 166
+>>
+stream
+25 0 7 -1 27 55 d1
+q
+20 0 0 56 7.1 -1.1 cm
+BI
+/W 20
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 20>>
+ID :ĞÖ¯aGÿ™¸AÑ¡Òº_é}iëZ×Ö5ëªıW^§-}kZÿÒ×ÒÿJéX¨a@ @
+EI
+Q
+endstream
+endobj
+134 0 obj
+<<
+/Length 194
+>>
+stream
+38 0 5 -1 41 58 d1
+q
+36 0 0 59 5.1 -1.1 cm
+BI
+/W 36
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID :ø'òõıuıuıuıtC>|"ïTt]/KT«I~˜]F©i.–*‚Ş$àêĞoßzŞœõÿëU­Wÿë^µ_t¾µm-1PĞa@ @
+EI
+Q
+endstream
+endobj
+135 0 obj
+<<
+/Length 161
+>>
+stream
+21 0 7 -1 25 58 d1
+q
+18 0 0 59 7.1 -1.1 cm
+BI
+/W 18
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 18>>
+ID $ÀO(zızızızızızızızızızı¿_®«ı}këzÚPÇa@ @
+EI
+Q
+endstream
+endobj
+136 0 obj
+<<
+/Length 205
+>>
+stream
+68 0 7 -1 69 37 d1
+q
+62 0 0 38 7.1 -1.1 cm
+BI
+/W 62
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 62>>
+ID >Èc:athaŒ"ñÖÂ	°‚oM¥i]$)Ò]u¨¯_~«ô’U_ÕWÿ«^µ_ş«^µ_×­WõJõëªëZªÿıt«×ª×ıuÒ®ëªb4( €
+EI
+Q
+endstream
+endobj
+137 0 obj
+<<
+/Length 181
+>>
+stream
+47 0 7 -1 48 37 d1
+q
+41 0 0 38 7.1 -1.1 cm
+BI
+/W 41
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID >Èc„AÑ¡„^:ØA7¦ÒºHSúë^»õúJ«ê¿ñÖµ¯ıkZúú¯¥ëõU­WÿéV½kúúUuÓ¡ Â€ €
+EI
+Q
+endstream
+endobj
+138 0 obj
+<<
+/Length 166
+>>
+stream
+42 0 9 -1 41 37 d1
+q
+32 0 0 38 9.1 -1.1 cm
+BI
+/W 32
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID 58D°:	¸Iº]+¤õº×Kô½W¯õ^«ı}ké¥ë­ëi].•´°”1
+( €
+EI
+Q
+endstream
+endobj
+139 0 obj
+<<
+/Length 188
+>>
+stream
+42 0 0 -16 41 37 d1
+q
+41 0 0 53 0.1 -16.1 cm
+BI
+/W 41
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID !²AÂt[´]‡«A7V+Õ7ÒëW_Ö«×õş*¿_ªıWê¾µô«úÒúª[KÖÒªX"<Ó¸`ª?^¿^¿U“P#ø €
+EI
+Q
+endstream
+endobj
+140 0 obj
+<<
+/Length 181
+>>
+stream
+38 0 9 -16 41 37 d1
+q
+32 0 0 53 9.1 -16.1 cm
+BI
+/W 32
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID 5PA¨D­…A6©ERzô•W×UõKıWUÿÕu_ÿ]Wÿ××_İzV×£¶Xbª.=uıuıuYğÏü @
+EI
+Q
+endstream
+endobj
+141 0 obj
+<<
+/Length 162
+>>
+stream
+35 0 7 -1 40 37 d1
+q
+33 0 0 38 7.1 -1.1 cm
+BI
+/W 33
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID <É0AÑnÑ|­Õ´‚uékÖ«û
+´:__]]]]]]CP 
+EI
+Q
+endstream
+endobj
+142 0 obj
+<<
+/Length 169
+>>
+stream
+34 0 6 -1 34 37 d1
+q
+28 0 0 38 6.1 -1.1 cm
+BI
+/W 28
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID 5:'AºWNª¡kşªÖÇyvİ»ÃsPH{Ş\úõ¯ÿI`½¥t­¥a„Šƒ 
+EI
+Q
+endstream
+endobj
+143 0 obj
+<<
+/Length 161
+>>
+stream
+28 0 7 -1 31 52 d1
+q
+24 0 0 53 7.1 -1.1 cm
+BI
+/W 24
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 24>>
+ID :Tëÿ®¿®¿®¤pQ©™]]]]]ßëZÒúëë¥¥¶•Ò±
+P 
+EI
+Q
+endstream
+endobj
+144 0 obj
+<<
+/Length 188
+>>
+stream
+55 0 7 -1 57 37 d1
+q
+50 0 0 38 7.1 -1.1 cm
+BI
+/W 50
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID 3dJ„ª	Ñ¡¦šVº_¯õ«ëN—¿ş«­u®Ÿ¯Æ•U¯_ÕkÖ«ÿõªÖ«úş¿ı]Wõu]¦•ÑoJÃI´¡Šb¡„ @
+EI
+Q
+endstream
+endobj
+145 0 obj
+<<
+/Length 182
+>>
+stream
+39 0 4 -1 43 37 d1
+q
+39 0 0 38 4.1 -1.1 cm
+BI
+/W 39
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID !‘9Â p‹¶“it šQõZ]V½l.£Z×ø¯×¯×¯Ñ"ıWÔÅ\'¯Z®—UóJÂJÒé6•ŠbA… 
+EI
+Q
+endstream
+endobj
+146 0 obj
+<<
+/Length 190
+>>
+stream
+40 0 7 -17 42 37 d1
+q
+35 0 0 54 7.1 -17.1 cm
+BI
+/W 35
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID 3pƒ5Ôhi¥j—¯ÖºÕ/ÿÕkU¯ëÆ—Õ}}kZÿÖµ¯ı}ı}uºím„¡£á…Åuë.UUõÒõ¥Á%ĞVÒØJ… @
+EI
+Q
+endstream
+endobj
+147 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+6 0 obj
+<<
+/Name /T6
+/Type /Font
+/Subtype /Type3
+/Resources 147 0 R
+/FontBBox [2 -21 113 70]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 12
+/LastChar 121
+/Encoding 148 0 R
+/CharProcs 149 0 R
+/Widths [62 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 56 56 56 56 56 0 0 0 0 0 0 
+0 0 0 0 0 85 80 0 86 0 70 0 88 42 0 0 
+0 0 88 84 77 0 84 62 78 0 0 116 0 0 0 0 
+0 0 0 0 0 54 0 50 62 51 34 56 62 32 0 59 
+32 94 62 56 62 0 46 44 44 62 0 81 59 59 ]
+>>
+endobj
+148 0 obj
+<<
+/Type /Encoding
+/Differences [12/AC 49/BD /BE /BF /BG /BH 65/BT /BU 68/BW 70/BY 72/C0 /C1 78/C6 /C7 /C8 82/CA /CB /CC 87/CF 97/CP 99/CR /CS /CT /CU /CV /CW /CX 107/CZ 
+/D0 /D1 /D2 /D3 /D4 114/D6 /D7 /D8 /D9 119/DB /DC /DD ]
+>>
+endobj
+149 0 obj
+<<
+/AC 150 0 R
+/BD 151 0 R
+/BE 152 0 R
+/BF 153 0 R
+/BG 154 0 R
+/BH 155 0 R
+/BT 156 0 R
+/BU 157 0 R
+/BW 158 0 R
+/BY 159 0 R
+/C0 160 0 R
+/C1 161 0 R
+/C6 162 0 R
+/C7 163 0 R
+/C8 164 0 R
+/CA 165 0 R
+/CB 166 0 R
+/CC 167 0 R
+/CF 168 0 R
+/CP 169 0 R
+/CR 170 0 R
+/CS 171 0 R
+/CT 172 0 R
+/CU 173 0 R
+/CV 174 0 R
+/CW 175 0 R
+/CX 176 0 R
+/CZ 177 0 R
+/D0 178 0 R
+/D1 179 0 R
+/D2 180 0 R
+/D3 181 0 R
+/D4 182 0 R
+/D6 183 0 R
+/D7 184 0 R
+/D8 185 0 R
+/D9 186 0 R
+/DB 187 0 R
+/DC 188 0 R
+/DD 189 0 R
+>>
+endobj
+150 0 obj
+<<
+/Length 190
+>>
+stream
+62 0 2 0 58 70 d1
+q
+56 0 0 70 2.1 -0.1 cm
+BI
+/W 56
+/H 70
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 56>>
+ID &È@Ï„AèènAi'IuÒúuk_ÿÚá…Çÿÿä€"MA—ÿæaHÀ¿ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‘ÀÁÀ1ÿş  
+EI
+Q
+endstream
+endobj
+151 0 obj
+<<
+/Length 156
+>>
+stream
+56 0 9 0 47 65 d1
+q
+38 0 0 65 9.1 -0.1 cm
+BI
+/W 38
+/H 65
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID  İaa`²p^MC+ÿ—ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ&¡­ş  
+EI
+Q
+endstream
+endobj
+152 0 obj
+<<
+/Length 190
+>>
+stream
+56 0 5 0 50 65 d1
+q
+45 0 0 65 5.1 -0.1 cm
+BI
+/W 45
+/H 65
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 45>>
+ID 5’< á:"L:ĞMÒÕğïêŞÿ{ÿû[[Xõ_ªê•/ARÕ*T*T*
+‘­¥¥¤¨*¥ÒétÒZ*Öµ­uÿ€ €
+EI
+Q
+endstream
+endobj
+153 0 obj
+<<
+/Length 202
+>>
+stream
+56 0 5 -1 50 65 d1
+q
+45 0 0 66 5.1 -1.1 cm
+BI
+/W 45
+/H 66
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 45>>
+ID 5‚!œ0ƒ„háaĞM÷ ÛÃë{ÿÿÿö»UicUÕ*T©A!X<9PpŞíïÛûóe„Ÿéÿ×úúµé-vV+	X…C
+)Ô< @
+EI
+Q
+endstream
+endobj
+154 0 obj
+<<
+/Length 174
+>>
+stream
+56 0 3 0 52 65 d1
+q
+49 0 0 65 3.1 -0.1 cm
+BI
+/W 49
+/H 65
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 49>>
+ID "eëZ×Öµ¯­h˜ú]}tº].¾º].—_].—K¥ş—K¥Òëë¥Òéuò¦¿äÀÿÿÿüÖ_à  
+EI
+Q
+endstream
+endobj
+155 0 obj
+<<
+/Length 200
+>>
+stream
+56 0 5 -1 50 65 d1
+q
+45 0 0 66 5.1 -1.1 cm
+BI
+/W 45
+/H 66
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 45>>
+ID 9?BB‡Ç­kZÂÂÖ“ÿÿÿù˜NƒáÂ ş7„Şz½=«oışlğƒÓ×¿ÿ­}mV¼Wö•†•†•ƒ¬B†¡…
+0 @
+EI
+Q
+endstream
+endobj
+156 0 obj
+<<
+/Length 186
+>>
+stream
+85 0 4 0 80 69 d1
+q
+76 0 0 69 4.1 -0.1 cm
+BI
+/W 76
+/H 69
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 76>>
+ID "…éúÓôÿ§éÿO&úŞ¾õ½=o_zŞ·¯½oO[×Ş·§­éÿ[ÓÖñú~LÇõ½=oOúWŞ·§­ë«É¨"«ÿü @
+EI
+Q
+endstream
+endobj
+157 0 obj
+<<
+/Length 201
+>>
+stream
+80 0 4 0 73 68 d1
+q
+69 0 0 68 4.1 -0.1 cm
+BI
+/W 69
+/H 68
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 69>>
+ID & É$®N„pßöûíÿı¿ÿÿÿú_é¥Òét¸K”àÆ °²
+ÁÁä:°øo†û}¿}¿öÿÿÿÿı¯®½.½.à”š‚Ö°°Y4à  
+EI
+Q
+endstream
+endobj
+158 0 obj
+<<
+/Length 193
+>>
+stream
+86 0 4 0 79 68 d1
+q
+75 0 0 68 4.1 -0.1 cm
+BI
+/W 75
+/H 68
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 75>>
+ID & É$	‡‡'" T80øo·Ûí÷íöÿÛÿoşÿßßÿÿûÿÿÿÿÿÿëÿÿıuÿ®¾ºúéuõÒá.—	pK‚
+M@³‚È2$ 
+EI
+Q
+endstream
+endobj
+159 0 obj
+<<
+/Length 179
+>>
+stream
+70 0 4 0 64 68 d1
+q
+60 0 0 68 4.1 -0.1 cm
+BI
+/W 60
+/H 68
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 60>>
+ID & ±ÿÜœˆr /ß¿~şûÿıÿşjÛÿÿüÖëÿõëÁqÿşAàıûÿıÿÿÿüÿÿÿÿù5Oÿ€ €
+EI
+Q
+endstream
+endobj
+160 0 obj
+<<
+/Length 176
+>>
+stream
+88 0 4 0 83 68 d1
+q
+79 0 0 68 4.1 -0.1 cm
+BI
+/W 79
+/H 68
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 79>>
+ID & ÖC¿ÿòpB$	ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿò%ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ& ÖC¿ÿğ 
+EI
+Q
+endstream
+endobj
+161 0 obj
+<<
+/Length 151
+>>
+stream
+42 0 3 0 38 68 d1
+q
+35 0 0 68 3.1 -0.1 cm
+BI
+/W 35
+/H 68
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID &¡§şP	ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿäÔ4ÿÀ @
+EI
+Q
+endstream
+endobj
+162 0 obj
+<<
+/Length 207
+>>
+stream
+88 0 4 0 83 68 d1
+q
+79 0 0 68 4.1 -0.1 cm
+BI
+/W 79
+/H 68
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 79>>
+ID & \{ïûÉÀ‚,÷åÿ·öşßÛû¿¿Ûûoíşşÿoíı¿·öÿ·öşßÛıışßÛûoíşşÿoíı¿·ûûı¿~ıÿß¿~ıÿß¼šwïß¿à  
+EI
+Q
+endstream
+endobj
+163 0 obj
+<<
+/Length 212
+>>
+stream
+84 0 6 -1 77 69 d1
+q
+71 0 0 70 6.1 -1.1 cm
+BI
+/W 71
+/H 70
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 71>>
+ID  @’ A„"@á @Ã¤İ¤İ&ët›¤ßé7úMş·§­ÿõ½?ÿúßÿÿÿÿÿûÖ×ÿ½kzşÖõûi^¶¶Ò¶•´­¥m+%a„¡ƒŠ†(0R	 
+EI
+Q
+endstream
+endobj
+164 0 obj
+<<
+/Length 180
+>>
+stream
+77 0 3 0 70 68 d1
+q
+67 0 0 68 3.1 -0.1 cm
+BI
+/W 67
+/H 68
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 67>>
+ID & É$ÖPDüá¾ßo·ÿ}ÿïÿÿÿÿ¯ô¿ë¯K¥Â\Ä,,,†½rYÿÿÿÿÿÿÿÿşMCOÿà  
+EI
+Q
+endstream
+endobj
+165 0 obj
+<<
+/Length 206
+>>
+stream
+84 0 3 -1 83 68 d1
+q
+80 0 0 69 3.1 -1.1 cm
+BI
+/W 80
+/H 69
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 80>>
+ID & «RƒÃÃ”àÇ Áøo·Ûíÿßûÿÿÿÿ×ú_ézëÂ„¸ ±X,,<‚Tøağßo·şßûÿÿÿûÿÿÿüèûÿßíw©56×°Â]Šá®“ ğ 
+EI
+Q
+endstream
+endobj
+166 0 obj
+<<
+/Length 228
+>>
+stream
+62 0 6 -1 55 69 d1
+q
+49 0 0 70 6.1 -1.1 cm
+BI
+/W 49
+/H 70
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 49>>
+ID 55PDF5„ĞkD)Ç@aŠAé= úz¾¾ıë÷şÿí÷ïØÛÈ Ü›!”^A¢¶nÃ·n†á¸<ˆ¹P
+$3ÈbğÛ¹5~ÿ¿ßıoş×uµİmpÒÁ„²²7 ÂĞahZ)ÃÀ @
+EI
+Q
+endstream
+endobj
+167 0 obj
+<<
+/Length 173
+>>
+stream
+78 0 4 0 73 67 d1
+q
+69 0 0 67 4.1 -0.1 cm
+BI
+/W 69
+/H 67
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 69>>
+ID .¯ÿÈ d=•Ía5¾ş·Öÿÿëÿÿ×ºßÿÿür`7ÿÿÿÿÿÿÿÿÿÿÿÿÿşC¿ÿ€ €
+EI
+Q
+endstream
+endobj
+168 0 obj
+<<
+/Length 241
+>>
+stream
+116 0 2 -1 113 68 d1
+q
+111 0 0 69 2.1 -1.1 cm
+BI
+/W 111
+/H 69
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 111>>
+ID & ÒN& QÿÿşhL3İ÷zßû[½nÖï_÷k~·ı5¿[µº,}ö¶·§­ÿu´½?¾Öé=ö¶·§­ÿu´½?¾Öé=ö¶·§­ÿu´½?¾Öé=ö¶·§­÷İt½?;MöšıëOûMöšı¦¿ûM@ @
+EI
+Q
+endstream
+endobj
+169 0 obj
+<<
+/Length 196
+>>
+stream
+54 0 3 -1 53 46 d1
+q
+50 0 0 47 3.1 -1.1 cm
+BI
+/W 50
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID :‡”ˆAÂˆ‡omÓoı¿ÿ·kµÃÿa¢j¨,#ƒÓ.‚ézëë¯¯ÿëı­µè;¬0“†+ap`‰€Ü @
+EI
+Q
+endstream
+endobj
+170 0 obj
+<<
+/Length 176
+>>
+stream
+50 0 4 -1 46 46 d1
+q
+42 0 0 47 4.1 -1.1 cm
+BI
+/W 42
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 42>>
+ID )ÃÁÏ0AÂˆSº	¸Ii'®½/ô¾ÕZá…¡õÿÿÿÿÛşû*¶¯[[i[JÃJ`•Š†0¥8X €
+EI
+Q
+endstream
+endobj
+171 0 obj
+<<
+/Length 198
+>>
+stream
+62 0 4 -1 58 69 d1
+q
+54 0 0 70 4.1 -1.1 cm
+BI
+/W 54
+/H 70
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID "âHÿò(ÿÿÿÿÿÿòœNtø@øO„A&:zOIôõéı}¯ÿÿÿÿÿÿşÿÿ¾ÿí¯í­ÖÚvDš°ÁG±,0³X’%  @
+EI
+Q
+endstream
+endobj
+172 0 obj
+<<
+/Length 178
+>>
+stream
+51 0 3 -1 47 46 d1
+q
+44 0 0 47 3.1 -1.1 cm
+BI
+/W 44
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 44>>
+ID )ÂÎpøè7IºMÒn—VõÕ¿××ïuş?ä8ßÿ¿ß¿)~­Õµ¶•´¬0•ƒ¡Š†0¤`x €
+EI
+Q
+endstream
+endobj
+173 0 obj
+<<
+/Length 169
+>>
+stream
+34 0 3 0 42 70 d1
+q
+39 0 0 70 3.1 -0.1 cm
+BI
+/W 39
+/H 70
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID *‘ˆ'	ÑV’Öº_íRøapÂãÿÿÿüš†oÿÌÂÿÿÿÿÿÿÿÿÿÿÿÿù2¿ş  
+EI
+Q
+endstream
+endobj
+174 0 obj
+<<
+/Length 222
+>>
+stream
+56 0 3 -21 53 45 d1
+q
+50 0 0 66 3.1 -21.1 cm
+BI
+/W 50
+/H 66
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID 5:Á0°…¢Èaè Ái7¤ÛU¶´ãúßÿÿÿÿ½kz¶•´¬0•
+Â¢à.|-Gÿ½ï ÑT†‘»ğœ'DBú¤H7Ş—ßÿşÖõµ¶•´¬%`Á(b0 ÁMaˆ €
+EI
+Q
+endstream
+endobj
+175 0 obj
+<<
+/Length 179
+>>
+stream
+62 0 4 0 59 69 d1
+q
+55 0 0 69 4.1 -0.1 cm
+BI
+/W 55
+/H 69
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID 4M@ÿÿÿÿÿÿşP‚„Ağˆùô	úMúñ^›×ış¿ÿÿÿÿÿÿÿÿÿÿÿÿÿÿù5 Çÿø €
+EI
+Q
+endstream
+endobj
+176 0 obj
+<<
+/Length 158
+>>
+stream
+32 0 4 0 28 70 d1
+q
+24 0 0 70 4.1 -0.1 cm
+BI
+/W 24
+/H 70
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 24>>
+ID 48AÓ§éÿı¯jÔ0£ÿš	#ƒÿ<ÿÿÿÿÿÿÿÿÿÿÿÿòjÿÀ @
+EI
+Q
+endstream
+endobj
+177 0 obj
+<<
+/Length 187
+>>
+stream
+59 0 3 0 56 69 d1
+q
+53 0 0 69 3.1 -0.1 cm
+BI
+/W 53
+/H 69
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 53>>
+ID 4M@ÿÿÿÿÿÿÿÎ GÿÿğdgÒè.—K„º¥Òá.—K§×„ñ{ùw…zoOÛ÷ÛïÛ÷ÛïÛ÷Ûï& \ğ(ÿÿ 
+EI
+Q
+endstream
+endobj
+178 0 obj
+<<
+/Length 153
+>>
+stream
+32 0 4 0 29 69 d1
+q
+25 0 0 69 4.1 -0.1 cm
+BI
+/W 25
+/H 69
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 25>>
+ID 4M@ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿù5à  
+EI
+Q
+endstream
+endobj
+179 0 obj
+<<
+/Length 198
+>>
+stream
+94 0 4 0 91 45 d1
+q
+87 0 0 45 4.1 -0.1 cm
+BI
+/W 87
+/H 45
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 87>>
+ID 4—	& À `ğƒ>š|"?aûè&ĞMÏAZ
+ïOOÒÒñLSõ^«ÿÿUÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÉ¨<ÿÿğ 
+EI
+Q
+endstream
+endobj
+180 0 obj
+<<
+/Length 171
+>>
+stream
+62 0 4 0 59 45 d1
+q
+55 0 0 45 4.1 -0.1 cm
+BI
+/W 55
+/H 45
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID 4MA€Ağƒè>><ğT›½}/Ş¿ëÿõÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÉ¨8?ÿÀ @
+EI
+Q
+endstream
+endobj
+181 0 obj
+<<
+/Length 180
+>>
+stream
+56 0 3 -1 52 46 d1
+q
+49 0 0 47 3.1 -1.1 cm
+BI
+/W 49
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 49>>
+ID #Î¡pƒ„Cøt¤İ­ÒoO[ıoO[ÿÿ[ÿÿÿÿ÷¯ÿöÒıëkz¶—ì0•´¡ƒŠ†)  
+EI
+Q
+endstream
+endobj
+182 0 obj
+<<
+/Length 194
+>>
+stream
+62 0 3 -19 57 45 d1
+q
+54 0 0 64 3.1 -19.1 cm
+BI
+/W 54
+/H 64
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID 4œI5 øAôG7ˆMÏá»MêôŞ¾ßûÿûÿÿÿÿÿ¥ÿúëş–ëk´¶–ÒÈQÁ„»¸apÂàÈ‰ñÿÿÿÿù5ÿ 
+EI
+Q
+endstream
+endobj
+183 0 obj
+<<
+/Length 160
+>>
+stream
+46 0 3 0 42 45 d1
+q
+39 0 0 45 3.1 -0.1 cm
+BI
+/W 39
+/H 45
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID 4Ìrj§Â~NI3ÁRŞ¸¯ëÚÓ\0¸ÿ¯ÿÿÿÿÿÿÿşMC/ÿà  
+EI
+Q
+endstream
+endobj
+184 0 obj
+<<
+/Length 190
+>>
+stream
+44 0 4 -1 39 46 d1
+q
+35 0 0 47 4.1 -1.1 cm
+BI
+/W 35
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID (
+gAXC…¢!ô}¤úêÿï¿ûğÇ!†}d!‡‡aÛ†íÃÁ¹NÈ0@äÕ‡û}şÿºÚÿia¥†	b²N°ƒ@ÈB  @
+EI
+Q
+endstream
+endobj
+185 0 obj
+<<
+/Length 166
+>>
+stream
+44 0 2 -1 37 63 d1
+q
+35 0 0 64 2.1 -1.1 cm
+BI
+/W 35
+/H 64
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID :¿ÿ¯ş¾¾¾µ¬,"®MA¯ÿ3ÿÿÿÿÿÿÿüÿÿÿÿõº¿ÖÚVÒ±ØPÔP 
+EI
+Q
+endstream
+endobj
+186 0 obj
+<<
+/Length 175
+>>
+stream
+62 0 4 -1 59 45 d1
+q
+55 0 0 46 4.1 -1.1 cm
+BI
+/W 55
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID 4—M@‚@ÿÿóÁÊp÷ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿõÿ_õ¿´î1Èk%±Xaa¬)€  
+EI
+Q
+endstream
+endobj
+187 0 obj
+<<
+/Length 193
+>>
+stream
+81 0 2 0 78 44 d1
+q
+76 0 0 44 2.1 -0.1 cm
+BI
+/W 76
+/H 44
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 76>>
+ID &  Ø7'?ÿÿÏ…5AŸºŞ·n·­Û¯ûU½ÖÕouÿh·­û­®·¦ëİ'K÷íu½7[_½:_¿¶›¯¦¿ûM~Ó_ÓŞ¿i­< @
+EI
+Q
+endstream
+endobj
+188 0 obj
+<<
+/Length 181
+>>
+stream
+59 0 2 0 56 44 d1
+q
+54 0 0 44 2.1 -0.1 cm
+BI
+/W 54
+/H 44
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID &   ÿÿù˜rœí¥t­¥µ¶•º¶•ÒÚVÒ±Wµ«víút÷DİÒzWIºMÕºO«¤İ&é7W“PÎƒs_ÿğ 
+EI
+Q
+endstream
+endobj
+189 0 obj
+<<
+/Length 192
+>>
+stream
+59 0 2 -20 56 44 d1
+q
+54 0 0 64 2.1 -20.1 cm
+BI
+/W 54
+/H 64
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID & \èÿÿŸBë}ÒßÖõµ½mo[[ÖÖõ¿­ºëzÚŞ¶·­­ë¯í{^×µízêº˜5§TÖuõ×¥¤®Â	X«PÂ† @
+EI
+Q
+endstream
+endobj
+190 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+7 0 obj
+<<
+/Name /T7
+/Type /Font
+/Subtype /Type3
+/Resources 190 0 R
+/FontBBox [-2 -16 75 54]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 45
+/LastChar 121
+/Encoding 191 0 R
+/CharProcs 192 0 R
+/Widths [27 24 0 0 39 0 0 0 0 0 0 39 0 0 0 0 
+0 0 0 0 57 0 55 58 52 0 0 57 0 40 0 48 
+69 0 59 52 0 56 43 55 0 0 0 0 0 0 0 0 
+0 0 0 0 39 35 35 39 35 24 35 39 24 0 0 20 
+63 43 39 39 0 32 31 25 41 35 0 35 37 ]
+>>
+endobj
+191 0 obj
+<<
+/Type /Encoding
+/Differences [45/B9 /BA 49/BD 56/BK 65/BT 67/BV /BW /BX 72/C0 74/C2 76/C4 
+/C5 79/C7 /C8 82/CA /CB /CC 97/CP /CQ /CR /CS /CT /CU /CV /CW /CX 108/D0 
+/D1 /D2 /D3 /D4 114/D6 /D7 /D8 /D9 /DA 120/DC /DD ]
+>>
+endobj
+192 0 obj
+<<
+/B9 193 0 R
+/BA 194 0 R
+/BD 195 0 R
+/BK 196 0 R
+/BT 197 0 R
+/BV 198 0 R
+/BW 199 0 R
+/BX 200 0 R
+/C0 201 0 R
+/C2 202 0 R
+/C4 203 0 R
+/C5 204 0 R
+/C7 205 0 R
+/C8 206 0 R
+/CA 207 0 R
+/CB 208 0 R
+/CC 209 0 R
+/CP 210 0 R
+/CQ 211 0 R
+/CR 212 0 R
+/CS 213 0 R
+/CT 214 0 R
+/CU 215 0 R
+/CV 216 0 R
+/CW 217 0 R
+/CX 218 0 R
+/D0 219 0 R
+/D1 220 0 R
+/D2 221 0 R
+/D3 222 0 R
+/D4 223 0 R
+/D6 224 0 R
+/D7 225 0 R
+/D8 226 0 R
+/D9 227 0 R
+/DA 228 0 R
+/DC 229 0 R
+/DD 230 0 R
+>>
+endobj
+193 0 obj
+<<
+/Length 123
+>>
+stream
+27 0 7 13 24 18 d1
+q
+17 0 0 5 7.1 12.9 cm
+BI
+/W 17
+/H 5
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 17>>
+ID & Çí@ @
+EI
+Q
+endstream
+endobj
+194 0 obj
+<<
+/Length 120
+>>
+stream
+24 0 9 0 17 8 d1
+q
+8 0 0 8 9.1 -0.1 cm
+BI
+/W 8
+/H 8
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 8>>
+ID 1B¨a@ @
+EI
+Q
+endstream
+endobj
+195 0 obj
+<<
+/Length 155
+>>
+stream
+39 0 9 0 34 50 d1
+q
+25 0 0 50 9.1 -0.1 cm
+BI
+/W 25
+/H 50
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 25>>
+ID 
+ºªU…¬ <"(ü%²»õúõúõúõúõúõúõúõú¬šƒà  
+EI
+Q
+endstream
+endobj
+196 0 obj
+<<
+/Length 191
+>>
+stream
+39 0 7 -2 41 50 d1
+q
+34 0 0 52 7.1 -2.1 cm
+BI
+/W 34
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID %Ê8D¹ĞMĞOJÕëKıV¿×ÖÒÚí+ima¥b«tá;„› ƒt›„ŸOIé=}=}ëZ×´®¾¶•Â[JÃ¬B†0P 
+EI
+Q
+endstream
+endobj
+197 0 obj
+<<
+/Length 173
+>>
+stream
+57 0 5 0 52 54 d1
+q
+47 0 0 54 5.1 -0.1 cm
+BI
+/W 47
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 47>>
+ID "•}këºú0úúé¥ş—_]/ô¯½/ôºúé¥ş—CõÍ^“¥××_].¾ºõá4äÔ0t?À @
+EI
+Q
+endstream
+endobj
+198 0 obj
+<<
+/Length 194
+>>
+stream
+55 0 11 -2 61 53 d1
+q
+50 0 0 55 11.1 -2.1 cm
+BI
+/W 50
+/H 55
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID )
+55‹6” Aµ„}&:
+¡'¥Ò}U.½.•~—úUú_ëúëÿKò4ÿêÿ_]}mn—Jİu¶•°•´°•ƒ	X…(0P 
+EI
+Q
+endstream
+endobj
+199 0 obj
+<<
+/Length 178
+>>
+stream
+58 0 5 0 58 51 d1
+q
+53 0 0 51 5.1 -0.1 cm
+BI
+/W 53
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 53>>
+ID !†m‡)Æt†øoMöëöõ÷­ı~¿×ëë_¯Ö—õıi}U}kéWéi/Õ.–’éU.Z	T‘ÃJ`   
+EI
+Q
+endstream
+endobj
+200 0 obj
+<<
+/Length 181
+>>
+stream
+52 0 4 0 56 51 d1
+q
+52 0 0 51 4.1 -0.1 cm
+BI
+/W 52
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 52>>
+ID !†ºÔ§N/ß_zşµş¿ôt¿õUõZÇ­~–‚ã®²D{×õ¯äõU}VµãUúêºÕ/ézU^––¦°’86WP 
+EI
+Q
+endstream
+endobj
+201 0 obj
+<<
+/Length 176
+>>
+stream
+57 0 5 0 63 51 d1
+q
+58 0 0 51 5.1 -0.1 cm
+BI
+/W 58
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 58>>
+ID !†sáWÊqJqu_Õ~«ë_ê¾µş«ë_ê¾µã®²B?ªú×ú¯­ªú×ú¯­ªú×U‘Ã9ğÏUü @
+EI
+Q
+endstream
+endobj
+202 0 obj
+<<
+/Length 163
+>>
+stream
+40 0 7 -2 46 51 d1
+q
+39 0 0 53 7.1 -2.1 cm
+BI
+/W 39
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID #BÔ“úõ×õ×õ×õ×õ×õ×õ×õ×˜¸Mk_ëªÒáWJÚ[JÚ
+Ä(a@ @
+EI
+Q
+endstream
+endobj
+203 0 obj
+<<
+/Length 161
+>>
+stream
+48 0 4 0 47 51 d1
+q
+43 0 0 51 4.1 -0.1 cm
+BI
+/W 43
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 43>>
+ID !†ÊùN.¾½~½~½~½~½~½~¸*¯ZúÖºëéWë¤¿T¸]-A)5+¨ €
+EI
+Q
+endstream
+endobj
+204 0 obj
+<<
+/Length 213
+>>
+stream
+69 0 5 0 75 51 d1
+q
+70 0 0 51 5.1 -0.1 cm
+BI
+/W 70
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 70>>
+ID !‚ E[Êqºë˜z0ëÿ]%ÿZÒş—VõúU¯ş—]%ÿZÒş—__¥Zoş—]%ÿZÒÿõÒ_¥Zÿéuo_¥ZÒÿõÒ_õ­/éuõí¥ZÿÅu¥ıV¸OY£@"´½ø €
+EI
+Q
+endstream
+endobj
+205 0 obj
+<<
+/Length 194
+>>
+stream
+59 0 11 -2 59 53 d1
+q
+48 0 0 55 11.1 -2.1 cm
+BI
+/W 48
+/H 55
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 48>>
+ID )ˆD¼8A„tºMÒºOJéuzV—ékÖ½këZÿé%ÿÿ¥Ké×_]o]/ô­¥Òõm+¥´®¶‚°ÂPÃˆ(0P 
+EI
+Q
+endstream
+endobj
+206 0 obj
+<<
+/Length 169
+>>
+stream
+52 0 4 0 55 51 d1
+q
+51 0 0 51 4.1 -0.1 cm
+BI
+/W 51
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 51>>
+ID !†mÜ§Ğ^öõ}ëû¯×Ò×ú×]WJ«ëA.‚¨%ˆX,ÚızızızızıVGõğ 
+EI
+Q
+endstream
+endobj
+207 0 obj
+<<
+/Length 189
+>>
+stream
+56 0 5 -2 55 51 d1
+q
+50 0 0 53 5.1 -2.1 cm
+BI
+/W 50
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID !†UÃ”ã$Ã|7«ï_Ş¿×ékıRõ¥õT¸Ai.*XY$>Ã«}õ¯ıªÿ_ê¾µüuú××Y3½VÒî”C( €
+EI
+Q
+endstream
+endobj
+208 0 obj
+<<
+/Length 190
+>>
+stream
+43 0 6 -2 47 53 d1
+q
+41 0 0 55 6.1 -2.1 cm
+BI
+/W 41
+/H 55
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID !jj‰sP‚U'ÓÒé5_]}Wÿ_×øïÛÃÈ"vÁÛ†á¸7*‡·üİşµ¯ık_Ú]*ûKil%E¸4¸bƒA… 
+EI
+Q
+endstream
+endobj
+209 0 obj
+<<
+/Length 168
+>>
+stream
+55 0 12 0 62 51 d1
+q
+50 0 0 51 12.1 -0.1 cm
+BI
+/W 50
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID <
+‹YˆĞ%}oªémuõõ¥ÿ¥ªş«ÿÕkÔh}~½~½~½~½~½~½~©ÌŠø €
+EI
+Q
+endstream
+endobj
+210 0 obj
+<<
+/Length 171
+>>
+stream
+39 0 8 -1 40 33 d1
+q
+32 0 0 34 8.1 -1.1 cm
+BI
+/W 32
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID :'³&.“Òéuj—úKê—şµ­ëZ×ğK­ô¿]{ëÖº]Õv‹Õ´¬1LT0ƒ
+  
+EI
+Q
+endstream
+endobj
+211 0 obj
+<<
+/Length 172
+>>
+stream
+35 0 8 -1 34 52 d1
+q
+26 0 0 53 8.1 -1.1 cm
+BI
+/W 26
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID 4)°µÔÌ¿×¯×¯×¯Ñ³áTkŞŸWK×îµş¿Uë_úÖµÿ¥ş—î—®•´ºVÒ±
+P 
+EI
+Q
+endstream
+endobj
+212 0 obj
+<<
+/Length 161
+>>
+stream
+35 0 8 -1 35 33 d1
+q
+27 0 0 34 8.1 -1.1 cm
+BI
+/W 27
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 27>>
+ID 5p‰ã¤Ü$ô–’Ò]ué0¸ÒşºşºÿÜéş•°—JØA[(b0P 
+EI
+Q
+endstream
+endobj
+213 0 obj
+<<
+/Length 185
+>>
+stream
+39 0 8 -1 42 52 d1
+q
+34 0 0 53 8.1 -1.1 cm
+BI
+/W 34
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID &ƒÔ¤/õëõëõëçB¨O„NÚÒc¤Õ.—W¥_¤¿¥_ë_Uşµõ_9õ¿¯ªëß^µÒî«´Xî­ aŠb¡„P 
+EI
+Q
+endstream
+endobj
+214 0 obj
+<<
+/Length 166
+>>
+stream
+35 0 9 -1 35 33 d1
+q
+26 0 0 34 9.1 -1.1 cm
+BI
+/W 26
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID :p‰ã„t—K¯KëJºÒ	sãÄ*!„Iÿ×ÿ‚]?m.ºVÂ
+ØAX… @
+EI
+Q
+endstream
+endobj
+215 0 obj
+<<
+/Length 176
+>>
+stream
+24 0 -2 -16 34 53 d1
+q
+36 0 0 69 -1.9 -16.1 cm
+BI
+/W 36
+/H 69
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID )t]ºÚA}/®ÕG_úëÿ]JGóYkÿ]ıuÿ®¿õ×õúşºşº—º¿Tµé+ÕŠ† @
+EI
+Q
+endstream
+endobj
+216 0 obj
+<<
+/Length 181
+>>
+stream
+35 0 4 -16 36 33 d1
+q
+32 0 0 49 4.1 -16.1 cm
+BI
+/W 32
+/H 49
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID )Ê„NÃ©1i:ZZºUúKúUşµõ_ëúUş·ıuëÖÚW]¬2#á…Qëõë©{ ×¥ZÒV’ØAC @
+EI
+Q
+endstream
+endobj
+217 0 obj
+<<
+/Length 178
+>>
+stream
+39 0 5 -1 40 52 d1
+q
+35 0 0 53 5.1 -1.1 cm
+BI
+/W 35
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID $ğ©A¯_¯_¯_£ƒáP‰ãÄ+Óêézõş’ú×ú¯­ªúÒú«§­j¿õ×Õk_Õt¾ºb Ô @
+EI
+Q
+endstream
+endobj
+218 0 obj
+<<
+/Length 162
+>>
+stream
+24 0 6 -1 25 50 d1
+q
+19 0 0 51 6.1 -1.1 cm
+BI
+/W 19
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 19>>
+ID :ğƒÕ«QÿçÎƒ„\=tºúêºÿÖµic^ºõ×¨%¤Öµÿ®«¯®—[¡¨ €
+EI
+Q
+endstream
+endobj
+219 0 obj
+<<
+/Length 158
+>>
+stream
+20 0 7 -1 23 52 d1
+q
+16 0 0 53 7.1 -1.1 cm
+BI
+/W 16
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 16>>
+ID '#V¦…ş½~½~½~½~½~½~½~½~¹Î·×Uş¾µõİ]lT0   
+EI
+Q
+endstream
+endobj
+220 0 obj
+<<
+/Length 198
+>>
+stream
+63 0 6 -1 64 33 d1
+q
+58 0 0 34 6.1 -1.1 cm
+BI
+/W 58
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 58>>
+ID <É$at[°‹Æ<z°‚mut'ÔTUô«¥Uş¿_T’]}^«õUıj¿õUıj—ô	UtıkU_ş«¯Ò­V¿zªé]S­4€ €
+EI
+Q
+endstream
+endobj
+221 0 obj
+<<
+/Length 175
+>>
+stream
+43 0 6 -1 44 33 d1
+q
+38 0 0 34 6.1 -1.1 cm
+BI
+/W 38
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID <Ê0ƒ¢İ„O­utŸQWÒë^«ÿT—]^¸ıWÖ¿Õ}i}UÓÖµ_úëêµ¯êº_]1
+Ğj  
+EI
+Q
+endstream
+endobj
+222 0 obj
+<<
+/Length 163
+>>
+stream
+39 0 8 -1 38 33 d1
+q
+30 0 0 34 8.1 -1.1 cm
+BI
+/W 30
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID 5p‰àt›„›¥Òn—®½+ô¿Õk_úÖµÿ¥û¥ë¯JÚ]+h+iC¡‚€ €
+EI
+Q
+endstream
+endobj
+223 0 obj
+<<
+/Length 183
+>>
+stream
+39 0 1 -15 38 33 d1
+q
+37 0 0 48 1.1 -15.1 cm
+BI
+/W 37
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID (dç0ƒ¢İ£Xz°“ubŸU}.µë¾µ^½ëUë_ê¾µş©I~©nº]*i`ˆòZbaT~½~½~¤Ôş  
+EI
+Q
+endstream
+endobj
+224 0 obj
+<<
+/Length 158
+>>
+stream
+32 0 6 -1 36 33 d1
+q
+30 0 0 34 6.1 -1.1 cm
+BI
+/W 30
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID <ÉÊaE»¼z´›V(-W¥¯Z¦¾5K]ê=~½~½~½~½~­@ @
+EI
+Q
+endstream
+endobj
+225 0 obj
+<<
+/Length 163
+>>
+stream
+31 0 6 -1 30 33 d1
+q
+24 0 0 34 6.1 -1.1 cm
+BI
+/W 24
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 24>>
+ID :t^:M¤ézª×ö\w¿İ»rn÷—¸N¿ş¸U¤¶¶Ò¶V!A… 
+EI
+Q
+endstream
+endobj
+226 0 obj
+<<
+/Length 158
+>>
+stream
+25 0 6 -1 27 47 d1
+q
+21 0 0 48 6.1 -1.1 cm
+BI
+/W 21
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 21>>
+ID :pŸõúõúõú‘ÃF¦gëõëõëõëõÌú§ë__]u].¶Ò±
+P 
+EI
+Q
+endstream
+endobj
+227 0 obj
+<<
+/Length 172
+>>
+stream
+41 0 6 -1 42 33 d1
+q
+36 0 0 34 6.1 -1.1 cm
+BI
+/W 36
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID >tÖ„\5Ö´¾¿­jµ¯ÿÕkUix×Öµ¯ıkZş	u¾•.¿İWõ´¾«tëhÑXb˜¨a @
+EI
+Q
+endstream
+endobj
+228 0 obj
+<<
+/Length 163
+>>
+stream
+35 0 6 -1 36 33 d1
+q
+30 0 0 34 6.1 -1.1 cm
+BI
+/W 30
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID 3gJa0‹‡×¥ëõº¯[ÿ®µV—}kZÿÖµ¯ı/é}uõ´¿m+a+¡… 
+EI
+Q
+endstream
+endobj
+229 0 obj
+<<
+/Length 176
+>>
+stream
+35 0 4 -1 38 33 d1
+q
+34 0 0 34 4.1 -1.1 cm
+BI
+/W 34
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID (3C„AÂ.ØEÛ¤İ7QARõ®º­5¬zÖ­që¯ëõÊ:§ë\½­5ªëúê–i]ğ•Šb¡„P 
+EI
+Q
+endstream
+endobj
+230 0 obj
+<<
+/Length 184
+>>
+stream
+37 0 6 -16 38 33 d1
+q
+32 0 0 49 6.1 -16.1 cm
+BI
+/W 32
+/H 49
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID 3pƒ¸kZ¥ëõª­kÿõZÕZ^5õ­kÿZÖ¿õõKı×Ö×­×iC!ÃŠëÖ\ê«ë¥ªÂ^•´ÂPÄ+
+  
+EI
+Q
+endstream
+endobj
+231 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+8 0 obj
+<<
+/Name /T8
+/Type /Font
+/Subtype /Type3
+/Resources 231 0 R
+/FontBBox [2 -16 63 53]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 46
+/LastChar 116
+/Encoding 232 0 R
+/CharProcs 233 0 R
+/Widths [25 0 0 44 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 67 0 0 0 0 56 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 43 49 39 0 0 0 44 0 24 0 0 0 0 
+0 0 0 0 36 35 34 ]
+>>
+endobj
+232 0 obj
+<<
+/Type /Encoding
+/Differences [46/BA 49/BD 65/BT 70/BY 97/CP /CQ /CR 103/CV 105/CX 114/D6 /D7 /D8 ]
+>>
+endobj
+233 0 obj
+<<
+/BA 234 0 R
+/BD 235 0 R
+/BT 236 0 R
+/BY 237 0 R
+/CP 238 0 R
+/CQ 239 0 R
+/CR 240 0 R
+/CV 241 0 R
+/CX 242 0 R
+/D6 243 0 R
+/D7 244 0 R
+/D8 245 0 R
+>>
+endobj
+234 0 obj
+<<
+/Length 129
+>>
+stream
+25 0 6 0 18 12 d1
+q
+12 0 0 12 6.1 -0.1 cm
+BI
+/W 12
+/H 12
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 12>>
+ID 6áNŸşÕ¨a@ @
+EI
+Q
+endstream
+endobj
+235 0 obj
+<<
+/Length 149
+>>
+stream
+44 0 6 0 37 49 d1
+q
+31 0 0 49 6.1 -0.1 cm
+BI
+/W 31
+/H 49
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID 5ºÂÁgƒj?Éf?ÿÿÿÿÿÿÿÿÿÿÿÿşGÀ @
+EI
+Q
+endstream
+endobj
+236 0 obj
+<<
+/Length 171
+>>
+stream
+67 0 3 0 63 52 d1
+q
+60 0 0 52 3.1 -0.1 cm
+BI
+/W 60
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 60>>
+ID )Óôÿ§éÿOÓÉ¿õ½=oO[Óş·§­éÿ[ÓÖôÿ¡~Ÿ¢BŸõ½=oOúŞMCAĞ2¿ü @
+EI
+Q
+endstream
+endobj
+237 0 obj
+<<
+/Length 166
+>>
+stream
+56 0 3 0 51 51 d1
+q
+48 0 0 51 3.1 -0.1 cm
+BI
+/W 48
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 48>>
+ID & ­ÿ™…5àß~ıûÿ¿ÿÊûÿÿúëÂãÿä/ø~ÿïÿÿüÿÿÿ“PÍÿÀ @
+EI
+Q
+endstream
+endobj
+238 0 obj
+<<
+/Length 177
+>>
+stream
+43 0 2 0 42 33 d1
+q
+40 0 0 33 2.1 -0.1 cm
+BI
+/W 40
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID 4‚!°4fé†~ß¾ö»\0¸óX1$y˜eB ù„CÓ@º].—¯ÿë¾ë´ì0‰AÍCá„àÁ8 €
+EI
+Q
+endstream
+endobj
+239 0 obj
+<<
+/Length 175
+>>
+stream
+49 0 2 0 45 52 d1
+q
+43 0 0 52 2.1 -0.1 cm
+BI
+/W 43
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 43>>
+ID >95ÿÍ„¿ÿÿÿÿóâs ¿<†&xMé½7ÿ}ÿïÿÿÿÿ¯õõı¥´°ÒÈÜ0–˜… ÂĞ2&€  
+EI
+Q
+endstream
+endobj
+240 0 obj
+<<
+/Length 159
+>>
+stream
+39 0 3 0 36 33 d1
+q
+33 0 0 33 3.1 -0.1 cm
+BI
+/W 33
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID !‡‚8DIºIÒét¿Õ­5Ã
+£ÿÿÿ}û”îöÕÒ°Ò°ÂPÅC
+ @
+EI
+Q
+endstream
+endobj
+241 0 obj
+<<
+/Length 198
+>>
+stream
+44 0 2 -16 42 34 d1
+q
+40 0 0 50 2.1 -16.1 cm
+BI
+/W 40
+/H 50
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID #g$0°ˆ„Dà´}o§j¶×ÇÿÿÿzÚŞ¬0–!Qc…Á‚¨ÿ½äaáÛ·NˆÓéu}?ÿı­´­¥m+	C¡…$   
+EI
+Q
+endstream
+endobj
+242 0 obj
+<<
+/Length 149
+>>
+stream
+24 0 3 0 21 53 d1
+q
+18 0 0 53 3.1 -0.1 cm
+BI
+/W 18
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 18>>
+ID <TéÓÿÿjÕ¨ÿŸšƒÿæÂ_ÿÿÿÿÿÿÿÿ“P#ğ 
+EI
+Q
+endstream
+endobj
+243 0 obj
+<<
+/Length 151
+>>
+stream
+36 0 2 0 33 33 d1
+q
+31 0 0 33 2.1 -0.1 cm
+BI
+/W 31
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID >GŠMAÓè¸}$Í‚m^×k†‡ÿÿÿÿÿşMCGş  
+EI
+Q
+endstream
+endobj
+244 0 obj
+<<
+/Length 168
+>>
+stream
+35 0 3 0 31 33 d1
+q
+28 0 0 33 3.1 -0.1 cm
+BI
+/W 28
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID 3
+n‚aÓAïKï¿øc}$3Ñƒİ‡ÛƒÉ ¹¬(95o½ÿuµÚXib²n0P 
+EI
+Q
+endstream
+endobj
+245 0 obj
+<<
+/Length 152
+>>
+stream
+34 0 2 0 28 47 d1
+q
+26 0 0 47 2.1 -0.1 cm
+BI
+/W 26
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID 'ÿ_ëëëXDüàŸÿÿÿÿÿæoÿÿşÒ¿m+C
+  
+EI
+Q
+endstream
+endobj
+246 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+9 0 obj
+<<
+/Name /T9
+/Type /Font
+/Subtype /Type3
+/Resources 246 0 R
+/FontBBox [-1 -18 40 52]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 36
+/LastChar 126
+/Encoding 247 0 R
+/CharProcs 248 0 R
+/Widths [39 0 39 0 39 39 39 0 39 39 39 39 39 39 0 0 
+0 0 0 0 0 39 39 0 39 39 39 39 39 39 0 0 
+39 0 0 0 0 0 0 0 0 0 0 0 39 0 0 39 
+39 0 0 0 39 0 39 39 0 39 0 39 0 39 39 39 
+39 39 39 39 39 39 39 0 39 39 39 39 39 0 39 39 
+39 39 39 39 39 39 39 0 39 0 39 ]
+>>
+endobj
+247 0 obj
+<<
+/Type /Encoding
+/Differences [36/B0 38/B2 40/B4 /B5 /B6 44/B8 /B9 /BA /BB /BC /BD 57/BL /BM 60/BO /BP /BQ /BR /BS /BT 68/BW 80/C8 83/CB 
+/CC 88/CG 90/CI /CJ 93/CL 95/CN 97/CP /CQ /CR 
+/CS /CT /CU /CV /CW /CX /CY 108/D0 /D1 /D2 /D3 /D4 114/D6 /D7 
+/D8 /D9 /DA /DB /DC /DD /DE 124/DG 126/DI ]
+>>
+endobj
+248 0 obj
+<<
+/B0 249 0 R
+/B2 250 0 R
+/B4 251 0 R
+/B5 252 0 R
+/B6 253 0 R
+/B8 254 0 R
+/B9 255 0 R
+/BA 256 0 R
+/BB 257 0 R
+/BC 258 0 R
+/BD 259 0 R
+/BL 260 0 R
+/BM 261 0 R
+/BO 262 0 R
+/BP 263 0 R
+/BQ 264 0 R
+/BR 265 0 R
+/BS 266 0 R
+/BT 267 0 R
+/BW 268 0 R
+/C8 269 0 R
+/CB 270 0 R
+/CC 271 0 R
+/CG 272 0 R
+/CI 273 0 R
+/CJ 274 0 R
+/CL 275 0 R
+/CN 276 0 R
+/CP 277 0 R
+/CQ 278 0 R
+/CR 279 0 R
+/CS 280 0 R
+/CT 281 0 R
+/CU 282 0 R
+/CV 283 0 R
+/CW 284 0 R
+/CX 285 0 R
+/CY 286 0 R
+/D0 287 0 R
+/D1 288 0 R
+/D2 289 0 R
+/D3 290 0 R
+/D4 291 0 R
+/D6 292 0 R
+/D7 293 0 R
+/D8 294 0 R
+/D9 295 0 R
+/DA 296 0 R
+/DB 297 0 R
+/DC 298 0 R
+/DD 299 0 R
+/DE 300 0 R
+/DG 301 0 R
+/DI 302 0 R
+>>
+endobj
+249 0 obj
+<<
+/Length 193
+>>
+stream
+39 0 4 -6 34 52 d1
+q
+30 0 0 58 4.1 -6.1 cm
+BI
+/W 30
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID :Tÿşp@áNÈ®LwAaº}o]ºÿ_ÿ½­í[Ç}öÃ°á¹ 1o&şï/m§éïÿÿ×Ş•õŞ•½pqV*Ô5aA‚ƒ_ÿj  
+EI
+Q
+endstream
+endobj
+250 0 obj
+<<
+/Length 190
+>>
+stream
+39 0 2 -1 36 47 d1
+q
+34 0 0 48 2.1 -1.1 cm
+BI
+/W 34
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID (8AÓ®è”uu}ÿÿ××S7VêºOjK*­z]UVW¦´F>µkIëßI×Åwôf»„kÿ´û§ì ÖÄVC´Õ„†j  
+EI
+Q
+endstream
+endobj
+251 0 obj
+<<
+/Length 160
+>>
+stream
+39 0 13 -6 32 52 d1
+q
+19 0 0 58 13.1 -6.1 cm
+BI
+/W 19
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 19>>
+ID :ÔÂªT¨*Z­-Rô½/ééÿÿÿíÿíÿoÛö÷nû·aÛ¶áÚ€ €
+EI
+Q
+endstream
+endobj
+252 0 obj
+<<
+/Length 157
+>>
+stream
+39 0 6 -6 25 52 d1
+q
+19 0 0 58 6.1 -6.1 cm
+BI
+/W 19
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 19>>
+ID #Ôğ÷nÜ7nû·{~ß·ı¿ı¿ÿÿÒÿÒş—¥éV–«J¥KXV   
+EI
+Q
+endstream
+endobj
+253 0 obj
+<<
+/Length 160
+>>
+stream
+39 0 5 7 33 39 d1
+q
+28 0 0 32 5.1 6.9 cm
+BI
+/W 28
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID $:ÿäwt½aáXŠµ(aCÂpƒ§D ä‡p°õ»Gÿö   
+EI
+Q
+endstream
+endobj
+254 0 obj
+<<
+/Length 141
+>>
+stream
+39 0 13 -10 26 10 d1
+q
+13 0 0 20 13.1 -10.1 cm
+BI
+/W 13
+/H 20
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 13>>
+ID 6áº{áÁê´¡a*ZÕ‚€ €
+EI
+Q
+endstream
+endobj
+255 0 obj
+<<
+/Length 124
+>>
+stream
+39 0 4 20 34 26 d1
+q
+30 0 0 6 4.1 19.9 cm
+BI
+/W 30
+/H 6
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID #†e?Ú€ €
+EI
+Q
+endstream
+endobj
+256 0 obj
+<<
+/Length 129
+>>
+stream
+39 0 14 0 24 10 d1
+q
+10 0 0 10 14.1 -0.1 cm
+BI
+/W 10
+/H 10
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 10>>
+ID 0áéş×† @
+EI
+Q
+endstream
+endobj
+257 0 obj
+<<
+/Length 156
+>>
+stream
+39 0 4 -6 34 52 d1
+q
+30 0 0 58 4.1 -6.1 cm
+BI
+/W 30
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID $êk­WUÕu]W^º®«ªêº®½u]WUÕu]zêº®«ªêºú¼ @
+EI
+Q
+endstream
+endobj
+258 0 obj
+<<
+/Length 171
+>>
+stream
+39 0 3 -1 35 47 d1
+q
+32 0 0 48 3.1 -1.1 cm
+BI
+/W 32
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID !”:téÑİ¤Ş“¤ßôõ¿ÿO[ÿÿÿÿÿöÒÿÿm/ío[[ÖÖÚVJÅZµj @
+EI
+Q
+endstream
+endobj
+259 0 obj
+<<
+/Length 148
+>>
+stream
+39 0 7 0 33 47 d1
+q
+26 0 0 47 7.1 -0.1 cm
+BI
+/W 26
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID $TıkëZÈáŠüˆ>ÂãÿÿÿÿÿÿÿÿÿÿåÁEw^  
+EI
+Q
+endstream
+endobj
+260 0 obj
+<<
+/Length 179
+>>
+stream
+39 0 3 -1 35 47 d1
+q
+32 0 0 48 3.1 -1.1 cm
+BI
+/W 32
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID $ éÓ¢':7I½=+Ó×Óÿıï­ïÚ¿jÃ
+ØV7dxa(aTK×S´Òéuél%bµaC
+P 
+EI
+Q
+endstream
+endobj
+261 0 obj
+<<
+/Length 139
+>>
+stream
+39 0 14 0 24 32 d1
+q
+10 0 0 32 14.1 -0.1 cm
+BI
+/W 10
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 10>>
+ID 0áéş×†üÃ„§û^P 
+EI
+Q
+endstream
+endobj
+262 0 obj
+<<
+/Length 161
+>>
+stream
+39 0 4 3 34 43 d1
+q
+30 0 0 40 4.1 2.9 cm
+BI
+/W 30
+/H 40
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID $èMB¨J‚¥*P‚¥JT¡J µ÷aÃvá‡nvíÃÜ0íØpÛ‡pÔ @
+EI
+Q
+endstream
+endobj
+263 0 obj
+<<
+/Length 132
+>>
+stream
+39 0 3 14 35 32 d1
+q
+32 0 0 18 3.1 13.9 cm
+BI
+/W 32
+/H 18
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID #ƒE?ÃQü¸fÂµ 
+EI
+Q
+endstream
+endobj
+264 0 obj
+<<
+/Length 162
+>>
+stream
+39 0 4 3 34 43 d1
+q
+30 0 0 40 4.1 2.9 cm
+BI
+/W 30
+/H 40
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID #Ôğ÷aÃvá‡nvíÃÜ0íØpÛê ©B
+” ©R„(AR„¨-ajÂ€ €
+EI
+Q
+endstream
+endobj
+265 0 obj
+<<
+/Length 158
+>>
+stream
+39 0 4 0 34 46 d1
+q
+30 0 0 46 4.1 -0.1 cm
+BI
+/W 30
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID 3„p<‰GAtûş­(„©BT¨*
+–©jºÿÿíGù!Ó§ÿµj  
+EI
+Q
+endstream
+endobj
+266 0 obj
+<<
+/Length 190
+>>
+stream
+39 0 3 0 35 46 d1
+q
+32 0 0 46 3.1 -0.1 cm
+BI
+/W 32
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID :‹8N§DNtĞMÒ329è!t—KUÒ#†´ô“ôÿªõOÿÿÿÿÿİ«½ö»m+ÚíŠ»[jÛ[#Ø¦ÃV+jPÂ† @
+EI
+Q
+endstream
+endobj
+267 0 obj
+<<
+/Length 162
+>>
+stream
+39 0 2 0 36 47 d1
+q
+34 0 0 47 2.1 -0.1 cm
+BI
+/W 34
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID :?Oÿ–úßÿÿÖÿı?ëÿé7ÿÿô›ÿñúäı&ÿÿÖà‚[µ§z€ €
+EI
+Q
+endstream
+endobj
+268 0 obj
+<<
+/Length 163
+>>
+stream
+39 0 1 0 35 46 d1
+q
+34 0 0 46 1.1 -0.1 cm
+BI
+/W 34
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID #†Ì:ŞçĞNü7Ûÿ}ı÷ÿıïÿÿÿÿÿ¥ÿõõş½/ôº\,z¥aa@ @
+EI
+Q
+endstream
+endobj
+269 0 obj
+<<
+/Length 158
+>>
+stream
+39 0 1 0 35 46 d1
+q
+34 0 0 46 1.1 -0.1 cm
+BI
+/W 34
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID #‚Š½Ûœ"8o¿o¿½ÿÿÿ^ºôºğ–+ZÖ$ÿÿÿÿÈàôÿµ 
+EI
+Q
+endstream
+endobj
+270 0 obj
+<<
+/Length 182
+>>
+stream
+39 0 4 -1 34 47 d1
+q
+30 0 0 48 4.1 -1.1 cm
+BI
+/W 30
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID 4õ4áµ¢&pé>¾¾ÿÿkc}Øx; á²Q‡aÃr@bj"·{íÈïOÿûKû]¥ƒ	cÖN a@ @
+EI
+Q
+endstream
+endobj
+271 0 obj
+<<
+/Length 149
+>>
+stream
+39 0 2 0 36 46 d1
+q
+34 0 0 46 2.1 -0.1 cm
+BI
+/W 34
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID #ƒU?ä¦JÿÿÿÚÚ?ÿÿÿÿÿÿÿÿÿÿ3)ÿj  
+EI
+Q
+endstream
+endobj
+272 0 obj
+<<
+/Length 173
+>>
+stream
+39 0 2 0 36 46 d1
+q
+34 0 0 46 2.1 -0.1 cm
+BI
+/W 34
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID .àzkïÕ§&G÷Wö·­­ëkzÇkÚö½ëºî»¢CıÕõ}é_zWŞ¾›¯«‘Á ƒ­ÚÓ½@ @
+EI
+Q
+endstream
+endobj
+273 0 obj
+<<
+/Length 158
+>>
+stream
+39 0 3 0 35 46 d1
+q
+32 0 0 46 3.1 -0.1 cm
+BI
+/W 32
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID .´ÿ’­t¿Òé~ÒQKÒ¥éj´µZZ­-V—¥Hèúii~–—éhµ 
+EI
+Q
+endstream
+endobj
+274 0 obj
+<<
+/Length 151
+>>
+stream
+39 0 15 -6 36 52 d1
+q
+21 0 0 58 15.1 -6.1 cm
+BI
+/W 21
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 21>>
+ID #†zY-ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ! {ö   
+EI
+Q
+endstream
+endobj
+275 0 obj
+<<
+/Length 143
+>>
+stream
+39 0 2 -6 23 52 d1
+q
+21 0 0 58 2.1 -6.1 cm
+BI
+/W 21
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 21>>
+ID #†z~çRÿÿÿÿÿÿÿÿÿÿÿüÚ€ €
+EI
+Q
+endstream
+endobj
+276 0 obj
+<<
+/Length 124
+>>
+stream
+39 0 4 -7 34 -1 d1
+q
+30 0 0 6 4.1 -7.1 cm
+BI
+/W 30
+/H 6
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID #†e?Ú€ €
+EI
+Q
+endstream
+endobj
+277 0 obj
+<<
+/Length 165
+>>
+stream
+39 0 4 0 38 32 d1
+q
+34 0 0 32 4.1 -0.1 cm
+BI
+/W 34
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID <t¼ü´ğÂ¸¿’X,-h‡ıÂézÿÿím®-i·ƒÄ0A¨ €
+EI
+Q
+endstream
+endobj
+278 0 obj
+<<
+/Length 165
+>>
+stream
+39 0 1 0 36 46 d1
+q
+35 0 0 46 1.1 -0.1 cm
+BI
+/W 35
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID #„§ıç‹ÿÿÿ›„!ïyÏ	½ôşôÿ÷¿ÿÿëÖş»K®ÒÃ	bµ¬“…h0P 
+EI
+Q
+endstream
+endobj
+279 0 obj
+<<
+/Length 155
+>>
+stream
+39 0 5 0 34 32 d1
+q
+29 0 0 32 5.1 -0.1 cm
+BI
+/W 29
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID $‚§Z"OAtšĞaRzëÿşïöjvÓ½µa„¬v­C
+ @
+EI
+Q
+endstream
+endobj
+280 0 obj
+<<
+/Length 170
+>>
+stream
+39 0 2 0 37 46 d1
+q
+35 0 0 46 2.1 -0.1 cm
+BI
+/W 35
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID )ÂSşò¿ÿÿäğ@øC­h‰š='ÓÒôÿ¯¯ÿÿÿ¾ëı÷]­†¶ÖÈfÛ!á¬0š€ €
+EI
+Q
+endstream
+endobj
+281 0 obj
+<<
+/Length 159
+>>
+stream
+39 0 3 0 34 32 d1
+q
+31 0 0 32 3.1 -0.1 cm
+BI
+/W 31
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID $	8AÂtè„ç@ƒzzWIõö×úÉ+»îå;ÚmğÕ†	Xá«PÂƒ 
+EI
+Q
+endstream
+endobj
+282 0 obj
+<<
+/Length 152
+>>
+stream
+39 0 2 0 33 46 d1
+q
+31 0 0 46 2.1 -0.1 cm
+BI
+/W 31
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID #‚téª"Ş­hÿÈá—OûR‚ÿÿÿÿÿÿÿÿ.éÿj  
+EI
+Q
+endstream
+endobj
+283 0 obj
+<<
+/Length 196
+>>
+stream
+39 0 2 -18 37 33 d1
+q
+35 0 0 51 2.1 -18.1 cm
+BI
+/W 35
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID $ÊP0œ Âp…ª Üz"àN‚µñÓÒoÿÿÿm-¯ì0–+T²c…ÃİĞˆ<:G¦‚ô·§ÿÿµ½a…¶–BÏb¡…jR@H €
+EI
+Q
+endstream
+endobj
+284 0 obj
+<<
+/Length 162
+>>
+stream
+39 0 1 0 37 46 d1
+q
+36 0 0 46 1.1 -0.1 cm
+BI
+/W 36
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID #„§ıç‹ÿÿÿœ>x÷ùÂ½>½×ÿÿÿÿÿÿÿÿÿäp\":iÿ´Ô @
+EI
+Q
+endstream
+endobj
+285 0 obj
+<<
+/Length 146
+>>
+stream
+39 0 5 0 34 47 d1
+q
+29 0 0 47 5.1 -0.1 cm
+BI
+/W 29
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID $:tÿö­GùpÅ?ï$ÿÿÿÿÿÿÿù2ëº¼ @
+EI
+Q
+endstream
+endobj
+286 0 obj
+<<
+/Length 156
+>>
+stream
+39 0 4 -17 28 47 d1
+q
+24 0 0 64 4.1 -17.1 cm
+BI
+/W 24
+/H 64
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 24>>
+ID )İ:µj?Ï‚ôıÊrÿÿÿÿÿÿÿÿÒ—ºkM.¸­Z° Â€ €
+EI
+Q
+endstream
+endobj
+287 0 obj
+<<
+/Length 144
+>>
+stream
+39 0 4 0 34 46 d1
+q
+30 0 0 46 4.1 -0.1 cm
+BI
+/W 30
+/H 46
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID #‚ôÿ¼_ÿÿÿÿÿÿÿÿÿÿÿÿù3)ûP 
+EI
+Q
+endstream
+endobj
+288 0 obj
+<<
+/Length 172
+>>
+stream
+39 0 -1 0 40 32 d1
+q
+41 0 0 32 -0.9 -0.1 cm
+BI
+/W 41
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID #Œáš0ƒ<XOx2XxL'Õz¯ÿıWÿÿÿÿÿÿÿÿÿÿÿÿÿ‚0Ó»Õwvª   
+EI
+Q
+endstream
+endobj
+289 0 obj
+<<
+/Length 157
+>>
+stream
+39 0 1 0 37 32 d1
+q
+36 0 0 32 1.1 -0.1 cm
+BI
+/W 36
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID #„<:aÂ¹àç
+ôúõÿ_ÿÿÿÿÿÿÿÿÿ‘Ápˆ é§şÓP 
+EI
+Q
+endstream
+endobj
+290 0 obj
+<<
+/Length 158
+>>
+stream
+39 0 4 0 34 32 d1
+q
+30 0 0 32 4.1 -0.1 cm
+BI
+/W 30
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID (pƒ§Nˆ¼è İ&ôõ½?é7ÿÿÿjõı­´¿a„­¥b­Z†0   
+EI
+Q
+endstream
+endobj
+291 0 obj
+<<
+/Length 172
+>>
+stream
+39 0 1 -17 36 32 d1
+q
+35 0 0 49 1.1 -17.1 cm
+BI
+/W 35
+/H 49
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID #„8-0ƒÄ=Û
+x\&ôÓûÓÿŞÿÿÿ¯[úí.»K%ŠÖ²NÿÿÿüÓşÔ @
+EI
+Q
+endstream
+endobj
+292 0 obj
+<<
+/Length 151
+>>
+stream
+39 0 2 0 36 32 d1
+q
+34 0 0 32 2.1 -0.1 cm
+BI
+/W 34
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID #‚‹L øO¦êhlpºkA…¡×××ÿÿÿÿÈà^Ÿö   
+EI
+Q
+endstream
+endobj
+293 0 obj
+<<
+/Length 167
+>>
+stream
+39 0 5 0 33 32 d1
+q
+28 0 0 32 5.1 -0.1 cm
+BI
+/W 28
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID 3^‚ZäZh}íllA4d›pÜ)ÄƒÈí´ßïÖÒÁ…ÅkY1Â´( €
+EI
+Q
+endstream
+endobj
+294 0 obj
+<<
+/Length 151
+>>
+stream
+39 0 2 0 33 41 d1
+q
+31 0 0 41 2.1 -0.1 cm
+BI
+/W 31
+/H 41
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID 'tÿÿÿ#†]?íMÿÿÿÿÿ$| ÿÿVëaqV­CPÂ€ €
+EI
+Q
+endstream
+endobj
+295 0 obj
+<<
+/Length 155
+>>
+stream
+39 0 1 0 37 32 d1
+q
+36 0 0 32 1.1 -0.1 cm
+BI
+/W 36
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID #„3	M?şï<D‚ÿÿÿÿÿÿÿÿÿÿÿ_õÃd3·‚&   
+EI
+Q
+endstream
+endobj
+296 0 obj
+<<
+/Length 153
+>>
+stream
+39 0 2 0 36 32 d1
+q
+34 0 0 32 2.1 -0.1 cm
+BI
+/W 34
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID #‚¦ŸûMNĞö·¯ío_ÚŞ¿ûiöÒÿö·¯ãµı¯j  
+EI
+Q
+endstream
+endobj
+297 0 obj
+<<
+/Length 163
+>>
+stream
+39 0 1 0 37 32 d1
+q
+36 0 0 32 1.1 -0.1 cm
+BI
+/W 36
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID #ƒ­ÚÓ½A“NÿÚŞ¿ÿóÏéöÓKÿÿıïÿßëÿÿß¯ÿÇzÿôöš€ €
+EI
+Q
+endstream
+endobj
+298 0 obj
+<<
+/Length 165
+>>
+stream
+39 0 2 0 36 32 d1
+q
+34 0 0 32 2.1 -0.1 cm
+BI
+/W 34
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID .à%5÷êÓÏd½´ºVêÚİ,U«ÚÖéÖMİ+«éºWVé<ƒôÓi¯À @
+EI
+Q
+endstream
+endobj
+299 0 obj
+<<
+/Length 173
+>>
+stream
+39 0 2 -17 36 32 d1
+q
+34 0 0 49 2.1 -17.1 cm
+BI
+/W 34
+/H 49
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID #‚¦ŸûMNî¾·İwWÿ´¯ÿi_ıºëûû®·ñWú¿×®½u6¸A­:ë –*Ö­C
+  
+EI
+Q
+endstream
+endobj
+300 0 obj
+<<
+/Length 152
+>>
+stream
+39 0 2 0 34 32 d1
+q
+32 0 0 32 2.1 -0.1 cm
+BI
+/W 32
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID 0”ÿ’Õtº]+IE*T©R¥*T©R¤Ct“KKKKCı¨ €
+EI
+Q
+endstream
+endobj
+301 0 obj
+<<
+/Length 136
+>>
+stream
+39 0 16 -6 22 52 d1
+q
+6 0 0 58 16.1 -6.1 cm
+BI
+/W 6
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 6>>
+ID #ºÿÿÿÿÿÿÿÿÿÿÿÿÿµ 
+EI
+Q
+endstream
+endobj
+302 0 obj
+<<
+/Length 140
+>>
+stream
+39 0 6 36 32 46 d1
+q
+26 0 0 10 6.1 35.9 cm
+BI
+/W 26
+/H 10
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID >dõ˜UMS	QqTZkP­   
+EI
+Q
+endstream
+endobj
+303 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+10 0 obj
+<<
+/Name /T10
+/Type /Font
+/Subtype /Type3
+/Resources 303 0 R
+/FontBBox [0 -19 65 56]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 11
+/LastChar 127
+/Encoding 304 0 R
+/CharProcs 305 0 R
+/Widths [45 43 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 30 30 0 
+0 21 26 21 38 38 38 38 38 38 38 38 38 38 38 21 
+0 0 0 0 0 0 58 54 55 59 52 50 60 58 28 39 
+0 48 70 58 60 52 0 57 43 55 58 0 0 0 0 47 
+21 0 21 0 0 0 38 43 34 43 34 23 38 43 21 0 
+41 21 65 43 38 43 41 30 30 30 43 41 55 41 41 34 
+38 0 0 0 38 ]
+>>
+endobj
+304 0 obj
+<<
+/Type /Encoding
+/Differences [11/AB /AC 40/B4 /B5 44/B8 /B9 /BA /BB /BC /BD /BE /BF /BG /BH /BI /BJ /BK /BL /BM 
+65/BT /BU /BV /BW /BX /BY /BZ /C0 /C1 /C2 
+76/C4 /C5 /C6 /C7 /C8 82/CA /CB /CC /CD 90/CI 
+/CJ 93/CL 97/CP /CQ /CR /CS /CT /CU /CV /CW /CX 107/CZ /D0 /D1 /D2 /D3 /D4 /D5 /D6 /D7 /D8 /D9 /DA /DB /DC /DD /DE 
+/DF 127/DJ ]
+>>
+endobj
+305 0 obj
+<<
+/AB 306 0 R
+/AC 307 0 R
+/B4 308 0 R
+/B5 309 0 R
+/B8 310 0 R
+/B9 311 0 R
+/BA 312 0 R
+/BB 313 0 R
+/BC 314 0 R
+/BD 315 0 R
+/BE 316 0 R
+/BF 317 0 R
+/BG 318 0 R
+/BH 319 0 R
+/BI 320 0 R
+/BJ 321 0 R
+/BK 322 0 R
+/BL 323 0 R
+/BM 324 0 R
+/BT 325 0 R
+/BU 326 0 R
+/BV 327 0 R
+/BW 328 0 R
+/BX 329 0 R
+/BY 330 0 R
+/BZ 331 0 R
+/C0 332 0 R
+/C1 333 0 R
+/C2 334 0 R
+/C4 335 0 R
+/C5 336 0 R
+/C6 337 0 R
+/C7 338 0 R
+/C8 339 0 R
+/CA 340 0 R
+/CB 341 0 R
+/CC 342 0 R
+/CD 343 0 R
+/CI 344 0 R
+/CJ 345 0 R
+/CL 346 0 R
+/CP 347 0 R
+/CQ 348 0 R
+/CR 349 0 R
+/CS 350 0 R
+/CT 351 0 R
+/CU 352 0 R
+/CV 353 0 R
+/CW 354 0 R
+/CX 355 0 R
+/CZ 356 0 R
+/D0 357 0 R
+/D1 358 0 R
+/D2 359 0 R
+/D3 360 0 R
+/D4 361 0 R
+/D5 362 0 R
+/D6 363 0 R
+/D7 364 0 R
+/D8 365 0 R
+/D9 366 0 R
+/DA 367 0 R
+/DB 368 0 R
+/DC 369 0 R
+/DD 370 0 R
+/DE 371 0 R
+/DF 372 0 R
+/DJ 373 0 R
+>>
+endobj
+306 0 obj
+<<
+/Length 183
+>>
+stream
+45 0 1 0 48 53 d1
+q
+47 0 0 53 1.1 -0.1 cm
+BI
+/W 47
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 47>>
+ID )Ä4a”Ã8A1I¤’¤ºU¥şTšÿÿÿÿÿÿòj_ÏÔ¿ÿÿÿÿÿÿÿÿÿÿÿÿÿÿé§& ÁÀ#ÿ€ €
+EI
+Q
+endstream
+endobj
+307 0 obj
+<<
+/Length 173
+>>
+stream
+43 0 1 0 41 53 d1
+q
+40 0 0 53 1.1 -0.1 cm
+BI
+/W 40
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID #‚—¸A.’t–—ú_kÿÿÿ:”š†—óätÿÿÿÿÿÿÿÿÿÿÿÿÿÿM98€ €
+EI
+Q
+endstream
+endobj
+308 0 obj
+<<
+/Length 165
+>>
+stream
+30 0 7 -18 25 56 d1
+q
+18 0 0 74 7.1 -18.1 cm
+BI
+/W 18
+/H 74
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 18>>
+ID 
+©BZ¥ZT½*^º®«õ_õ_ÿ¥ÿÿÿÿÿûÿ}ÿ}ûîû¿·oÛ·{{†í¸ €
+EI
+Q
+endstream
+endobj
+309 0 obj
+<<
+/Length 164
+>>
+stream
+30 0 4 -18 22 56 d1
+q
+18 0 0 74 4.1 -18.1 cm
+BI
+/W 18
+/H 74
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 18>>
+ID &¾íØw·»vı»wİ÷ï¿ï¿ÿ·ÿÿÿú_ÿªÿªıWU×¥KÒ¥ªU ©j  
+EI
+Q
+endstream
+endobj
+310 0 obj
+<<
+/Length 134
+>>
+stream
+21 0 6 -15 15 8 d1
+q
+9 0 0 23 6.1 -15.1 cm
+BI
+/W 9
+/H 23
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 9>>
+ID .éÓûİ‚
+?ë^º®«J–   
+EI
+Q
+endstream
+endobj
+311 0 obj
+<<
+/Length 122
+>>
+stream
+26 0 1 14 21 19 d1
+q
+20 0 0 5 1.1 13.9 cm
+BI
+/W 20
+/H 5
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 20>>
+ID &¡£ü @
+EI
+Q
+endstream
+endobj
+312 0 obj
+<<
+/Length 119
+>>
+stream
+21 0 6 0 14 8 d1
+q
+8 0 0 8 6.1 -0.1 cm
+BI
+/W 8
+/H 8
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 8>>
+ID .éÓı«P 
+EI
+Q
+endstream
+endobj
+313 0 obj
+<<
+/Length 165
+>>
+stream
+38 0 4 -19 33 56 d1
+q
+29 0 0 75 4.1 -19.1 cm
+BI
+/W 29
+/H 75
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID ©¯Uú¯Õ~«õ_Kê¿Uú¯Õ~«é}Wê¿Uú¯Õ~«é}Wê¿Uú¯Õ~­@ @
+EI
+Q
+endstream
+endobj
+314 0 obj
+<<
+/Length 172
+>>
+stream
+38 0 3 -2 34 50 d1
+q
+31 0 0 52 3.1 -2.1 cm
+BI
+/W 31
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID $Ç Ã¤Ş·I¿Öÿ§­ÿÿıoÿÿÿÿÿÿÿÿŞ¿ÿşÚ_ıëöÒ¶—í¥0‚±P`   
+EI
+Q
+endstream
+endobj
+315 0 obj
+<<
+/Length 150
+>>
+stream
+38 0 6 0 31 50 d1
+q
+25 0 0 50 6.1 -0.1 cm
+BI
+/W 25
+/H 50
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 25>>
+ID !Õ¬,àY5ò ücÿÿÿÿÿÿÿÿÿÿÿÿÿÿ§# 
+EI
+Q
+endstream
+endobj
+316 0 obj
+<<
+/Length 170
+>>
+stream
+38 0 4 0 33 50 d1
+q
+29 0 0 50 4.1 -0.1 cm
+BI
+/W 29
+/H 50
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID 'pƒ„OÃ ›Ót›¤şôôİß¿ûJÖ=zê—¥ªT©j•*T©jT´´’¥Òè%ÇZÒş  
+EI
+Q
+endstream
+endobj
+317 0 obj
+<<
+/Length 181
+>>
+stream
+38 0 3 -2 34 50 d1
+q
+31 0 0 52 3.1 -2.1 cm
+BI
+/W 31
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID (—ºİ&ôİîûï×ûK^–«J‚„Ğ&S•‡nŞï»ïÈå§ÿÿZ[ÒVëka¥`ĞPÅC
+ @
+EI
+Q
+endstream
+endobj
+318 0 obj
+<<
+/Length 163
+>>
+stream
+38 0 2 0 35 51 d1
+q
+33 0 0 51 2.1 -0.1 cm
+BI
+/W 33
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID !/Zú×Ö¹ÇÒëÒõ×¥ë¯K×^—®—_].¾º]}tºù³_"ÿÿşœ†< @
+EI
+Q
+endstream
+endobj
+319 0 obj
+<<
+/Length 178
+>>
+stream
+38 0 4 -2 33 50 d1
+q
+29 0 0 52 4.1 -2.1 cm
+BI
+/W 29
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID 7”şHüVµ¬,,øz±ÿÿÿç‹‚Ñxñ	‡„ßo^›ünÿ˜ğƒ×ÿë®aVş•µİ[	XiX…(0   
+EI
+Q
+endstream
+endobj
+320 0 obj
+<<
+/Length 182
+>>
+stream
+38 0 3 -2 34 50 d1
+q
+31 0 0 52 3.1 -2.1 cm
+BI
+/W 31
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID 58AÑ)º	á –—^—Ú¤>—õ×<>uFàúMô›Å7«íë÷ßú¿ÿ÷ÿş÷¯İwW­­Ò¶•†•Š†0P 
+EI
+Q
+endstream
+endobj
+321 0 obj
+<<
+/Length 158
+>>
+stream
+38 0 4 -2 36 50 d1
+q
+32 0 0 52 4.1 -2.1 cm
+BI
+/W 32
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID /áä}/¬ÀÖ«¯J•uéE-V–«KÒô«ı/_ë¯_ÿ¯ÿÿü0   
+EI
+Q
+endstream
+endobj
+322 0 obj
+<<
+/Length 194
+>>
+stream
+38 0 3 -2 34 50 d1
+q
+31 0 0 52 3.1 -2.1 cm
+BI
+/W 31
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID $—º7A7¦êúº¿ÿ¿û]ÖÖÃ­¥a¥m++¯=Â,pá&è İ&é¨oOIømzßşı+ûJßm+a+	C¡… @
+EI
+Q
+endstream
+endobj
+323 0 obj
+<<
+/Length 182
+>>
+stream
+38 0 3 -2 34 50 d1
+q
+31 0 0 52 3.1 -2.1 cm
+BI
+/W 31
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID $::7IºWÛ¥Õ½­÷ÿÿïÿı×ïV÷VÑ‡¶–ÚXb°Â¨õúú¬ÁÕ5õ×¥¤¬$°ÂV!C
+P 
+EI
+Q
+endstream
+endobj
+324 0 obj
+<<
+/Length 130
+>>
+stream
+21 0 6 0 14 32 d1
+q
+8 0 0 32 6.1 -0.1 cm
+BI
+/W 8
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 8>>
+ID .éÓı«Qÿÿ.éÓı«P 
+EI
+Q
+endstream
+endobj
+325 0 obj
+<<
+/Length 173
+>>
+stream
+58 0 3 0 54 54 d1
+q
+51 0 0 54 3.1 -0.1 cm
+BI
+/W 51
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 51>>
+ID */éúÓş;ïúMÿô›ıoOúŞŸô¯¿é7ÿÒoõ¼~qÒ¾ÿ¤ßÿI¿ÖûÓàšp@ÍA£ü @
+EI
+Q
+endstream
+endobj
+326 0 obj
+<<
+/Length 178
+>>
+stream
+54 0 3 0 49 51 d1
+q
+46 0 0 51 3.1 -0.1 cm
+BI
+/W 46
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 46>>
+ID & ÕƒÃÔ%Ã}¾ß}ıÿÿÿıuõÒét¸Kµ‘êƒ|0û}¿}ı÷÷ÿÿıuÿK¥×¥PAI¨ká`   
+EI
+Q
+endstream
+endobj
+327 0 obj
+<<
+/Length 189
+>>
+stream
+55 0 4 -2 50 53 d1
+q
+46 0 0 55 4.1 -2.1 cm
+BI
+/W 46
+/H 55
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 46>>
+ID  Ä
+S† ğˆ“Bª6¡&4¤êõ¤é{¥î½jÿõ¨ÿÿÿ¾Âÿ¿{¯Vş¶êÚí+öÒ°Ò†ÂVPÁ‚PÄ(aH1   
+EI
+Q
+endstream
+endobj
+328 0 obj
+<<
+/Length 175
+>>
+stream
+59 0 2 0 54 51 d1
+q
+52 0 0 51 2.1 -0.1 cm
+BI
+/W 52
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 52>>
+ID & ×ƒÁÏŠjàÃá¾ßo·Ûïï·şßÿÛÿÿïÿÿÿÿúÿúúÿ®¾ºô½t¸K¥ÂU¤Ô5ğ²c  @
+EI
+Q
+endstream
+endobj
+329 0 obj
+<<
+/Length 173
+>>
+stream
+52 0 3 0 49 51 d1
+q
+46 0 0 51 3.1 -0.1 cm
+BI
+/W 46
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 46>>
+ID &¡µüğ¤`—á¾ÿïşÿÿù×oÿÿÿ¿ëÂãÿ#G‡ïşÿÿş—ÿÿ_ô¿×¯^µ#É¨mÿ 
+EI
+Q
+endstream
+endobj
+330 0 obj
+<<
+/Length 165
+>>
+stream
+50 0 3 0 46 51 d1
+q
+43 0 0 51 3.1 -0.1 cm
+BI
+/W 43
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 43>>
+ID & Ûüğ¥8—á¾ÿïşÿÿûyÓÿÿÃş¿ëÂãÿ#?‡ïşÿÿÿÇÿÿÿúrj
+?€ €
+EI
+Q
+endstream
+endobj
+331 0 obj
+<<
+/Length 197
+>>
+stream
+60 0 4 -2 55 53 d1
+q
+51 0 0 55 4.1 -2.1 cm
+BI
+/W 51
+/H 55
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 51>>
+ID  Ä!òœ0°ƒá&Â­XI‚zOW×Ié}é}ëë«ÿúê?ÿÿÿa±ûò'jşûÿ·ï¿oßmmöÖF}†“Ã	<1O!b@ @
+EI
+Q
+endstream
+endobj
+332 0 obj
+<<
+/Length 166
+>>
+stream
+58 0 2 0 55 51 d1
+q
+53 0 0 51 2.1 -0.1 cm
+BI
+/W 53
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 53>>
+ID &  ø(ÿ>!.%¦¿ÿÿÿÿÿÿÿÿÿÿüäa?ÿÿÿÿÿÿÿÿÿÿÿÿM95ÁGø €
+EI
+Q
+endstream
+endobj
+333 0 obj
+<<
+/Length 145
+>>
+stream
+28 0 2 0 25 51 d1
+q
+23 0 0 51 2.1 -0.1 cm
+BI
+/W 23
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 23>>
+ID & £Ï‰kÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿúrj
+< @
+EI
+Q
+endstream
+endobj
+334 0 obj
+<<
+/Length 159
+>>
+stream
+39 0 3 -2 35 51 d1
+q
+32 0 0 53 3.1 -2.1 cm
+BI
+/W 32
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID 4S‰kÿÿÿÿÿÿÿÿÿÿÿÿùºÿş–»>«km+iXh(b0   
+EI
+Q
+endstream
+endobj
+335 0 obj
+<<
+/Length 153
+>>
+stream
+48 0 3 0 44 51 d1
+q
+41 0 0 51 3.1 -0.1 cm
+BI
+/W 41
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID & £ùá-ÿÿÿÿÿÿÿÿÿÂÿş½ÿëş½zõéTMC_ø €
+EI
+Q
+endstream
+endobj
+336 0 obj
+<<
+/Length 206
+>>
+stream
+70 0 4 0 65 51 d1
+q
+61 0 0 51 4.1 -0.1 cm
+BI
+/W 61
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 61>>
+ID & äH×Ï	"s8íuÿÿöÒÿı´¿ÿÿ¶—ÿí¥ÿÿı´¿ÿÿ¶—ÿí¥ÿÿı´¿ÿm/ÿÿí¥ÿÿı´¿ÿm/ÿÿí¥ÿÿı´¿ÿb¿ÿéµÂNMAvŠGÿ€ €
+EI
+Q
+endstream
+endobj
+337 0 obj
+<<
+/Length 189
+>>
+stream
+58 0 2 0 55 51 d1
+q
+53 0 0 51 2.1 -0.1 cm
+BI
+/W 53
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 53>>
+ID &¡‚ ¾ó1AvYÇmvÿı¿·ÿíı¿·ÿíı¿ÿoíı¿ÿoíÿûoíÿûoÿÛûoÿÛûşÇß¿û÷ı7„É¨ÿï 
+EI
+Q
+endstream
+endobj
+338 0 obj
+<<
+/Length 193
+>>
+stream
+60 0 4 -2 55 53 d1
+q
+51 0 0 55 4.1 -2.1 cm
+BI
+/W 51
+/H 55
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 51>>
+ID %ÄšÁˆD~ @Ã ƒp““t›¤İ&ÿIºŞ·úMş·ı?ëÿÿÿÿï[_şõµıëkz¶—í¥z¶•´­¥a„¡´0`‚†!Iq   
+EI
+Q
+endstream
+endobj
+339 0 obj
+<<
+/Length 164
+>>
+stream
+52 0 3 0 47 51 d1
+q
+44 0 0 51 3.1 -0.1 cm
+BI
+/W 44
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 44>>
+ID & ÓƒÃê%Á¾ßo·ï¿ıÿÿÿ_é¥ÒépAb°Yÿÿÿÿÿÿı95ŸÀ @
+EI
+Q
+endstream
+endobj
+340 0 obj
+<<
+/Length 186
+>>
+stream
+57 0 2 -2 56 51 d1
+q
+54 0 0 53 2.1 -2.1 cm
+BI
+/W 54
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID & ÑƒÁÏŠtá¾íöı÷÷ÿÿÿõş—ú]Â\X……‘>ßo¿¾şÿÿÿßÿÿü/ûª}I¨(oî½´¢¨0   
+EI
+Q
+endstream
+endobj
+341 0 obj
+<<
+/Length 199
+>>
+stream
+43 0 4 -2 38 53 d1
+q
+34 0 0 55 4.1 -2.1 cm
+BI
+/W 34
+/H 55
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID (£„aÂ#ğÖ ôŸ½'ş¯ÿÿoıümáØyNÈ1£! ì;†ç@bSƒÈ0İïmÉ¯şÿ÷ı¥ıÖ×impÒË‚9­1ƒ@Â€ €
+EI
+Q
+endstream
+endobj
+342 0 obj
+<<
+/Length 158
+>>
+stream
+55 0 3 0 51 51 d1
+q
+48 0 0 51 3.1 -0.1 cm
+BI
+/W 48
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 48>>
+ID #‚·ù‚4pX>·Öÿõ½{ÿúßÿÿÿñÃÿÿÿÿÿÿÿÿÿÿôå—ü @
+EI
+Q
+endstream
+endobj
+343 0 obj
+<<
+/Length 176
+>>
+stream
+58 0 2 -2 55 51 d1
+q
+53 0 0 53 2.1 -2.1 cm
+BI
+/W 53
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 53>>
+ID &  Ÿ¨Ğav¿ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿúÛ¯õ·W]¥u¶•´¬4¬0J…(0   
+EI
+Q
+endstream
+endobj
+344 0 obj
+<<
+/Length 171
+>>
+stream
+47 0 4 0 42 51 d1
+q
+38 0 0 51 4.1 -0.1 cm
+BI
+/W 38
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID .Ÿ!jX/	-%¯IU-}.—ô—ú](ô©zT½*^•/H*_¥¥úKéizTºKÖ’ÒÁhÀ @
+EI
+Q
+endstream
+endobj
+345 0 obj
+<<
+/Length 155
+>>
+stream
+21 0 7 -19 19 56 d1
+q
+12 0 0 75 7.1 -19.1 cm
+BI
+/W 12
+/H 75
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 12>>
+ID &¡ÿ—?ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿä9¯à  
+EI
+Q
+endstream
+endobj
+346 0 obj
+<<
+/Length 146
+>>
+stream
+21 0 1 -19 13 56 d1
+q
+12 0 0 75 1.1 -19.1 cm
+BI
+/W 12
+/H 75
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 12>>
+ID &¡ÿ3ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿşMCş  
+EI
+Q
+endstream
+endobj
+347 0 obj
+<<
+/Length 176
+>>
+stream
+38 0 3 -1 37 34 d1
+q
+34 0 0 35 3.1 -1.1 cm
+BI
+/W 34
+/H 35
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID 4"~Ğw¶ûíÚãÿçPò€^‰x@¸AtK¯®¸Zÿÿ×ş×taûi6•°”pÅ50   
+EI
+Q
+endstream
+endobj
+348 0 obj
+<<
+/Length 176
+>>
+stream
+43 0 2 -1 39 52 d1
+q
+37 0 0 53 2.1 -1.1 cm
+BI
+/W 37
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID <RjùÁßÿÿÿÿÿ<>|"ø>‚aâ›Ózo_oßûûÿÿÿÿşºúÿK~ÒÁôµ ØKLBˆ`   
+EI
+Q
+endstream
+endobj
+349 0 obj
+<<
+/Length 160
+>>
+stream
+34 0 2 -1 31 34 d1
+q
+29 0 0 35 2.1 -1.1 cm
+BI
+/W 29
+/H 35
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID !‹/‚éé-z]}5Qú¯ÿÿÿ·î÷[«­´­¥0J…
+  
+EI
+Q
+endstream
+endobj
+350 0 obj
+<<
+/Length 180
+>>
+stream
+43 0 3 -1 41 52 d1
+q
+38 0 0 53 3.1 -1.1 cm
+BI
+/W 38
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID $ÊDşUÿÿÿÿÿä1ğAğ‰p}á&:OIûÒÿ_]ÿÿÿÿÿßßûö×öÖÚvÂ,rÔ6Xb°ÁIp €
+EI
+Q
+endstream
+endobj
+351 0 obj
+<<
+/Length 162
+>>
+stream
+34 0 2 -1 31 34 d1
+q
+29 0 0 35 2.1 -1.1 cm
+BI
+/W 29
+/H 35
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 29>>
+ID $Àá İ+¤İ'÷Kï[¯×øù?ÿ}û…öÕëkm(l%a„1P`   
+EI
+Q
+endstream
+endobj
+352 0 obj
+<<
+/Length 156
+>>
+stream
+23 0 1 0 27 53 d1
+q
+26 0 0 53 1.1 -0.1 cm
+BI
+/W 26
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID :p‰ã¤šJº_¨ahÿÿÿòj?/ÿÿÿÿÿÿÿÿúr8ü @
+EI
+Q
+endstream
+endobj
+353 0 obj
+<<
+/Length 197
+>>
+stream
+38 0 2 -17 36 34 d1
+q
+34 0 0 51 2.1 -17.1 cm
+BI
+/W 34
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 34>>
+ID )P0œ4hh
+P“	Òn´ã[ÓÖÿÿÿ÷­­ëkm- ¨ÃŠĞ0U÷÷d3¢Ã°éÂ'®n“öé?ÿÿíoVÒ¶•††AC Á@ @
+EI
+Q
+endstream
+endobj
+354 0 obj
+<<
+/Length 166
+>>
+stream
+43 0 2 0 40 52 d1
+q
+38 0 0 52 2.1 -0.1 cm
+BI
+/W 38
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID <RjùÁßÿÿÿÿÿ>>|"ğ>‚~•â½7ı×ÿÿÿÿÿÿÿÿÿÿÿÓNM@ƒ Çø €
+EI
+Q
+endstream
+endobj
+355 0 obj
+<<
+/Length 147
+>>
+stream
+21 0 2 0 18 51 d1
+q
+16 0 0 51 2.1 -0.1 cm
+BI
+/W 16
+/H 51
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 16>>
+ID 8éÓÿÚµüáI¨_æÇÿÿÿÿÿÿÿÿÓ“P_À @
+EI
+Q
+endstream
+endobj
+356 0 obj
+<<
+/Length 172
+>>
+stream
+41 0 2 0 38 52 d1
+q
+36 0 0 52 2.1 -0.1 cm
+BI
+/W 36
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID <RjùÁßÿÿÿÿÿäàŸÿ`»Ğ^º\%Ğ].—^éäAúoW¦ûöı÷íûïÛ÷Nšÿ 
+EI
+Q
+endstream
+endobj
+357 0 obj
+<<
+/Length 146
+>>
+stream
+21 0 2 0 18 52 d1
+q
+16 0 0 52 2.1 -0.1 cm
+BI
+/W 16
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 16>>
+ID 8Rjù±ßÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿúrjø €
+EI
+Q
+endstream
+endobj
+358 0 obj
+<<
+/Length 179
+>>
+stream
+65 0 2 0 62 33 d1
+q
+60 0 0 33 2.1 -0.1 cm
+BI
+/W 60
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 60>>
+ID <GÅ!‹&¡Â øEó¾}Ú	¹Á¥i]ŠÒôÅ7ÿUÿÕÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÓM95 ÿ 
+EI
+Q
+endstream
+endobj
+359 0 obj
+<<
+/Length 159
+>>
+stream
+43 0 2 0 40 33 d1
+q
+38 0 0 33 2.1 -0.1 cm
+BI
+/W 38
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID <GÇ&¡Â„^ĞO84®Åzoúÿ¯ÿÿÿÿÿÿÿÿÿÿÿ¦œšğ 
+EI
+Q
+endstream
+endobj
+360 0 obj
+<<
+/Length 165
+>>
+stream
+38 0 2 -1 35 34 d1
+q
+33 0 0 35 2.1 -1.1 cm
+BI
+/W 33
+/H 35
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID !"X ƒuºMÒoõ½=oÿ­ÿÿÿû×ÿm/Ş¶¶Ò½Xa(a„1
+ @
+EI
+Q
+endstream
+endobj
+361 0 obj
+<<
+/Length 176
+>>
+stream
+43 0 2 -15 39 33 d1
+q
+37 0 0 48 2.1 -15.1 cm
+BI
+/W 37
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID <G‡&¡Â„_ĞL9ÀÚoW§÷Ûÿûÿÿÿúõÿ]}mv—¬0‚É;K±†ÿÿÿ§& Gğ 
+EI
+Q
+endstream
+endobj
+362 0 obj
+<<
+/Length 177
+>>
+stream
+41 0 3 -15 41 33 d1
+q
+38 0 0 48 3.1 -15.1 cm
+BI
+/W 38
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID !ŒŸ‚aàúAµ„õµ¤Ç§¯§¯úúÿÿÿÿÿíÿıµ¿µºÛFm.	pÄ.\ÿÿÿND  
+EI
+Q
+endstream
+endobj
+363 0 obj
+<<
+/Length 150
+>>
+stream
+30 0 1 0 27 33 d1
+q
+26 0 0 33 1.1 -0.1 cm
+BI
+/W 26
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID <gMB„F‡ÒLá%½ÆÖ‡ıÿÿÿÿÿúrjÿ€ €
+EI
+Q
+endstream
+endobj
+364 0 obj
+<<
+/Length 173
+>>
+stream
+30 0 2 -1 27 34 d1
+q
+25 0 0 35 2.1 -1.1 cm
+BI
+/W 25
+/H 35
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 25>>
+ID 3çÂ'1ĞAé?z_ïşáÙC ¿Ã†íÁ¹ <Ô,6MwŞßşş¶»­¥‚#°–ƒ´P 
+EI
+Q
+endstream
+endobj
+365 0 obj
+<<
+/Length 153
+>>
+stream
+30 0 1 -1 25 46 d1
+q
+24 0 0 47 1.1 -1.1 cm
+BI
+/W 24
+/H 47
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 24>>
+ID 'ÿş¿××Ö°ˆhÏÿÿÿÿÿÂÿÿÿş­×í­´¡Š† @
+EI
+Q
+endstream
+endobj
+366 0 obj
+<<
+/Length 162
+>>
+stream
+43 0 2 -1 40 33 d1
+q
+38 0 0 34 2.1 -1.1 cm
+BI
+/W 38
+/H 34
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID <GB“PæaÿùÁÇwÿÿÿÿÿÿÿÿÿÿÿúÿıoí;£Cš°ÒÃ†—  €
+EI
+Q
+endstream
+endobj
+367 0 obj
+<<
+/Length 156
+>>
+stream
+41 0 2 -1 38 32 d1
+q
+36 0 0 33 2.1 -1.1 cm
+BI
+/W 36
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID & ¹˜ób†
+í]¯[[×í¥ı­ë}Òı´¿µ½~Ú_ÇkÚş×µ 
+EI
+Q
+endstream
+endobj
+368 0 obj
+<<
+/Length 178
+>>
+stream
+55 0 1 -1 53 32 d1
+q
+52 0 0 33 1.1 -1.1 cm
+BI
+/W 52
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 52>>
+ID & ¹€sÀŸşpRqƒªa]ëßmëşínµşÚiyßşûi:_ÿßm'Kÿ¾Öé=ìv–ŸñÚkÿ´×ÿi¨ €
+EI
+Q
+endstream
+endobj
+369 0 obj
+<<
+/Length 168
+>>
+stream
+41 0 1 0 39 32 d1
+q
+38 0 0 32 1.1 -0.1 cm
+BI
+/W 38
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID & ¹ğşxFDÆ˜+ÕºÚVÒºVêÚXíZ·½ÖŒî•éºOVé7Jêõ¸,95‚æ¿à  
+EI
+Q
+endstream
+endobj
+370 0 obj
+<<
+/Length 175
+>>
+stream
+41 0 1 -16 38 32 d1
+q
+37 0 0 48 1.1 -16.1 cm
+BI
+/W 37
+/H 48
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID #‚æaÿÎ
++µv½[Kû[×í¥ı­ëkzı´¿µ½o±^×ö½¯K×^”úi¥ÖÂKiCa@ @
+EI
+Q
+endstream
+endobj
+371 0 obj
+<<
+/Length 154
+>>
+stream
+34 0 2 0 30 32 d1
+q
+28 0 0 32 2.1 -0.1 cm
+BI
+/W 28
+/H 32
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID .\‘U¤´•WÖ’éuõ©zT©p©ikÖ’¥­iit‚Ô.? 
+EI
+Q
+endstream
+endobj
+372 0 obj
+<<
+/Length 122
+>>
+stream
+38 0 0 19 37 21 d1
+q
+37 0 0 2 0.1 18.9 cm
+BI
+/W 37
+/H 2
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID &¡«€ €
+EI
+Q
+endstream
+endobj
+373 0 obj
+<<
+/Length 131
+>>
+stream
+38 0 7 43 30 51 d1
+q
+23 0 0 8 7.1 42.9 cm
+BI
+/W 23
+/H 8
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 23>>
+ID 1Pƒ:ßÿ½C0   
+EI
+Q
+endstream
+endobj
+374 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+11 0 obj
+<<
+/Name /T11
+/Type /Font
+/Subtype /Type3
+/Resources 374 0 R
+/FontBBox [4 0 26 33]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 49
+/LastChar 50
+/Encoding 375 0 R
+/CharProcs 376 0 R
+/Widths [30 30 ]
+>>
+endobj
+375 0 obj
+<<
+/Type /Encoding
+/Differences [49/BD /BE ]
+>>
+endobj
+376 0 obj
+<<
+/BD 377 0 R
+/BE 378 0 R
+>>
+endobj
+377 0 obj
+<<
+/Length 140
+>>
+stream
+30 0 6 0 24 33 d1
+q
+18 0 0 33 6.1 -0.1 cm
+BI
+/W 18
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 18>>
+ID 3«&¡roÿÿÿÿÿÿÿÿÿNM@Œ @
+EI
+Q
+endstream
+endobj
+378 0 obj
+<<
+/Length 156
+>>
+stream
+30 0 4 0 26 33 d1
+q
+22 0 0 33 4.1 -0.1 cm
+BI
+/W 22
+/H 33
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 22>>
+ID >8@á¤ßnƒ÷»[J=zTµJ•*
+•*ARĞIRét:Òğ 
+EI
+Q
+endstream
+endobj
+379 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+12 0 obj
+<<
+/Name /T12
+/Type /Font
+/Subtype /Type3
+/Resources 379 0 R
+/FontBBox [3 0 28 38]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 49
+/LastChar 50
+/Encoding 380 0 R
+/CharProcs 381 0 R
+/Widths [33 33 ]
+>>
+endobj
+380 0 obj
+<<
+/Type /Encoding
+/Differences [49/BD /BE ]
+>>
+endobj
+381 0 obj
+<<
+/BD 382 0 R
+/BE 383 0 R
+>>
+endobj
+382 0 obj
+<<
+/Length 144
+>>
+stream
+33 0 5 0 26 38 d1
+q
+21 0 0 38 5.1 -0.1 cm
+BI
+/W 21
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 21>>
+ID '«0Œ~lÇÿÿÿÿÿÿÿÿÿÿúrj0 
+EI
+Q
+endstream
+endobj
+383 0 obj
+<<
+/Length 160
+>>
+stream
+33 0 3 0 28 38 d1
+q
+25 0 0 38 3.1 -0.1 cm
+BI
+/W 25
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 25>>
+ID 38F÷Aé7JğÛ§í¿ÿk«ªê•*Z¥AR¥H*ZI*].‡ZUğ 
+EI
+Q
+endstream
+endobj
+384 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+13 0 obj
+<<
+/Name /T13
+/Type /Font
+/Subtype /Type3
+/Resources 384 0 R
+/FontBBox [-4 -21 82 62]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 11
+/LastChar 127
+/Encoding 385 0 R
+/CharProcs 386 0 R
+/Widths [48 46 46 69 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 23 42 0 0 0 0 23 32 32 0 
+0 23 28 23 42 42 42 42 42 42 42 42 0 42 42 23 
+23 0 0 0 39 65 62 59 60 63 57 54 65 62 30 0 
+0 52 76 62 65 57 0 61 46 60 62 62 85 0 0 51 
+23 42 23 0 0 0 42 46 37 46 37 25 42 46 23 25 
+44 23 69 46 42 46 44 33 33 32 46 44 60 44 44 37 
+0 0 0 0 42 ]
+>>
+endobj
+385 0 obj
+<<
+/Type /Encoding
+/Differences [11/AB /AC /AD /AE 33/AX /AY 39/B3 /B4 /B5 44/B8 /B9 /BA /BB /BC /BD /BE /BF /BG /BH /BI 56/BK /BL /BM 
+/BN 63/BR /BS /BT /BU /BV /BW /BX /BY /BZ /C0 /C1 76/C4 /C5 /C6 /C7 /C8 82/CA /CB /CC /CD /CE /CF 90/CI 
+/CJ /CK /CL 97/CP /CQ /CR /CS /CT /CU /CV /CW /CX /CY 
+/CZ /D0 /D1 /D2 /D3 /D4 /D5 /D6 /D7 /D8 /D9 /DA /DB /DC /DD /DE 
+127/DJ ]
+>>
+endobj
+386 0 obj
+<<
+/AB 387 0 R
+/AC 388 0 R
+/AD 389 0 R
+/AE 390 0 R
+/AX 391 0 R
+/AY 392 0 R
+/B3 393 0 R
+/B4 394 0 R
+/B5 395 0 R
+/B8 396 0 R
+/B9 397 0 R
+/BA 398 0 R
+/BB 399 0 R
+/BC 400 0 R
+/BD 401 0 R
+/BE 402 0 R
+/BF 403 0 R
+/BG 404 0 R
+/BH 405 0 R
+/BI 406 0 R
+/BK 407 0 R
+/BL 408 0 R
+/BM 409 0 R
+/BN 410 0 R
+/BR 411 0 R
+/BS 412 0 R
+/BT 413 0 R
+/BU 414 0 R
+/BV 415 0 R
+/BW 416 0 R
+/BX 417 0 R
+/BY 418 0 R
+/BZ 419 0 R
+/C0 420 0 R
+/C1 421 0 R
+/C4 422 0 R
+/C5 423 0 R
+/C6 424 0 R
+/C7 425 0 R
+/C8 426 0 R
+/CA 427 0 R
+/CB 428 0 R
+/CC 429 0 R
+/CD 430 0 R
+/CE 431 0 R
+/CF 432 0 R
+/CI 433 0 R
+/CJ 434 0 R
+/CK 435 0 R
+/CL 436 0 R
+/CP 437 0 R
+/CQ 438 0 R
+/CR 439 0 R
+/CS 440 0 R
+/CT 441 0 R
+/CU 442 0 R
+/CV 443 0 R
+/CW 444 0 R
+/CX 445 0 R
+/CY 446 0 R
+/CZ 447 0 R
+/D0 448 0 R
+/D1 449 0 R
+/D2 450 0 R
+/D3 451 0 R
+/D4 452 0 R
+/D5 453 0 R
+/D6 454 0 R
+/D7 455 0 R
+/D8 456 0 R
+/D9 457 0 R
+/DA 458 0 R
+/DB 459 0 R
+/DC 460 0 R
+/DD 461 0 R
+/DE 462 0 R
+/DJ 463 0 R
+>>
+endobj
+387 0 obj
+<<
+/Length 189
+>>
+stream
+48 0 1 0 52 59 d1
+q
+51 0 0 59 1.1 -0.1 cm
+BI
+/W 51
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 51>>
+ID "(( `ƒ„Ja„K„b‚Â$šIiZ_ĞaRqïÿÿÿÿÿÿşMAWùò5—ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÓNGş  
+EI
+Q
+endstream
+endobj
+388 0 obj
+<<
+/Length 180
+>>
+stream
+46 0 1 0 43 59 d1
+q
+42 0 0 59 1.1 -0.1 cm
+BI
+/W 42
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 42>>
+ID "‚)‡ Ü ›¤I?ÒÿKípÂãÿÿÿÍe&¡©üùEáÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÓNGà  
+EI
+Q
+endstream
+endobj
+389 0 obj
+<<
+/Length 177
+>>
+stream
+46 0 1 0 43 59 d1
+q
+42 0 0 59 1.1 -0.1 cm
+BI
+/W 42
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 42>>
+ID "AG¡ á°‚Z]/ô¾ôŸÿÿÿÿÿÿÿäÔ5?Ÿ#Yÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿı4äp àş  
+EI
+Q
+endstream
+endobj
+390 0 obj
+<<
+/Length 210
+>>
+stream
+69 0 1 0 66 59 d1
+q
+65 0 0 59 1.1 -0.1 cm
+BI
+/W 65
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 65>>
+ID ":‰p‰xa˜p‚Â7&!7H¤’éWş•}Úî_ÿÿÿÿÿšÊM@¯ùò5‘Ô_‡ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿı4Ó‘Àƒ€AÀ#ÿÀ @
+EI
+Q
+endstream
+endobj
+391 0 obj
+<<
+/Length 144
+>>
+stream
+23 0 7 0 16 60 d1
+q
+9 0 0 60 7.1 -0.1 cm
+BI
+/W 9
+/H 60
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 9>>
+ID 1BŸÿíÿÿÿkÿÿÿû_ÿÿÿÇüÅ:íC
+  
+EI
+Q
+endstream
+endobj
+392 0 obj
+<<
+/Length 153
+>>
+stream
+42 0 3 33 29 58 d1
+q
+26 0 0 25 3.1 32.9 cm
+BI
+/W 26
+/H 25
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID 1èA„4ÿ»ÿwÏÏÿUªıWUUÕUi%I*Ij   
+EI
+Q
+endstream
+endobj
+393 0 obj
+<<
+/Length 137
+>>
+stream
+23 0 7 33 17 58 d1
+q
+10 0 0 25 7.1 32.9 cm
+BI
+/W 10
+/H 25
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 10>>
+ID 1BŸß¸fxÿ­zêº­*Tµ 
+EI
+Q
+endstream
+endobj
+394 0 obj
+<<
+/Length 169
+>>
+stream
+32 0 8 -20 27 62 d1
+q
+19 0 0 82 8.1 -20.1 cm
+BI
+/W 19
+/H 82
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 19>>
+ID 
+©R¥J´©zT½/]W^ºõş—ÿú_ÿÿÿÿÿşßÿûßîÿwİı¿nß·nöíÛ¶à  
+EI
+Q
+endstream
+endobj
+395 0 obj
+<<
+/Length 168
+>>
+stream
+32 0 4 -20 23 62 d1
+q
+19 0 0 82 4.1 -20.1 cm
+BI
+/W 19
+/H 82
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 19>>
+ID &¾íÛ·ovíûvı¿»îÿwûşßÿûÿÿÿú_ÿé¯]zêºô½*^•-R¥J–   
+EI
+Q
+endstream
+endobj
+396 0 obj
+<<
+/Length 138
+>>
+stream
+23 0 7 -16 17 9 d1
+q
+10 0 0 25 7.1 -16.1 cm
+BI
+/W 10
+/H 25
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 10>>
+ID 1BŸß¸fxÿ­zêº­*Tµ 
+EI
+Q
+endstream
+endobj
+397 0 obj
+<<
+/Length 122
+>>
+stream
+28 0 1 16 23 21 d1
+q
+22 0 0 5 1.1 15.9 cm
+BI
+/W 22
+/H 5
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 22>>
+ID & ßü @
+EI
+Q
+endstream
+endobj
+398 0 obj
+<<
+/Length 121
+>>
+stream
+23 0 7 0 16 9 d1
+q
+9 0 0 9 7.1 -0.1 cm
+BI
+/W 9
+/H 9
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 9>>
+ID 1BŸûPÂ€ €
+EI
+Q
+endstream
+endobj
+399 0 obj
+<<
+/Length 169
+>>
+stream
+42 0 5 -21 36 62 d1
+q
+31 0 0 83 5.1 -21.1 cm
+BI
+/W 31
+/H 83
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID ©¯Uú¯Õ~«õ_ªıWê¿Uú¯Õ~«é}Wê¿Uú¯Õ~«õ_ªıWê¿Uú¯Õ~­@ @
+EI
+Q
+endstream
+endobj
+400 0 obj
+<<
+/Length 180
+>>
+stream
+42 0 3 -2 38 56 d1
+q
+35 0 0 58 3.1 -2.1 cm
+BI
+/W 35
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID :"X ƒt›­Òoô›ıoÿ¤ßÿÿş·ÿÿÿÿÿÿÿÿşõÿÿkzÿï[[×í¥m+i[JÃ	C Á@ @
+EI
+Q
+endstream
+endobj
+401 0 obj
+<<
+/Length 150
+>>
+stream
+42 0 7 0 35 56 d1
+q
+28 0 0 56 7.1 -0.1 cm
+BI
+/W 28
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID :Õ¬,M@‘cÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿNG¿ 
+EI
+Q
+endstream
+endobj
+402 0 obj
+<<
+/Length 177
+>>
+stream
+42 0 4 0 37 56 d1
+q
+33 0 0 56 4.1 -0.1 cm
+BI
+/W 33
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID $tOÃ„7¦é7I½uo]ğÛ¿ÿı¬0±Òş–«ªZ­*Z ©R¥J–©KKIRª].‚\u­*ÿ 
+EI
+Q
+endstream
+endobj
+403 0 obj
+<<
+/Length 190
+>>
+stream
+42 0 3 -2 38 56 d1
+q
+35 0 0 58 3.1 -2.1 cm
+BI
+/W 35
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID !‹ƒ„KÃ MÒn‚}İ}ßÿÿÚíqªıRôµAA(ƒ‘·=Û·÷ï¼ÃÂOÿş´·¬/•´¬>ÃAX0”1
+P`   
+EI
+Q
+endstream
+endobj
+404 0 obj
+<<
+/Length 168
+>>
+stream
+42 0 2 0 39 57 d1
+q
+37 0 0 57 2.1 -0.1 cm
+BI
+/W 37
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID $ïZúÖ¾µÎ>—_].¾º]}tºúéuõÒëÒõ×¥ë¥××K¯Õ5òÿÿÿÓG€ €
+EI
+Q
+endstream
+endobj
+405 0 obj
+<<
+/Length 185
+>>
+stream
+42 0 4 -2 37 56 d1
+q
+33 0 0 58 4.1 -2.1 cm
+BI
+/W 33
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 33>>
+ID 9’ş\8ñëXZÂÎà¸ÿÿÿÿÏÁÑ~!0ğ›Ózûq¿»ış\ôôÿÿªÒæ/½oº[«k´¬4¬0‚†*PÁ@ @
+EI
+Q
+endstream
+endobj
+406 0 obj
+<<
+/Length 192
+>>
+stream
+42 0 3 -2 38 56 d1
+q
+35 0 0 58 3.1 -2.1 cm
+BI
+/W 35
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID )Å‚tGî@İ’t–—ú]ZÓUKúëŸB/ƒè ßI¿W½7ı_¾ÿÕÿÿ¿ÿşß×ïô·Ş­¯Jİ[JÃ	C¬(0   
+EI
+Q
+endstream
+endobj
+407 0 obj
+<<
+/Length 201
+>>
+stream
+42 0 3 -2 38 56 d1
+q
+35 0 0 58 3.1 -2.1 cm
+BI
+/W 35
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID : è—‡@ƒt›¤ún¯««ÿûÿ¿®[\:ÚV[JÃJÄ+Pİ‡¸AÑvá&è İ&ê“zWĞm^½ÿû«ıwVÒ¶¶Ò°ÂV ¡Š†( €
+EI
+Q
+endstream
+endobj
+408 0 obj
+<<
+/Length 190
+>>
+stream
+42 0 3 -2 38 56 d1
+q
+35 0 0 58 3.1 -2.1 cm
+BI
+/W 35
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 35>>
+ID : è—¸IºMÒoM×¤ßëzÿVÿÿÿşÿÿİ~÷İ}µm{ÖÚì0–…Paqë¯õY·Túi¥ÒÒV’ÂJÁ„¬B†P 
+EI
+Q
+endstream
+endobj
+409 0 obj
+<<
+/Length 133
+>>
+stream
+23 0 7 0 16 36 d1
+q
+9 0 0 36 7.1 -0.1 cm
+BI
+/W 9
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 9>>
+ID 1BŸûPÂÿşb„?ö¡… 
+EI
+Q
+endstream
+endobj
+410 0 obj
+<<
+/Length 146
+>>
+stream
+23 0 7 -16 16 36 d1
+q
+9 0 0 52 7.1 -16.1 cm
+BI
+/W 9
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 9>>
+ID 1BŸûPÂÿşb„wû†(ÿ­zëÖ–«KP 
+EI
+Q
+endstream
+endobj
+411 0 obj
+<<
+/Length 169
+>>
+stream
+39 0 4 0 34 59 d1
+q
+30 0 0 59 4.1 -0.1 cm
+BI
+/W 30
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 30>>
+ID '‚ş9‡@ƒp“	ëxoNïÿö¶’KÒ ©RÕ*Z¥¯Kıÿÿøÿ’(AÓÿûPÂ€ €
+EI
+Q
+endstream
+endobj
+412 0 obj
+<<
+/Length 248
+>>
+stream
+65 0 5 -1 59 59 d1
+q
+54 0 0 60 5.1 -1.1 cm
+BI
+/W 54
+/H 60
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID  ÂA‚$pt„aÂ0è İ&é7IºMéêuÒ6ô>êŞ’mê“wªmú²?Õ'½{ô¿ÿ_ºKÿÿÿÿÿÿÿÿûoßÿı½oêí¯İ}Ú­ÛF[m&Öá°“¥°Ä&*ØaÄwnİ»dTØ`¡†(a‚`ÉàÈ7  
+EI
+Q
+endstream
+endobj
+413 0 obj
+<<
+/Length 180
+>>
+stream
+62 0 3 0 58 60 d1
+q
+55 0 0 60 3.1 -0.1 cm
+BI
+/W 55
+/H 60
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID $ïéÿOúÑÇ­éÿ[Óş·§ıoOúŞŸô¯¿é_Ò¾ÿ¥xı<åÿ¤ßÿI¿ş“¯Û¯Ná“P`ê
+?À @
+EI
+Q
+endstream
+endobj
+414 0 obj
+<<
+/Length 183
+>>
+stream
+59 0 3 0 53 57 d1
+q
+50 0 0 57 3.1 -0.1 cm
+BI
+/W 50
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 50>>
+ID &¡§ƒÃŸjĞo·Ûíÿ·ÿÿÿÿúëë¥Òét¸K_"Ö†öû~û÷ßßÿÿÿ]Òõ×¥ÂTÂRjXX( €
+EI
+Q
+endstream
+endobj
+415 0 obj
+<<
+/Length 194
+>>
+stream
+60 0 5 -2 54 59 d1
+q
+49 0 0 61 5.1 -2.1 cm
+BI
+/W 49
+/H 61
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 49>>
+ID !‚„˜jjAµI½Æ“¤ë¤é?¤ş—ºõ«ÿÖ¡ÿÿÿÿûì/û÷ºõoëoõmm¥z¶¶Ò°Ò¶†JÁ„¡ˆPaA‚€ €
+EI
+Q
+endstream
+endobj
+416 0 obj
+<<
+/Length 179
+>>
+stream
+63 0 3 0 57 57 d1
+q
+54 0 0 57 3.1 -0.1 cm
+BI
+/W 54
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID &¡¥ƒÃŸt	h|7Ã}¾ßoı¿}ı÷÷ÿöÿÿûÿÿÿÿÿş¿ÿô¿ëı}t¿Òétº\%ÂTÂ
+MA³‚€ €
+EI
+Q
+endstream
+endobj
+417 0 obj
+<<
+/Length 178
+>>
+stream
+57 0 3 0 54 57 d1
+q
+51 0 0 57 3.1 -0.1 cm
+BI
+/W 51
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 51>>
+ID & ­üøB0% ~ïß¿ÿßÿ÷ßš¿ÿÿÿ×ıx\äR<?÷ÿÂÿÿ®5ÿÿ¯ÿÒÿ_õázÓ"É¨2 
+EI
+Q
+endstream
+endobj
+418 0 obj
+<<
+/Length 169
+>>
+stream
+54 0 3 0 50 57 d1
+q
+47 0 0 57 3.1 -0.1 cm
+BI
+/W 47
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 47>>
+ID & «üøBœ%¢»}û÷ÿÿş÷üëÿøÿõÿ^ù¿ûÿÿÿøÿÿÿÿı&¡•ü @
+EI
+Q
+endstream
+endobj
+419 0 obj
+<<
+/Length 205
+>>
+stream
+65 0 4 -2 60 59 d1
+q
+56 0 0 61 4.1 -2.1 cm
+BI
+/W 56
+/H 61
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 56>>
+ID *:ò XAğˆ”aÖM­ ßI“Òz]'¤ÿ¤ÿ¥÷¯®¯ÿşÿÿÿÿÈ@/íù	Úıı÷ÿoı¿öû}µ·Û[s°ÂO40IáˆO!•@ @
+EI
+Q
+endstream
+endobj
+420 0 obj
+<<
+/Length 170
+>>
+stream
+62 0 3 0 58 57 d1
+q
+55 0 0 57 3.1 -0.1 cm
+BI
+/W 55
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID & \øÿ>—	i¯ÿÿÿÿÿÿÿÿÿÿÿÿş?ò(Oÿÿÿÿÿÿÿÿÿÿÿÿÿÿ¦œšsà_ü @
+EI
+Q
+endstream
+endobj
+421 0 obj
+<<
+/Length 148
+>>
+stream
+30 0 2 0 28 57 d1
+q
+26 0 0 57 2.1 -0.1 cm
+BI
+/W 26
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID &¡•æa-ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÓ“PÊğ 
+EI
+Q
+endstream
+endobj
+422 0 obj
+<<
+/Length 157
+>>
+stream
+52 0 3 0 48 57 d1
+q
+45 0 0 57 3.1 -0.1 cm
+BI
+/W 45
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 45>>
+ID &¡—üø[ÿÿÿÿÿÿÿÿÿÿÿáÿõëÿëÿõÿ^¼/J˜,š†ßğ 
+EI
+Q
+endstream
+endobj
+423 0 obj
+<<
+/Length 216
+>>
+stream
+76 0 3 0 72 57 d1
+q
+69 0 0 57 3.1 -0.1 cm
+BI
+/W 69
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 69>>
+ID & ¹í|øI	ìã´q×ÿ¶—ÿÿöÒÿÿşÚ_ÿ¶—ÿÿöÒÿı´¿ÿÿ¶—ÿÿöÒÿı´¿ÿÿ¶—ÿí¥ÿÿı´¿ÿÿ¶—ÿí¥ÿÿı´¿ÿm/ÿÿìWÿı6º6““P#$ö° 
+EI
+Q
+endstream
+endobj
+424 0 obj
+<<
+/Length 196
+>>
+stream
+62 0 3 0 58 57 d1
+q
+55 0 0 57 3.1 -0.1 cm
+BI
+/W 55
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID & ¹._y˜B&Ã8í¯µÛûşßÛÿöşßÿ·öÿ·ûûı¿ßßíşşÿoíÿûoÿÛûşßÛÿöşÇşıÿß¿ûÓz| ŞM@‡ÿx €
+EI
+Q
+endstream
+endobj
+425 0 obj
+<<
+/Length 198
+>>
+stream
+65 0 5 -2 59 59 d1
+q
+54 0 0 61 5.1 -2.1 cm
+BI
+/W 54
+/H 61
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 54>>
+ID  ÂA‚#˜:7 Ã¤Ü$Ã¤İ&é7§­Òoô›ıoO[ÿëzş·ÿÿÿÿÿï[_şõûiöÒ½moVÒı´­¥m+iCh+%0‚ƒP`   
+EI
+Q
+endstream
+endobj
+426 0 obj
+<<
+/Length 169
+>>
+stream
+57 0 3 0 51 57 d1
+q
+48 0 0 57 3.1 -0.1 cm
+BI
+/W 48
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 48>>
+ID &¡¥ƒÃŸt	há¾ßoß¾ÿ÷ÿÿÿ×ú_ézép—!adQ¿ÿÿÿÿÿÿÿı95ÿÀ @
+EI
+Q
+endstream
+endobj
+427 0 obj
+<<
+/Length 194
+>>
+stream
+61 0 3 -2 60 57 d1
+q
+57 0 0 59 3.1 -2.1 cm
+BI
+/W 57
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 57>>
+ID & ÓÓ|! % ağßo·Ûÿoşÿÿÿş¿ÒÿK¥Ğ\%Áˆ-dRá¾~û}¿÷÷ÿÿşÿÿÿÿÿ~ÿªoRjÛ^õÛX†*( €
+EI
+Q
+endstream
+endobj
+428 0 obj
+<<
+/Length 207
+>>
+stream
+46 0 4 -2 41 59 d1
+q
+37 0 0 61 4.1 -2.1 cm
+BI
+/W 37
+/H 61
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID $QÂaÂ#˜kAkI“Ò}=_úzıÿı¿ÿ¿coxvC*nCÃ°á¸nÍ`Ä—•a-Şöòk¿ïÿõ¿®ëkºÚí,˜àÒĞ`ÂZBá… `   
+EI
+Q
+endstream
+endobj
+429 0 obj
+<<
+/Length 164
+>>
+stream
+60 0 3 0 56 57 d1
+q
+53 0 0 57 3.1 -0.1 cm
+BI
+/W 53
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 53>>
+ID .¿äRDpMÒÛÖúßÿıoÿÿú÷[ÿÿã‡ÿÿÿÿÿÿÿÿÿÿÿÿÂP_À @
+EI
+Q
+endstream
+endobj
+430 0 obj
+<<
+/Length 181
+>>
+stream
+62 0 3 -2 58 57 d1
+q
+55 0 0 59 3.1 -2.1 cm
+BI
+/W 55
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID & \†ŸT´]®×ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿş·­ıoú¶½+kn­¥l%m+†!C
+U‹ 
+EI
+Q
+endstream
+endobj
+431 0 obj
+<<
+/Length 182
+>>
+stream
+62 0 2 -2 59 57 d1
+q
+57 0 0 59 2.1 -2.1 cm
+BI
+/W 57
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 57>>
+ID & ÜŒÿÏ
+ÓÚ»[[×÷İ/ío[î—÷İ/ío_¶—÷İ/ío_¶—÷İ/ío_¶—÷İ/ío_±_Úş×µü @
+EI
+Q
+endstream
+endobj
+432 0 obj
+<<
+/Length 220
+>>
+stream
+85 0 2 -2 82 57 d1
+q
+80 0 0 59 2.1 -2.1 cm
+BI
+/W 80
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 80>>
+ID & Üø((?üàrœ9Âaİ¯Öşí×ıëvëşşé¥ÿtÒó¿ÿÛ[KÓÿûkizÿo´ºOÿíö—Iÿı¿K¤ßÿß­Òn¿ûõºM×ÿ~·IºÿïûÅ÷­?ïZŞ´ÿ½ià  
+EI
+Q
+endstream
+endobj
+433 0 obj
+<<
+/Length 176
+>>
+stream
+51 0 5 0 46 57 d1
+q
+41 0 0 57 5.1 -0.1 cm
+BI
+/W 41
+/H 57
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID .ßä=k"ˆé,/IzÒÕ-}/Z^—ú^¢´½-V—¥ªÒôµZA}.µÒõK­t½*^–«IzÒ Zğ 
+EI
+Q
+endstream
+endobj
+434 0 obj
+<<
+/Length 158
+>>
+stream
+23 0 8 -21 21 62 d1
+q
+13 0 0 83 8.1 -21.1 cm
+BI
+/W 13
+/H 83
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 13>>
+ID & ŸË§ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿòkø €
+EI
+Q
+endstream
+endobj
+435 0 obj
+<<
+/Length 155
+>>
+stream
+42 0 12 33 38 58 d1
+q
+26 0 0 25 12.1 32.9 cm
+BI
+/W 26
+/H 25
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID ?‚UZIRJ’Zª®ª«ªıWUÿÿ—²ö!Ä=ßû¿´Ô0ƒ
+  
+EI
+Q
+endstream
+endobj
+436 0 obj
+<<
+/Length 149
+>>
+stream
+23 0 1 -21 14 62 d1
+q
+13 0 0 83 1.1 -21.1 cm
+BI
+/W 13
+/H 83
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 13>>
+ID & Ÿš?ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ& Ÿ€ €
+EI
+Q
+endstream
+endobj
+437 0 obj
+<<
+/Length 183
+>>
+stream
+42 0 3 -1 41 38 d1
+q
+38 0 0 39 3.1 -1.1 cm
+BI
+/W 38
+/H 39
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID ("~ÓaÓooı»]®?şkÁˆ"&aÓ.è.½/_Â¥ÿÿ¯ı®èÃû¦Ò¶á°‚b¡ŠjP 
+EI
+Q
+endstream
+endobj
+438 0 obj
+<<
+/Length 182
+>>
+stream
+46 0 2 -1 42 58 d1
+q
+40 0 0 59 2.1 -1.1 cm
+BI
+/W 40
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID <Rjù±aÿÿÿÿÿÿÏ‹Â„_‡ĞL>“x¦ôŞ›×Ûÿ¿÷÷ÿÿÿÿıuÿ®»®–üKN—†‚Ğa„´Ä(ƒ 
+EI
+Q
+endstream
+endobj
+439 0 obj
+<<
+/Length 164
+>>
+stream
+37 0 3 -1 34 38 d1
+q
+31 0 0 39 3.1 -1.1 cm
+BI
+/W 31
+/H 39
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID :/@İ$é'IK¯¦ª×ªÿÿÿûïÜ-î·W[i[JÚPØ%B†
+  
+EI
+Q
+endstream
+endobj
+440 0 obj
+<<
+/Length 186
+>>
+stream
+46 0 3 -1 43 58 d1
+q
+40 0 0 59 3.1 -1.1 cm
+BI
+/W 40
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID &
+A‡şI‹ÿÿÿÿÿùĞ|>.}|$é='ı'¯®¿õ×ÿÿÿÿÿııÿ¿ûkûkmm£´¤9¨l%†!a…%À  
+EI
+Q
+endstream
+endobj
+441 0 obj
+<<
+/Length 166
+>>
+stream
+37 0 2 -1 34 38 d1
+q
+32 0 0 39 2.1 -1.1 cm
+BI
+/W 32
+/H 39
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 32>>
+ID !‹"|$¤İ+¤ô›ı+ï_İkÿÇÈÕÿûıû…½Õººí(m+iX`”1
+ @
+EI
+Q
+endstream
+endobj
+442 0 obj
+<<
+/Length 160
+>>
+stream
+25 0 1 0 29 59 d1
+q
+28 0 0 59 1.1 -0.1 cm
+BI
+/W 28
+/H 59
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID 5”p‰`t‚ÒM/Òı ÂãÿÿÿÿòjÿŸ/ÿÿÿÿÿÿÿÿÿÿ§#†à  
+EI
+Q
+endstream
+endobj
+443 0 obj
+<<
+/Length 206
+>>
+stream
+42 0 2 -18 40 38 d1
+q
+38 0 0 56 2.1 -18.1 cm
+BI
+/W 38
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 38>>
+ID  e$
+„EÛŸ‚T˜­&´›*Øş“ÿÿÿşÚ_½[Kim*3ˆZ*ÿÈl"Ã°éÂ'S¤ÒIıÒÿÿÚŞ­¥µ†ĞVJ0AC¤0° 
+EI
+Q
+endstream
+endobj
+444 0 obj
+<<
+/Length 171
+>>
+stream
+46 0 2 0 43 58 d1
+q
+41 0 0 58 2.1 -0.1 cm
+BI
+/W 41
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID <Rjù±aÿÿÿÿÿÿÌÅáÂ/ƒè&úMô¼W¦ÿ¯ÿ×ÿÿÿÿÿÿÿÿÿÿÿÿôÓ“P àş  
+EI
+Q
+endstream
+endobj
+445 0 obj
+<<
+/Length 150
+>>
+stream
+23 0 2 0 20 56 d1
+q
+18 0 0 56 2.1 -0.1 cm
+BI
+/W 18
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 18>>
+ID =BŸÿÚ†óÅ&¡ÿœÿÿÿÿÿÿÿÿÿÿôäÔğ 
+EI
+Q
+endstream
+endobj
+446 0 obj
+<<
+/Length 164
+>>
+stream
+25 0 -4 -17 17 56 d1
+q
+21 0 0 73 -3.9 -17.1 cm
+BI
+/W 21
+/H 73
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 21>>
+ID :Ğƒ§şÔ0£ÿHÌÈb‡ÿÿÿÿÿÿÿÿÿË½=:ëÿZJ×t1PÂ€ €
+EI
+Q
+endstream
+endobj
+447 0 obj
+<<
+/Length 181
+>>
+stream
+44 0 2 0 42 58 d1
+q
+40 0 0 58 2.1 -0.1 cm
+BI
+/W 40
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID <Rjù±aÿÿÿÿÿÿù@cÿá‘;…áx].—K¥Â]×§×§Ñâ¯	ôß¾ı¾ß¾ı¿}ıöé äÔ‚æ¿à  
+EI
+Q
+endstream
+endobj
+448 0 obj
+<<
+/Length 149
+>>
+stream
+23 0 2 0 20 58 d1
+q
+18 0 0 58 2.1 -0.1 cm
+BI
+/W 18
+/H 58
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 18>>
+ID <Rjù±aÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿéÉ¨à  
+EI
+Q
+endstream
+endobj
+449 0 obj
+<<
+/Length 186
+>>
+stream
+69 0 2 0 66 37 d1
+q
+64 0 0 37 2.1 -0.1 cm
+BI
+/W 64
+/H 37
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 64>>
+ID <FbE“Pá|"ø0‹àú	´sb¤ÚMÃ¥¥â´½1MÿÕÿê¿ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ¦šrjş  
+EI
+Q
+endstream
+endobj
+450 0 obj
+<<
+/Length 163
+>>
+stream
+46 0 2 0 43 37 d1
+q
+41 0 0 37 2.1 -0.1 cm
+BI
+/W 41
+/H 37
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID <FbÉ¨pƒáÁôsb¤Ü:^+Ó×ÿëÿÿÿÿÿÿÿÿÿÿÿÿúiÉ¨pÿ 
+EI
+Q
+endstream
+endobj
+451 0 obj
+<<
+/Length 170
+>>
+stream
+42 0 2 -1 39 38 d1
+q
+37 0 0 39 2.1 -1.1 cm
+BI
+/W 37
+/H 39
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 37>>
+ID :	8Dü8A&é7IºMÖôõ¿Òoÿıoÿÿÿıëû[×í¥zÚÛJÚPÚ
+Ã	C Á@ @
+EI
+Q
+endstream
+endobj
+452 0 obj
+<<
+/Length 185
+>>
+stream
+46 0 2 -16 42 37 d1
+q
+40 0 0 53 2.1 -16.1 cm
+BI
+/W 40
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID <GÅ“PáÂ/ƒè Ã›&áŠoMêôşûûÿûÿÿÿÿ¥ÿô¿´½mv–×†\0ÒìBàÁqÿÿÿşœšÀ @
+EI
+Q
+endstream
+endobj
+453 0 obj
+<<
+/Length 182
+>>
+stream
+44 0 3 -16 43 37 d1
+q
+40 0 0 53 3.1 -16.1 cm
+BI
+/W 40
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 40>>
+ID :£‚aàúAµ„}[ZOê:½/½/ÿ¥ÿÿÿÿÿşßÿßÚßÚß¶¶Ñ‡ÛK†K†!pÂãÿÿÿÿNA  
+EI
+Q
+endstream
+endobj
+454 0 obj
+<<
+/Length 155
+>>
+stream
+33 0 2 0 30 37 d1
+q
+28 0 0 37 2.1 -0.1 cm
+BI
+/W 28
+/H 37
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 28>>
+ID 8Fg&¡B„\>‚LØÒÃ×¯ÓXÃCÿ×ÿÿÿÿÿÿşœš†à  
+EI
+Q
+endstream
+endobj
+455 0 obj
+<<
+/Length 176
+>>
+stream
+33 0 3 -1 29 38 d1
+q
+26 0 0 39 3.1 -1.1 cm
+BI
+/W 26
+/H 39
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID 3÷Â'ã ƒÒzO§¯şûÿ¿lC`ì;pÜ7!‡šÅ‡“]½şßşş¶»úXie¸a-1@Á@ @
+EI
+Q
+endstream
+endobj
+456 0 obj
+<<
+/Length 155
+>>
+stream
+32 0 1 -1 27 51 d1
+q
+26 0 0 52 1.1 -1.1 cm
+BI
+/W 26
+/H 52
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 26>>
+ID (ÿş¿×úÖµ„Cc‚ùòÿÿÿÿÿÿü/ÿÿÿûkÕ×umaŠƒ
+  
+EI
+Q
+endstream
+endobj
+457 0 obj
+<<
+/Length 167
+>>
+stream
+46 0 2 -1 43 37 d1
+q
+41 0 0 38 2.1 -1.1 cm
+BI
+/W 41
+/H 38
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID <F²“Påÿù±N¢Ã‡ÿÿÿÿÿÿÿÿÿÿÿÿÿõÿúßÚİpö”‡50–Å`ÁIp €
+EI
+Q
+endstream
+endobj
+458 0 obj
+<<
+/Length 161
+>>
+stream
+44 0 2 -1 41 36 d1
+q
+39 0 0 37 2.1 -1.1 cm
+BI
+/W 39
+/H 37
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID & Á 'ù±i«µº½~Ú_ÚŞ¿m/ío_¶—÷İ/ÛKÿ¶—ñÚö¿µà  
+EI
+Q
+endstream
+endobj
+459 0 obj
+<<
+/Length 186
+>>
+stream
+60 0 2 -1 57 36 d1
+q
+55 0 0 37 2.1 -1.1 cm
+BI
+/W 55
+/H 37
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 55>>
+ID & ¹€\ø'ÿ› PÂ´Ğa~®í·iÿnÒèãÿıµ´½?ÿ¶¶—§÷Úİzôşû[¤õÿ·Ú]'ÿö8­?ïZŞ´÷¨ €
+EI
+Q
+endstream
+endobj
+460 0 obj
+<<
+/Length 174
+>>
+stream
+44 0 1 0 42 36 d1
+q
+41 0 0 36 1.1 -0.1 cm
+BI
+/W 41
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 41>>
+ID & Á˜cÿ˜ìêğ­Õ´¶·Jİm+kb­{w§º;êİ&é^“un•Õé7Nà¨95Aƒ_ğ 
+EI
+Q
+endstream
+endobj
+461 0 obj
+<<
+/Length 180
+>>
+stream
+44 0 2 -17 41 36 d1
+q
+39 0 0 53 2.1 -17.1 cm
+BI
+/W 39
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 39>>
+ID & Á 'ù±i…v­ş·İ/ÛKûî—í¥ı­ëöÒşÖõûi¯kû_^ºô¼kNºúéil$­¥b¬( €
+EI
+Q
+endstream
+endobj
+462 0 obj
+<<
+/Length 158
+>>
+stream
+37 0 2 0 33 36 d1
+q
+31 0 0 36 2.1 -0.1 cm
+BI
+/W 31
+/H 36
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 31>>
+ID .Ÿ#…ZKIkª]-/®—KñJ—¥J—¤/ÒÒÕkJ©/é-%¨.? 
+EI
+Q
+endstream
+endobj
+463 0 obj
+<<
+/Length 132
+>>
+stream
+42 0 8 47 33 56 d1
+q
+25 0 0 9 8.1 46.9 cm
+BI
+/W 25
+/H 9
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 25>>
+ID 1èA„4ÿÿÚjA… 
+EI
+Q
+endstream
+endobj
+464 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+14 0 obj
+<<
+/Name /T14
+/Type /Font
+/Subtype /Type3
+/Resources 464 0 R
+/FontBBox [1 -25 108 84]
+/FontMatrix [1 0 0 -1 0 0]
+/FirstChar 45
+/LastChar 120
+/Encoding 465 0 R
+/CharProcs 466 0 R
+/Widths [45 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 102 0 0 0 88 0 106 105 0 0 0 81 
+0 0 101 92 0 0 0 94 0 0 0 0 0 0 0 0 
+0 0 0 0 65 0 60 75 61 0 67 75 37 0 0 0 
+112 75 67 0 0 55 53 52 75 0 97 71 ]
+>>
+endobj
+465 0 obj
+<<
+/Type /Encoding
+/Differences [45/B9 65/BT 69/BX 71/BZ /C0 76/C4 
+79/C7 /C8 84/CC 97/CP 99/CR /CS /CT 103/CV /CW /CX 109/D1 /D2 /D3 114/D6 /D7 /D8 /D9 119/DB /DC ]
+>>
+endobj
+466 0 obj
+<<
+/B9 467 0 R
+/BT 468 0 R
+/BX 469 0 R
+/BZ 470 0 R
+/C0 471 0 R
+/C4 472 0 R
+/C7 473 0 R
+/C8 474 0 R
+/CC 475 0 R
+/CP 476 0 R
+/CR 477 0 R
+/CS 478 0 R
+/CT 479 0 R
+/CV 480 0 R
+/CW 481 0 R
+/CX 482 0 R
+/D1 483 0 R
+/D2 484 0 R
+/D3 485 0 R
+/D6 486 0 R
+/D7 487 0 R
+/D8 488 0 R
+/D9 489 0 R
+/DB 490 0 R
+/DC 491 0 R
+>>
+endobj
+467 0 obj
+<<
+/Length 126
+>>
+stream
+45 0 1 21 37 32 d1
+q
+36 0 0 11 1.1 20.9 cm
+BI
+/W 36
+/H 11
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 36>>
+ID &¡©ÿÿà  
+EI
+Q
+endstream
+endobj
+468 0 obj
+<<
+/Length 205
+>>
+stream
+102 0 5 0 96 84 d1
+q
+91 0 0 84 5.1 -0.1 cm
+BI
+/W 91
+/H 84
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 91>>
+ID %‡NŸ§ı?OúÓôÿ§’[×Ş·§­ëï[ÓÖõ÷­éëzûÖôõ½}ëzzŞ¾õ½=o_zéÿDcOO[ş·§­ÿO[ÓÖÿ§­ë«pD«&¡šB¿ÿø €
+EI
+Q
+endstream
+endobj
+469 0 obj
+<<
+/Length 204
+>>
+stream
+88 0 4 0 83 81 d1
+q
+79 0 0 81 4.1 -0.1 cm
+BI
+/W 79
+/H 81
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 79>>
+ID & xŸÿ!‚ä˜gä1Ãğıû÷ïşßûÿıÿşFûûÿÿÿã×ÿë×¯ÇÿùÈğ~ıûÿışKŸÿú_ÿñÿ×ş¿×ÿëë¯_õëÒáx^•a²M@ğ¿_À @
+EI
+Q
+endstream
+endobj
+470 0 obj
+<<
+/Length 242
+>>
+stream
+106 0 7 -1 98 83 d1
+q
+91 0 0 84 7.1 -1.1 cm
+BI
+/W 91
+/H 84
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 91>>
+ID %‚®‘ 0²KXA¬"Ö°Ö‚p‚A='¤ô“ÒzOúOKïK«ş“ÿô¾ÿ¯ş:õÿÿÿÿÿr6_û°_ÿ·ÿöÿß·şßoı¾ßo¶¶ûl>[|0a'†AºÃğÂy òPŒ @
+EI
+Q
+endstream
+endobj
+471 0 obj
+<<
+/Length 188
+>>
+stream
+105 0 4 0 100 82 d1
+q
+96 0 0 82 4.1 -0.1 cm
+BI
+/W 96
+/H 82
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 96>>
+ID &¡´H¯ÿò.EÁÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿò‹ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿù5¢@mÿ€ €
+EI
+Q
+endstream
+endobj
+472 0 obj
+<<
+/Length 170
+>>
+stream
+81 0 4 0 74 82 d1
+q
+70 0 0 82 4.1 -0.1 cm
+BI
+/W 70
+/H 82
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 70>>
+ID & «ÿò/ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüŠŸÿë×ÿÿõÿúÿ¯®¿ë×¯^¯à²jßÿ 
+EI
+Q
+endstream
+endobj
+473 0 obj
+<<
+/Length 233
+>>
+stream
+101 0 7 -1 93 83 d1
+q
+86 0 0 84 7.1 -1.1 cm
+BI
+/W 86
+/H 84
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 86>>
+ID " òP@àÂ ¹Ã„AÓ‡ Ã ƒp“‚Òn“t›­Òn“¤İoO[ÓÖÿ[Óş·ÿÒoÿÿëÿÿÿÿÿÿï[_ÿ÷¯ío_ı´¿m/Ş­¥µ½[JÚVÒ¶•´­¥m+% ¡ƒ1
+P` ÁH / 
+EI
+Q
+endstream
+endobj
+474 0 obj
+<<
+/Length 193
+>>
+stream
+92 0 4 0 84 82 d1
+q
+80 0 0 82 4.1 -0.1 cm
+BI
+/W 80
+/H 82
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 80>>
+ID & QZƒÜ†!?)íğß¾ı¿íÿÿ÷ÿÿÿışºÿ×K¥×¥Ğ\%È@ÏˆXX,‚±yÕ?ÿÿÿÿÿÿÿÿÿÿşMCkÿà  
+EI
+Q
+endstream
+endobj
+475 0 obj
+<<
+/Length 182
+>>
+stream
+94 0 5 0 88 81 d1
+q
+83 0 0 81 5.1 -0.1 cm
+BI
+/W 83
+/H 81
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 83>>
+ID .†?ÿ ½D×‚ÈÀôÂß[ë}oÿ[ÿÿ­ÿÿÿş½ÖÿÿÿÿDƒÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿš€“ÿà  
+EI
+Q
+endstream
+endobj
+476 0 obj
+<<
+/Length 209
+>>
+stream
+65 0 4 -1 64 55 d1
+q
+60 0 0 56 4.1 -1.1 cm
+BI
+/W 60
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 60>>
+ID 5†$0QtCÑÑ é·°İooï·ÿÚoö»\ÿò¬H€hšƒJ†‹Á"šÂĞ].—K¥××ú_ÿş¿ÚŞaı{i]´¡Û	Hhƒ›bœ4A©Ô8À @
+EI
+Q
+endstream
+endobj
+477 0 obj
+<<
+/Length 186
+>>
+stream
+60 0 4 -1 55 55 d1
+q
+51 0 0 56 4.1 -1.1 cm
+BI
+/W 51
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 51>>
+ID !ä`7‚8Dîp’tÖé.ºô¿Õ­ukµQ×õÿÿÿÿûïßòmú·Wö·JÚVÒ°Ò¶††*PÂà  
+EI
+Q
+endstream
+endobj
+478 0 obj
+<<
+/Length 214
+>>
+stream
+75 0 4 -1 69 83 d1
+q
+65 0 0 84 4.1 -1.1 cm
+BI
+/W 65
+/H 84
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 65>>
+ID !A$X4ü–Ãÿÿÿÿÿÿÿÿùø øAğˆcß@¾A“ÒIé}éuõ×ÿéÿëÿÿÿÿÿÿÿ¿ÿÛÿûÿ·õ¶·í­°¶ĞvDcØj0Kb°ÂÁ…aä)À @
+EI
+Q
+endstream
+endobj
+479 0 obj
+<<
+/Length 190
+>>
+stream
+61 0 4 -1 56 55 d1
+q
+52 0 0 56 4.1 -1.1 cm
+BI
+/W 52
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 52>>
+ID  ÃÊpÑ è‚s„0é7IºOIºİ'÷W×[ı__¿_ÿãúÈ`[ÿûıßò7];WÛKöÒ¶¶Ò¶†ÂVÌ,1PÂƒ!   
+EI
+Q
+endstream
+endobj
+480 0 obj
+<<
+/Length 246
+>>
+stream
+67 0 4 -25 64 54 d1
+q
+60 0 0 79 4.1 -25.1 cm
+BI
+/W 60
+/H 79
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 60>>
+ID )ÁÍBÎ€Üpƒ	Â-N!±Úƒå&“n“u[kíRl[ÿÿÿÿÿ½~Ú_½[JÚVÒÁ‚T*‰ƒ
+¦`ü}ßÃÃÈjd5ƒÃ·nİ½Âp´B„tR¤ßz_ÿÿÚŞ¶·«iXa+%a„¬‚ä(b(0R € €
+EI
+Q
+endstream
+endobj
+481 0 obj
+<<
+/Length 193
+>>
+stream
+75 0 5 0 71 83 d1
+q
+66 0 0 83 5.1 -0.1 cm
+BI
+/W 66
+/H 83
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 66>>
+ID '	&¡£ÿçáÿÿÿÿÿÿÿÿó¨^aÂ}yô7ĞWĞOÒ¾—ÒŞ+×ıÿõÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿäÔ3LÃ7ÿü @
+EI
+Q
+endstream
+endobj
+482 0 obj
+<<
+/Length 163
+>>
+stream
+37 0 5 0 32 84 d1
+q
+27 0 0 84 5.1 -0.1 cm
+BI
+/W 27
+/H 84
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 27>>
+ID 48AÓôÿÿû^Ô0­Gÿäá$Ô4üø%ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüš†_ø €
+EI
+Q
+endstream
+endobj
+483 0 obj
+<<
+/Length 221
+>>
+stream
+112 0 5 0 108 54 d1
+q
+103 0 0 54 5.1 -0.1 cm
+BI
+/W 103
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 103>>
+ID 'u
+I…“PĞVaÂa>ˆ¼ÑŸ@ƒhnxh+‡A:	úV•ô´¾“¤ÿñUê¿ú¯ÿÿú¯ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÉ¨f™†i˜fÿÿÿ€ €
+EI
+Q
+endstream
+endobj
+484 0 obj
+<<
+/Length 182
+>>
+stream
+75 0 5 0 71 54 d1
+q
+66 0 0 54 5.1 -0.1 cm
+BI
+/W 66
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 66>>
+ID 'u&¡ *Â„ú"óènxpè'é_Ké?ïëş¿ÿúÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿòj¦a›ÿş  
+EI
+Q
+endstream
+endobj
+485 0 obj
+<<
+/Length 191
+>>
+stream
+67 0 4 -1 62 55 d1
+q
+58 0 0 56 4.1 -1.1 cm
+BI
+/W 58
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 58>>
+ID !ÈÀÑpˆ$Ã @Ü$Ã¤İ&é7§­Òoõ¿Òoÿ­ÿÿ­ÿÿÿÿÿû×ÿzÚşõûÖÖõm+i[JÚVJab ÁC
+B€ €
+EI
+Q
+endstream
+endobj
+486 0 obj
+<<
+/Length 168
+>>
+stream
+55 0 4 0 51 54 d1
+q
+47 0 0 54 4.1 -0.1 cm
+BI
+/W 47
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 47>>
+ID 4P$š†pƒáÓèßA'<‚°ôº^¿_\mkív´?ÿ¯ÿÿÿÿÿÿÿÿÿüšƒGÿÀ @
+EI
+Q
+endstream
+endobj
+487 0 obj
+<<
+/Length 207
+>>
+stream
+53 0 4 -1 48 55 d1
+q
+44 0 0 56 4.1 -1.1 cm
+BI
+/W 44
+/H 56
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 44>>
+ID :™¹8lXC…¢úA¤úzúÕÿ¿ûğÇ A6A@‰ÍX<;İ»pÜ7ÍA•%Á¼“ Ør;¯½ûııoÚúß´°ÒÃ	`Á,Š8¬ ÂĞahÔ @
+EI
+Q
+endstream
+endobj
+488 0 obj
+<<
+/Length 174
+>>
+stream
+52 0 2 -1 44 76 d1
+q
+42 0 0 77 2.1 -1.1 cm
+BI
+/W 42
+/H 77
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 42>>
+ID )Ïÿıõõşµõ­akCQÉ¨6äàŸÿÿÿÿÿÿÿÿÿó¡ÿÿÿÿÿº[ÿt·ÛJÃ	X¨jƒ
+  
+EI
+Q
+endstream
+endobj
+489 0 obj
+<<
+/Length 186
+>>
+stream
+75 0 5 -1 71 54 d1
+q
+66 0 0 55 5.1 -1.1 cm
+BI
+/W 66
+/H 55
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 66>>
+ID '
+I…“PØjŸÿÿ< Ãáÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ_ÿ¯î¾aı{i}(vÂRX0Kb°ÖY.!  
+EI
+Q
+endstream
+endobj
+490 0 obj
+<<
+/Length 211
+>>
+stream
+97 0 3 -1 93 53 d1
+q
+90 0 0 54 3.1 -1.1 cm
+BI
+/W 90
+/H 54
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 90>>
+ID &¡–xGÿÿùğB 9nWºÿ·[İŞ·N·­îºûÖéÖäŞ·îºşéÖëuº~ı¥×÷N·îºOïÖëuºu¿u×÷N¶;­:Ş+ú{Öõı=ëOûÖõûM@ @
+EI
+Q
+endstream
+endobj
+491 0 obj
+<<
+/Length 195
+>>
+stream
+71 0 2 0 68 53 d1
+q
+66 0 0 53 2.1 -0.1 cm
+BI
+/W 66
+/H 53
+/BPC 1
+/IM true
+/F /CCF
+/DP <</K -1 /Columns 66>>
+ID #†YÿÿüĞvØ+um+¥´­Õ´­¥mzVÒ¶•º±V½«Víû{§N´F;Ót›¤İ^•Òn“t›ÓtºMÕºMÒn>MAA¨2ÿÿÀ @
+EI
+Q
+endstream
+endobj
+24 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F2
+/Encoding 492 0 R
+/BaseFont /Times-Roman
+>>
+endobj
+25 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F4
+/Encoding 492 0 R
+/BaseFont /Times-Italic
+>>
+endobj
+492 0 obj
+<<
+/Type /Encoding
+/Differences [ 1/dotaccent/fi/fl/fraction/hungarumlaut/Lslash/lslash/ogonek
+/ring 11/breve/minus 14/Zcaron/zcaron/caron/dotlessi 30/grave
+/quotesingle 130/quotesinglbase/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex
+/perthousand/Scaron/guilsinglleft/OE 147/quotedblleft/quotedblright/bullet/endash
+/emdash/tilde/trademark/scaron/guilsinglright/oe 159/Ydieresis 164/currency
+ 166/brokenbar 168/dieresis/copyright/ordfeminine 172/logicalnot/hyphen/registered/macron
+/degree/plusminus/twosuperior/threesuperior/acute/mu 183/periodcentered/cedilla
+/onesuperior/ordmasculine 188/onequarter/onehalf/threequarters 192/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex
+/Edieresis/Igrave/Iacute/Icircumflex/Idieresis/Eth/Ntilde/Ograve
+/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave/aacute/acircumflex
+/atilde/adieresis/aring/ae/ccedilla/egrave/eacute/ecircumflex
+/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute
+/ucircumflex/udieresis/yacute/thorn/ydieresis
+]
+>>
+endobj
+1 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 3 0 R
+/Contents 2 0 R
+>>
+endobj
+17 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 19 0 R
+/Contents 18 0 R
+>>
+endobj
+21 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 23 0 R
+/Contents 22 0 R
+>>
+endobj
+26 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 28 0 R
+/Contents 27 0 R
+>>
+endobj
+30 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 32 0 R
+/Contents 31 0 R
+>>
+endobj
+16 0 obj
+<<
+/Type /Pages
+/Kids [1 0 R 17 0 R 21 0 R 26 0 R 30 0 R]
+/Count 5
+/MediaBox [0 0 612 792]
+>>
+endobj
+493 0 obj
+<<
+/Type /Catalog
+/Pages 16 0 R
+>>
+endobj
+494 0 obj
+<<
+/CreationDate (D:191060517161455)
+/Producer (Acrobat Distiller Command 3.01 for Solaris 2.3 and later \(SPARC\))
+/Creator (dvips\(k\) 5.86 Copyright 1999 Radical Eye Software)
+/Title (hotptp.dvi)
+>>
+endobj
+xref
+0 495
+0000000000 65535 f 
+0000164617 00000 n 
+0000000016 00000 n 
+0000008978 00000 n 
+0000061349 00000 n 
+0000074022 00000 n 
+0000081818 00000 n 
+0000092670 00000 n 
+0000102394 00000 n 
+0000105674 00000 n 
+0000118564 00000 n 
+0000135243 00000 n 
+0000136015 00000 n 
+0000136795 00000 n 
+0000156113 00000 n 
+0000056062 00000 n 
+0000165034 00000 n 
+0000164698 00000 n 
+0000009191 00000 n 
+0000021290 00000 n 
+0000058356 00000 n 
+0000164782 00000 n 
+0000021437 00000 n 
+0000030796 00000 n 
+0000163220 00000 n 
+0000163321 00000 n 
+0000164866 00000 n 
+0000030986 00000 n 
+0000043909 00000 n 
+0000056732 00000 n 
+0000164950 00000 n 
+0000044077 00000 n 
+0000055748 00000 n 
+0000056181 00000 n 
+0000055939 00000 n 
+0000056134 00000 n 
+0000056385 00000 n 
+0000056445 00000 n 
+0000056478 00000 n 
+0000056685 00000 n 
+0000057098 00000 n 
+0000057180 00000 n 
+0000057257 00000 n 
+0000057446 00000 n 
+0000057654 00000 n 
+0000057885 00000 n 
+0000058083 00000 n 
+0000058309 00000 n 
+0000058755 00000 n 
+0000058871 00000 n 
+0000059003 00000 n 
+0000059230 00000 n 
+0000059432 00000 n 
+0000059605 00000 n 
+0000059853 00000 n 
+0000060101 00000 n 
+0000060332 00000 n 
+0000060571 00000 n 
+0000060829 00000 n 
+0000061080 00000 n 
+0000061302 00000 n 
+0000061791 00000 n 
+0000062089 00000 n 
+0000062698 00000 n 
+0000062954 00000 n 
+0000063204 00000 n 
+0000063422 00000 n 
+0000063637 00000 n 
+0000063858 00000 n 
+0000064053 00000 n 
+0000064229 00000 n 
+0000064410 00000 n 
+0000064622 00000 n 
+0000064851 00000 n 
+0000065055 00000 n 
+0000065282 00000 n 
+0000065473 00000 n 
+0000065691 00000 n 
+0000065876 00000 n 
+0000066094 00000 n 
+0000066342 00000 n 
+0000066562 00000 n 
+0000066777 00000 n 
+0000067023 00000 n 
+0000067227 00000 n 
+0000067450 00000 n 
+0000067672 00000 n 
+0000067903 00000 n 
+0000068121 00000 n 
+0000068315 00000 n 
+0000068542 00000 n 
+0000068766 00000 n 
+0000068979 00000 n 
+0000069208 00000 n 
+0000069426 00000 n 
+0000069634 00000 n 
+0000069891 00000 n 
+0000070109 00000 n 
+0000070311 00000 n 
+0000070509 00000 n 
+0000070739 00000 n 
+0000070952 00000 n 
+0000071170 00000 n 
+0000071402 00000 n 
+0000071609 00000 n 
+0000071837 00000 n 
+0000072043 00000 n 
+0000072254 00000 n 
+0000072466 00000 n 
+0000072688 00000 n 
+0000072913 00000 n 
+0000073145 00000 n 
+0000073367 00000 n 
+0000073558 00000 n 
+0000073780 00000 n 
+0000073974 00000 n 
+0000074481 00000 n 
+0000074674 00000 n 
+0000075045 00000 n 
+0000075313 00000 n 
+0000075489 00000 n 
+0000075744 00000 n 
+0000075982 00000 n 
+0000076208 00000 n 
+0000076426 00000 n 
+0000076678 00000 n 
+0000076906 00000 n 
+0000077136 00000 n 
+0000077353 00000 n 
+0000077596 00000 n 
+0000077821 00000 n 
+0000078056 00000 n 
+0000078297 00000 n 
+0000078534 00000 n 
+0000078753 00000 n 
+0000079000 00000 n 
+0000079214 00000 n 
+0000079472 00000 n 
+0000079706 00000 n 
+0000079925 00000 n 
+0000080166 00000 n 
+0000080400 00000 n 
+0000080615 00000 n 
+0000080837 00000 n 
+0000081051 00000 n 
+0000081292 00000 n 
+0000081527 00000 n 
+0000081770 00000 n 
+0000082291 00000 n 
+0000082538 00000 n 
+0000083041 00000 n 
+0000083284 00000 n 
+0000083493 00000 n 
+0000083736 00000 n 
+0000083991 00000 n 
+0000084218 00000 n 
+0000084471 00000 n 
+0000084710 00000 n 
+0000084964 00000 n 
+0000085210 00000 n 
+0000085442 00000 n 
+0000085671 00000 n 
+0000085875 00000 n 
+0000086135 00000 n 
+0000086400 00000 n 
+0000086633 00000 n 
+0000086892 00000 n 
+0000087173 00000 n 
+0000087399 00000 n 
+0000087693 00000 n 
+0000087942 00000 n 
+0000088171 00000 n 
+0000088422 00000 n 
+0000088653 00000 n 
+0000088875 00000 n 
+0000089150 00000 n 
+0000089382 00000 n 
+0000089593 00000 n 
+0000089833 00000 n 
+0000090039 00000 n 
+0000090290 00000 n 
+0000090514 00000 n 
+0000090747 00000 n 
+0000090994 00000 n 
+0000091207 00000 n 
+0000091450 00000 n 
+0000091669 00000 n 
+0000091897 00000 n 
+0000092143 00000 n 
+0000092377 00000 n 
+0000092622 00000 n 
+0000093072 00000 n 
+0000093312 00000 n 
+0000093791 00000 n 
+0000093967 00000 n 
+0000094140 00000 n 
+0000094348 00000 n 
+0000094592 00000 n 
+0000094818 00000 n 
+0000095065 00000 n 
+0000095296 00000 n 
+0000095530 00000 n 
+0000095759 00000 n 
+0000095975 00000 n 
+0000096189 00000 n 
+0000096455 00000 n 
+0000096702 00000 n 
+0000096924 00000 n 
+0000097166 00000 n 
+0000097409 00000 n 
+0000097630 00000 n 
+0000097854 00000 n 
+0000098079 00000 n 
+0000098293 00000 n 
+0000098531 00000 n 
+0000098750 00000 n 
+0000098979 00000 n 
+0000099213 00000 n 
+0000099444 00000 n 
+0000099659 00000 n 
+0000099870 00000 n 
+0000100121 00000 n 
+0000100349 00000 n 
+0000100565 00000 n 
+0000100801 00000 n 
+0000101012 00000 n 
+0000101228 00000 n 
+0000101439 00000 n 
+0000101664 00000 n 
+0000101880 00000 n 
+0000102109 00000 n 
+0000102346 00000 n 
+0000102757 00000 n 
+0000102879 00000 n 
+0000103046 00000 n 
+0000103228 00000 n 
+0000103430 00000 n 
+0000103654 00000 n 
+0000103873 00000 n 
+0000104103 00000 n 
+0000104331 00000 n 
+0000104543 00000 n 
+0000104794 00000 n 
+0000104996 00000 n 
+0000105200 00000 n 
+0000105421 00000 n 
+0000105626 00000 n 
+0000106121 00000 n 
+0000106435 00000 n 
+0000107106 00000 n 
+0000107352 00000 n 
+0000107595 00000 n 
+0000107808 00000 n 
+0000108018 00000 n 
+0000108231 00000 n 
+0000108425 00000 n 
+0000108602 00000 n 
+0000108784 00000 n 
+0000108993 00000 n 
+0000109217 00000 n 
+0000109418 00000 n 
+0000109650 00000 n 
+0000109842 00000 n 
+0000110056 00000 n 
+0000110241 00000 n 
+0000110456 00000 n 
+0000110667 00000 n 
+0000110910 00000 n 
+0000111125 00000 n 
+0000111341 00000 n 
+0000111552 00000 n 
+0000111787 00000 n 
+0000111989 00000 n 
+0000112215 00000 n 
+0000112426 00000 n 
+0000112630 00000 n 
+0000112826 00000 n 
+0000113003 00000 n 
+0000113221 00000 n 
+0000113439 00000 n 
+0000113647 00000 n 
+0000113870 00000 n 
+0000114082 00000 n 
+0000114287 00000 n 
+0000114536 00000 n 
+0000114751 00000 n 
+0000114950 00000 n 
+0000115159 00000 n 
+0000115356 00000 n 
+0000115581 00000 n 
+0000115791 00000 n 
+0000116002 00000 n 
+0000116227 00000 n 
+0000116431 00000 n 
+0000116651 00000 n 
+0000116855 00000 n 
+0000117063 00000 n 
+0000117269 00000 n 
+0000117485 00000 n 
+0000117703 00000 n 
+0000117929 00000 n 
+0000118134 00000 n 
+0000118323 00000 n 
+0000118516 00000 n 
+0000119080 00000 n 
+0000119435 00000 n 
+0000120274 00000 n 
+0000120510 00000 n 
+0000120736 00000 n 
+0000120954 00000 n 
+0000121171 00000 n 
+0000121358 00000 n 
+0000121533 00000 n 
+0000121705 00000 n 
+0000121923 00000 n 
+0000122148 00000 n 
+0000122351 00000 n 
+0000122574 00000 n 
+0000122808 00000 n 
+0000123024 00000 n 
+0000123255 00000 n 
+0000123490 00000 n 
+0000123701 00000 n 
+0000123948 00000 n 
+0000124183 00000 n 
+0000124366 00000 n 
+0000124592 00000 n 
+0000124823 00000 n 
+0000125065 00000 n 
+0000125293 00000 n 
+0000125519 00000 n 
+0000125737 00000 n 
+0000125987 00000 n 
+0000126206 00000 n 
+0000126404 00000 n 
+0000126616 00000 n 
+0000126822 00000 n 
+0000127081 00000 n 
+0000127323 00000 n 
+0000127569 00000 n 
+0000127786 00000 n 
+0000128025 00000 n 
+0000128277 00000 n 
+0000128488 00000 n 
+0000128717 00000 n 
+0000128941 00000 n 
+0000129149 00000 n 
+0000129348 00000 n 
+0000129577 00000 n 
+0000129806 00000 n 
+0000130019 00000 n 
+0000130252 00000 n 
+0000130467 00000 n 
+0000130676 00000 n 
+0000130926 00000 n 
+0000131145 00000 n 
+0000131345 00000 n 
+0000131570 00000 n 
+0000131769 00000 n 
+0000132001 00000 n 
+0000132213 00000 n 
+0000132431 00000 n 
+0000132660 00000 n 
+0000132890 00000 n 
+0000133093 00000 n 
+0000133319 00000 n 
+0000133525 00000 n 
+0000133740 00000 n 
+0000133949 00000 n 
+0000134180 00000 n 
+0000134401 00000 n 
+0000134629 00000 n 
+0000134836 00000 n 
+0000135011 00000 n 
+0000135195 00000 n 
+0000135453 00000 n 
+0000135518 00000 n 
+0000135565 00000 n 
+0000135758 00000 n 
+0000135967 00000 n 
+0000136225 00000 n 
+0000136290 00000 n 
+0000136337 00000 n 
+0000136534 00000 n 
+0000136747 00000 n 
+0000137321 00000 n 
+0000137711 00000 n 
+0000138658 00000 n 
+0000138900 00000 n 
+0000139133 00000 n 
+0000139363 00000 n 
+0000139626 00000 n 
+0000139823 00000 n 
+0000140029 00000 n 
+0000140219 00000 n 
+0000140441 00000 n 
+0000140662 00000 n 
+0000140853 00000 n 
+0000141028 00000 n 
+0000141202 00000 n 
+0000141424 00000 n 
+0000141657 00000 n 
+0000141860 00000 n 
+0000142090 00000 n 
+0000142333 00000 n 
+0000142554 00000 n 
+0000142792 00000 n 
+0000143037 00000 n 
+0000143291 00000 n 
+0000143534 00000 n 
+0000143720 00000 n 
+0000143919 00000 n 
+0000144141 00000 n 
+0000144442 00000 n 
+0000144675 00000 n 
+0000144911 00000 n 
+0000145158 00000 n 
+0000145390 00000 n 
+0000145621 00000 n 
+0000145843 00000 n 
+0000146101 00000 n 
+0000146324 00000 n 
+0000146525 00000 n 
+0000146735 00000 n 
+0000147004 00000 n 
+0000147253 00000 n 
+0000147504 00000 n 
+0000147726 00000 n 
+0000147973 00000 n 
+0000148233 00000 n 
+0000148450 00000 n 
+0000148684 00000 n 
+0000148919 00000 n 
+0000149192 00000 n 
+0000149421 00000 n 
+0000149632 00000 n 
+0000149840 00000 n 
+0000150042 00000 n 
+0000150278 00000 n 
+0000150513 00000 n 
+0000150730 00000 n 
+0000150969 00000 n 
+0000151188 00000 n 
+0000151401 00000 n 
+0000151660 00000 n 
+0000151884 00000 n 
+0000152087 00000 n 
+0000152304 00000 n 
+0000152538 00000 n 
+0000152740 00000 n 
+0000152979 00000 n 
+0000153195 00000 n 
+0000153418 00000 n 
+0000153656 00000 n 
+0000153891 00000 n 
+0000154099 00000 n 
+0000154328 00000 n 
+0000154536 00000 n 
+0000154756 00000 n 
+0000154970 00000 n 
+0000155209 00000 n 
+0000155436 00000 n 
+0000155669 00000 n 
+0000155880 00000 n 
+0000156065 00000 n 
+0000156507 00000 n 
+0000156693 00000 n 
+0000157016 00000 n 
+0000157195 00000 n 
+0000157453 00000 n 
+0000157710 00000 n 
+0000158005 00000 n 
+0000158246 00000 n 
+0000158469 00000 n 
+0000158755 00000 n 
+0000159001 00000 n 
+0000159236 00000 n 
+0000159498 00000 n 
+0000159737 00000 n 
+0000160004 00000 n 
+0000160247 00000 n 
+0000160546 00000 n 
+0000160792 00000 n 
+0000161008 00000 n 
+0000161282 00000 n 
+0000161517 00000 n 
+0000161761 00000 n 
+0000161982 00000 n 
+0000162242 00000 n 
+0000162469 00000 n 
+0000162708 00000 n 
+0000162972 00000 n 
+0000163423 00000 n 
+0000165144 00000 n 
+0000165196 00000 n 
+trailer
+<<
+/Size 495
+/Root 493 0 R
+/Info 494 0 R
+/ID [<68353fa15a44406bf15ed1fa28786642><68353fa15a44406bf15ed1fa28786642>]
+>>
+startxref
+165415
+%%EOF

@@ -1,0 +1,12 @@
+fof(1,axiom, foo(X,Y,h(Y,Z)), unknown).
+fof(2,axiom, bar(X,Y,h(Y,Z)) != baz(h(Y,Z), Y,X), unknown).
+fof(status,status,X=1,theory(ac),[status(tau)]).
+cnf(include,file,(X=1|X=2),file('mary.txt',harry),[status(tau)]).
+include('fred.txt',[1,3]).
+fof(3,equality,'Mary'("\"Queen\" of \\Scots\\")='1',introduced(axiom_of_choice,[status(uns)])).
+/* $$ Sample: multi-line
+ * system comment.
+ */
+/* multi-line
+ * comment.
+ */

@@ -1,0 +1,208 @@
+
+%{
+/* Compile with -DP_VERBOSE=1 for verbose output.                    */
+/* Compile with -DP_USERPROC=1 to #include p_user_proc.c.            */
+/*   p_user_proc.c should #define P_ACT, P_BUILD, P_TOKEN, P_PRINT to*/
+/*   different procedures from those below, and supply code.         */
+
+/* *_strict rules are documentation; unreachable; hand-code semantic actions.*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#ifndef P_VERBOSE
+#  define P_VERBOSE 0
+#endif
+#ifdef P_USERPROC
+#  include "p_user_proc.c"
+#else
+#  define P_ACT(ss) if(verbose)printf("%7d %s\n",yylineno,ss);
+#  define P_BUILD(sym,A,B,C,D,E,F,G,H,I,J) pBuildTree(sym,A,B,C,D,E,F,G,H,I,J)
+#  define P_TOKEN(tok,symIdx) pToken(tok,symIdx)
+#  define P_PRINT(ss) if(verbose){printf("\n\n");pPrintTree(ss,0);}
+#endif
+
+#ifndef P_USERPROC
+#define MAX_CH 12
+extern int yylineno;
+extern int tptp_store_size;
+extern char* tptp_lval[];
+int verbose = P_VERBOSE;
+char pTokenBuf[8240];
+/* pPrintIdx is where to find top-level comments to print
+   before a sentence. yywrap() gets those after last sentence. */
+int pPrintIdx = 0;
+
+typedef struct pTreeNode * pTree;
+struct pTreeNode {char* sym; int symIdx; pTree ch[MAX_CH+1];};
+
+pTree pBuildTree(char* sym, pTree A, pTree B, pTree C, pTree D,
+    pTree E, pTree F, pTree G, pTree H, pTree I, pTree J);
+pTree pBuildTree(char* sym, pTree A, pTree B, pTree C, pTree D,
+    pTree E, pTree F, pTree G, pTree H, pTree I, pTree J)
+{ pTree ss = (pTree)calloc(1,sizeof(struct pTreeNode));
+  ss->sym = sym;
+  ss->symIdx = -1;
+  ss->ch[0] = A; ss->ch[1] = B; ss->ch[2] = C; ss->ch[3] = D;
+  ss->ch[4] = E; ss->ch[5] = F; ss->ch[6] = G; ss->ch[7] = H;
+  ss->ch[8] = I; ss->ch[9] = J; ss->ch[10] = 0;
+  return ss; }
+
+pTree pToken(char* tok, int symIdx);
+pTree pToken(char* tok, int symIdx)
+{ pTree ss;
+  char* sym = tptp_lval[symIdx];
+  char* safeSym;
+  strncpy(pTokenBuf, tok, 39);
+  strncat(pTokenBuf, sym, 8193);
+  safeSym = strdup(pTokenBuf);
+  ss = pBuildTree(safeSym,0,0,0,0,0,0,0,0,0,0);
+  ss->symIdx = symIdx;
+  return ss; }
+
+void pPrintComments(int start, int depth);
+void pPrintComments(int start, int depth)
+{ int d, j;
+  char c1[4] = "%", c2[4] = "/*";
+  j = start;
+  while (tptp_lval[j] != NULL
+  && (tptp_lval[j][0]==c1[0] || (tptp_lval[j][0]==c2[0] && tptp_lval[j][1]==c2[1])))
+    { for (d=0; d<depth; d++) printf("  ");
+      printf("%s\n",tptp_lval[j]);
+      j = (j+1)%tptp_store_size; }
+  return; }
+
+void pPrintTree(pTree ss, int depth);
+void pPrintTree(pTree ss, int depth)
+{ int i, d;
+  if (pPrintIdx >= 0)
+    { pPrintComments(pPrintIdx, 0); pPrintIdx = -1;}
+  if (ss == NULL) return;
+  for (d = 0; d < depth; d++) printf("  ");
+  if (ss->ch[0] == 0) printf("%s\n", ss->sym);
+  else printf("<%s>\n", ss->sym);
+  if (strcmp(ss->sym, "PERIOD .") == 0)
+    pPrintIdx = (ss->symIdx+1)%tptp_store_size;
+  if (ss->symIdx >= 0)
+    pPrintComments((ss->symIdx+1)%tptp_store_size, depth);
+  i = 0;
+  while(ss->ch[i] != 0) {pPrintTree(ss->ch[i], depth+1); i++;}
+  return; }
+
+int yywrap(void)
+{ P_PRINT(NULL); return 1; }
+
+#endif
+%}
+
+%union {int ival; double dval; char* sval; void* pval;}
+
+%start  TPTP_file
+%token <ival> AMPERSAND
+%token <ival> COLON
+%token <ival> COMMA
+%token <ival> EQUALS
+%token <ival> EQUALS_GREATER
+%token <ival> EXCLAMATION
+%token <ival> EXCLAMATION_EQUALS
+%token <ival> LBRKT
+%token <ival> LESS_EQUALS
+%token <ival> LESS_EQUALS_GREATER
+%token <ival> LESS_TILDE_GREATER
+%token <ival> LPAREN
+%token <ival> MINUS_MINUS
+%token <ival> PERIOD
+%token <ival> PLUS_PLUS
+%token <ival> QUESTION
+%token <ival> RBRKT
+%token <ival> RPAREN
+%token <ival> TILDE
+%token <ival> TILDE_AMPERSAND
+%token <ival> TILDE_VLINE
+%token <ival> VLINE
+%token <ival> _DLR_false
+%token <ival> _DLR_true
+%token <ival> _LIT_cnf
+%token <ival> _LIT_fof
+%token <ival> _LIT_include
+%token <ival> _LIT_input_clause
+%token <ival> _LIT_input_formula
+%token <ival> atomic_system_word
+%token <ival> decimal_part
+%token <ival> distinct_object
+%token <ival> lower_word
+%token <ival> real
+%token <ival> signed_integer
+%token <ival> single_quoted
+%token <ival> unrecognized
+%token <ival> unsigned_integer
+%token <ival> upper_word
+%%
+
+TPTP_file _GRR null | TPTP_file TPTP_input
+TPTP_input _GRR annotated_formula | include
+annotated_formula _GRR fof_annotated | cnf_annotated | TPTP_input_formula | TPTP_input_clause
+fof_annotated _GRR _LIT_fof LPAREN name COMMA formula_role COMMA fof_formula annotations RPAREN PERIOD
+cnf_annotated _GRR _LIT_cnf LPAREN name COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD
+annotations _GRR null | COMMA source | COMMA source COMMA useful_info
+formula_role _GRR atomic_word
+fof_formula _GRR binary_formula | unitary_formula
+binary_formula _GRR nonassoc_binary | assoc_binary
+nonassoc_binary _GRR unitary_formula binary_connective unitary_formula
+binary_connective _GRR LESS_EQUALS_GREATER | EQUALS_GREATER | LESS_EQUALS | LESS_TILDE_GREATER | TILDE_VLINE | TILDE_AMPERSAND
+assoc_binary _GRR or_formula | and_formula
+or_formula _GRR unitary_formula VLINE unitary_formula more_or_formula *
+more_or_formula _GRR VLINE unitary_formula
+and_formula _GRR unitary_formula AMPERSAND unitary_formula more_and_formula *
+more_and_formula _GRR AMPERSAND unitary_formula
+unitary_formula _GRR quantified_formula | unary_formula | LPAREN fof_formula RPAREN | atomic_formula
+quantified_formula _GRR quantifier LBRKT variable_list RBRKT COLON unitary_formula
+quantifier _GRR EXCLAMATION | QUESTION
+variable_list _GRR variable | variable COMMA variable_list
+unary_formula _GRR unary_connective unitary_formula
+unary_connective _GRR TILDE
+cnf_formula _GRR LPAREN disjunction RPAREN | disjunction
+disjunction _GRR literal more_disjunction *
+more_disjunction _GRR VLINE literal
+literal _GRR atomic_formula | TILDE atomic_formula
+atomic_formula _GRR plain_atom | defined_atom | system_atom
+plain_atom _GRR plain_term
+arguments _GRR term | term COMMA arguments
+defined_atom _GRR _DLR_true | _DLR_false | term EQUALS term | term EXCLAMATION_EQUALS term
+system_atom _GRR system_term
+term _GRR function_term | variable
+function_term _GRR plain_term | defined_term | system_term
+plain_term _GRR constant | functor LPAREN arguments RPAREN
+constant _GRR atomic_word
+functor _GRR atomic_word
+defined_term _GRR number | distinct_object
+system_term _GRR system_constant | system_functor LPAREN arguments RPAREN
+system_functor _GRR atomic_system_word
+system_constant _GRR atomic_system_word
+variable _GRR upper_word
+source _GRR general_function
+file_name _GRR atomic_word
+useful_info _GRR general_list
+include _GRR _LIT_include LPAREN file_name formula_selection RPAREN PERIOD
+formula_selection _GRR null | COMMA LBRKT name_list RBRKT
+name_list _GRR name | name COMMA name_list
+general_term _GRR general_function | general_list
+general_list _GRR LBRKT RBRKT | LBRKT general_arguments RBRKT
+general_function _GRR name | functor LPAREN general_arguments RPAREN
+general_arguments _GRR general_term | general_term COMMA general_arguments
+name _GRR atomic_word | unsigned_integer
+atomic_word _GRR lower_word | single_quoted
+null _GRR
+number _GRR real | integer
+integer _GRR signed_integer | unsigned_integer
+TPTP_FOF_file _GRR null | TPTP_FOF_file TPTP_FOF_input
+TPTP_FOF_input _GRR TPTP_input_formula | include
+TPTP_input_formula _GRR _LIT_input_formula LPAREN name COMMA formula_role COMMA fof_formula RPAREN PERIOD
+TPTP_CNF_file _GRR null | TPTP_CNF_file TPTP_CNF_input
+TPTP_CNF_input _GRR TPTP_input_clause | include
+TPTP_input_clause _GRR _LIT_input_clause LPAREN name COMMA formula_role COMMA TPTP_literals RPAREN PERIOD
+TPTP_literals _GRR LBRKT RBRKT | LBRKT TPTP_literal_list RBRKT
+TPTP_literal_list    _GRR  TPTP_literal rest_TPTP_literals *
+rest_TPTP_literals _GRR COMMA TPTP_literal
+TPTP_literal _GRR TPTP_sign atomic_formula
+TPTP_sign _GRR PLUS_PLUS | MINUS_MINUS

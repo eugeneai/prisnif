@@ -1,0 +1,276 @@
+
+%{
+/* Compile with -DP_VERBOSE=1 for verbose output.                    */
+/* Compile with -DP_USERPROC=1 to #include p_user_proc.c.            */
+/*   p_user_proc.c should #define P_ACT, P_BUILD, P_TOKEN, P_PRINT to*/
+/*   different procedures from those below, and supply code.         */
+
+/* *_strict rules are documentation; unreachable; hand-code semantic actions.*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#ifndef P_VERBOSE
+#  define P_VERBOSE 0
+#endif
+#ifdef P_USERPROC
+#  include "p_user_proc.c"
+#else
+#  define P_ACT(ss) if(verbose)printf("%7d %s\n",yylineno,ss);
+#  define P_BUILD(sym,A,B,C,D,E,F,G,H,I,J) pBuildTree(sym,A,B,C,D,E,F,G,H,I,J)
+#  define P_TOKEN(tok,symIdx) pToken(tok,symIdx)
+#  define P_PRINT(ss) if(verbose){printf("\n\n");pPrintTree(ss,0);}
+#endif
+
+#ifndef P_USERPROC
+#define MAX_CH 12
+extern int yylineno;
+extern int tptp_store_size;
+extern char* tptp_lval[];
+int verbose = P_VERBOSE;
+char pTokenBuf[8240];
+/* pPrintIdx is where to find top-level comments to print
+   before a sentence. yywrap() gets those after last sentence. */
+int pPrintIdx = 0;
+
+typedef struct pTreeNode * pTree;
+struct pTreeNode {char* sym; int symIdx; pTree ch[MAX_CH+1];};
+
+pTree pBuildTree(char* sym, pTree A, pTree B, pTree C, pTree D,
+    pTree E, pTree F, pTree G, pTree H, pTree I, pTree J);
+pTree pBuildTree(char* sym, pTree A, pTree B, pTree C, pTree D,
+    pTree E, pTree F, pTree G, pTree H, pTree I, pTree J)
+{ pTree ss = (pTree)calloc(1,sizeof(struct pTreeNode));
+  ss->sym = sym;
+  ss->symIdx = -1;
+  ss->ch[0] = A; ss->ch[1] = B; ss->ch[2] = C; ss->ch[3] = D;
+  ss->ch[4] = E; ss->ch[5] = F; ss->ch[6] = G; ss->ch[7] = H;
+  ss->ch[8] = I; ss->ch[9] = J; ss->ch[10] = 0;
+  return ss; }
+
+pTree pToken(char* tok, int symIdx);
+pTree pToken(char* tok, int symIdx)
+{ pTree ss;
+  char* sym = tptp_lval[symIdx];
+  char* safeSym;
+  strncpy(pTokenBuf, tok, 39);
+  strncat(pTokenBuf, sym, 8193);
+  safeSym = strdup(pTokenBuf);
+  ss = pBuildTree(safeSym,0,0,0,0,0,0,0,0,0,0);
+  ss->symIdx = symIdx;
+  return ss; }
+
+void pPrintComments(int start, int depth);
+void pPrintComments(int start, int depth)
+{ int d, j;
+  char c1[4] = "%", c2[4] = "/*";
+  j = start;
+  while (tptp_lval[j] != NULL
+  && (tptp_lval[j][0]==c1[0] || (tptp_lval[j][0]==c2[0] && tptp_lval[j][1]==c2[1])))
+    { for (d=0; d<depth; d++) printf("  ");
+      printf("%s\n",tptp_lval[j]);
+      j = (j+1)%tptp_store_size; }
+  return; }
+
+void pPrintTree(pTree ss, int depth);
+void pPrintTree(pTree ss, int depth)
+{ int i, d;
+  if (pPrintIdx >= 0)
+    { pPrintComments(pPrintIdx, 0); pPrintIdx = -1;}
+  if (ss == NULL) return;
+  for (d = 0; d < depth; d++) printf("  ");
+  if (ss->ch[0] == 0) printf("%s\n", ss->sym);
+  else printf("<%s>\n", ss->sym);
+  if (strcmp(ss->sym, "PERIOD .") == 0)
+    pPrintIdx = (ss->symIdx+1)%tptp_store_size;
+  if (ss->symIdx >= 0)
+    pPrintComments((ss->symIdx+1)%tptp_store_size, depth);
+  i = 0;
+  while(ss->ch[i] != 0) {pPrintTree(ss->ch[i], depth+1); i++;}
+  return; }
+
+int yywrap(void)
+{ P_PRINT(NULL); return 1; }
+
+#endif
+%}
+
+%union {int ival; double dval; char* sval; void* pval;}
+
+%start  TPTP_file
+%token <ival> AMPERSAND
+%token <ival> AT_SIGN
+%token <ival> CARET
+%token <ival> COLON
+%token <ival> COLON_EQUALS
+%token <ival> COMMA
+%token <ival> EQUALS
+%token <ival> EQUALS_GREATER
+%token <ival> EXCLAMATION
+%token <ival> EXCLAMATION_EQUALS
+%token <ival> GREATER
+%token <ival> LBRKT
+%token <ival> LESS_EQUALS
+%token <ival> LESS_EQUALS_GREATER
+%token <ival> LESS_TILDE_GREATER
+%token <ival> LPAREN
+%token <ival> MINUS_GREATER
+%token <ival> PERIOD
+%token <ival> QUESTION
+%token <ival> RBRKT
+%token <ival> RPAREN
+%token <ival> STAR
+%token <ival> TILDE
+%token <ival> TILDE_AMPERSAND
+%token <ival> TILDE_VLINE
+%token <ival> VLINE
+%token <ival> _LIT_cnf
+%token <ival> _LIT_fof
+%token <ival> _LIT_include
+%token <ival> _LIT_lambda
+%token <ival> _LIT_letrec
+%token <ival> _LIT_tff
+%token <ival> _LIT_thf
+%token <ival> distinct_object
+%token <ival> dollar_dollar_word
+%token <ival> dollar_word
+%token <ival> falseProp
+%token <ival> iType
+%token <ival> lower_word
+%token <ival> oType
+%token <ival> plus
+%token <ival> real
+%token <ival> signed_integer
+%token <ival> single_quoted
+%token <ival> tType
+%token <ival> trueProp
+%token <ival> unrecognized
+%token <ival> unsigned_integer
+%token <ival> upper_word
+%%
+
+TPTP_file _GRR null | TPTP_file TPTP_input
+TPTP_input _GRR annotated_formula | include
+annotated_formula _GRR fof_annotated | cnf_annotated | thf_annotated | tff_annotated
+fof_annotated _GRR _LIT_fof LPAREN name COMMA formula_role COMMA fof_formula annotations RPAREN PERIOD
+cnf_annotated _GRR _LIT_cnf LPAREN name COMMA formula_role COMMA cnf_formula annotations RPAREN PERIOD
+thf_annotated _GRR _LIT_thf LPAREN name COMMA formula_role COMMA thf_formula annotations RPAREN PERIOD
+tff_annotated _GRR _LIT_tff LPAREN name COMMA formula_role COMMA tff_formula annotations RPAREN PERIOD
+annotations _GRR null | COMMA source optional_info
+formula_role _GRR lower_word
+fof_formula _GRR binary_formula | unitary_formula
+binary_formula _GRR nonassoc_binary | assoc_binary
+nonassoc_binary _GRR unitary_formula binary_connective unitary_formula
+binary_connective _GRR LESS_EQUALS_GREATER | EQUALS_GREATER | LESS_EQUALS | LESS_TILDE_GREATER | TILDE_VLINE | TILDE_AMPERSAND
+assoc_binary _GRR or_formula | and_formula
+or_formula _GRR unitary_formula VLINE unitary_formula more_or_formula *
+more_or_formula _GRR VLINE unitary_formula
+and_formula _GRR unitary_formula AMPERSAND unitary_formula more_and_formula *
+more_and_formula _GRR AMPERSAND unitary_formula
+assoc_connective _GRR VLINE | AMPERSAND
+unitary_formula _GRR quantified_formula | unary_formula | atomic_formula | LPAREN fof_formula RPAREN
+quantified_formula _GRR quantifier LBRKT variable_list RBRKT COLON unitary_formula
+quantifier _GRR EXCLAMATION | QUESTION
+variable_list _GRR variable | variable COMMA variable_list
+unary_formula _GRR unary_connective unitary_formula
+unary_connective _GRR TILDE
+cnf_formula _GRR LPAREN disjunction RPAREN | disjunction
+disjunction _GRR literal more_disjunction *
+more_disjunction _GRR VLINE literal
+literal _GRR atomic_formula | TILDE atomic_formula
+thf_formula _GRR thf_binary_formula | thf_unitary_formula | thf_definition
+thf_binary_formula _GRR thf_nonassoc_formula | thf_assoc_formula | thf_apply_formula | thf_equality | thf_binary_type
+thf_nonassoc_formula _GRR thf_unitary_formula binary_connective thf_unitary_formula
+thf_equality _GRR thf_unitary_formula EQUALS thf_unitary_formula
+thf_assoc_formula _GRR thf_or_formula | thf_and_formula
+thf_or_formula _GRR thf_unitary_formula VLINE thf_unitary_formula | thf_or_formula VLINE thf_unitary_formula
+thf_and_formula _GRR thf_unitary_formula AMPERSAND thf_unitary_formula | thf_and_formula AMPERSAND thf_unitary_formula
+thf_unitary_formula _GRR thf_atom | thf_let_rec | thf_abstraction | thf_unary_formula | thf_quantified_formula | LPAREN thf_tuple RPAREN | LPAREN thf_binary_formula RPAREN | LPAREN thf_unitary_formula RPAREN
+thf_quantified_formula _GRR thf_quantifier LBRKT thf_variable_list RBRKT COLON thf_unitary_formula
+thf_quantifier _GRR EXCLAMATION | QUESTION
+thf_variable_list _GRR thf_variable | thf_variable COMMA thf_variable_list
+thf_unary_formula _GRR unary_connective thf_unitary_formula
+thf_abstraction _GRR thf_lambda LBRKT thf_variable_list RBRKT COLON thf_unitary_formula
+thf_lambda _GRR _LIT_lambda | CARET
+thf_apply_formula _GRR thf_apply_formula AT_SIGN thf_unitary_formula | thf_unitary_formula AT_SIGN thf_unitary_formula
+thf_tuple _GRR thf_unitary_formula COMMA thf_tuple | thf_unitary_formula COMMA thf_unitary_formula
+thf_atom _GRR thf_typed_atom | thf_untyped_atom
+thf_typed_atom _GRR thf_typed_constant | thf_typed_variable
+thf_untyped_atom _GRR thf_untyped_constant | thf_untyped_variable
+thf_variable _GRR thf_untyped_variable | thf_typed_variable
+thf_typed_variable _GRR thf_untyped_variable COLON thf_unitary_type
+thf_untyped_variable _GRR variable
+thf_typed_constant _GRR thf_untyped_constant COLON thf_unitary_type
+thf_untyped_constant _GRR atomic_word | number | distinct_object | atomic_system_word | thf_defined_word | LPAREN tptp_operator RPAREN
+thf_defined_word _GRR defined_type | defined_prop
+tptp_operator _GRR unary_connective | binary_connective | assoc_connective | quantifier | EQUALS
+thf_binary_type _GRR thf_mapping_type | thf_xprod_type | thf_union_type
+thf_mapping_type _GRR thf_unitary_type map_arrow thf_mapping_type | thf_unitary_type map_arrow thf_unitary_type
+thf_xprod_type _GRR thf_xprod_type STAR thf_unitary_type | thf_unitary_type STAR thf_unitary_type
+thf_union_type _GRR thf_union_type plus thf_unitary_type | thf_unitary_type plus thf_unitary_type
+thf_unitary_type _GRR thf_unitary_formula
+map_arrow _GRR MINUS_GREATER |  GREATER 
+thf_let_rec _GRR _LIT_letrec LBRKT thf_definition_list RBRKT COLON thf_unitary_formula
+thf_definition_list _GRR thf_definition | thf_definition COMMA thf_definition_list
+thf_definition _GRR atomic_word COLON_EQUALS thf_unitary_formula | LPAREN thf_definition RPAREN
+tff_formula _GRR tff_binary_formula | tff_unitary_formula | tff_typed_atom
+tff_binary_formula _GRR tff_nonassoc_binary | tff_assoc_binary
+tff_nonassoc_binary _GRR tff_unitary_formula binary_connective tff_unitary_formula
+tff_assoc_binary _GRR tff_or_formula | tff_and_formula
+tff_or_formula _GRR tff_unitary_formula VLINE tff_unitary_formula tff_more_or_formula *
+tff_more_or_formula _GRR VLINE tff_unitary_formula
+tff_and_formula _GRR tff_unitary_formula AMPERSAND tff_unitary_formula tff_more_and_formula *
+tff_more_and_formula _GRR AMPERSAND tff_unitary_formula
+tff_unitary_formula _GRR tff_quantified_formula | tff_unary_formula | atomic_formula | LPAREN tff_binary_formula RPAREN | LPAREN tff_unitary_formula RPAREN
+tff_quantified_formula _GRR quantifier LBRKT tff_variable_list RBRKT COLON tff_unitary_formula
+tff_variable_list _GRR tff_variable | tff_variable COMMA tff_variable_list
+tff_unary_formula _GRR unary_connective tff_unitary_formula
+tff_typed_atom _GRR tff_untyped_atom COLON tff_type_spec | LPAREN tff_typed_atom RPAREN
+tff_untyped_atom _GRR functor | defined_term | system_functor
+tff_variable _GRR tff_untyped_variable | tff_typed_variable
+tff_typed_variable _GRR tff_untyped_variable COLON tff_type_spec
+tff_untyped_variable _GRR variable
+tff_type_spec _GRR tff_untyped_atom | defined_type | tff_type_expr | LPAREN tff_type_spec RPAREN
+tff_type_expr _GRR LPAREN tff_binary_type RPAREN
+tff_binary_type _GRR tff_mapping_type | tff_xprod_type | tff_union_type
+tff_mapping_type _GRR tff_unitary_type map_arrow tff_mapping_type | tff_unitary_type map_arrow tff_unitary_type
+tff_xprod_type _GRR tff_xprod_type STAR tff_unitary_type | tff_unitary_type STAR tff_unitary_type
+tff_union_type _GRR tff_union_type plus tff_unitary_type | tff_unitary_type plus tff_unitary_type
+tff_unitary_type _GRR tff_untyped_atom | defined_type | tff_type_expr
+atomic_formula _GRR plain_atom | defined_atom | system_atom
+plain_atom _GRR plain_term
+arguments _GRR term | term COMMA arguments
+defined_atom _GRR defined_prop | defined_pred LPAREN arguments RPAREN | term defined_infix_pred term
+defined_infix_pred _GRR EQUALS | EXCLAMATION_EQUALS
+defined_prop _GRR trueProp | falseProp
+defined_pred _GRR atomic_defined_word
+defined_type _GRR oType | iType | tType
+system_atom _GRR system_term
+term _GRR function_term | variable
+function_term _GRR plain_term | defined_term | system_term
+plain_term _GRR constant | functor LPAREN arguments RPAREN
+constant _GRR atomic_word
+functor _GRR atomic_word
+defined_term _GRR number | distinct_object
+system_term _GRR system_constant | system_functor LPAREN arguments RPAREN
+system_functor _GRR atomic_system_word
+system_constant _GRR atomic_system_word
+variable _GRR upper_word
+source _GRR general_term
+optional_info _GRR COMMA useful_info | null
+useful_info _GRR general_term_list
+include _GRR _LIT_include LPAREN file_name formula_selection RPAREN PERIOD
+formula_selection _GRR COMMA LBRKT name_list RBRKT | null
+name_list _GRR name | name COMMA name_list
+general_term _GRR general_data | general_data COLON general_term | general_list
+general_data _GRR atomic_word | atomic_word LPAREN general_arguments RPAREN | number | distinct_object
+general_arguments _GRR general_term | general_term COMMA general_arguments
+general_list _GRR LBRKT RBRKT | LBRKT general_term_list RBRKT
+general_term_list _GRR general_term | general_term COMMA general_term_list
+name _GRR atomic_word | unsigned_integer
+atomic_word _GRR lower_word | single_quoted
+atomic_defined_word _GRR dollar_word
+atomic_system_word _GRR dollar_dollar_word
+number _GRR real | signed_integer | unsigned_integer
+file_name _GRR atomic_word
+null _GRR

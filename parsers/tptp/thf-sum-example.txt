@@ -1,0 +1,21 @@
+% In this example, we intend that emptylist, null, first, rest (defined
+% elsewhere) are the same for all list types, hence do not have the
+% list-element type as a parameter.
+% However first and plus (defined elsewhere) needs to be qualified by
+% list-element type.
+
+thf(1,definition, list := ^ [T]: ((T * (list @ T)) + emptylist)).
+
+thf(2,conjecture,
+    ! [L : (list @ int)]:
+      letrec [
+             sum := ^ [L1 : (list @ int)]:
+                 (null @ L1 @
+                     0
+                     @
+                     ((plus @ int) @ ((first @ int @ L1), (sum @ (rest @ L1)))
+                     ) 
+                   )
+             ]:
+      ~ ((sum @ L) = 0)
+   ).

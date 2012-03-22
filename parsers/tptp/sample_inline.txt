@@ -1,0 +1,21 @@
+/* $$ Sample: multi-line
+ * system comment.
+ */
+fof(1,axiom, foo % FOO
+  ( /* stupid place?
+    */X
+      /* expected place */
+      ,Y, % /* stupid place again? */
+    h(Y,Z)), unknown/*for good measure*/).
+/* multi-line
+ * comment.
+ */
+fof(1,axiom, foo % FOO
+  ( /* stupid place?
+    */X
+      /* expected place */
+      ,Y, % /* stupid place again? */
+    h(Y,Z)), unknown/*for good measure*/).
+/* multi-line
+ * comment.
+ */

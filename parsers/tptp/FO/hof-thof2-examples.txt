@@ -1,0 +1,69 @@
+/*------------------------------------------------------------------------ */
+/* File     : SYN001^1 : TPTP v4.0.0. Released v4.0.0. */
+/* Domain   : Syntactic */
+/* Problem  :  */
+/* Version  : With type definitions */
+/* English  :  */
+
+/* Refs     : [BB05]  Benzmueller & Brown (2005), A Structured Set of Higher */
+/*          : Hindley (or Seldin) ... Basic Simple Type Theory  */
+/* Source   : [BB05] */
+/* Names    :  */
+
+/* Status   : Theorem (SEMANTICS) */
+/* Rating   : ? v4.0.0 */
+/* Syntax   :  */
+
+/* Comments :  */
+/*------------------------------------------------------------------------ */
+hof(nat_defn,type_definition,
+    ! [A] : nat(A) = ((A > A) > A > A)   ).
+
+hof(successor_defn,definition,
+    ( successor
+    = ( ! [A:$type] :
+        ^ [Z:nat(A),X:(A > A),Y:A] : 
+          (X @ (Z @ X @ Y)) ) )   ).
+
+/*succ = [A:tp] */
+/*    \ [z:tm ((A --> A) --> A --> A)] */
+/*    \ [x:tm (A --> A)] */
+/*    \ [y:tm A] x @ (z @ x @ y). */
+
+hof(zero,definition,
+    ( zero
+    = ( ! [A:$type] :
+        ^ [F:(A>A),Y:A] : Y ) )   ).
+   
+hof(one,definition,
+    ( one
+    = ( ! [A:$type] :
+        ^ [F:(A>A),Y:A] : (F @ Y) ) )   ).
+   
+hof(plus_defn,definition,
+    ( plus
+    = ( ! [A:$type] :
+        ^ [M:nat(A),N:nat(A)] : 
+        ^ [X:(A>A),Y:A] :
+          (M @ X @ (N @ X @ Y)) ) )   ).
+
+hof(times_defn,definition,
+    ( times
+    = ( ! [A:$type] :
+        ^ [M:nat(A),N:nat(A)] : 
+          (N @ (plus @ M) @ zero) ) )   ).
+
+hof(carstens_times_defn,definition,
+    ( times
+    = ( ! [A:$type] :
+        ^ [M:nat(A),N:nat(A),S:nat(A),Z:nat(A)] :
+          (M @ (N @ S) @ Z)
+      )
+    )
+   ).
+
+hof(prove_this,conjecture,
+    ! [I:i] :
+    ? [N:nat(I)] : 
+      (times @ N @ one) = ( ^ [F:(I>I)] : F )   ).
+/*------------------------------------------------------------------------ */

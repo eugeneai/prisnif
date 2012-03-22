@@ -1,0 +1,11 @@
+% setops.ax Version 0.5
+hof(set_member,definition,
+    ! [A] : (member @ A) = (lambda [X:A, S:A->$o] : S @ X)).
+hof(empty_set,definition,
+    empty_set = (lambda [A] : lambda [X:A] : ($false))).
+hof(set_union,definition,
+    union = (lambda [A] : lambda [X:A->$o, Y:A->$o] : lambda [Z] :
+        ((member @ A @ Z @ X) | (member @ A @ Z @ Y)) ) ).
+hof(set_intersection,definition,
+    inter = (lambda [A] : lambda [X:A->$o, Y:A->$o] : lambda [Z] :
+        ((X @ Z) & (Y @ Z)) ) ).

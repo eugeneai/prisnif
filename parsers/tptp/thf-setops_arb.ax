@@ -1,0 +1,15 @@
+% setops_arb.ax Version 2.0.0.2
+thf(set_member,definition,
+    ! [A] : ((member @ A) = lambda [X:A, S:(A->$o)] : (S @ X))).
+thf(empty_set,definition,
+    empty_set := lambda [A] : lambda [X:A] : ($false)).
+thf(set_union,definition,
+    union := lambda [A] : lambda [X:(A->$o), Y:(A->$o)] : lambda [Z] :
+        ((member @ A @ Z @ X) | (member @ A @ Z @ Y))).
+thf(set_intersection,definition,
+    inter := lambda [A] : lambda [X:(A->$o), Y:(A->$o)] : lambda [Z] :
+        ((X @ Z) & (Y @ Z))).
+%
+thf(set_arb_union,definition,
+    arb_union := ^ [A:$tType] : ^ [D:((A->$o)->$o)] : ^ [Z] :
+	? [X:(A->$o)] : ((member @ (A->$o) @ X  @ D) & (member @ A @ Z @ X))).
