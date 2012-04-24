@@ -27,6 +27,6 @@ distr: distrib
 
 distribution: distrib
 
-test:	prisnif clean
+test:	prisnif
 	# Task about John the boy with a lot of fingers.
 	./prisnif problems/john_boy 2000
