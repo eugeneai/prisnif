@@ -46,7 +46,7 @@ class Supervisor{
 			//writeln("========== Step ",maxsteps-k+1, " ==========");
 			b = step();
 			if(!b){
-				writeln("May be formula is consistent");
+				writeln("The formula is satisfiable.");
 				break;
 			}
 			if(!is_all_refuted){
