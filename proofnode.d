@@ -136,12 +136,13 @@ class ProofNode{
 		}
 	
 		a.apply();
-		//a.print();
+		a.print();
 		//-----------
 		ProofNode[] pnl = new ProofNode[q.af.efs.length];
 		//для каждой е-консеквента
 		foreach(i,ef;q.af.efs){
 			EFormula newef = ef.get_hard_copy(new VarMap());
+			newef.reduce();
 			PChunk!(GTerm) newbase  = newef.conjunct.to_pchunk(base);
 			Question[] newqs = new Question[newef.afs.length];
 			foreach(j,raf;newef.afs){

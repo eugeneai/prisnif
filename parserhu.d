@@ -13,6 +13,8 @@ import answer;
 import proofnode;
 import pchunk;
 
+//распознавание чисел как чисел надо сделать
+
 /*==========================================*/
 class ParserHu{
 	string orig;

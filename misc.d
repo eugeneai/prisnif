@@ -107,6 +107,10 @@ class Oracle{
 	}	
 }
 
+GTerm xsum(GTerm t1, GTerm t2){
+	return null;
+}
+
 
 /*=============================================*/
 

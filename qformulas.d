@@ -20,6 +20,12 @@ class Conjunct{
 		conjunct = gtseq;
 	}
 
+	void reduce(){
+		foreach(i,c;conjunct){
+			conjunct[i] = c.reduce();
+		}
+	}
+
 
 	PChunk!(GTerm) to_pchunk(PChunk!(GTerm) lbase){
 		PChunk!(GTerm) rpchunk = new PChunk!(GTerm)();
@@ -101,6 +107,13 @@ class AFormula{
 
 	}
 
+	void reduce(){
+		conjunct.reduce();
+		foreach(e;efs){
+			e.reduce();
+		}
+	}
+
 	bool is_goal(){
 		return isGoal;
 	}
@@ -163,6 +176,13 @@ class EFormula{
 
 	this(){
 
+	}
+
+	void reduce(){
+		conjunct.reduce();
+		foreach(a;afs){
+			a.reduce();
+		}
 	}
 
 	bool is_contains_false(){

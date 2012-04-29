@@ -53,6 +53,17 @@ class Symbol{
 		if (type==SymbolType.AVARIABLE || type==SymbolType.UHE) return true; else return false;
 	}
 
+	void get_sema(){
+
+	}
+
+	bool compare(Symbol _s){
+		if(_s==this) return true;
+		//if(_s.type==SymbolType.INTEGER && _s.type==SymbolType.INTEGER){
+			if(_s.name == name)return true; else return false;
+		//}
+		return false;
+	}
 }
 
 /*--------------------------------------------------*/
