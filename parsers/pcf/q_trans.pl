@@ -593,13 +593,13 @@ uo(O,F, unary_(O,F)).
 %-------------------------------------------------------------
 % Translator of the language used in Eugene Cherkashin's PH.D.
 
-cmd_list --> cmd.
-cmd_list --> cmd, cmd_list.
+q_command_list(sy) --> q_command.
+q_command_list(sy) --> q_command, q_command_list(_).
 
-cmd --> cmd_name, cmd_end. % FIXME: operands.........
-cmd_name --> ['fm'].
+q_command --> q_command_name, q_command_end. % FIXME: operands.........
+q_command_name --> ['fm'].
 
-cmd_end --> ['.', '\n'].
+q_command_end --> ['.'].
 
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
@@ -688,8 +688,8 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         
 test(on, 101, '/translate/FM/1', I, O, S):-
 	I='fm .', 
-	% fm_parser(I,O),
-	S=[formula].
+	q_tr_command_list(I,O,S),
+	S.
 
 test(N):-
         nl,
@@ -708,11 +708,15 @@ test(_):-
 t(X):-
         test(X).
 
-t:-t(7).
+t:-t(101).
 
 q_tr_formula(I, R, S) :-
         q_lex_s(I,L),
         q_formula(S, L, R).
+
+q_tr_command_list(I, R, S) :-
+        q_lex_s(I,L),
+        q_command_list(S, L, R).
 
 
 % Just query AST as IP converted and reduced.
