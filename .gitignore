@@ -1,3 +1,4 @@
 *.o
 prisnif
 *~
+/parsers/pcf/q_trans
