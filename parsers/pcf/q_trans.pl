@@ -593,13 +593,16 @@ uo(O,F, unary_(O,F)).
 %-------------------------------------------------------------
 % Translator of the language used in Eugene Cherkashin's PH.D.
 
-q_command_list([C]) --> q_command(C).
-q_command_list([C|T]) --> q_command(C), q_command_list(T).
+q_command_list([C]) --> q_command(C),  q_command_end.
+q_command_list([C|T]) --> q_command(C),  q_command_end, q_command_list(T).
 
-q_command(cmd(N)) --> q_command_name(N), q_command_end. % FIXME: operands.........
-q_command_name(fm) --> [fm].
+q_command(cmd(show, Param)) --> [sw], q_command_show(Param). 
+q_command(cmd(formula, T, Exp)) --> [fm], q_command_fm(T, Exp). 
 
 q_command_end --> [full_stop].
+
+q_command_show(P) --> q_term(P).
+q_command_fm(P, Exp) --> q_term(P), ['='], q_formula(Exp).
 
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
@@ -687,7 +690,7 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_pcf_pp(S,sq).
         
 test(on, 101, '/translate/FM/1', I, O, S):-
-	I='fm .', 
+	I='sw a(b) . fm a(x)=a>b.', 
 	q_tr_command_list(I,O,S).
 
 test(N):-
