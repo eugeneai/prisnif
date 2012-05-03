@@ -3,7 +3,7 @@ q_syn_error(Error, _, _):-
 
 q_formula(F) -->
         q_pcf_formula(F) ;
-        q_ip_formula(F).
+         q_ip_formula(F).
 
 q_ip_quant(ip_q(S,L,I)) -->
         q_quant_sign(S),
@@ -117,18 +117,7 @@ q_lex(Stream, L) :-
            !,
            q_conv_lex(Term, T),
            q_lex(Stream, Tail),
-           L=[T|Tail]
-        ).
-
-q_lex_str(S, L) :-
-        read_token_from_atom(S, Term),!,
-        (
-           Term=punct(end_of_file),
-           L=[],!;
-           !,
-           q_conv_lex(Term, T),
-           q_lex_str(S, Tail),
-           L=[T|Tail]
+           app(T, Tail, L)
         ).
 
 app([], L, L).
@@ -612,11 +601,6 @@ cmd_name --> ['fm'].
 
 cmd_end --> ['.', '\n'].
 
-
-fm_parser(S, R):-
-        q_lex_str(S, TOKENS),
-        cmd_list(TOKENS, R).
-
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
 
@@ -682,7 +666,7 @@ test(on, 7, '/reduce/1', A, S, S2):-
 
 test(on, 8, '/conversion/1', A, S2, Pcf):-
         test(on, 7, _, A, _, S2),
-        q_to_pcf(S2, rd, Pcf),
+	q_to_pcf(S2, rd, Pcf),
         q_pcf_print(Pcf).
 
 /*
@@ -704,7 +688,7 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         
 test(on, 101, '/translate/FM/1', I, O, S):-
 	I='fm .', 
-	fm_parser(I,O),
+	% fm_parser(I,O),
 	S=[formula].
 
 test(N):-
@@ -719,12 +703,12 @@ test(N):-
         write('Ok.'),nl, nl, fail
         .
 test(_):-
-        nl, write('No more tests.'), nl, nl.
+        nl, write('No more successful tests.'), nl, nl.
 
 t(X):-
         test(X).
 
-t:-t(101).
+t:-t(7).
 
 q_tr_formula(I, R, S) :-
         q_lex_s(I,L),
