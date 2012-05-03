@@ -117,7 +117,18 @@ q_lex(Stream, L) :-
            !,
            q_conv_lex(Term, T),
            q_lex(Stream, Tail),
-           app(T, Tail, L)
+           L=[T|Tail]
+        ).
+
+q_lex_str(S, L) :-
+        read_token_from_atom(S, Term),!,
+        (
+           Term=punct(end_of_file),
+           L=[],!;
+           !,
+           q_conv_lex(Term, T),
+           q_lex_str(S, Tail),
+           L=[T|Tail]
         ).
 
 app([], L, L).
@@ -190,11 +201,11 @@ q_r(imp(A,A), t('True')):-!.
 q_r(neg(neg(E)), E):-!.
 
 
-q_r(conj(L), conj([X,Y | R])):- in(conj([X,Y]), L),!,
-        q_del_all(conj(X,Y), L, R1).
+q_r(conj(L), conj([X,Y | R])):- member(conj([X,Y]), L),!,
+        q_del_all(conj(X,Y), L, R).
         
-q_r(disq(L), disj([X,Y | R])):- in(disj([X,Y]), L),!,
-        q_del_all(disj(X,Y), L, R1).
+q_r(disq(L), disj([X,Y | R])):- member(disj([X,Y]), L),!,
+        q_del_all(disj(X,Y), L, R).
 
 q_r(conj([A,t('True')]), A):-!.
 q_r(conj([t('True'),A]), A):-!.
@@ -218,16 +229,22 @@ q_r(neg(imp(A,B)), conj([A,neg(B)])):-!.
 q_r(neg(t('False')), t('True')):-!.
 q_r(neg(t('True')), t('False')):-!.
 
-q_r(equ(A,B), conj([imp(A,B), imp(B,A))]):-!.
+q_r(equ(A,B), conj([imp(A,B), imp(B,A)])):-!.
 
 q_alter_q(a,e).
 q_alter_q(e,a).
 
+
+/*
 q_del_all(_, [], []).
 q_del_all(X, [X|T], R):-!,
-        a_del_all(X, T, R).
+        q_a_del_all(X, T, R).
 q_del_all(X, [Y|T], [Y|R]):-!,
-        a_del_all(X, T, R).
+        q_a_del_all(X, T, R).
+*/
+
+q_del_all(_, L, L). % FIXME: STUB to compile.
+
 
 % XXX stack overflow on a + ~a.
 
@@ -584,6 +601,22 @@ uo('~', F, neg(F)):-!.
 
 uo(O,F, unary_(O,F)).
 
+%-------------------------------------------------------------
+% Translator of the language used in Eugene Cherkashin's PH.D.
+
+cmd_list --> cmd.
+cmd_list --> cmd, cmd_list.
+
+cmd --> cmd_name, cmd_end. % FIXME: operands.........
+cmd_name --> ['fm'].
+
+cmd_end --> ['.', '\n'].
+
+
+fm_parser(S, R):-
+        q_lex_str(S, TOKENS),
+        cmd_list(TOKENS, R).
+
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
 
@@ -652,11 +685,13 @@ test(on, 8, '/conversion/1', A, S2, Pcf):-
         q_to_pcf(S2, rd, Pcf),
         q_pcf_print(Pcf).
 
+/*
 test(on, 9, '/TPTP/transtation/1', nil, nil, S):-
         consult('Parser_allen/_.pl'),
         ast(I),
         ast_to_ip(I,S).
-        
+*/  
+      
 test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         test(on, 9, _,  _,  _, I),
         %I=fof(_,_,F,_), 
@@ -667,7 +702,10 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_to_pcf(I, S, rd),
         q_pcf_pp(S,sq).
         
-        
+test(on, 101, '/translate/FM/1', I, O, S):-
+	I='fm .', 
+	fm_parser(I,O),
+	S=[formula].
 
 test(N):-
         nl,
@@ -686,7 +724,7 @@ test(_):-
 t(X):-
         test(X).
 
-t:-t(10).
+t:-t(101).
 
 q_tr_formula(I, R, S) :-
         q_lex_s(I,L),
@@ -694,10 +732,15 @@ q_tr_formula(I, R, S) :-
 
 
 % Just query AST as IP converted and reduced.
+
+/*
 aip(IPR):-
         ast(I),
         ast_to_ip(I, fof(_, _, IP, _)),
         q_rd(IP, IPR).
+*/
+
+% FIXME: STUB to compile.
 
 all_ast(L):-
         findall(X, ast(X), L).
@@ -747,3 +790,6 @@ tr:-
         consult('input.pl'),
         m(PCF),
         q_pcf_print(PCF).
+
+
+:- initialization(t).
