@@ -604,6 +604,21 @@ q_command_end --> [full_stop].
 q_command_show(P) --> q_term(P).
 q_command_fm(P, Exp) --> q_term(P), ['='], q_formula(Exp).
 
+%-------------------------------------------------------------
+% Command Executors ($$$)
+q_do_command_list([]):-!.
+q_do_command_list([C|T]):-
+	q_do_command(C),
+	q_do_command_list(T).
+
+q_do_command(cmd(show, Param)):-!,
+	write('SHOW:'),
+	write(Param), nl.
+
+q_do_command(_):-
+	write('Command not supported'), nl.
+
+
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
 
@@ -690,8 +705,9 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_pcf_pp(S,sq).
         
 test(on, 101, '/translate/FM/1', I, O, S):-
-	I='sw a(b) . fm a(x)=a>b.', 
-	q_tr_command_list(I,O,S).
+	I='fm a(x)=a>b. sw a(c).', 
+	q_tr_command_list(I,O,S),
+	q_do_command_list(S).
 
 test(N):-
         nl,
