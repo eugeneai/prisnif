@@ -2,3 +2,4 @@
 prisnif
 *~
 /parsers/pcf/q_trans
+*.tab.*
