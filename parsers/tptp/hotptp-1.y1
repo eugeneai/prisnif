@@ -348,7 +348,7 @@ thf_typed_constant : thf_untyped_constant COLON thf_unitary_type {P_ACT($<sval>$
 
 thf_untyped_constant : atomic_word {P_ACT($<sval>$)}
                     | number {P_ACT($<sval>$)}
-                   | distinct_object {P_ACT($<sval>$)}
+                    | distinct_object {P_ACT($<sval>$)}
                     | atomic_system_word {P_ACT($<sval>$)}
                     | thf_defined_word {P_ACT($<sval>$)}
                     | LPAREN tptp_operator RPAREN {P_ACT($<sval>$)}
