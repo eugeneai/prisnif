@@ -284,6 +284,16 @@ q_to_pcf_a_a(imp(A,B), [A], [F]):-
         q_cnv_term(A),!,
         q_to_pcf_e(B, F).
 
+q_to_pcf_a_a(imp(conj(A,D),B), [A,D], [F]):-
+        q_cnv_term(A),
+        q_cnv_term(D),!,
+        q_to_pcf_e(B, F).
+
+q_to_pcf_a_a(imp(conj([A,D]),B), [A,D], [F]):-
+        q_cnv_term(A),
+        q_cnv_term(D),!,
+        q_to_pcf_e(B, F).
+
 q_to_pcf_a_a(imp(A,B), [t('True')], [F1, F2]):-
         q_rd(neg(A), A1),!,
         q_to_pcf_e(A1, F1),
@@ -308,9 +318,20 @@ q_to_pcf_e_e(conj(A,B), [A], [F]):-
         q_cnv_term(A),!,
         q_to_pcf_a(B, F).
 
-q_to_pcf_e_e(conj(A,B), [t('True')], [F1,F2]):-!,
+q_to_pcf_e_e(conj(A,B), [t('True')], [F1,F2]):-
         q_to_pcf_a(A, F1),
         q_to_pcf_a(B, F2).
+
+q_to_pcf_e_e(conj([A,B]), [A], [F]):-
+        q_cnv_term(A),!,
+        q_to_pcf_a(B, F).
+
+q_to_pcf_e_e(conj([X]), [t('True')], [Y]):-!,
+        q_to_pcf_a(X, Y).
+        
+q_to_pcf_e_e(conj([X|T]), [t('True')], [Y|R]):-!,
+        q_to_pcf_a(X, Y),
+        q_to_pcf_e_e(conj(T), _, R).
 
 q_to_pcf_e_e(imp(A,B), [t('True')], [F]):-!,
         q_to_pcf_a(imp(A,B), F).
