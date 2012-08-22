@@ -212,8 +212,10 @@ q_r(disj([neg(A),A]), t('True')):-!.
 
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
-q_r(imp(A, t('False')), neg(A)):-!. % Is it necessary as we transfer ~a into a->F? 
+% q_r(imp(A, t('False')), neg(A)):-!. % Is it necessary as we transfer ~a into a->F? 
 q_r(imp(t('False'),_), t('False')):-!.
+q_r(imp(A,neg(B)), imp(conj(A,B), t('False'))):-!.
+q_r(imp(neg(A),B), disj(A,B)):-!.
 q_r(neg(imp(A,B)), conj([A,neg(B)])):-!.
 q_r(neg(t('False')), t('True')):-!.
 q_r(neg(t('True')), t('False')):-!.
@@ -240,7 +242,7 @@ q_del_all(_, L, L). % FIXME: STUB to compile.
 
 % --------- Conversion to PCF, RD=rd if defined adds reduction step ---
 q_to_pcf(fof(_, _, A, _), B):-!,
-        q_rd(A,A1),!,
+        % q_rd(A,A1),!,
         q_to_pcf(A1, B).
 
 q_to_pcf(A, B):-
@@ -776,9 +778,9 @@ main(PCF):-
         write('Reduction.'),nl,
         q_rd(IP,IPR),!,
         write('Converting to PCF.'),nl,
-        q_to_pcf(IPR, PCF),!,
+        q_to_pcf(IPR, PCF, rd),!,
         write('Converted'), nl,
-        %write(PCF),
+        write(PCF), nl,
         PCF=q(a,[],_, Bases),
         %write(Bases),
         write('Making Output result.p file.'),nl,
@@ -798,4 +800,4 @@ tr:-
         q_pcf_print(PCF).
 
 
-:- initialization(t).
+:- initialization(tr).
