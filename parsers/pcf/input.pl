@@ -1,0 +1,1 @@
+/home/eugeneai/Development/codes/prisnif/parsers/tptp/_.pl

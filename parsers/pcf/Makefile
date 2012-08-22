@@ -1,4 +1,4 @@
-.PHONY: all test
+.PHONY: all test tr
 
 GPLC="/usr/bin/gplc"
 
@@ -13,3 +13,6 @@ test: all
 
 clean:
 	rm ./q_trans
+
+tr:	all
+	./tptp_tr.sh
