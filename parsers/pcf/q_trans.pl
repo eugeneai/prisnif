@@ -319,29 +319,28 @@ q_split_conj([X|T],CA,[X|CF]):-
 
 q_to_pcf_a_a(imp(A,B), [A], [F]):-
         q_cnv_term(A),!,
+	% XXX if B is a disjunction. It could be properly translated here
         q_to_pcf_e(B, F).
 
 q_to_pcf_a_a(imp(conj(L),B), C, [FE]):-
 	q_split_conj(L, C, FF),
 	q_rd(disj([neg(conj(FF)),B]), F),
+	% XXX if F is a disjunction. It could be properly translated here
         q_to_pcf_e(F, FE).
 
-q_to_pcf_a_a(imp(A,B), [t('True')], [F1, F2]):-
+q_to_pcf_a_a(imp(A,B), [], [F1, F2]):-
         q_rd(neg(A), A1),!,
         q_to_pcf_e(A1, F1),
         q_to_pcf_e(B, F2).
 
-q_to_pcf_a_a(conj([A,B]), [t('True')], [F]):-!,
-        q_to_pcf_e(conj([A,B]), F).
-
-q_to_pcf_a_a(disj([A,B]), [t('True')], [F1, F2]):-!,
+q_to_pcf_a_a(disj([A,B]), [], [F1, F2]):-!,
         q_to_pcf_e(A, F1),
         q_to_pcf_e(B, F2).
 
 q_to_pcf_a_a(neg(A), [A], [F]):-!,
         q_to_pcf_e(t('False'), F).
 
-q_to_pcf_a_a(I, [t('True')], [F]):-!,
+q_to_pcf_a_a(I, [], [F]):-!,
         q_to_pcf_e(I, F).
 
 %
@@ -350,20 +349,20 @@ q_to_pcf_e_e(conj([A,B]), [A], [F]):-
         q_cnv_term(A),!,
         q_to_pcf_a(B, F).
 
-q_to_pcf_e_e(conj([X]), [t('True')], [Y]):-!,
+q_to_pcf_e_e(conj([X]), [], [Y]):-!,
         q_to_pcf_a(X, Y).
         
-q_to_pcf_e_e(conj([X|T]), [t('True')], [Y|R]):-!,
+q_to_pcf_e_e(conj([X|T]), [], [Y|R]):-!,
         q_to_pcf_a(X, Y),
         q_to_pcf_e_e(conj(T), _, R).
 
-q_to_pcf_e_e(imp(A,B), [t('True')], [F]):-!,
+q_to_pcf_e_e(imp(A,B), [], [F]):-!,
         q_to_pcf_a(imp(A,B), F).
 
-q_to_pcf_e_e(disj([A,B]), [t('True')], [F]):-!,
+q_to_pcf_e_e(disj([A,B]), [], [F]):-!,
         q_to_pcf_a(disj([A,B]), F).
 
-q_to_pcf_e_e(neg(A), [t('True')], [F]):-!,
+q_to_pcf_e_e(neg(A), [], [F]):-!,
         q_to_pcf_a(neg(A), F).
 
 q_to_pcf_e_e(A, [A], []). % The only terminal leave
@@ -823,10 +822,11 @@ main(PCF):-
         as_conj(IPL, IP),!,
         write('Reduction.'),nl,
         q_rd(IP,IPR),!,
+	write(IPR), nl,
         write('Converting to PCF.'),nl,
         q_to_pcf(IPR, PCF, rd),!,
         write('Converted'), nl,
-        write(PCF), nl,
+        %write(PCF), nl,
         PCF=q(a,[],_, Bases),
         %write(Bases),
         write('Making Output result.p file.'),nl,
