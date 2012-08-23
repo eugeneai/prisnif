@@ -366,6 +366,8 @@ q_to_pcf_e_e(disj(L), [], [F]):-!,
 q_to_pcf_e_e(neg(A), [], [F]):-!,
         q_to_pcf_a(neg(A), F).
 
+q_to_pcf_e_e(conj([]), [t('False')], []). % XXX bad The only terminal leave
+q_to_pcf_e_e(disj([]), [t('False')], []). % The only terminal leave
 q_to_pcf_e_e(A, [A], []). % The only terminal leave
 
 % writing pcfs
