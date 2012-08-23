@@ -7,8 +7,7 @@ pcf=../pcf
 log="conversion.log"
 out="conv_out.txt"
 
-q_tr="GLOBALSZ=150000 gprolog < tr_s.pl"
-
+q_tr="GLOBALSZ=1500000 gprolog < tr_s.pl"
 
 prg="./hotptp-yl-parser-verbose"
 
@@ -50,6 +49,6 @@ do
 	echo "==================================" >> $out
     fi
 
-    rm -f $tmp $pcf/input.pl $pcf/result.p
+    # rm -f $tmp $pcf/input.pl $pcf/result.p
 
 done
