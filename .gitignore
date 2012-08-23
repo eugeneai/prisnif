@@ -7,3 +7,6 @@ prisnif
 /parsers/pcf/.#tptp_tr.sh
 /parsers/pcf/#tptp_tr.sh#
 /parsers/tptp/conversion.log
+/parsers/tptp/conv_out.txt
+/parsers/pcf/input.pl
+/parsers/pcf/result.p

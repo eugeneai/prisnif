@@ -195,12 +195,13 @@ q_r(imp(A,A), t('True')):-!.
 q_r(neg(neg(E)), E):-!.
 
 
-%q_r(conj(L), conj([X,Y | R])):- member(conj(), L),!,
-%        q_del_all(conj([X,Y]), L, R).
-        
-q_r(disq(L), disj([X,Y | R])):- member(disj([X,Y]), L),!,
-        q_del_all(disj([X,Y]), L, R).
+%flatten the conjunctions and disjunctions
 
+q_r(conj(L), R):- member(conj(_), L),!,
+        q_flat(conj(L), R).
+q_r(disj(L), R):- member(disj(_), L),!,
+        q_flat(disj(L), R).
+        
 q_r(conj([A,t('True')]), A):-!.
 q_r(conj([t('True'),A]), A):-!.
 q_r(conj([_,t('False')]), t('False')):-!.
@@ -240,6 +241,22 @@ q_del_all(X, [Y|T], [Y|R]):-!,
 */
 
 q_del_all(_, L, L). % FIXME: STUB to compile.
+
+q_flat(conj([]), conj([])).
+q_flat(conj([conj(L)|T]), conj(R)):-!,
+	q_flat(conj(L), conj(L1)),
+	q_flat(conj(T), conj(T1)),
+	append(L1, T1, R).
+q_flat(conj([X|T]), conj([X|T1])):-
+	q_flat(conj(T), conj(T1)).
+
+q_flat(disj([]), disj([])).
+q_flat(disj([disj(L)|T]), disj(R)):-!,
+	q_flat(disj(L), disj(L1)),
+	q_flat(disj(T), disj(T1)),
+	append(L1, T1, R).
+q_flat(disj([X|T]), disj([X|T1])):-
+	q_flat(disj(T), disj(T1)).
 
 
 % XXX stack overflow on a + ~a.
