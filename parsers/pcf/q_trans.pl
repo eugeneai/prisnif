@@ -150,14 +150,15 @@ q_rd(I,O):-
 q_rd(cmd_fm(T, F), O):-
         q_rd(F,R),
         q_rr(cmd_fm(T, R), O).
-q_rd(conj([A,B]), O):-
-        q_rd(A,A1),
-        q_rd(B,B1),
-        q_rr(conj([A1,B1]), O).
-q_rd(disj([A,B]), O):-
-        q_rd(A,A1),
-        q_rd(B,B1),
-        q_rr(disj([A1,B1]), O).
+q_rd(neg(A), O):-
+	q_rd(A,A1),
+        q_rr(A1, O).
+q_rd(conj(L), O):-
+	q_rd_elems(L,L1),
+        q_rr(conj(L1), O).
+q_rd(disj(L), O):-
+        q_rd_elems(L,L1),
+        q_rr(disj(L1), O).
 q_rd(imp(A,B), O):-
         q_rd(A,A1),
         q_rd(B,B1),
@@ -166,8 +167,12 @@ q_rd(ip_q(S,L,I), O):-
         q_r_dups(L,L1),
         q_rd(I,I1),
         q_rr(ip_q(S,L1,I1), O).
-
 q_rd(I,I).
+
+q_rd_elems([],[]):-!.
+q_rd_elems([X|T], [RX|RT]):-
+	q_rd(X,RX),
+	q_rd_elems(T,RT).
 
 q_rr(I,O):-
         q_r(I,O),!.
@@ -185,6 +190,7 @@ q_in(X,[_|T]):-!,
 q_r(ip_q(_,_,t(X)), t(X)):-q_in(X,['True','False']), !. % are the !'s really needed?
 q_r(neg(ip_q(S,V,E)), ip_q(AS,V,neg(E))):-
         q_alter_q(S,AS),!.
+q_r(conj([]), t('True')):-!.
 q_r(conj(A),A):-A\=[_|_],!.
 q_r(disj(A),A):-A\=[_|_],!.
 %q_r(conj(A,B),conj([A,B])):-!.
@@ -302,14 +308,23 @@ q_to_pcf_e(I, q(e,[], T,F)):-
 q_cnv_term(t(_)):-!.
 q_cnv_term(t(_,_)):-!.
 
+% split conjunction on two subconjuncts: first one is conjunction of atoms, other one is more complex formulae.
+
+q_split_conj([],[],[]).
+q_split_conj([X|T],[X|CA],CF):-
+	q_cnv_term(X),!,
+	q_split_conj(T,CA,CF).
+q_split_conj([X|T],CA,[X|CF]):-
+	q_split_conj(T,CA,CF).
+
 q_to_pcf_a_a(imp(A,B), [A], [F]):-
         q_cnv_term(A),!,
         q_to_pcf_e(B, F).
 
-q_to_pcf_a_a(imp(conj([A,D]),B), [A,D], [F]):-
-        q_cnv_term(A),
-        q_cnv_term(D),!,
-        q_to_pcf_e(B, F).
+q_to_pcf_a_a(imp(conj(L),B), C, [FE]):-
+	q_split_conj(L, C, FF),
+	q_rd(disj([neg(conj(FF)),B]), F),
+        q_to_pcf_e(F, FE).
 
 q_to_pcf_a_a(imp(A,B), [t('True')], [F1, F2]):-
         q_rd(neg(A), A1),!,
