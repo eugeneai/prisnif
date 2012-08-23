@@ -1,3 +1,4 @@
+
 q_syn_error(Error, _, _):-
         syntax_error_info('<input>', 0, 0, Error).
 
@@ -243,7 +244,7 @@ q_del_all(_, L, L). % FIXME: STUB to compile.
 % --------- Conversion to PCF, RD=rd if defined adds reduction step ---
 q_to_pcf(fof(_, _, A, _), B):-!,
         % q_rd(A,A1),!,
-        q_to_pcf(A1, B).
+        q_to_pcf(A, B).
 
 q_to_pcf(A, B):-
         !,
@@ -736,7 +737,7 @@ test(N):-
         nl,
         test(on, N, X, I, O, S),
         write('Test:'),
-        write(X), nl,
+	write(N), write(X), nl,
         write(I), write(' '),
         write(O),
         write(' Struct='), write(S),

@@ -3,3 +3,4 @@ prisnif
 *~
 /parsers/pcf/q_trans
 *.tab.*
+.emacs.desktop*
