@@ -10,3 +10,5 @@ prisnif
 /parsers/tptp/conv_out.txt
 /parsers/pcf/input.pl
 /parsers/pcf/result.p
+parsers/pcf/gram_test.out
+parsers/tptp/tmp_ast.txt
