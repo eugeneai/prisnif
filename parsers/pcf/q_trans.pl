@@ -185,17 +185,21 @@ q_in(X,[_|T]):-!,
 q_r(ip_q(_,_,t(X)), t(X)):-q_in(X,['True','False']), !. % are the !'s really needed?
 q_r(neg(ip_q(S,V,E)), ip_q(AS,V,neg(E))):-
         q_alter_q(S,AS),!.
-q_r(conj([A,A]),A):-!.
-q_r(disj([A,A]),A):-!.
+q_r(conj(A),A):-A\=[_|_],!.
+q_r(disj(A),A):-A\=[_|_],!.
+%q_r(conj(A,B),conj([A,B])):-!.
+%q_r(disj(A,B),disj([A,B])):-!.
+q_r(conj([A,A]),A):-!. % XXX Should be generalized.
+q_r(disj([A,A]),A):-!. % XXX Should be generalized.
 q_r(imp(A,A), t('True')):-!.
 q_r(neg(neg(E)), E):-!.
 
 
-q_r(conj(L), conj([X,Y | R])):- member(conj([X,Y]), L),!,
-        q_del_all(conj(X,Y), L, R).
+%q_r(conj(L), conj([X,Y | R])):- member(conj(), L),!,
+%        q_del_all(conj([X,Y]), L, R).
         
 q_r(disq(L), disj([X,Y | R])):- member(disj([X,Y]), L),!,
-        q_del_all(disj(X,Y), L, R).
+        q_del_all(disj([X,Y]), L, R).
 
 q_r(conj([A,t('True')]), A):-!.
 q_r(conj([t('True'),A]), A):-!.
@@ -215,8 +219,8 @@ q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
 % q_r(imp(A, t('False')), neg(A)):-!. % Is it necessary as we transfer ~a into a->F? 
 q_r(imp(t('False'),_), t('False')):-!.
-q_r(imp(A,neg(B)), imp(conj(A,B), t('False'))):-!.
-q_r(imp(neg(A),B), disj(A,B)):-!.
+q_r(imp(A,neg(B)), imp(conj([A,B]), t('False'))):-!.
+q_r(imp(neg(A),B), disj([A,B])):-!.
 q_r(neg(imp(A,B)), conj([A,neg(B)])):-!.
 q_r(neg(t('False')), t('True')):-!.
 q_r(neg(t('True')), t('False')):-!.
@@ -285,11 +289,6 @@ q_to_pcf_a_a(imp(A,B), [A], [F]):-
         q_cnv_term(A),!,
         q_to_pcf_e(B, F).
 
-q_to_pcf_a_a(imp(conj(A,D),B), [A,D], [F]):-
-        q_cnv_term(A),
-        q_cnv_term(D),!,
-        q_to_pcf_e(B, F).
-
 q_to_pcf_a_a(imp(conj([A,D]),B), [A,D], [F]):-
         q_cnv_term(A),
         q_cnv_term(D),!,
@@ -300,10 +299,10 @@ q_to_pcf_a_a(imp(A,B), [t('True')], [F1, F2]):-
         q_to_pcf_e(A1, F1),
         q_to_pcf_e(B, F2).
 
-q_to_pcf_a_a(conj(A,B), [t('True')], [F]):-!,
-        q_to_pcf_e(conj(A,B), F).
+q_to_pcf_a_a(conj([A,B]), [t('True')], [F]):-!,
+        q_to_pcf_e(conj([A,B]), F).
 
-q_to_pcf_a_a(disj(A,B), [t('True')], [F1, F2]):-!,
+q_to_pcf_a_a(disj([A,B]), [t('True')], [F1, F2]):-!,
         q_to_pcf_e(A, F1),
         q_to_pcf_e(B, F2).
 
@@ -314,14 +313,6 @@ q_to_pcf_a_a(I, [t('True')], [F]):-!,
         q_to_pcf_e(I, F).
 
 %
-
-q_to_pcf_e_e(conj(A,B), [A], [F]):-
-        q_cnv_term(A),!,
-        q_to_pcf_a(B, F).
-
-q_to_pcf_e_e(conj(A,B), [t('True')], [F1,F2]):-
-        q_to_pcf_a(A, F1),
-        q_to_pcf_a(B, F2).
 
 q_to_pcf_e_e(conj([A,B]), [A], [F]):-
         q_cnv_term(A),!,
@@ -337,8 +328,8 @@ q_to_pcf_e_e(conj([X|T]), [t('True')], [Y|R]):-!,
 q_to_pcf_e_e(imp(A,B), [t('True')], [F]):-!,
         q_to_pcf_a(imp(A,B), F).
 
-q_to_pcf_e_e(disj(A,B), [t('True')], [F]):-!,
-        q_to_pcf_a(disj(A,B), F).
+q_to_pcf_e_e(disj([A,B]), [t('True')], [F]):-!,
+        q_to_pcf_a(disj([A,B]), F).
 
 q_to_pcf_e_e(neg(A), [t('True')], [F]):-!,
         q_to_pcf_a(neg(A), F).
@@ -531,11 +522,11 @@ ap(s(nonassoc_binary, F1S, ConnS, F2S), S):-!,
         ap(ConnS, Conn),!,
         bcn(Conn, F1, F2, S).
 
-ap(s(or_formula, F1S, _, F2S), disj(F1,F2)):-!,
+ap(s(or_formula, F1S, _, F2S), disj([F1,F2])):-!,
         ap(F1S, F1),
         ap(F2S, F2).
 
-ap(s(and_formula, F1S,_, F2S), conj(F1,F2)):-!,
+ap(s(and_formula, F1S,_, F2S), conj([F1,F2])):-!,
         ap(F1S, F1),
         ap(F2S, F2).
 
@@ -782,10 +773,11 @@ all_ip([A|TA], [IP|TI]):-!,
         all_ip(TA, TI),!.
         
 
-as_conj([], t('True')).
-as_conj([X,Y], conj(X,Y)):-!.
-as_conj([X|T], conj(X, CT)):-!,
-        as_conj(T, CT).
+as_conj([], t('True')):-!.
+as_conj([X], conj([X])):-!.
+as_conj([X,Y], conj([X,Y])):-!.
+as_conj([X|T], conj([X|CT])):-!,
+        as_conj(T, conj(CT)).
 
 main(PCF):-
         

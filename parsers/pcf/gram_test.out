@@ -1,0 +1,69 @@
+GNU Prolog 1.3.0
+By Daniel Diaz
+Copyright (C) 1999-2007 Daniel Diaz
+compiling /home/eugeneai/Development/codes/prisnif/parsers/pcf/q_trans.pl for byte code...
+/home/eugeneai/Development/codes/prisnif/parsers/pcf/q_trans.pl:244-246: warning: singleton variables [A,A1] for q_to_pcf/2
+/home/eugeneai/Development/codes/prisnif/parsers/pcf/q_trans.pl compiled, 824 lines read - 85101 bytes written, 44 ms
+compiling /home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl for byte code...
+/home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl compiled, 3 lines read - 15723 bytes written, 7 ms
+Getting all formulas.
+Converting to IP list.
+Converting to conjunction.
+Reduction.
+Converting to PCF.
+Converted
+q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(cowlThing,[X])],[q(a,[],[t(cowlNothing,[X])],[q(e,[],[t(False)],[])])])]),q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(True)],[q(a,[],[t(xsd_string,[X]),t(xsd_integer,[X])],[q(e,[],[t(False)],[])]),q(a,[],[t(True)],[q(e,[],[t(xsd_integer,[X])],[]),q(e,[],[t(xsd_string,[X])],[])])])]),q(a,[],[t(True)],[q(e,[],[t(cowlNothing,[i2003_11_14_17_18_08754])],[])])])])])])
+Making Output result.p file.
+
+Pr:q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(cowlThing,[X])],[q(a,[],[t(cowlNothing,[X])],[q(e,[],[t(False)],[])])])]),q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(True)],[q(a,[],[t(xsd_string,[X]),t(xsd_integer,[X])],[q(e,[],[t(False)],[])]),q(a,[],[t(True)],[q(e,[],[t(xsd_integer,[X])],[]),q(e,[],[t(xsd_string,[X])],[])])])]),q(a,[],[t(True)],[q(e,[],[t(cowlNothing,[i2003_11_14_17_18_08754])],[])])])])])])
+A :
+  E :
+    A X:
+      E :cowlThing(X)
+        A :cowlNothing(X)
+          E :False
+    A :
+      E :
+        A X:
+          E :
+            A :xsd_string(X),xsd_integer(X)
+              E :False
+            A :
+              E :xsd_integer(X)
+              E :xsd_string(X)
+        A :
+          E :cowlNothing(i2003_11_14_17_18_08754)
+
+yes
+compiling /home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl for byte code...
+/home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl compiled, 3 lines read - 15723 bytes written, 7 ms
+Getting all formulas.
+Converting to IP list.
+Converting to conjunction.
+Reduction.
+Converting to PCF.
+Converted
+q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(cowlThing,[X])],[q(a,[],[t(cowlNothing,[X])],[q(e,[],[t(False)],[])])])]),q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(True)],[q(a,[],[t(xsd_string,[X]),t(xsd_integer,[X])],[q(e,[],[t(False)],[])]),q(a,[],[t(True)],[q(e,[],[t(xsd_integer,[X])],[]),q(e,[],[t(xsd_string,[X])],[])])])]),q(a,[],[t(True)],[q(e,[],[t(cowlNothing,[i2003_11_14_17_18_08754])],[])])])])])])
+Making Output result.p file.
+
+Pr:q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(cowlThing,[X])],[q(a,[],[t(cowlNothing,[X])],[q(e,[],[t(False)],[])])])]),q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(True)],[q(a,[],[t(xsd_string,[X]),t(xsd_integer,[X])],[q(e,[],[t(False)],[])]),q(a,[],[t(True)],[q(e,[],[t(xsd_integer,[X])],[]),q(e,[],[t(xsd_string,[X])],[])])])]),q(a,[],[t(True)],[q(e,[],[t(cowlNothing,[i2003_11_14_17_18_08754])],[])])])])])])
+A :
+  E :
+    A X:
+      E :cowlThing(X)
+        A :cowlNothing(X)
+          E :False
+    A :
+      E :
+        A X:
+          E :
+            A :xsd_string(X),xsd_integer(X)
+              E :False
+            A :
+              E :xsd_integer(X)
+              E :xsd_string(X)
+        A :
+          E :cowlNothing(i2003_11_14_17_18_08754)
+
+(4 ms) yes
+
