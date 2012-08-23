@@ -2,68 +2,95 @@ GNU Prolog 1.3.0
 By Daniel Diaz
 Copyright (C) 1999-2007 Daniel Diaz
 compiling /home/eugeneai/Development/codes/prisnif/parsers/pcf/q_trans.pl for byte code...
-/home/eugeneai/Development/codes/prisnif/parsers/pcf/q_trans.pl:244-246: warning: singleton variables [A,A1] for q_to_pcf/2
-/home/eugeneai/Development/codes/prisnif/parsers/pcf/q_trans.pl compiled, 824 lines read - 85101 bytes written, 44 ms
+/home/eugeneai/Development/codes/prisnif/parsers/pcf/q_trans.pl compiled, 817 lines read - 84351 bytes written, 45 ms
 compiling /home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl for byte code...
-/home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl compiled, 3 lines read - 15723 bytes written, 7 ms
+/home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl compiled, 6 lines read - 54517 bytes written, 25 ms
 Getting all formulas.
 Converting to IP list.
 Converting to conjunction.
 Reduction.
 Converting to PCF.
 Converted
-q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(cowlThing,[X])],[q(a,[],[t(cowlNothing,[X])],[q(e,[],[t(False)],[])])])]),q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(True)],[q(a,[],[t(xsd_string,[X]),t(xsd_integer,[X])],[q(e,[],[t(False)],[])]),q(a,[],[t(True)],[q(e,[],[t(xsd_integer,[X])],[]),q(e,[],[t(xsd_string,[X])],[])])])]),q(a,[],[t(True)],[q(e,[],[t(cowlNothing,[i2003_11_14_17_18_08754])],[])])])])])])
+q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[A,B,C],[t(True)],[q(e,[],[t(True)],[q(a,[],[conj([t(red,[A,B]),conj([t(red,[B,C]),t(red,[A,C])])])],[q(e,[],[t(False)],[])])]),q(e,[],[goal],[])]),q(a,[A,B,C],[t(True)],[q(e,[],[t(True)],[q(a,[],[conj([t(green,[A,B]),conj([t(green,[B,C]),t(green,[A,C])])])],[q(e,[],[t(False)],[])])]),q(e,[],[goal],[])]),q(a,[],[t(True)],[q(e,[],[t(less_than,[n1,n2])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n2,n3])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n3,n4])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n4,n5])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n5,n6])],[])])])])])])])])])]),q(a,[A,B,C],[t(less_than,[A,B]),t(less_than,[B,C])],[q(e,[],[t(less_than,[A,C])],[])]),q(a,[A,B],[t(less_than,[A,B])],[q(e,[],[t(True)],[q(a,[],[t(True)],[q(e,[],[t(red,[A,B])],[]),q(e,[],[t(green,[A,B])],[])])])]),q(a,[],[t(True)],[q(e,[],[goal],[])])])])
 Making Output result.p file.
 
-Pr:q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(cowlThing,[X])],[q(a,[],[t(cowlNothing,[X])],[q(e,[],[t(False)],[])])])]),q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(True)],[q(a,[],[t(xsd_string,[X]),t(xsd_integer,[X])],[q(e,[],[t(False)],[])]),q(a,[],[t(True)],[q(e,[],[t(xsd_integer,[X])],[]),q(e,[],[t(xsd_string,[X])],[])])])]),q(a,[],[t(True)],[q(e,[],[t(cowlNothing,[i2003_11_14_17_18_08754])],[])])])])])])
+Pr:q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[A,B,C],[t(True)],[q(e,[],[t(True)],[q(a,[],[conj([t(red,[A,B]),conj([t(red,[B,C]),t(red,[A,C])])])],[q(e,[],[t(False)],[])])]),q(e,[],[goal],[])]),q(a,[A,B,C],[t(True)],[q(e,[],[t(True)],[q(a,[],[conj([t(green,[A,B]),conj([t(green,[B,C]),t(green,[A,C])])])],[q(e,[],[t(False)],[])])]),q(e,[],[goal],[])]),q(a,[],[t(True)],[q(e,[],[t(less_than,[n1,n2])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n2,n3])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n3,n4])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n4,n5])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n5,n6])],[])])])])])])])])])]),q(a,[A,B,C],[t(less_than,[A,B]),t(less_than,[B,C])],[q(e,[],[t(less_than,[A,C])],[])]),q(a,[A,B],[t(less_than,[A,B])],[q(e,[],[t(True)],[q(a,[],[t(True)],[q(e,[],[t(red,[A,B])],[]),q(e,[],[t(green,[A,B])],[])])])]),q(a,[],[t(True)],[q(e,[],[goal],[])])])])
 A :
   E :
-    A X:
-      E :cowlThing(X)
-        A :cowlNothing(X)
-          E :False
-    A :
+    A A,B,C:
       E :
-        A X:
-          E :
-            A :xsd_string(X),xsd_integer(X)
-              E :False
-            A :
-              E :xsd_integer(X)
-              E :xsd_string(X)
+        A :conj([t(red,[A,B]),conj([t(red,[B,C]),t(red,[A,C])])])
+          E :False
+      E :goal
+    A A,B,C:
+      E :
+        A :conj([t(green,[A,B]),conj([t(green,[B,C]),t(green,[A,C])])])
+          E :False
+      E :goal
+    A :
+      E :less_than(n1,n2)
         A :
-          E :cowlNothing(i2003_11_14_17_18_08754)
+          E :less_than(n2,n3)
+            A :
+              E :less_than(n3,n4)
+                A :
+                  E :less_than(n4,n5)
+                    A :
+                      E :less_than(n5,n6)
+    A A,B,C:less_than(A,B),less_than(B,C)
+      E :less_than(A,C)
+    A A,B:less_than(A,B)
+      E :
+        A :
+          E :red(A,B)
+          E :green(A,B)
+    A :
+      E :goal
 
-yes
+(16 ms) yes
 compiling /home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl for byte code...
-/home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl compiled, 3 lines read - 15723 bytes written, 7 ms
+/home/eugeneai/Development/codes/prisnif/parsers/pcf/input.pl compiled, 6 lines read - 54517 bytes written, 19 ms
 Getting all formulas.
 Converting to IP list.
 Converting to conjunction.
 Reduction.
 Converting to PCF.
 Converted
-q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(cowlThing,[X])],[q(a,[],[t(cowlNothing,[X])],[q(e,[],[t(False)],[])])])]),q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(True)],[q(a,[],[t(xsd_string,[X]),t(xsd_integer,[X])],[q(e,[],[t(False)],[])]),q(a,[],[t(True)],[q(e,[],[t(xsd_integer,[X])],[]),q(e,[],[t(xsd_string,[X])],[])])])]),q(a,[],[t(True)],[q(e,[],[t(cowlNothing,[i2003_11_14_17_18_08754])],[])])])])])])
+q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[A,B,C],[t(True)],[q(e,[],[t(True)],[q(a,[],[conj([t(red,[A,B]),conj([t(red,[B,C]),t(red,[A,C])])])],[q(e,[],[t(False)],[])])]),q(e,[],[goal],[])]),q(a,[A,B,C],[t(True)],[q(e,[],[t(True)],[q(a,[],[conj([t(green,[A,B]),conj([t(green,[B,C]),t(green,[A,C])])])],[q(e,[],[t(False)],[])])]),q(e,[],[goal],[])]),q(a,[],[t(True)],[q(e,[],[t(less_than,[n1,n2])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n2,n3])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n3,n4])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n4,n5])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n5,n6])],[])])])])])])])])])]),q(a,[A,B,C],[t(less_than,[A,B]),t(less_than,[B,C])],[q(e,[],[t(less_than,[A,C])],[])]),q(a,[A,B],[t(less_than,[A,B])],[q(e,[],[t(True)],[q(a,[],[t(True)],[q(e,[],[t(red,[A,B])],[]),q(e,[],[t(green,[A,B])],[])])])]),q(a,[],[t(True)],[q(e,[],[goal],[])])])])
 Making Output result.p file.
 
-Pr:q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(cowlThing,[X])],[q(a,[],[t(cowlNothing,[X])],[q(e,[],[t(False)],[])])])]),q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[X],[t(True)],[q(e,[],[t(True)],[q(a,[],[t(xsd_string,[X]),t(xsd_integer,[X])],[q(e,[],[t(False)],[])]),q(a,[],[t(True)],[q(e,[],[t(xsd_integer,[X])],[]),q(e,[],[t(xsd_string,[X])],[])])])]),q(a,[],[t(True)],[q(e,[],[t(cowlNothing,[i2003_11_14_17_18_08754])],[])])])])])])
+Pr:q(a,[],[t(True)],[q(e,[],[t(True)],[q(a,[A,B,C],[t(True)],[q(e,[],[t(True)],[q(a,[],[conj([t(red,[A,B]),conj([t(red,[B,C]),t(red,[A,C])])])],[q(e,[],[t(False)],[])])]),q(e,[],[goal],[])]),q(a,[A,B,C],[t(True)],[q(e,[],[t(True)],[q(a,[],[conj([t(green,[A,B]),conj([t(green,[B,C]),t(green,[A,C])])])],[q(e,[],[t(False)],[])])]),q(e,[],[goal],[])]),q(a,[],[t(True)],[q(e,[],[t(less_than,[n1,n2])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n2,n3])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n3,n4])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n4,n5])],[q(a,[],[t(True)],[q(e,[],[t(less_than,[n5,n6])],[])])])])])])])])])]),q(a,[A,B,C],[t(less_than,[A,B]),t(less_than,[B,C])],[q(e,[],[t(less_than,[A,C])],[])]),q(a,[A,B],[t(less_than,[A,B])],[q(e,[],[t(True)],[q(a,[],[t(True)],[q(e,[],[t(red,[A,B])],[]),q(e,[],[t(green,[A,B])],[])])])]),q(a,[],[t(True)],[q(e,[],[goal],[])])])])
 A :
   E :
-    A X:
-      E :cowlThing(X)
-        A :cowlNothing(X)
-          E :False
-    A :
+    A A,B,C:
       E :
-        A X:
-          E :
-            A :xsd_string(X),xsd_integer(X)
-              E :False
-            A :
-              E :xsd_integer(X)
-              E :xsd_string(X)
+        A :conj([t(red,[A,B]),conj([t(red,[B,C]),t(red,[A,C])])])
+          E :False
+      E :goal
+    A A,B,C:
+      E :
+        A :conj([t(green,[A,B]),conj([t(green,[B,C]),t(green,[A,C])])])
+          E :False
+      E :goal
+    A :
+      E :less_than(n1,n2)
         A :
-          E :cowlNothing(i2003_11_14_17_18_08754)
+          E :less_than(n2,n3)
+            A :
+              E :less_than(n3,n4)
+                A :
+                  E :less_than(n4,n5)
+                    A :
+                      E :less_than(n5,n6)
+    A A,B,C:less_than(A,B),less_than(B,C)
+      E :less_than(A,C)
+    A A,B:less_than(A,B)
+      E :
+        A :
+          E :red(A,B)
+          E :green(A,B)
+    A :
+      E :goal
 
-(4 ms) yes
+(8 ms) yes
 

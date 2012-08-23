@@ -4,3 +4,6 @@ prisnif
 /parsers/pcf/q_trans
 *.tab.*
 .emacs.desktop*
+/parsers/pcf/.#tptp_tr.sh
+/parsers/pcf/#tptp_tr.sh#
+/parsers/tptp/conversion.log
