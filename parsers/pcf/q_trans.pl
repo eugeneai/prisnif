@@ -347,23 +347,21 @@ q_to_pcf_a_a(I, [], [F]):-!,
         q_to_pcf_e(I, F).
 
 %
+q_to_pcf_e_e_l([], []):-!.
+q_to_pcf_e_e_l([X|T], [TC|TT]):-!,
+	q_to_pcf_a(X,TC),
+	q_to_pcf_e_e_l(T, TT).
 
-q_to_pcf_e_e(conj([A,B]), [A], [F]):-
-        q_cnv_term(A),!,
-        q_to_pcf_a(B, F).
 
-q_to_pcf_e_e(conj([X]), [], [Y]):-!,
-        q_to_pcf_a(X, Y).
-        
-q_to_pcf_e_e(conj([X|T]), [], [Y|R]):-!,
-        q_to_pcf_a(X, Y),
-        q_to_pcf_e_e(conj(T), _, R).
+q_to_pcf_e_e(conj(L), C, F):-
+	q_split_conj(L, C, FF),!,
+        q_to_pcf_e_e_l(FF, F).
 
 q_to_pcf_e_e(imp(A,B), [], [F]):-!,
         q_to_pcf_a(imp(A,B), F).
 
-q_to_pcf_e_e(disj([A,B]), [], [F]):-!,
-        q_to_pcf_a(disj([A,B]), F).
+q_to_pcf_e_e(disj(L), [], [F]):-!,
+        q_to_pcf_a(disj(L), F).
 
 q_to_pcf_e_e(neg(A), [], [F]):-!,
         q_to_pcf_a(neg(A), F).
