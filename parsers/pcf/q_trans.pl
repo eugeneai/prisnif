@@ -790,7 +790,7 @@ main(PCF):-
         
         write('Getting all formulas.'),nl,
         all_ast(L),
-        % write(L),
+        write(L), nl, nl,
         write('Converting to IP list.'),nl,
         all_ip(L, IPL),!,
         % write(IPL),
@@ -801,7 +801,7 @@ main(PCF):-
         write('Converting to PCF.'),nl,
         q_to_pcf(IPR, PCF, rd),!,
         write('Converted'), nl,
-        write(PCF), nl,
+        % write(PCF), nl,
         PCF=q(a,[],_, Bases),
         %write(Bases),
         write('Making Output result.p file.'),nl,
