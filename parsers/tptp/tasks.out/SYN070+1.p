@@ -1,1 +1,0 @@
-{e[][]{a[X,Y][big_f(X)]{e[][]{a[][]{e[][]{a[][big_f(Y),big_h(Y,X)]{e[][]{}}}; e[][big_g(X)]{}}}}; a[][]{e[][]{a[X][]{e[][big_f(X),big_g(X)]{}}}; e[X1][big_f(X1),big_g(X1)]{a[Y][big_f(Y),big_g(Y)]{e[][]{}}}}; a[X,Y][big_f(X),big_f(Y),big_h(X,Y),big_j(Y,X)]{e[][]{}}; a[X][big_f(X)]{e[][big_g(X)]{}}}}

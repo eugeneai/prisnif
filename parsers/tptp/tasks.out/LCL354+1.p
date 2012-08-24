@@ -1,1 +1,0 @@
-{e[][]{a[P,Q,R,S][meets(P,Q),meets(P,S),meets(R,Q)]{e[][]{}}; a[P,Q,R,S][meets(P,Q),meets(R,S)]{e[][]{}}; a[P][]{e[Q,R][meets(Q,P),meets(P,R)]{}}; a[][]{e[P,Q][meets(P,Q)]{a[R,S,T][]{e[][meets(R,P),meets(Q,S),meets(R,T),meets(T,S)]{}}}}}}

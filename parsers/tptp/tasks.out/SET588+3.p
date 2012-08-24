@@ -1,1 +1,0 @@
-{e[][]{a[B,C,D][]{e[][]{a[][member(D,difference(B,C))]{e[][member(D,B),member(D,C)]{}}; a[][member(D,B),member(D,C)]{e[][]{}}}}; a[B,C][]{e[][]{a[][subset(B,C)]{e[][]{a[D][member(D,B)]{e[][member(D,C)]{}}}}; a[][]{e[D][member(D,B),member(D,C)]{}; e[][subset(B,C)]{}}}}; a[B][]{e[][subset(B,B)]{}}; a[B,C,D][subset(B,C)]{e[][subset(difference(B,D),difference(C,D))]{}}}}
