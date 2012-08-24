@@ -1,3 +1,4 @@
+
 q_syn_error(Error, _, _):-
         syntax_error_info('<input>', 0, 0, Error).
 
@@ -149,14 +150,15 @@ q_rd(I,O):-
 q_rd(cmd_fm(T, F), O):-
         q_rd(F,R),
         q_rr(cmd_fm(T, R), O).
-q_rd(conj([A,B]), O):-
-        q_rd(A,A1),
-        q_rd(B,B1),
-        q_rr(conj([A1,B1]), O).
-q_rd(disj([A,B]), O):-
-        q_rd(A,A1),
-        q_rd(B,B1),
-        q_rr(disj([A1,B1]), O).
+q_rd(neg(A), O):-
+	q_rd(A,A1),
+        q_rr(A1, O).
+q_rd(conj(L), O):-
+	q_rd_elems(L,L1),
+        q_rr(conj(L1), O).
+q_rd(disj(L), O):-
+        q_rd_elems(L,L1),
+        q_rr(disj(L1), O).
 q_rd(imp(A,B), O):-
         q_rd(A,A1),
         q_rd(B,B1),
@@ -165,8 +167,12 @@ q_rd(ip_q(S,L,I), O):-
         q_r_dups(L,L1),
         q_rd(I,I1),
         q_rr(ip_q(S,L1,I1), O).
-
 q_rd(I,I).
+
+q_rd_elems([],[]):-!.
+q_rd_elems([X|T], [RX|RT]):-
+	q_rd(X,RX),
+	q_rd_elems(T,RT).
 
 q_rr(I,O):-
         q_r(I,O),!.
@@ -184,18 +190,24 @@ q_in(X,[_|T]):-!,
 q_r(ip_q(_,_,t(X)), t(X)):-q_in(X,['True','False']), !. % are the !'s really needed?
 q_r(neg(ip_q(S,V,E)), ip_q(AS,V,neg(E))):-
         q_alter_q(S,AS),!.
-q_r(conj([A,A]),A):-!.
-q_r(disj([A,A]),A):-!.
+q_r(conj([]), t('True')):-!.
+q_r(conj(A),A):-A\=[_|_],!.
+q_r(disj(A),A):-A\=[_|_],!.
+%q_r(conj(A,B),conj([A,B])):-!.
+%q_r(disj(A,B),disj([A,B])):-!.
+q_r(conj([A,A]),A):-!. % XXX Should be generalized.
+q_r(disj([A,A]),A):-!. % XXX Should be generalized.
 q_r(imp(A,A), t('True')):-!.
 q_r(neg(neg(E)), E):-!.
 
 
-q_r(conj(L), conj([X,Y | R])):- member(conj([X,Y]), L),!,
-        q_del_all(conj(X,Y), L, R).
-        
-q_r(disq(L), disj([X,Y | R])):- member(disj([X,Y]), L),!,
-        q_del_all(disj(X,Y), L, R).
+%flatten the conjunctions and disjunctions
 
+q_r(conj(L), R):- member(conj(_), L),!,
+        q_flat(conj(L), R).
+q_r(disj(L), R):- member(disj(_), L),!,
+        q_flat(disj(L), R).
+        
 q_r(conj([A,t('True')]), A):-!.
 q_r(conj([t('True'),A]), A):-!.
 q_r(conj([_,t('False')]), t('False')):-!.
@@ -214,8 +226,8 @@ q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
 % q_r(imp(A, t('False')), neg(A)):-!. % Is it necessary as we transfer ~a into a->F? 
 q_r(imp(t('False'),_), t('False')):-!.
-q_r(imp(A,neg(B)), imp(conj(A,B), t('False'))):-!.
-q_r(imp(neg(A),B), disj(A,B)):-!.
+q_r(imp(A,neg(B)), imp(conj([A,B]), t('False'))):-!.
+q_r(imp(neg(A),B), disj([A,B])):-!.
 q_r(neg(imp(A,B)), conj([A,neg(B)])):-!.
 q_r(neg(t('False')), t('True')):-!.
 q_r(neg(t('True')), t('False')):-!.
@@ -236,6 +248,22 @@ q_del_all(X, [Y|T], [Y|R]):-!,
 
 q_del_all(_, L, L). % FIXME: STUB to compile.
 
+q_flat(conj([]), conj([])).
+q_flat(conj([conj(L)|T]), conj(R)):-!,
+	q_flat(conj(L), conj(L1)),
+	q_flat(conj(T), conj(T1)),
+	append(L1, T1, R).
+q_flat(conj([X|T]), conj([X|T1])):-
+	q_flat(conj(T), conj(T1)).
+
+q_flat(disj([]), disj([])).
+q_flat(disj([disj(L)|T]), disj(R)):-!,
+	q_flat(disj(L), disj(L1)),
+	q_flat(disj(T), disj(T1)),
+	append(L1, T1, R).
+q_flat(disj([X|T]), disj([X|T1])):-
+	q_flat(disj(T), disj(T1)).
+
 
 % XXX stack overflow on a + ~a.
 
@@ -243,7 +271,7 @@ q_del_all(_, L, L). % FIXME: STUB to compile.
 % --------- Conversion to PCF, RD=rd if defined adds reduction step ---
 q_to_pcf(fof(_, _, A, _), B):-!,
         % q_rd(A,A1),!,
-        q_to_pcf(A1, B).
+        q_to_pcf(A, B).
 
 q_to_pcf(A, B):-
         !,
@@ -280,68 +308,66 @@ q_to_pcf_e(I, q(e,[], T,F)):-
 q_cnv_term(t(_)):-!.
 q_cnv_term(t(_,_)):-!.
 
+% split conjunction on two subconjuncts: first one is conjunction of atoms, other one is more complex formulae.
+
+q_split_conj([],[],[]).
+q_split_conj([X|T],[X|CA],CF):-
+	q_cnv_term(X),!,
+	q_split_conj(T,CA,CF).
+q_split_conj([X|T],CA,[X|CF]):-
+	q_split_conj(T,CA,CF).
+
 q_to_pcf_a_a(imp(A,B), [A], [F]):-
         q_cnv_term(A),!,
+	% XXX if B is a disjunction. It could be properly translated here
         q_to_pcf_e(B, F).
 
-q_to_pcf_a_a(imp(conj(A,D),B), [A,D], [F]):-
-        q_cnv_term(A),
-        q_cnv_term(D),!,
-        q_to_pcf_e(B, F).
+q_to_pcf_a_a(imp(conj(L),B), C, [FE]):-
+	q_split_conj(L, C, FF),
+	q_rd(disj([neg(conj(FF)),B]), F),
+	% XXX if F is a disjunction. It could be properly translated here
+	%write(F),nl,nl,
+        %q_to_pcf_a_a(F, _, FE).
+        q_to_pcf_e(F, FE).
 
-q_to_pcf_a_a(imp(conj([A,D]),B), [A,D], [F]):-
-        q_cnv_term(A),
-        q_cnv_term(D),!,
-        q_to_pcf_e(B, F).
-
-q_to_pcf_a_a(imp(A,B), [t('True')], [F1, F2]):-
+q_to_pcf_a_a(imp(A,B), [], [F1, F2]):-
         q_rd(neg(A), A1),!,
         q_to_pcf_e(A1, F1),
         q_to_pcf_e(B, F2).
 
-q_to_pcf_a_a(conj(A,B), [t('True')], [F]):-!,
-        q_to_pcf_e(conj(A,B), F).
-
-q_to_pcf_a_a(disj(A,B), [t('True')], [F1, F2]):-!,
-        q_to_pcf_e(A, F1),
-        q_to_pcf_e(B, F2).
+q_to_pcf_a_a(disj([]), [t('False')], []):-!.
+q_to_pcf_a_a(disj([X|T]), [], [FX|TF]):-!,
+	q_to_pcf_e(X,FX),
+	q_to_pcf_a_a(disj(T), _, TF).
 
 q_to_pcf_a_a(neg(A), [A], [F]):-!,
         q_to_pcf_e(t('False'), F).
 
-q_to_pcf_a_a(I, [t('True')], [F]):-!,
+q_to_pcf_a_a(I, [], [F]):-!,
         q_to_pcf_e(I, F).
 
 %
+q_to_pcf_e_e_l([], []):-!.
+q_to_pcf_e_e_l([X|T], [TC|TT]):-!,
+	q_to_pcf_a(X,TC),
+	q_to_pcf_e_e_l(T, TT).
 
-q_to_pcf_e_e(conj(A,B), [A], [F]):-
-        q_cnv_term(A),!,
-        q_to_pcf_a(B, F).
 
-q_to_pcf_e_e(conj(A,B), [t('True')], [F1,F2]):-
-        q_to_pcf_a(A, F1),
-        q_to_pcf_a(B, F2).
+q_to_pcf_e_e(conj(L), C, F):-
+	q_split_conj(L, C, FF),!,
+        q_to_pcf_e_e_l(FF, F).
 
-q_to_pcf_e_e(conj([A,B]), [A], [F]):-
-        q_cnv_term(A),!,
-        q_to_pcf_a(B, F).
-
-q_to_pcf_e_e(conj([X]), [t('True')], [Y]):-!,
-        q_to_pcf_a(X, Y).
-        
-q_to_pcf_e_e(conj([X|T]), [t('True')], [Y|R]):-!,
-        q_to_pcf_a(X, Y),
-        q_to_pcf_e_e(conj(T), _, R).
-
-q_to_pcf_e_e(imp(A,B), [t('True')], [F]):-!,
+q_to_pcf_e_e(imp(A,B), [], [F]):-!,
         q_to_pcf_a(imp(A,B), F).
 
-q_to_pcf_e_e(disj(A,B), [t('True')], [F]):-!,
-        q_to_pcf_a(disj(A,B), F).
+q_to_pcf_e_e(disj(L), [], [F]):-!,
+        q_to_pcf_a(disj(L), F).
 
-q_to_pcf_e_e(neg(A), [t('True')], [F]):-!,
+q_to_pcf_e_e(neg(A), [], [F]):-!,
         q_to_pcf_a(neg(A), F).
 
+q_to_pcf_e_e(conj([]), [t('False')], []). % XXX bad The only terminal leave
+q_to_pcf_e_e(disj([]), [t('False')], []). % The only terminal leave
 q_to_pcf_e_e(A, [A], []). % The only terminal leave
 
 % writing pcfs
@@ -530,11 +556,11 @@ ap(s(nonassoc_binary, F1S, ConnS, F2S), S):-!,
         ap(ConnS, Conn),!,
         bcn(Conn, F1, F2, S).
 
-ap(s(or_formula, F1S, _, F2S), disj(F1,F2)):-!,
+ap(s(or_formula, F1S, _, F2S), disj([F1,F2])):-!,
         ap(F1S, F1),
         ap(F2S, F2).
 
-ap(s(and_formula, F1S,_, F2S), conj(F1,F2)):-!,
+ap(s(and_formula, F1S,_, F2S), conj([F1,F2])):-!,
         ap(F1S, F1),
         ap(F2S, F2).
 
@@ -736,7 +762,7 @@ test(N):-
         nl,
         test(on, N, X, I, O, S),
         write('Test:'),
-        write(X), nl,
+	write(N), write(X), nl,
         write(I), write(' '),
         write(O),
         write(' Struct='), write(S),
@@ -781,10 +807,11 @@ all_ip([A|TA], [IP|TI]):-!,
         all_ip(TA, TI),!.
         
 
-as_conj([], t('True')).
-as_conj([X,Y], conj(X,Y)):-!.
-as_conj([X|T], conj(X, CT)):-!,
-        as_conj(T, CT).
+as_conj([], t('True')):-!.
+as_conj([X], conj([X])):-!.
+as_conj([X,Y], conj([X,Y])):-!.
+as_conj([X|T], conj([X|CT])):-!,
+        as_conj(T, conj(CT)).
 
 main(PCF):-
         
@@ -798,6 +825,7 @@ main(PCF):-
         as_conj(IPL, IP),!,
         write('Reduction.'),nl,
         q_rd(IP,IPR),!,
+	write(IPR), nl,
         write('Converting to PCF.'),nl,
         q_to_pcf(IPR, PCF, rd),!,
         write('Converted'), nl,

@@ -1,0 +1,1 @@
+{e[][]{a[A,B][disjoint(A,B)]{e[][disjoint(B,A)]{}}; a[A,B][in(A,B),in(B,A)]{e[][]{}}; a[][]{e[A][empty(A)]{}}; a[][]{e[A][empty(A)]{}}; a[A,B][]{e[][in(A,B)]{}; e[][disjoint(singleton(A),B)]{}}; a[A,B][]{e[][in(A,B)]{}; e[][disjoint(singleton(A),B)]{}}}}
