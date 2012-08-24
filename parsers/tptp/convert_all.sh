@@ -22,7 +22,7 @@ cd - > /dev/null
 echo > $log
 echo > $out
 
-for file in $indir/*.p
+for file in $indir/$1*.p
 do
     fb=$(basename $file)
     echo "Processing $fb."
