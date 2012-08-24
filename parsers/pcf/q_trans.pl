@@ -286,21 +286,27 @@ q_to_pcf(A, B, rd):-!,
 % Construction of the PCF tree
 
 q_to_pcf_a(ip_q(a,L,I), q(a, L, T,F)):- !,
+%        write('-1a----a-a'), write([L,I]),nl,nl,
         q_to_pcf_a_a(I, T,F).
 
 q_to_pcf_a(ip_q(e,L,I), q(a,[],[],[O])):-!,
+%        write('-2a----a-e'), write([L,I]),nl,nl,
         q_to_pcf_e(ip_q(e,L,I), O).
 
 q_to_pcf_a(I, q(a,[], T,F)):-
+%        write('-3a----a-X'), write([L,I]),nl,nl,
         q_to_pcf_a_a(I, T,F).
 
 q_to_pcf_e(ip_q(a,L,I), q(e,[],[],[O])):-!,
+%        write('-1e----e-a'), write([L,I]),nl,nl,
         q_to_pcf_a(ip_q(a, L,I), O).
 
 q_to_pcf_e(ip_q(e,L,I), q(e,L, T,F)):-!,
+%        write('-2e----e-e'), write([L,I]),nl,nl,
         q_to_pcf_e_e(I, T,F).
 
-q_to_pcf_e(I, q(e,[], T,F)):-
+q_to_pcf_e(I, q(e,['laje'], T,F)):-
+%        write('-3e----e-X'), write([I]),nl,nl,
         q_to_pcf_e_e(I, T,F).
 
 % individual conversion
@@ -324,7 +330,9 @@ q_to_pcf_a_a(imp(A,B), [A], [F]):-
 
 q_to_pcf_a_a(imp(conj(L),B), C, [FE]):-
 	q_split_conj(L, C, FF),
-	q_rd(disj([neg(conj(FF)),B]), F),
+        INP=disj([neg(conj(FF)),B]),
+	q_rd(INP, F),
+        write(['!!!',INP,'---->',F]),nl,nl,     
 	% XXX if F is a disjunction. It could be properly translated here
 	%write(F),nl,nl,
         %q_to_pcf_a_a(F, _, FE).
