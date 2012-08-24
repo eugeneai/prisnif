@@ -1,0 +1,1 @@
+{e[][]{a[P,Q][]{e[][a_truth(implies(P,Q))]{}; e[][a_truth(P)]{}; e[][a_truth(Q)]{}}; a[P,Q][]{e[][a_truth(implies(P,implies(Q,P)))]{}}; a[P,Q,R][]{e[][a_truth(implies(implies(P,implies(Q,R)),implies(implies(P,Q),implies(P,R))))]{}}; a[P,Q][]{e[][a_truth(implies(implies(not(P),not(Q)),implies(Q,P)))]{}}; a[][]{e[A][a_truth(implies(A,A))]{}}}}

@@ -1,0 +1,1 @@
+{e[][equalish(n0,n0),equalish(n1,n1),equalish(n0,n1),equalish(n1,n0)]{a[X1,X2,X3,X4][equalish(X1,X1),equalish(X2,X2),equalish(X3,X3),equalish(X4,X4)]{e[][]{}}; a[X1,X2,X3,X4,Y1,Y2,Y3,Y4,Z][f(X1,X2,X3,X4,Z),f(Y1,Y2,Y3,Y4,Z)]{e[][]{}}}}
