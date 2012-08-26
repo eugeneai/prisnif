@@ -1,0 +1,1 @@
+{e[][parent_of(iokaste,oedipus),parent_of(iokaste,polyneikes),parent_of(oedipus,polyneikes),parent_of(polyneikes,thersandros),patricide(oedipus)]{a[][patricide(thersandros)]{e[][False]{}}; a[][]{e[P,NP][parent_of(iokaste,P),patricide(P),parent_of(P,NP)]{a[][patricide(NP)]{e[][False]{}}}}}}
