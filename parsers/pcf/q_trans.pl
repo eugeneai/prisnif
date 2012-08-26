@@ -348,15 +348,11 @@ q_to_pcf_a_a(imp(conj(L),B), C, [FE]):-
          FF=[], !, F=B;
          q_rd(disj([neg(conj(FF)),B]), F)
         ),
-	% XXX if F is a disjunction. It could be properly translated here
-	%write(F),nl,nl,
-        %q_to_pcf_a_a(F, _, FE).
         q_to_pcf_e(F, FE).
 
-q_to_pcf_a_a(imp(A,B), [], [F1, F2]):-
-        q_rd(neg(A), A1),!,
-        q_to_pcf_e(A1, F1),
-        q_to_pcf_e(B, F2).
+q_to_pcf_a_a(imp(A,B), [], [FE]):-
+        q_rd(disj([neg(A),B]), F),
+        q_to_pcf_e(F, FE).
 
 q_to_pcf_a_a(disj([]), [t('False')], []):-!.
 q_to_pcf_a_a(disj([X|T]), [], [FX|TF]):-!,
@@ -375,7 +371,6 @@ q_to_pcf_e_e_l([X|T], [TC|TT]):-!,
 	q_to_pcf_a(X,TC),
 	q_to_pcf_e_e_l(T, TT).
 
-
 q_to_pcf_e_e(conj(L), C, F):-
 	q_split_conj(L, C, FF),!,
         q_to_pcf_e_e_l(FF, F).
@@ -389,8 +384,6 @@ q_to_pcf_e_e(disj(L), [], [F]):-!,
 q_to_pcf_e_e(neg(A), [], [F]):-!,
         q_to_pcf_a(neg(A), F).
 
-q_to_pcf_e_e(conj([]), [t('False')], []). % XXX bad The only terminal leave
-q_to_pcf_e_e(disj([]), [t('False')], []). % The only terminal leave
 q_to_pcf_e_e(A, [A], []). % The only terminal leave
 
 % writing pcfs
