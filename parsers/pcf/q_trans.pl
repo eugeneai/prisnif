@@ -400,7 +400,7 @@ q_tabs(N):-N>1,
         q_tabs(N1).
 
 q_pcf_print(Q):-
-        write('Pr:'),write(Q),nl,
+        % write('Pr:'),write(Q),nl,
         q_pcf_print0(Q, 0).
 
 q_pcf_tq_w(S, L, T):-
@@ -841,7 +841,7 @@ main(PCF):-
         as_conj(IPL, IP),!,
         write('Reduction.'),nl,
         q_rd(IP,IPR),!,
-	write(IPR), nl,
+	% write(IPR), nl,
         write('Converting to PCF.'),nl,
         q_to_pcf(IPR, PCF, rd),!,
         write('Converted'), nl,
