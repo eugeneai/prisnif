@@ -192,8 +192,6 @@ q_r(neg(ip_q(S,V,E)), ip_q(AS,V,neg(E))):-
         q_alter_q(S,AS),!.
 q_r(conj([]), t('True')):-!.
 q_r(disj([]), t('False')):-!.
-q_r(conj(A),A):-A=[_],!.
-q_r(disj(A),A):-A=[_],!.
 q_r(conj([A,A]),A):-!. % XXX Should be generalized.
 q_r(disj([A,A]),A):-!. % XXX Should be generalized.
 q_r(imp(A,A), t('True')):-!.
