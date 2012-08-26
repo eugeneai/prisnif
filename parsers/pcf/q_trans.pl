@@ -191,15 +191,14 @@ q_r(ip_q(_,_,t(X)), t(X)):-q_in(X,['True','False']), !. % are the !'s really nee
 q_r(neg(ip_q(S,V,E)), ip_q(AS,V,neg(E))):-
         q_alter_q(S,AS),!.
 q_r(conj([]), t('True')):-!.
-q_r(conj(A),A):-A\=[_|_],!.
-q_r(disj(A),A):-A\=[_|_],!.
-%q_r(conj(A,B),conj([A,B])):-!.
-%q_r(disj(A,B),disj([A,B])):-!.
+q_r(disj([]), t('False')):-!.
+q_r(conj(A),A):-A=[_],!.
+q_r(disj(A),A):-A=[_],!.
 q_r(conj([A,A]),A):-!. % XXX Should be generalized.
 q_r(disj([A,A]),A):-!. % XXX Should be generalized.
 q_r(imp(A,A), t('True')):-!.
+q_r(equ(A,A), t('True')):-!.
 q_r(neg(neg(E)), E):-!.
-
 
 %flatten the conjunctions and disjunctions
 
@@ -227,7 +226,6 @@ q_r(disj(L), t('True')):-
 
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
-% q_r(imp(A, t('False')), neg(A)):-!. % Is it necessary as we transfer ~a into a->F?
 q_r(imp(t('False'),_), t('False')):-!.
 q_r(imp(A,neg(B)), imp(conj([A,B]), t('False'))):-!.
 q_r(imp(neg(A),B), disj([A,B])):-!.
@@ -275,6 +273,7 @@ q_flat(disj([disj(L)|T]), disj(R)):-!,
 q_flat(disj([X|T]), disj([X|T1])):-
 	q_flat(disj(T), disj(T1)).
 
+% Remove 'inessential' terms from the list. E.g. all True's from a conjunction.
 q_remove_in([], _, []):-!.
 q_remove_in([A|T], A, R):-!,
         q_remove_in(T, A, R).
