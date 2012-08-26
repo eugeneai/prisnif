@@ -45,7 +45,7 @@ q_plit(L) -->
 
 q_formula_cmd(cmd_fm(T,D)) -->
         ['fm'], q_simple_term(T), ['='],
-        q_formula(D).        
+        q_formula(D).
 
 q_simple_term(t(N,L)) -->
         q_name(N), ['('], q_var_list(L), [')'].
@@ -72,15 +72,15 @@ q_quant_var_list(L) -->
          ['{'], q_var_list(L), ['}'];
          q_var_list(L);
         { L=[] }.
- 
-        
+
+
 q_pcf_fm_list(Fl) -->
          ['{'], ['}'], {Fl=[]};
          ['['], [']'], {Fl=[]};
          ['{'], q_pcf_list(Fl),  ['}'];
          ['['], q_pcf_list(Fl),  [']'];
         { Fl=[] }.
-         
+
 q_pcf_list([Q|T]) -->
         q_pcf_quant(Q), [';'], q_pcf_list(T).
 q_pcf_list([Q]) -->
@@ -90,16 +90,16 @@ q_var_list([N|T]) -->
         q_name(N), [','], q_var_list(T).
 q_var_list([N]) -->
         q_name(N).
-        
+
 q_conjunct(L) -->
          ['{'], ['}'], {L=[]};
          ['{'], q_term_list(L), ['}'];
          q_term_list(L) ;
          { L=[] }.
 
-q_term(t(N,T)) --> 
+q_term(t(N,T)) -->
 	q_name(N), ['('], q_term_list(T), [')'].
-q_term(t(N)) --> 
+q_term(t(N)) -->
 	q_name(N).
 
 q_name(T, [T|O], O):-
@@ -126,11 +126,11 @@ app([X|L1], L2, [X|L3]):-
         app(L1, L2, L3).
 
 q_conv_lex(var(I), O) :-
-        q_conv_ex(I,O),!.        
+        q_conv_ex(I,O),!.
 q_conv_lex(punct(I),O) :-
         q_conv_ex(I,O),!.
 q_conv_lex(I,O):-
-        q_conv_ex(I,O),!.        
+        q_conv_ex(I,O),!.
 
 q_conv_ex('&-', ['&','-']):-!.
 q_conv_ex(A, [A]).
@@ -140,7 +140,7 @@ q_lex_s(A, L):-
         open_input_atom_stream(A, S), !,
         q_lex(S, L), !,
         close_input_atom_stream(S), !.
-        
+
 
 %formula reduction.
 q_rd(I,O):-
@@ -152,7 +152,7 @@ q_rd(cmd_fm(T, F), O):-
         q_rr(cmd_fm(T, R), O).
 q_rd(neg(A), O):-
 	q_rd(A,A1),
-        q_rr(A1, O).
+        q_rr(neg(A1), O).
 q_rd(conj(L), O):-
 	q_rd_elems(L,L1),
         q_rr(conj(L1), O).
@@ -207,7 +207,7 @@ q_r(conj(L), R):- member(conj(_), L),!,
         q_flat(conj(L), R).
 q_r(disj(L), R):- member(disj(_), L),!,
         q_flat(disj(L), R).
-        
+
 q_r(conj([A,t('True')]), A):-!.
 q_r(conj([t('True'),A]), A):-!.
 q_r(conj([_,t('False')]), t('False')):-!.
@@ -224,7 +224,7 @@ q_r(disj([neg(A),A]), t('True')):-!.
 
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
-% q_r(imp(A, t('False')), neg(A)):-!. % Is it necessary as we transfer ~a into a->F? 
+% q_r(imp(A, t('False')), neg(A)):-!. % Is it necessary as we transfer ~a into a->F?
 q_r(imp(t('False'),_), t('False')):-!.
 q_r(imp(A,neg(B)), imp(conj([A,B]), t('False'))):-!.
 q_r(imp(neg(A),B), disj([A,B])):-!.
@@ -305,7 +305,7 @@ q_to_pcf_e(ip_q(e,L,I), q(e,L, T,F)):-!,
 %        write('-2e----e-e'), write([L,I]),nl,nl,
         q_to_pcf_e_e(I, T,F).
 
-q_to_pcf_e(I, q(e,['laje'], T,F)):-
+q_to_pcf_e(I, q(e,[], T,F)):-
 %        write('-3e----e-X'), write([I]),nl,nl,
         q_to_pcf_e_e(I, T,F).
 
@@ -330,9 +330,14 @@ q_to_pcf_a_a(imp(A,B), [A], [F]):-
 
 q_to_pcf_a_a(imp(conj(L),B), C, [FE]):-
 	q_split_conj(L, C, FF),
-        INP=disj([neg(conj(FF)),B]),
-	q_rd(INP, F),
-        write(['!!!',INP,'---->',F]),nl,nl,     
+        (
+         FF=[],!, F=B, write('!!! nord.'), nl,nl;
+         INP=disj([neg(conj(FF)),B]),
+         q_rd(INP, F),
+         write('!!!'), nl, write(INP),
+         nl, write('---->'), nl,
+         write(F),nl,nl
+        ),
 	% XXX if F is a disjunction. It could be properly translated here
 	%write(F),nl,nl,
         %q_to_pcf_a_a(F, _, FE).
@@ -392,11 +397,11 @@ q_tabs(N):-N>1,
         q_tabs(N1).
 
 q_pcf_print(Q):-
-        write('Pr:'),write(Q),nl, 
+        write('Pr:'),write(Q),nl,
         q_pcf_print0(Q, 0).
 
 q_pcf_tq_w(S, L, T):-
-        write(S), write(' '), write_l(L), write(':'), write_l(T), nl.        
+        write(S), write(' '), write_l(L), write(':'), write_l(T), nl.
 
 q_pcf_print0(q(a, L, T, F), N):-!,
         q_tabs(N),
@@ -460,7 +465,7 @@ q_pcf_pp(F, sq):-
         nl.
 
 q_pcf_ppb([Bases]):-!,
-        write('{'), 
+        write('{'),
         q_pcf_ppl([Bases]),!,
         write('}'),
         nl.
@@ -483,19 +488,19 @@ ap(s(annotated_formula, I), O):-!,
         ap(I, O).
 
 
-ap(s(fof_annotated, _, _,  NameS, _, RoleS, _, FS, AnnS, _, _), fof(Name, Role, F, Ann)):-!, 
-        ap(NameS, Name), 
+ap(s(fof_annotated, _, _,  NameS, _, RoleS, _, FS, AnnS, _, _), fof(Name, Role, F, Ann)):-!,
+        ap(NameS, Name),
         ap(RoleS, Role),
         ap(FS, F),
         ap(AnnS, Ann).
 
-ap(s(cnf_annotated, _, _,  NameS, _, RoleS, _, FS, AnnS, _, _), cnf(Name, Role, F, Ann)):-!, 
-        ap(NameS, Name), 
+ap(s(cnf_annotated, _, _,  NameS, _, RoleS, _, FS, AnnS, _, _), cnf(Name, Role, F, Ann)):-!,
+        ap(NameS, Name),
         ap(RoleS, Role),
         ap(FS, F),
         ap(AnnS, Ann).
 
- 
+
 ap(s(annotations, l(null)), nil):-!.
 ap(s(annotations, _, SourceS, InfoS), annotation(Source, Info)):-!,
         ap(SourceS, Source),
@@ -549,7 +554,7 @@ ap(s(quantifier, l(_, '?')), e):-!.
 ap(s(variable_list, VS, _, VLS), [V|T]):-!,
         ap(VLS, T),
         ap(VS, V).
-ap(s(variable_list, VS), [V]):-!, 
+ap(s(variable_list, VS), [V]):-!,
         ap(VS, V).
 
 ap(s(binary_formula, BF), F):-!,
@@ -577,7 +582,7 @@ ap(s(variable, l(_, X)),X):-!.
 ap(s(atomic_formula, FS), F):-!,
         ap(FS, F).
 
-ap(s(plain_atom, FS), F):-!, 
+ap(s(plain_atom, FS), F):-!,
         ap(FS, F).
 
 ap(s(plain_term, FuS, _, C, _), t(Fu,L)):-!,
@@ -642,7 +647,7 @@ bcn('<=>', F1, F2, equ(F1,F2)):-!.
 bcn('=>', F1, F2, imp(F1,F2)):-!.
 
 bcn(C, F1, F2, bc(C, F1, F2)).
-        
+
 uo('~', F, neg(F)):-!.
 
 uo(O,F, unary_(O,F)).
@@ -653,8 +658,8 @@ uo(O,F, unary_(O,F)).
 q_command_list([C]) --> q_command(C),  q_command_end.
 q_command_list([C|T]) --> q_command(C),  q_command_end, q_command_list(T).
 
-q_command(cmd(show, Param)) --> [sw], q_command_show(Param). 
-q_command(cmd(formula, T, Exp)) --> [fm], q_command_fm(T, Exp). 
+q_command(cmd(show, Param)) --> [sw], q_command_show(Param).
+q_command(cmd(formula, T, Exp)) --> [fm], q_command_fm(T, Exp).
 
 q_command_end --> [full_stop].
 
@@ -709,17 +714,17 @@ test(on, 1, '/translate/lexical', A, L, []) :-
 % should be refactored for easier use.
 test(on, 2, '/translate/conjunct', A, [], S) :-
        test2_conjunct(A),
-       q_lex_s(A, L), 
+       q_lex_s(A, L),
        q_conjunct(S, L, []).
- 
+
 test(on, 3, '/translate/term', A, R, S) :-
        test2_conjunct(A),
-       q_lex_s(A, [_|L]), 
+       q_lex_s(A, [_|L]),
        q_term(S, L, R).
 
 test(on, 4, '/translate/pcf_quantifier', A, [], S) :-
        test4_pcf_quantifier(A),
-       q_lex_s(A, L), 
+       q_lex_s(A, L),
        q_pcf_quant(S, L, []).
 
 test(on, 5, '/translate/formula', A, [], S) :-
@@ -734,7 +739,7 @@ test(on, 6, '/translate/formula/ip', A, [], S) :-
         q_ip_formula(S, L, []).
 
 test(on, 7, '/reduce/1', A, S, S2):-
-        test_rd(A,B), 
+        test_rd(A,B),
         q_tr_formula(A, [],  S),
         q_tr_formula(B, [],  S2),
         q_rd(S,S2).
@@ -749,20 +754,20 @@ test(on, 9, '/TPTP/transtation/1', nil, nil, S):-
         consult('Parser_allen/_.pl'),
         ast(I),
         ast_to_ip(I,S).
-*/  
-      
+*/
+
 test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         test(on, 9, _,  _,  _, I),
-        %I=fof(_,_,F,_), 
+        %I=fof(_,_,F,_),
         %q_rd(F, R),
         %write('TPTP IP:'), write(F),nl,
         %write('Reduced:'), write(R),nl,
         %trace,
         q_to_pcf(I, S, rd),
         q_pcf_pp(S,sq).
-        
+
 test(on, 101, '/translate/FM/1', I, O, S):-
-	I='fm a(x)=a>b. sw a(c).', 
+	I='fm a(x)=a>b. sw a(c).',
 	q_tr_command_list(I,O,S),
 	q_do_command_list(S).
 
@@ -813,7 +818,7 @@ all_ip([A|TA], [IP|TI]):-!,
         ast_to_ip(A, fof(_,_, IP1,_)),!,
         q_rd(IP1, IP),!,
         all_ip(TA, TI),!.
-        
+
 
 as_conj([], t('True')):-!.
 as_conj([X], conj([X])):-!.
@@ -822,10 +827,10 @@ as_conj([X|T], conj([X|CT])):-!,
         as_conj(T, conj(CT)).
 
 main(PCF):-
-        
+
         write('Getting all formulas.'),nl,
         all_ast(L),
-        write(L), nl, nl,
+        % write(L), nl, nl,
         write('Converting to IP list.'),nl,
         all_ip(L, IPL),!,
         % write(IPL),
@@ -845,7 +850,7 @@ main(PCF):-
         set_output(S),
         q_pcf_ppb(Bases),
         close(S).
-       
+
 
 m(PCF):-
         main(PCF),
