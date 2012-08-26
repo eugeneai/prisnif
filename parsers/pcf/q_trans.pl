@@ -345,12 +345,8 @@ q_to_pcf_a_a(imp(A,B), [A], [F]):-
 q_to_pcf_a_a(imp(conj(L),B), C, [FE]):-
 	q_split_conj(L, C, FF),
         (
-         FF=[],!, F=B, write('!!! nord.'), nl,nl;
-         INP=disj([neg(conj(FF)),B]),
-         q_rd(INP, F),
-         write('!!!'), nl, write(INP),
-         nl, write('---->'), nl,
-         write(F),nl,nl
+         FF=[], !, F=B;
+         q_rd(disj([neg(conj(FF)),B]), F)
         ),
 	% XXX if F is a disjunction. It could be properly translated here
 	%write(F),nl,nl,
