@@ -208,19 +208,22 @@ q_r(conj(L), R):- member(conj(_), L),!,
 q_r(disj(L), R):- member(disj(_), L),!,
         q_flat(disj(L), R).
 
-q_r(conj([A,t('True')]), A):-!.
-q_r(conj([t('True'),A]), A):-!.
-q_r(conj([_,t('False')]), t('False')):-!.
-q_r(conj([t('False'),_]), t('False')):-!.
-q_r(conj([A,neg(A)]), t('False')):-!.
-q_r(conj([neg(A),A]), t('False')):-!.
+q_r(disj(L), t('True')):- member(t('True'), L),!.
+q_r(conj(L), t('False')):- member(t('False'), L),!.
 
-q_r(disj([A,t('False')]), A):-!.
-q_r(disj([t('False'),A]), A):-!.
-q_r(disj([_,t('True')]), t('True')):-!.
-q_r(disj([t('True'),_]), t('True')):-!.
-q_r(disj([A,neg(A)]), t('True')):-!.
-q_r(disj([neg(A),A]), t('True')):-!.
+q_r(conj(L), R):- member(t('True'), L),!,
+        q_remove_in(L, t('True'), R).
+q_r(disj(L), R):- member(t('False'), L),!,
+        q_remove_in(L, t('False'), R).
+
+q_r(conj(L), t('False')):-
+        member(A, L),
+        member(neg(A), L),
+        !.
+q_r(disj(L), t('True')):-
+        member(A, L),
+        member(neg(A), L),
+        !.
 
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
@@ -232,11 +235,19 @@ q_r(neg(imp(A,B)), conj([A,neg(B)])):-!.
 q_r(neg(t('False')), t('True')):-!.
 q_r(neg(t('True')), t('False')):-!.
 
+q_r(neg(conj(L)), disj(R)):-!,
+        q_all_neg(L,R).
+q_r(neg(disj(L)), conj(R)):-!,
+        q_all_neg(L,R).
+
 q_r(equ(A,B), conj([imp(A,B), imp(B,A)])):-!.
 
 q_alter_q(a,e).
 q_alter_q(e,a).
 
+q_all_neg([],[]):-!.
+q_all_neg([X|T],[neg(X)|R]):-
+        q_all_neg(T,R).
 
 /*
 q_del_all(_, [], []).
@@ -263,6 +274,12 @@ q_flat(disj([disj(L)|T]), disj(R)):-!,
 	append(L1, T1, R).
 q_flat(disj([X|T]), disj([X|T1])):-
 	q_flat(disj(T), disj(T1)).
+
+q_remove_in([], _, []):-!.
+q_remove_in([A|T], A, R):-!,
+        q_remove_in(T, A, R).
+q_remove_in([A|T], _, [A|R]):-
+        q_remove_in(T, A, R).
 
 
 % XXX stack overflow on a + ~a.
