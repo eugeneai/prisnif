@@ -1,1 +1,18 @@
-{e[][idc(uri_xsd_string),idc(uri_xsd_decimal),idc(uri_xsd_integer),iext(uri_owl_disjointWith,uri_xsd_decimal,uri_xsd_string),iext(uri_rdfs_subClassOf,uri_xsd_integer,uri_xsd_decimal)]{a[X][]{e[][]{a[][icext(uri_rdf_PlainLiteral,X)]{e[][False]{}}}; e[][]{a[][icext(uri_owl_real,X)]{e[][False]{}}}}; a[X][icext(uri_xsd_string,X)]{e[][icext(uri_rdf_PlainLiteral,X)]{}}; a[X][icext(uri_owl_rational,X)]{e[][icext(uri_owl_real,X)]{}}; a[X][icext(uri_xsd_decimal,X)]{e[][icext(uri_owl_rational,X)]{}}; a[X][icext(uri_xsd_integer,X)]{e[][icext(uri_xsd_decimal,X)]{}}; a[X][idc(X)]{e[][ic(X)]{}}; a[C1,C2][]{e[][]{a[][iext(uri_rdfs_subClassOf,C1,C2)]{e[][ic(C1),ic(C2)]{a[X][icext(C1,X)]{e[][icext(C2,X)]{}}}}; a[][ic(C1),ic(C2)]{e[][]{a[][]{e[X][icext(C1,X)]{a[][icext(C2,X)]{e[][False]{}}}; e[][iext(uri_rdfs_subClassOf,C1,C2)]{}}}}}}; a[C1,C2][]{e[][]{a[][iext(uri_owl_disjointWith,C1,C2)]{e[][ic(C1),ic(C2)]{a[X][]{e[][]{a[][icext(C1,X)]{e[][False]{}}}; e[][]{a[][icext(C2,X)]{e[][False]{}}}}}}; a[][ic(C1),ic(C2)]{e[][]{a[][]{e[X][icext(C1,X),icext(C2,X)]{}; e[][iext(uri_owl_disjointWith,C1,C2)]{}}}}}}}}
+{
+e[][idc(uri_xsd_string),idc(uri_xsd_decimal),idc(uri_xsd_integer)]{a[X][]{e[][]{a[][icext(uri_rdf_PlainLiteral,X)]{e[][False]{}}}; 
+e[][]{a[][icext(uri_owl_real,X)]{e[][False]{}}}}; 
+a[X][icext(uri_xsd_string,X)]{e[][icext(uri_rdf_PlainLiteral,X)]{}}; 
+a[X][icext(uri_owl_rational,X)]{e[][icext(uri_owl_real,X)]{}}; 
+a[X][icext(uri_xsd_decimal,X)]{e[][icext(uri_owl_rational,X)]{}}; 
+a[X][icext(uri_xsd_integer,X)]{e[][icext(uri_xsd_decimal,X)]{}}; 
+a[X][idc(X)]{e[][ic(X)]{}}; 
+a[C1,C2][]{e[][]{a[][iext(uri_rdfs_subClassOf,C1,C2)]{e[][ic(C1),ic(C2)]{a[X][icext(C1,X)]{e[][icext(C2,X)]{}}}}; 
+a[][ic(C1),ic(C2)]{e[][]{a[][]{e[X][icext(C1,X)]{a[][icext(C2,X)]{e[][False]{}}}; 
+e[][iext(uri_rdfs_subClassOf,C1,C2)]{}}}}}}; 
+a[C1,C2][]{e[][]{a[][iext(uri_owl_disjointWith,C1,C2)]{e[][ic(C1),ic(C2)]{a[X][]{e[][]{a[][icext(C1,X)]{e[][False]{}}}; 
+e[][]{a[][icext(C2,X)]{e[][False]{}}}}}}; 
+a[][ic(C1),ic(C2)]{e[][]{a[][]{e[X][icext(C1,X),icext(C2,X)]{}; 
+e[][iext(uri_owl_disjointWith,C1,C2)]{}}}}}}; 
+a[][]{e[][]{a[][iext(uri_owl_disjointWith,uri_xsd_decimal,uri_xsd_string)]{e[][False]{}}}; 
+e[][]{a[][iext(uri_rdfs_subClassOf,uri_xsd_integer,uri_xsd_decimal)]{e[][False]{}}}}}
+}

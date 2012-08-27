@@ -48,8 +48,12 @@ class Question{
 		}
 		ans.add_answer(af.vars.get_unconfined_answers());
 		//ans.print();
+		//if (false){
 		if(is_contains_answer(ans)){
+			if(ans.is_empty()) return null;
 			writeln("contains");
+			//print();
+			//ans.print();
 			//Oracle.pause();
 			goto startr; 	
 		} else{
@@ -244,6 +248,9 @@ class QData{
 				//add_answer(ans);
 				return ans;	
 			//} 
-		}else return new Answer();
+		}else{
+			//writeln("catch");
+			return new Answer();
+		}
 	}	
 }

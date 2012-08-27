@@ -14,6 +14,10 @@ class Answer{
 		is_applied = false;
 	}
 	
+	bool is_empty(){
+		if(binds.length==0) return true; else return false;
+	}
+
 	void apply(){
 		foreach(b;binds){
 			b.apply();
@@ -151,7 +155,8 @@ class Binding{
 	
 	/*reset*/
 	void reset(){
-		left.sub_zero(null);
+		if(left.is_var())
+			left.sub_zero(null);
 		is_applied = false;
 	}
 	

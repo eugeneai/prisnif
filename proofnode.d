@@ -135,6 +135,7 @@ class ProofNode{
 			return new ProofNode[0];
 		}
 	
+		//q.print();
 		a.apply();
 		a.print();
 		//-----------
