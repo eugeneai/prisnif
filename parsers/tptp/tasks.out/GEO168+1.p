@@ -1,29 +1,57 @@
 {
-e[][colinear(a,b,c,l),colinear(d,e,f,m),colinear(b,f,g,n),colinear(c,e,g,o),colinear(b,d,h,p),colinear(a,e,h,q),colinear(c,d,i,r),colinear(a,f,i,s)]{a[][incident(a,m)]{e[][goal]{}}; 
-a[][incident(b,m)]{e[][goal]{}}; 
-a[][incident(c,m)]{e[][goal]{}}; 
-a[][incident(d,l)]{e[][goal]{}}; 
-a[][incident(e,l)]{e[][goal]{}}; 
-a[][incident(f,l)]{e[][goal]{}}; 
-a[A][incident(g,A),incident(h,A),incident(i,A)]{e[][goal]{}}; 
-a[A,B,C,D][colinear(A,B,C,D)]{e[][incident(A,D)]{}}; 
-a[A,B,C,D][colinear(A,B,C,D)]{e[][incident(B,D)]{}}; 
-a[A,B,C,D][colinear(A,B,C,D)]{e[][incident(C,D)]{}}; 
-a[A,B][incident(A,B)]{e[][point_equal(A,A)]{}}; 
-a[A,B][point_equal(A,B)]{e[][point_equal(B,A)]{}}; 
-a[A,B,C][point_equal(A,B),point_equal(B,C)]{e[][point_equal(A,C)]{}}; 
-a[A,B][incident(A,B)]{e[][line_equal(B,B)]{}}; 
-a[A,B][line_equal(A,B)]{e[][line_equal(B,A)]{}}; 
-a[A,B,C][line_equal(A,B),line_equal(B,C)]{e[][line_equal(A,C)]{}}; 
-a[A,B,C][point_equal(A,B),incident(B,C)]{e[][incident(A,C)]{}}; 
-a[A,B,C][incident(A,B),line_equal(B,C)]{e[][incident(A,C)]{}}; 
-a[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q][colinear(A,B,C,J),colinear(D,E,F,K),colinear(B,F,G,L),colinear(C,E,G,M),colinear(B,D,H,N),colinear(A,E,H,O),colinear(C,D,I,P),colinear(A,F,I,Q)]{e[][]{a[][]{e[R][colinear(G,H,I,R)]{}; 
-e[][line_equal(L,M)]{}; 
-e[][line_equal(N,O)]{}; 
-e[][line_equal(P,Q)]{}}}}; 
-a[A,B,C,D][incident(C,A),incident(C,B),incident(D,A),incident(D,B)]{e[][]{a[][]{e[][point_equal(C,D)]{}; 
-e[][line_equal(A,B)]{}}}}; 
-a[A,B][point_equal(A,A),point_equal(B,B)]{e[C][incident(A,C),incident(B,C)]{}}; 
-a[A,B,C][line_equal(C,C),line_equal(B,B)]{e[A][incident(A,B),incident(A,C)]{}}; 
-a[][goal]{e[][False]{}}}
+  e[][colinear(a,b,c,l),colinear(d,e,f,m),colinear(b,f,g,n),colinear(c,e,g,o),colinear(b,d,h,p),colinear(a,e,h,q),colinear(c,d,i,r),colinear(a,f,i,s)] {
+    a[][incident(a,m)] {
+      e[][goal] {}};
+    a[][incident(b,m)] {
+      e[][goal] {}};
+    a[][incident(c,m)] {
+      e[][goal] {}};
+    a[][incident(d,l)] {
+      e[][goal] {}};
+    a[][incident(e,l)] {
+      e[][goal] {}};
+    a[][incident(f,l)] {
+      e[][goal] {}};
+    a[A][incident(g,A),incident(h,A),incident(i,A)] {
+      e[][goal] {}};
+    a[A,B,C,D][colinear(A,B,C,D)] {
+      e[][incident(A,D)] {}};
+    a[A,B,C,D][colinear(A,B,C,D)] {
+      e[][incident(B,D)] {}};
+    a[A,B,C,D][colinear(A,B,C,D)] {
+      e[][incident(C,D)] {}};
+    a[A,B][incident(A,B)] {
+      e[][point_equal(A,A)] {}};
+    a[A,B][point_equal(A,B)] {
+      e[][point_equal(B,A)] {}};
+    a[A,B,C][point_equal(A,B),point_equal(B,C)] {
+      e[][point_equal(A,C)] {}};
+    a[A,B][incident(A,B)] {
+      e[][line_equal(B,B)] {}};
+    a[A,B][line_equal(A,B)] {
+      e[][line_equal(B,A)] {}};
+    a[A,B,C][line_equal(A,B),line_equal(B,C)] {
+      e[][line_equal(A,C)] {}};
+    a[A,B,C][point_equal(A,B),incident(B,C)] {
+      e[][incident(A,C)] {}};
+    a[A,B,C][incident(A,B),line_equal(B,C)] {
+      e[][incident(A,C)] {}};
+    a[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q][colinear(A,B,C,J),colinear(D,E,F,K),colinear(B,F,G,L),colinear(C,E,G,M),colinear(B,D,H,N),colinear(A,E,H,O),colinear(C,D,I,P),colinear(A,F,I,Q)] {
+      e[][] {
+        a[][] {
+          e[R][colinear(G,H,I,R)] {};
+          e[][line_equal(L,M)] {};
+          e[][line_equal(N,O)] {};
+          e[][line_equal(P,Q)] {}}}};
+    a[A,B,C,D][incident(C,A),incident(C,B),incident(D,A),incident(D,B)] {
+      e[][] {
+        a[][] {
+          e[][point_equal(C,D)] {};
+          e[][line_equal(A,B)] {}}}};
+    a[A,B][point_equal(A,A),point_equal(B,B)] {
+      e[C][incident(A,C),incident(B,C)] {}};
+    a[A,B,C][line_equal(C,C),line_equal(B,B)] {
+      e[A][incident(A,B),incident(A,C)] {}};
+    a[][goal] {
+      e[][False] {}}}
 }

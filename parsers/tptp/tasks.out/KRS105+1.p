@@ -1,19 +1,51 @@
 {
-e[][cUnsatisfiable(i2003_11_14_17_20_53634)]{a[X][]{e[][cowlThing(X)]{a[][cowlNothing(X)]{e[][False]{}}}}; 
-a[X][]{e[][]{a[][xsd_string(X),xsd_integer(X)]{e[][False]{}}; 
-a[][]{e[][xsd_integer(X)]{}; 
-e[][xsd_string(X)]{}}}}; 
-a[X][cUnsatisfiable(X)]{e[][cdxcomp(X)]{}}; 
-a[X][cUnsatisfiable(X)]{e[][cc(X)]{}}; 
-a[X][cc(X)]{e[][]{a[Y][rr(X,Y)]{e[][cc(Y)]{}}}}; 
-a[X][]{e[][]{a[][cd(X)]{e[][[neg(conj([ip_q(e,[Y],t(ra_Px1,[X,Y]))]))]]{}}; 
-a[][]{e[Y][ra_Px1(X,Y)]{}; 
-e[][cd(X)]{}}}}; 
-a[X][]{e[][]{a[][cdxcomp(X)]{e[Y0][ra_Px1(X,Y0)]{}}; 
-a[][]{e[][]{a[Y0][ra_Px1(X,Y0)]{e[][False]{}}}; 
-e[][cdxcomp(X)]{}}}}; 
-a[X][]{e[][]{a[][ca_Ax2(X)]{e[][]{a[Y][rr(X,Y)]{e[][cc(Y)]{}}}}; 
-a[][]{e[Y][rr(X,Y)]{a[][cc(Y)]{e[][False]{}}}; 
-e[][ca_Ax2(X)]{}}}}; 
-a[X][ca_Ax2(X)]{e[][cd(X)]{}}}
+  e[][cUnsatisfiable(i2003_11_14_17_20_53634)] {
+    a[X][] {
+      e[][cowlThing(X)] {
+        a[][cowlNothing(X)] {
+          e[][False] {}}}};
+    a[X][] {
+      e[][] {
+        a[][xsd_string(X),xsd_integer(X)] {
+          e[][False] {}};
+        a[][] {
+          e[][xsd_integer(X)] {};
+          e[][xsd_string(X)] {}}}};
+    a[X][cUnsatisfiable(X)] {
+      e[][cdxcomp(X)] {}};
+    a[X][cUnsatisfiable(X)] {
+      e[][cc(X)] {}};
+    a[X][cc(X)] {
+      e[][] {
+        a[Y][rr(X,Y)] {
+          e[][cc(Y)] {}}}};
+    a[X][] {
+      e[][] {
+        a[][cd(X)] {
+          e[][[neg(conj([ip_q(e,[Y],t(ra_Px1,[X,Y]))]))]] {}};
+        a[][] {
+          e[Y][ra_Px1(X,Y)] {};
+          e[][cd(X)] {}}}};
+    a[X][] {
+      e[][] {
+        a[][cdxcomp(X)] {
+          e[Y0][ra_Px1(X,Y0)] {}};
+        a[][] {
+          e[][] {
+            a[Y0][ra_Px1(X,Y0)] {
+              e[][False] {}}};
+          e[][cdxcomp(X)] {}}}};
+    a[X][] {
+      e[][] {
+        a[][ca_Ax2(X)] {
+          e[][] {
+            a[Y][rr(X,Y)] {
+              e[][cc(Y)] {}}}};
+        a[][] {
+          e[Y][rr(X,Y)] {
+            a[][cc(Y)] {
+              e[][False] {}}};
+          e[][ca_Ax2(X)] {}}}};
+    a[X][ca_Ax2(X)] {
+      e[][cd(X)] {}}}
 }
