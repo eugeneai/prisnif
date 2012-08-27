@@ -147,26 +147,32 @@ q_rd(I,O):-
         q_r(I,T),!,
         q_rd(T,O).
 
-q_rd(cmd_fm(T, F), O):-
+q_rd(cmd_fm(T, F), O):-!,
         q_rd(F,R),
         q_rr(cmd_fm(T, R), O).
-q_rd(neg(A), O):-
+q_rd(neg(A), O):-!,
 	q_rd(A,A1),
         q_rr(neg(A1), O).
-q_rd(conj(L), O):-
+q_rd(conj(L), O):-!,
 	q_rd_elems(L,L1),
         q_rr(conj(L1), O).
-q_rd(disj(L), O):-
+q_rd(disj(L), O):-!,
         q_rd_elems(L,L1),
         q_rr(disj(L1), O).
-q_rd(imp(A,B), O):-
+q_rd(imp(A,B), O):-!,
         q_rd(A,A1),
         q_rd(B,B1),
         q_rr(imp(A1,B1), O).
-q_rd(ip_q(S,L,I), O):-
+q_rd(ip_q(S,L,I), O):-!,
         q_r_dups(L,L1),
         q_rd(I,I1),
         q_rr(ip_q(S,L1,I1), O).
+q_rd(q(S,L,T, F), O):-!,
+        q_r_dups(L,L1),
+        q_r_dups(T,T1),
+        q_rd_elems(F,F1),
+        q_rr(q(S,L1,T1,F1), O).
+
 q_rd(I,I).
 
 q_rd_elems([],[]):-!.
@@ -222,6 +228,14 @@ q_r(disj(L), t('True')):-
         member(neg(A), L),
         !.
 
+q_r(q(e, A,ZA, F), q(e, NA,NZA, NF)):-
+        member(q(a,[],[], [R]),F),!,
+        q_remove_in(F, q(a, [],[], [R]), F1),
+        R=q(e, B, ZB, FBs),
+        append(A,B, NA),
+        append(ZA,ZB, NZA),
+        append(F1, FBs, NF).
+
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
 q_r(imp(t('False'),_), t('False')):-!.
@@ -275,7 +289,7 @@ q_flat(disj([X|T]), disj([X|T1])):-
 q_remove_in([], _, []):-!.
 q_remove_in([A|T], A, R):-!,
         q_remove_in(T, A, R).
-q_remove_in([A|T], _, [A|R]):-
+q_remove_in([B|T], A, [B|R]):-
         q_remove_in(T, A, R).
 
 
@@ -867,8 +881,9 @@ main(PCF):-
         q_rd(IP,IPR),!,
 	write(IPR), nl,
         write('Converting to PCF.'),nl,
-        q_to_pcf(IPR, PCF, rd),!,
-        write('Converted'), nl,
+        q_to_pcf(IPR, CPCF, rd),!,
+        write('Converted. Reducing the PCF.'), nl,
+        q_rd(CPCF, PCF),
         % write(PCF), nl,
         PCF=q(a,[],_, Bases),
         %write(Bases),
