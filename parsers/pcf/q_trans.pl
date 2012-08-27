@@ -375,9 +375,7 @@ q_to_pcf_a_a(imp(A,B), [A], [F]):-
         q_to_pcf_e(B, F).
 
 q_to_pcf_a_a(imp(conj(L),B), Con, [FE]):-
-        write('++++'),nl,
 	q_split_cd(L, B, Con, Comp, Fs),
-        write('----'),nl,
         (
          Comp=[], !, F=Fs;
          q_rd(disj([neg(conj(Comp)),Fs]), F)
@@ -489,34 +487,34 @@ write_l([X|T]):-!,
 
 % Prisnif print.
 
-q_pcf_pp(q(S,X,T,L)):-!,
-        write(S),
+q_pcf_pp(q(S,X,T,L), N):-!,
+        nl,q_tabs(N),write(S),
         write('['),write_l(X),write(']'),
         write('['),write_l(T),write(']'),
-        write('{'), q_pcf_ppl(L),write('}').
+        write(' {'),
+        M is N + 1,
+        q_pcf_ppl(L, M),
+        write('}').
 
-q_pcf_pp(F, sq):-
+q_pcf_pp(F, sq, N):-
         write('{'),
-        q_pcf_pp(F),!,
-        write('}'),
-        nl.
+        q_pcf_pp(F, N),!,
+        write('}').
 
 q_pcf_ppb([Bases]):-!,
-        write('{'),nl,
-        q_pcf_ppl([Bases]),!,
+        write('{'),
+        q_pcf_ppl([Bases], 1),!,
         nl,
         write('}'),
         nl.
 
-
-
-q_pcf_ppl([]):-!.
-q_pcf_ppl([X]):-!,
-        q_pcf_pp(X).
-q_pcf_ppl([X|T]):-!,
-        q_pcf_pp(X),!,
-        write('; '), nl,
-        q_pcf_ppl(T).
+q_pcf_ppl([], _):-!.
+q_pcf_ppl([X], N):-!,
+        q_pcf_pp(X, N).
+q_pcf_ppl([X|T], N):-!,
+        q_pcf_pp(X, N),!,
+        write(';'),
+        q_pcf_ppl(T, N).
 
 % --------------------------------------- TPTP interpreter --------------------------------------------
 ast_to_ip(I,O) :-
