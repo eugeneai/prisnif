@@ -502,8 +502,9 @@ q_pcf_pp(F, sq):-
         nl.
 
 q_pcf_ppb([Bases]):-!,
-        write('{'),
+        write('{'),nl,
         q_pcf_ppl([Bases]),!,
+        nl,
         write('}'),
         nl.
 
@@ -514,7 +515,7 @@ q_pcf_ppl([X]):-!,
         q_pcf_pp(X).
 q_pcf_ppl([X|T]):-!,
         q_pcf_pp(X),!,
-        write('; '),
+        write('; '), nl,
         q_pcf_ppl(T).
 
 % --------------------------------------- TPTP interpreter --------------------------------------------

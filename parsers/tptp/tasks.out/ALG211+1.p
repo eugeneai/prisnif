@@ -1,1 +1,10 @@
-{e[W,V][a_vector_subspace_of(W,V),a_vector_space(V)]{a[B,V][basis_of(B,V)]{e[][lin_ind_subset(B,V),a_subset_of(B,vec_to_class(V))]{}}; a[S,T,V][lin_ind_subset(S,V),basis_of(T,V)]{e[U][a_subset_of(U,T),basis_of(union(S,U),V)]{}}; a[A][a_vector_space(A)]{e[B][basis_of(B,A)]{}}; a[A,B][a_vector_subspace_of(A,B)]{e[][a_vector_space(A)]{}}; a[W,V,E][a_vector_subspace_of(W,V),a_subset_of(E,vec_to_class(W))]{e[][]{a[][lin_ind_subset(E,W)]{e[][lin_ind_subset(E,V)]{}}; a[][lin_ind_subset(E,V)]{e[][lin_ind_subset(E,W)]{}}}}; a[E,F][]{e[][]{a[][basis_of(union(E,F),V)]{e[][False]{}}}; e[][]{a[][basis_of(E,W)]{e[][False]{}}}}}}
+{
+e[W,V][a_vector_subspace_of(W,V),a_vector_space(V)]{a[B,V][basis_of(B,V)]{e[][lin_ind_subset(B,V),a_subset_of(B,vec_to_class(V))]{}}; 
+a[S,T,V][lin_ind_subset(S,V),basis_of(T,V)]{e[U][a_subset_of(U,T),basis_of(union(S,U),V)]{}}; 
+a[A][a_vector_space(A)]{e[B][basis_of(B,A)]{}}; 
+a[A,B][a_vector_subspace_of(A,B)]{e[][a_vector_space(A)]{}}; 
+a[W,V,E][a_vector_subspace_of(W,V),a_subset_of(E,vec_to_class(W))]{e[][]{a[][lin_ind_subset(E,W)]{e[][lin_ind_subset(E,V)]{}}; 
+a[][lin_ind_subset(E,V)]{e[][lin_ind_subset(E,W)]{}}}}; 
+a[E,F][]{e[][]{a[][basis_of(union(E,F),V)]{e[][False]{}}}; 
+e[][]{a[][basis_of(E,W)]{e[][False]{}}}}}
+}

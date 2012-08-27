@@ -1,1 +1,10 @@
-{e[B,C,D][subset(B,C)]{a[B,C,D][]{e[][]{a[][member(D,difference(B,C))]{e[][member(D,B)]{a[][member(D,C)]{e[][False]{}}}}; a[][member(D,B)]{e[][]{a[][]{e[][member(D,C)]{}; e[][member(D,difference(B,C))]{}}}}}}; a[B,C][]{e[][]{a[][subset(B,C)]{e[][]{a[D][member(D,B)]{e[][member(D,C)]{}}}}; a[][]{e[D][member(D,B)]{a[][member(D,C)]{e[][False]{}}}; e[][subset(B,C)]{}}}}; a[B][]{e[][subset(B,B)]{}}; a[][subset(difference(B,D),difference(C,D))]{e[][False]{}}}}
+{
+e[B,C,D][subset(B,C)]{a[B,C,D][]{e[][]{a[][member(D,difference(B,C))]{e[][member(D,B)]{a[][member(D,C)]{e[][False]{}}}}; 
+a[][member(D,B)]{e[][]{a[][]{e[][member(D,C)]{}; 
+e[][member(D,difference(B,C))]{}}}}}}; 
+a[B,C][]{e[][]{a[][subset(B,C)]{e[][]{a[D][member(D,B)]{e[][member(D,C)]{}}}}; 
+a[][]{e[D][member(D,B)]{a[][member(D,C)]{e[][False]{}}}; 
+e[][subset(B,C)]{}}}}; 
+a[B][]{e[][subset(B,B)]{}}; 
+a[][subset(difference(B,D),difference(C,D))]{e[][False]{}}}
+}
