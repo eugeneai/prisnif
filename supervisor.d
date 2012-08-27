@@ -39,7 +39,7 @@ class Supervisor{
 	
 	//-----------------------START------------------------
 	void start(){
-		//print();
+		print();
 		int k = maxsteps;
 		bool b = true;
 		while(!is_all_refuted() && k>0){
@@ -50,7 +50,7 @@ class Supervisor{
 				break;
 			}
 			if(!is_all_refuted){
-				//print();
+				print();
 			}else{
 				writeln("FORMULA IS REFUTED!");
 				break;	
@@ -63,7 +63,7 @@ class Supervisor{
 			writeln("FORMULA IS REFUTED: ",maxsteps-k+1," steps." );
 			writeln(refuted_base_count," bases are refuted.");
 		}else{
-			writeln("FAIL!");
+			writeln("FAIL! ",maxsteps-k+1," steps.");
 		}
 	}
 

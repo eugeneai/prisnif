@@ -14,6 +14,10 @@ class Answer{
 		is_applied = false;
 	}
 	
+	bool is_empty(){
+		if(binds.length==0) return true; else return false;
+	}
+
 	void apply(){
 		foreach(b;binds){
 			b.apply();
