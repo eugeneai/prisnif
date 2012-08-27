@@ -330,23 +330,43 @@ q_cnv_term(t(_,_)):-!.
 
 % split conjunction on two subconjuncts: first one is conjunction of atoms, other one is more complex formulae.
 
-q_split_conj([],[],[]).
-q_split_conj([X|T],[X|CA],CF):-
+q_neg_lit(neg(A), A):-
+        q_cnv_term(A),!.
+q_neg_lit(imp(A, t('False')), A):-
+        q_cnv_term(A).
+
+%          IC IF         OC   OCo, OFs
+q_split_cd([],disj([]),  [],  [],  disj([])):-!.
+q_split_cd([],disj([A]), [A1],[],  disj([])):-
+        q_neg_lit(A, A1),!.
+q_split_cd([],disj([A]), [],  [],  disj([A])):-!.
+
+q_split_cd([],disj([A|T]), [A1|TC], TCo, disj(Fs)):-
+        q_neg_lit(A, A1),!,
+        q_split_cd([], disj(T), TC, TCo, disj(Fs)).
+q_split_cd([],disj([A|T]),      TC, TCo, disj([A|Fs])):-!,
+        q_split_cd([], disj(T), TC, TCo, disj(Fs)).
+
+q_split_cd([], F, [],[],F):-!. % Other nondisj variants
+
+q_split_cd([X|T],I, [X|CA],CF, O):-
 	q_cnv_term(X),!,
-	q_split_conj(T,CA,CF).
-q_split_conj([X|T],CA,[X|CF]):-
-	q_split_conj(T,CA,CF).
+	q_split_cd(T,I, CA,CF, O).
+q_split_cd([X|T],I, CA,[X|CF],O):-
+	q_split_cd(T,I, CA,CF,O).
 
 q_to_pcf_a_a(imp(A,B), [A], [F]):-
         q_cnv_term(A),!,
 	% XXX if B is a disjunction. It could be properly translated here
         q_to_pcf_e(B, F).
 
-q_to_pcf_a_a(imp(conj(L),B), C, [FE]):-
-	q_split_conj(L, C, FF),
+q_to_pcf_a_a(imp(conj(L),B), Con, [FE]):-
+        write('++++'),nl,
+	q_split_cd(L, B, Con, Comp, Fs),
+        write('----'),nl,
         (
-         FF=[], !, F=B;
-         q_rd(disj([neg(conj(FF)),B]), F)
+         Comp=[], !, F=Fs;
+         q_rd(disj([neg(conj(Comp)),Fs]), F)
         ),
         q_to_pcf_e(F, FE).
 
@@ -372,7 +392,7 @@ q_to_pcf_e_e_l([X|T], [TC|TT]):-!,
 	q_to_pcf_e_e_l(T, TT).
 
 q_to_pcf_e_e(conj(L), C, F):-
-	q_split_conj(L, C, FF),!,
+	q_split_cd(L, [], C, FF, _),!,
         q_to_pcf_e_e_l(FF, F).
 
 q_to_pcf_e_e(imp(A,B), [], [F]):-!,
