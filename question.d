@@ -50,7 +50,7 @@ class Question{
 		//ans.print();
 		//if (false){
 		if(is_contains_answer(ans)){
-			//if(ans.is_empty()) return null;
+			if(ans.is_empty()) return null;
 			writeln("contains");
 			//print();
 			//ans.print();

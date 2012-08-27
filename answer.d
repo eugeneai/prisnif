@@ -155,7 +155,8 @@ class Binding{
 	
 	/*reset*/
 	void reset(){
-		left.sub_zero(null);
+		if(left.is_var())
+			left.sub_zero(null);
 		is_applied = false;
 	}
 	
