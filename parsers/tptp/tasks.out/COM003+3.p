@@ -1,1 +1,17 @@
-{e[X1][algorithm(X1)]{a[W][program(W)]{e[][]{a[][]{e[Y,Z][program(Y)]{a[][decides(W,Y,Z)]{e[][False]{}}}; e[][]{a[Y,Z][]{e[][]{a[][program(Y),halts2(Y,Z)]{e[][halts3(W,Y,Z),outputs(W,good)]{}}; a[][program(Y)]{e[][]{a[][]{e[][halts2(Y,Z)]{}; e[][halts3(W,Y,Z),outputs(W,bad)]{}}}}}}}}}}; a[W][program(W)]{e[][]{a[][]{e[Y,Z][]{a[][]{e[][program(Y),halts2(Y,Z)]{a[][]{e[][]{a[][halts3(W,Y,Z)]{e[][False]{}}}; e[][]{a[][outputs(W,good)]{e[][False]{}}}}}; e[][program(Y)]{a[][halts2(Y,Z)]{e[][False]{}}; a[][]{e[][]{a[][halts3(W,Y,Z)]{e[][False]{}}}; e[][]{a[][outputs(W,bad)]{e[][False]{}}}}}}}; e[V][program(V)]{a[Y][]{e[][]{a[][program(Y),halts3(W,Y,Y),outputs(W,good),halts2(V,Y)]{e[][False]{}}; a[][program(Y),halts3(W,Y,Y),outputs(W,bad)]{e[][halts2(V,Y),outputs(V,bad)]{}}}}}}}}; a[][]{e[][]{a[X][]{e[][]{a[][algorithm(X)]{e[][False]{}}}; e[Y,Z][program(Y)]{a[][decides(X,Y,Z)]{e[][False]{}}}}}; e[W][program(W)]{a[Y][program(Y)]{e[][]{a[Z][]{e[][decides(W,Y,Z)]{}}}}}}; a[Y1][program(Y1)]{e[][]{a[Z1][]{e[][decides(X1,Y1,Z1)]{}}}}}}
+{
+e[X1][algorithm(X1)]{a[W][program(W)]{e[][]{a[][]{e[Y,Z][program(Y)]{a[][decides(W,Y,Z)]{e[][False]{}}}; 
+e[][]{a[Y,Z][]{e[][]{a[][program(Y),halts2(Y,Z)]{e[][halts3(W,Y,Z),outputs(W,good)]{}}; 
+a[][program(Y)]{e[][]{a[][]{e[][halts2(Y,Z)]{}; 
+e[][halts3(W,Y,Z),outputs(W,bad)]{}}}}}}}}}}; 
+a[W][program(W)]{e[][]{a[][]{e[Y,Z][]{a[][]{e[][program(Y),halts2(Y,Z)]{a[][]{e[][]{a[][halts3(W,Y,Z)]{e[][False]{}}}; 
+e[][]{a[][outputs(W,good)]{e[][False]{}}}}}; 
+e[][program(Y)]{a[][halts2(Y,Z)]{e[][False]{}}; 
+a[][]{e[][]{a[][halts3(W,Y,Z)]{e[][False]{}}}; 
+e[][]{a[][outputs(W,bad)]{e[][False]{}}}}}}}; 
+e[V][program(V)]{a[Y][]{e[][]{a[][program(Y),halts3(W,Y,Y),outputs(W,good),halts2(V,Y)]{e[][False]{}}; 
+a[][program(Y),halts3(W,Y,Y),outputs(W,bad)]{e[][halts2(V,Y),outputs(V,bad)]{}}}}}}}}; 
+a[][]{e[][]{a[X][]{e[][]{a[][algorithm(X)]{e[][False]{}}}; 
+e[Y,Z][program(Y)]{a[][decides(X,Y,Z)]{e[][False]{}}}}}; 
+e[W][program(W)]{a[Y][program(Y)]{e[][]{a[Z][]{e[][decides(W,Y,Z)]{}}}}}}; 
+a[Y1][program(Y1)]{e[][]{a[Z1][]{e[][decides(X1,Y1,Z1)]{}}}}}
+}
