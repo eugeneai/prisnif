@@ -818,10 +818,14 @@ all_ast(L):-
 
 all_ip([], []).
 all_ip([A|TA], [IP|TI]):-!,
-        ast_to_ip(A, fof(_,_, IP1,_)),!,
-        q_rd(IP1, IP),!,
+        ast_to_ip(A, fof(_,Type, IP1,_)),!,
+        q_cnv_type(Type, IP1, OP1),
+        q_rd(OP1, IP),!,
         all_ip(TA, TI),!.
 
+
+q_cnv_type(conjecture, I, neg(I)):-!.
+q_cnv_type(_, I, I):-!.
 
 as_conj([], t('True')):-!.
 as_conj([X], conj([X])):-!.
