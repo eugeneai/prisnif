@@ -31,6 +31,9 @@ do
     $prg < $file > $tmp
     if [ "$?" = "0" ]; then
 	echo "Phase one is Ok $file" >> $log
+    else
+	echo "Phase one is NOT Ok $file" >> $log
+	continue
     fi
 
     ln -sf $PWD/$tmp $pcf/input.pl
