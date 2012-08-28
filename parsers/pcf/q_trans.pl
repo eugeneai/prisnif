@@ -389,7 +389,8 @@ q_to_pcf_e_e_l([X|T], [TC|TT]):-!,
 
 q_to_pcf_e_e(conj(L), C, F):-
 	q_split_cd(L, [], C, FF, _),!,
-        q_to_pcf_e_e_l(FF, F).
+        q_rd(FF,RFF),
+        q_to_pcf_e_e_l(RFF, F).
 
 q_to_pcf_e_e(imp(A,B), [], [F]):-!,
         q_to_pcf_a(imp(A,B), F).
