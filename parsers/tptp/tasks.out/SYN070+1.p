@@ -1,12 +1,10 @@
 {
   e[X][big_f(X)] {
     a[X,Y][big_f(X)] {
-      e[][] {
-        a[][] {
-          e[][big_f(Y),big_h(Y,X)] {
-            a[][big_g(Y)] {
-              e[][False] {}}};
-          e[][big_g(X)] {}}}};
+      e[][big_f(Y),big_h(Y,X)] {
+        a[][big_g(Y)] {
+          e[][False] {}}};
+      e[][big_g(X)] {}};
     a[X,Y][big_f(X),big_f(Y),big_h(X,Y),big_j(Y,X)] {
       e[][False] {}};
     a[][] {
@@ -20,10 +18,8 @@
         a[][big_g(X1)] {
           e[][False] {}};
         a[Y][big_f(Y)] {
-          e[][] {
-            a[][] {
-              e[][big_g(Y)] {};
-              e[][big_j(X1,Y)] {}}}}}};
+          e[][big_g(Y)] {};
+          e[][big_j(X1,Y)] {}}}};
     a[][big_g(X)] {
       e[][False] {}}}
 }

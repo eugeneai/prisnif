@@ -12,8 +12,6 @@
                 a[][iext(P2,X,Y)] {
                   e[][False] {}}}}}};
         a[][ip(P1),ip(P2)] {
-          e[][] {
-            a[][] {
-              e[X,Y][iext(P1,X,Y),iext(P2,X,Y)] {};
-              e[][iext(uri_owl_propertyDisjointWith,P1,P2)] {}}}}}}}
+          e[X,Y][iext(P1,X,Y),iext(P2,X,Y)] {};
+          e[][iext(uri_owl_propertyDisjointWith,P1,P2)] {}}}}}
 }

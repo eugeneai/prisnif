@@ -37,17 +37,13 @@
     a[A,B,C][incident(A,B),line_equal(B,C)] {
       e[][incident(A,C)] {}};
     a[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q][colinear(A,B,C,J),colinear(D,E,F,K),colinear(B,F,G,L),colinear(C,E,G,M),colinear(B,D,H,N),colinear(A,E,H,O),colinear(C,D,I,P),colinear(A,F,I,Q)] {
-      e[][] {
-        a[][] {
-          e[R][colinear(G,H,I,R)] {};
-          e[][line_equal(L,M)] {};
-          e[][line_equal(N,O)] {};
-          e[][line_equal(P,Q)] {}}}};
+      e[R][colinear(G,H,I,R)] {};
+      e[][line_equal(L,M)] {};
+      e[][line_equal(N,O)] {};
+      e[][line_equal(P,Q)] {}};
     a[A,B,C,D][incident(C,A),incident(C,B),incident(D,A),incident(D,B)] {
-      e[][] {
-        a[][] {
-          e[][point_equal(C,D)] {};
-          e[][line_equal(A,B)] {}}}};
+      e[][point_equal(C,D)] {};
+      e[][line_equal(A,B)] {}};
     a[A,B][point_equal(A,A),point_equal(B,B)] {
       e[C][incident(A,C),incident(B,C)] {}};
     a[A,B,C][line_equal(C,C),line_equal(B,B)] {

@@ -7,10 +7,8 @@
             a[][member(D,C)] {
               e[][False] {}}}};
         a[][member(D,B)] {
-          e[][] {
-            a[][] {
-              e[][member(D,C)] {};
-              e[][member(D,difference(B,C))] {}}}}}};
+          e[][member(D,C)] {};
+          e[][member(D,difference(B,C))] {}}}};
     a[B,C][] {
       e[][] {
         a[][subset(B,C)] {

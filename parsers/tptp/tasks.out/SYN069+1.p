@@ -1,14 +1,12 @@
 {
   e[X][big_f(X)] {
     a[X][big_f(X)] {
+      e[Y][big_g(Y),big_h(X,Y)] {
+        a[][big_j(X,Y)] {
+          e[][False] {}}};
       e[][] {
-        a[][] {
-          e[Y][big_g(Y),big_h(X,Y)] {
-            a[][big_j(X,Y)] {
-              e[][False] {}}};
-          e[][] {
-            a[Y1][] {
-              e[][big_g(Y1),big_h(X,Y1),big_k(Y1)] {}}}}}};
+        a[Y1][] {
+          e[][big_g(Y1),big_h(X,Y1),big_k(Y1)] {}}}};
     a[Y][] {
       e[][] {
         a[][big_l(Y)] {

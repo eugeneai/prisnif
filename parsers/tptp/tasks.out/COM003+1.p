@@ -1,21 +1,17 @@
 {
   e[X1][algorithm(X1)] {
     a[W][program(W)] {
+      e[Y,Z][program(Y)] {
+        a[][decides(W,Y,Z)] {
+          e[][False] {}}};
       e[][] {
-        a[][] {
-          e[Y,Z][program(Y)] {
-            a[][decides(W,Y,Z)] {
-              e[][False] {}}};
+        a[Y,Z][] {
           e[][] {
-            a[Y,Z][] {
-              e[][] {
-                a[][program(Y),halts2(Y,Z)] {
-                  e[][halts3(W,Y,Z),outputs(W,good)] {}};
-                a[][program(Y)] {
-                  e[][] {
-                    a[][] {
-                      e[][halts2(Y,Z)] {};
-                      e[][halts3(W,Y,Z),outputs(W,bad)] {}}}}}}}}}};
+            a[][program(Y),halts2(Y,Z)] {
+              e[][halts3(W,Y,Z),outputs(W,good)] {}};
+            a[][program(Y)] {
+              e[][halts2(Y,Z)] {};
+              e[][halts3(W,Y,Z),outputs(W,bad)] {}}}}}};
     a[][] {
       e[][] {
         a[X][] {
@@ -62,10 +58,8 @@
             a[][program(Y),halts2(Y,Y)] {
               e[][halts2(V,Y),outputs(V,good)] {}};
             a[][program(Y)] {
-              e[][] {
-                a[][] {
-                  e[][halts2(Y,Y)] {};
-                  e[][halts2(V,Y),outputs(V,bad)] {}}}}}}}};
+              e[][halts2(Y,Y)] {};
+              e[][halts2(V,Y),outputs(V,bad)] {}}}}}};
     a[][] {
       e[][] {
         a[V][] {
@@ -98,10 +92,8 @@
             a[][program(Y),halts2(Y,Y),halts2(U,Y)] {
               e[][False] {}};
             a[][program(Y)] {
-              e[][] {
-                a[][] {
-                  e[][halts2(Y,Y)] {};
-                  e[][halts2(U,Y),outputs(U,bad)] {}}}}}}}};
+              e[][halts2(Y,Y)] {};
+              e[][halts2(U,Y),outputs(U,bad)] {}}}}}};
     a[Y1][program(Y1)] {
       e[][] {
         a[Z1][] {

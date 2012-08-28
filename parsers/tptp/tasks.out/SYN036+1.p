@@ -3,6 +3,16 @@
     a[][] {
       e[][] {
         a[][] {
+          e[U,W][big_q(U)] {
+            a[][big_q(W)] {
+              e[][False] {}}};
+          e[][] {
+            a[W][] {
+              e[][big_q(W)] {}};
+            a[U][big_q(U)] {
+              e[][False] {}}};
+          e[X][ip_q(a,[Y],conj([imp(t(big_p,[X]),t(big_p,[Y])),imp(t(big_p,[Y]),t(big_p,[X]))]))] {}};
+        a[][] {
           e[X1][ip_q(a,[Y1],conj([imp(t(big_q,[X1]),t(big_q,[Y1])),imp(t(big_q,[Y1]),t(big_q,[X1]))]))] {
             a[][] {
               e[U1,W1][big_p(U1)] {
@@ -58,18 +68,18 @@
               e[W][] {
                 a[][big_q(W)] {
                   e[][False] {}}};
-              e[U][big_q(U)] {}}}};
+              e[U][big_q(U)] {}}}}};
+      e[][] {
         a[][] {
-          e[U,W][big_q(U)] {
-            a[][big_q(W)] {
+          e[U1,W1][big_p(U1)] {
+            a[][big_p(W1)] {
               e[][False] {}}};
           e[][] {
-            a[W][] {
-              e[][big_q(W)] {}};
-            a[U][big_q(U)] {
+            a[W1][] {
+              e[][big_p(W1)] {}};
+            a[U1][big_p(U1)] {
               e[][False] {}}};
-          e[X][ip_q(a,[Y],conj([imp(t(big_p,[X]),t(big_p,[Y])),imp(t(big_p,[Y]),t(big_p,[X]))]))] {}}};
-      e[][] {
+          e[X1][ip_q(a,[Y1],conj([imp(t(big_q,[X1]),t(big_q,[Y1])),imp(t(big_q,[Y1]),t(big_q,[X1]))]))] {}};
         a[][] {
           e[X][ip_q(a,[Y],conj([imp(t(big_p,[X]),t(big_p,[Y])),imp(t(big_p,[Y]),t(big_p,[X]))]))] {
             a[][] {
@@ -126,15 +136,5 @@
               e[W1][] {
                 a[][big_p(W1)] {
                   e[][False] {}}};
-              e[U1][big_p(U1)] {}}}};
-        a[][] {
-          e[U1,W1][big_p(U1)] {
-            a[][big_p(W1)] {
-              e[][False] {}}};
-          e[][] {
-            a[W1][] {
-              e[][big_p(W1)] {}};
-            a[U1][big_p(U1)] {
-              e[][False] {}}};
-          e[X1][ip_q(a,[Y1],conj([imp(t(big_q,[X1]),t(big_q,[Y1])),imp(t(big_q,[Y1]),t(big_q,[X1]))]))] {}}}}}
+              e[U1][big_p(U1)] {}}}}}}}
 }

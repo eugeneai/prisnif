@@ -48,10 +48,8 @@
     a[A,B,C][incident(A,B),line_equal(B,C)] {
       e[][incident(A,C)] {}};
     a[A,B,C,D][incident(A,C),incident(A,D),incident(B,C),incident(B,D)] {
-      e[][] {
-        a[][] {
-          e[][point_equal(A,B)] {};
-          e[][line_equal(C,D)] {}}}};
+      e[][point_equal(A,B)] {};
+      e[][line_equal(C,D)] {}};
     a[][goal] {
       e[][False] {}}}
 }

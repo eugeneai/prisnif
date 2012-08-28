@@ -26,22 +26,20 @@
                 a[][icext(C1,X),icext(C2,X)] {
                   e[][icext(Z,X)] {}}}}}};
         a[][ic(Z),ic(C1),ic(C2)] {
-          e[][] {
+          e[X][] {
             a[][] {
-              e[X][] {
+              e[][icext(Z,X)] {
                 a[][] {
-                  e[][icext(Z,X)] {
-                    a[][] {
-                      e[][] {
-                        a[][icext(C1,X)] {
-                          e[][False] {}}};
-                      e[][] {
-                        a[][icext(C2,X)] {
-                          e[][False] {}}}}};
-                  e[][icext(C1,X),icext(C2,X)] {
-                    a[][icext(Z,X)] {
+                  e[][] {
+                    a[][icext(C1,X)] {
+                      e[][False] {}}};
+                  e[][] {
+                    a[][icext(C2,X)] {
                       e[][False] {}}}}};
-              e[][iext(uri_owl_intersectionOf,Z,S1)] {}}}}}};
+              e[][icext(C1,X),icext(C2,X)] {
+                a[][icext(Z,X)] {
+                  e[][False] {}}}}};
+          e[][iext(uri_owl_intersectionOf,Z,S1)] {}}}};
     a[][iext(uri_rdf_type,uri_ex_w,uri_ex_B)] {
       e[][False] {}}}
 }

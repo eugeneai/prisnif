@@ -44,10 +44,8 @@
             a[][halts2(X,Y)] {
               e[][False] {}}}};
         a[][program(X)] {
-          e[][] {
-            a[][] {
-              e[][halts2(X,Y)] {};
-              e[][program_not_halts2(X,Y)] {}}}}}};
+          e[][halts2(X,Y)] {};
+          e[][program_not_halts2(X,Y)] {}}}};
     a[X,Y,W][] {
       e[][] {
         a[][halts2_outputs(X,Y,W)] {

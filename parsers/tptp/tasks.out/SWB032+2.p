@@ -24,12 +24,10 @@
             a[X][icext(C1,X)] {
               e[][icext(C2,X)] {}}}};
         a[][ic(C1),ic(C2)] {
-          e[][] {
-            a[][] {
-              e[X][icext(C1,X)] {
-                a[][icext(C2,X)] {
-                  e[][False] {}}};
-              e[][iext(uri_rdfs_subClassOf,C1,C2)] {}}}}}};
+          e[X][icext(C1,X)] {
+            a[][icext(C2,X)] {
+              e[][False] {}}};
+          e[][iext(uri_rdfs_subClassOf,C1,C2)] {}}}};
     a[C1,C2][] {
       e[][] {
         a[][iext(uri_owl_disjointWith,C1,C2)] {
@@ -42,10 +40,8 @@
                 a[][icext(C2,X)] {
                   e[][False] {}}}}}};
         a[][ic(C1),ic(C2)] {
-          e[][] {
-            a[][] {
-              e[X][icext(C1,X),icext(C2,X)] {};
-              e[][iext(uri_owl_disjointWith,C1,C2)] {}}}}}};
+          e[X][icext(C1,X),icext(C2,X)] {};
+          e[][iext(uri_owl_disjointWith,C1,C2)] {}}}};
     a[][] {
       e[][] {
         a[][iext(uri_owl_disjointWith,uri_xsd_decimal,uri_xsd_string)] {
