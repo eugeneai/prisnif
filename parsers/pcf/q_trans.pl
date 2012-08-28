@@ -869,7 +869,7 @@ as_conj([X|T], conj([X|CT])):-!,
 main(PCF):-
 
         write('Getting all formulas.'),nl,
-        all_ast(L),
+        all_ast(L), !,
         % write(L), nl, nl,
         write('Converting to IP list.'),nl,
         all_ip(L, IPL),!,
@@ -882,14 +882,14 @@ main(PCF):-
         write('Converting to PCF.'),nl,
         q_to_pcf(IPR, CPCF, rd),!,
         write('Converted. Reducing the PCF.'), nl,
-        q_rd(CPCF, PCF),
+        q_rd(CPCF, PCF), !,
         % write(PCF), nl,
         PCF=q(a,[],_, Bases),
         %write(Bases),
         write('Making Output result.p file.'),nl,
         open('result.p','write', S),
         set_output(S),
-        q_pcf_ppb(Bases),
+        q_pcf_ppb(Bases), !,
         close(S).
 
 
