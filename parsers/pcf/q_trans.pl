@@ -259,16 +259,6 @@ q_all_neg([],[]):-!.
 q_all_neg([X|T],[neg(X)|R]):-
         q_all_neg(T,R).
 
-/*
-q_del_all(_, [], []).
-q_del_all(X, [X|T], R):-!,
-        q_a_del_all(X, T, R).
-q_del_all(X, [Y|T], [Y|R]):-!,
-        q_a_del_all(X, T, R).
-*/
-
-q_del_all(_, L, L). % FIXME: STUB to compile.
-
 q_flat(conj([]), conj([])).
 q_flat(conj([conj(L)|T]), conj(R)):-!,
 	q_flat(conj(L), conj(L1)),
@@ -298,7 +288,6 @@ q_remove_in([B|T], A, [B|R]):-
 
 % --------- Conversion to PCF, RD=rd if defined adds reduction step ---
 q_to_pcf(fof(_, _, A, _), B):-!,
-        % q_rd(A,A1),!,
         q_to_pcf(A, B).
 
 q_to_pcf(A, B):-
@@ -314,27 +303,21 @@ q_to_pcf(A, B, rd):-!,
 % Construction of the PCF tree
 
 q_to_pcf_a(ip_q(a,L,I), q(a, L, T,F)):- !,
-%        write('-1a----a-a'), write([L,I]),nl,nl,
         q_to_pcf_a_a(I, T,F).
 
 q_to_pcf_a(ip_q(e,L,I), q(a,[],[],[O])):-!,
-%        write('-2a----a-e'), write([L,I]),nl,nl,
         q_to_pcf_e(ip_q(e,L,I), O).
 
 q_to_pcf_a(I, q(a,[], T,F)):-
-%        write('-3a----a-X'), write([L,I]),nl,nl,
         q_to_pcf_a_a(I, T,F).
 
 q_to_pcf_e(ip_q(a,L,I), q(e,[],[],[O])):-!,
-%        write('-1e----e-a'), write([L,I]),nl,nl,
         q_to_pcf_a(ip_q(a, L,I), O).
 
 q_to_pcf_e(ip_q(e,L,I), q(e,L, T,F)):-!,
-%        write('-2e----e-e'), write([L,I]),nl,nl,
         q_to_pcf_e_e(I, T,F).
 
 q_to_pcf_e(I, q(e,[], T,F)):-
-%        write('-3e----e-X'), write([I]),nl,nl,
         q_to_pcf_e_e(I, T,F).
 
 % individual conversion
@@ -432,7 +415,6 @@ q_tabs(N):-N>1,
         q_tabs(N1).
 
 q_pcf_print(Q):-
-        % write('Pr:'),write(Q),nl,
         q_pcf_print0(Q, 0).
 
 q_pcf_tq_w(S, L, T):-
@@ -664,15 +646,6 @@ ap(s(defined_infix_pred, l(_, Op)), Op):-!.
 ap(s(constant, TS), T):-!,
         ap(TS, T).
 
-%ap(s(
-
-/*
-ap(s(defined_atom, FS), F):-!,
-        ap(FS, F).
-ap(s(system_atom, FS), F):-!,
-        ap(FS, F).
-*/
-
 ap(I,c__(I)).
 
 
@@ -834,17 +807,6 @@ q_tr_command_list(I, R, S) :-
         q_lex_s(I,L),
         q_command_list(S, L, R).
 
-
-% Just query AST as IP converted and reduced.
-
-/*
-aip(IPR):-
-        ast(I),
-        ast_to_ip(I, fof(_, _, IP, _)),
-        q_rd(IP, IPR).
-*/
-
-% FIXME: STUB to compile.
 
 all_ast(L):-
         findall(X, ast(X), L).
