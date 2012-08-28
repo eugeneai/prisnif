@@ -358,13 +358,16 @@ q_to_pcf_a_a(imp(A,B), [A|Con], [F]):-
         q_rd(Fs,RFs), % Possibly remove empty disjunctions
         q_to_pcf_e(RFs, F).
 
-q_to_pcf_a_a(imp(conj(L),B), Con, [FE]):-
+q_to_pcf_a_a(imp(conj(L),B), Con, FE):-
 	q_split_cd(L, B, Con, Comp, Fs),
         (
          Comp=[], !, F=Fs;
          q_rd(disj([neg(conj(Comp)),Fs]), F)
         ),
-        q_to_pcf_e(F, FE).
+        (
+         F=disj(_),!, q_to_pcf_a_a(F,_, FE);
+         q_to_pcf_e(F,FFE), FE=[FFE]
+        ).
 
 q_to_pcf_a_a(imp(A,B), [], [FE]):-
         q_rd(disj([neg(A),B]), F),
