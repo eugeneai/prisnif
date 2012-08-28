@@ -352,10 +352,11 @@ q_split_cd([X|T],I, [X|CA],CF, O):-
 q_split_cd([X|T],I, CA,[X|CF],O):-
 	q_split_cd(T,I, CA,CF,O).
 
-q_to_pcf_a_a(imp(A,B), [A], [F]):-
+q_to_pcf_a_a(imp(A,B), [A|Con], [F]):-
         q_cnv_term(A),!,
-	% XXX if B is a disjunction. It could be properly translated here
-        q_to_pcf_e(B, F).
+	q_split_cd([], B, Con, [], Fs), % Comp here will be [] as first argument is []
+        q_rd(Fs,RFs), % Possibly remove empty disjunctions
+        q_to_pcf_e(RFs, F).
 
 q_to_pcf_a_a(imp(conj(L),B), Con, [FE]):-
 	q_split_cd(L, B, Con, Comp, Fs),
