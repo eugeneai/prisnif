@@ -677,11 +677,12 @@ q_command_list([C]) --> q_command(C),  q_command_end.
 q_command_list([C|T]) --> q_command(C),  q_command_end, q_command_list(T).
 
 q_command(cmd(show, Param)) --> [sw], q_command_show(Param).
+q_command(cmd(prisnif, Param)) --> [pp], q_command_show(Param).
 q_command(cmd(formula, T, Exp)) --> [fm], q_command_fm(T, Exp).
 
 q_command_end --> [full_stop].
 
-q_command_show(P) --> q_term(P).
+q_command_show(P) --> q_formula(P).
 q_command_fm(P, Exp) --> q_term(P), ['='], q_formula(Exp).
 
 %-------------------------------------------------------------
@@ -691,14 +692,25 @@ q_do_command_list([C|T]):-
 	q_do_command(C),
 	q_do_command_list(T).
 
-q_do_command(cmd(show, Param)):-!,
-	write('SHOW:'),
-	write(Param), nl.
+q_do_command(cmd(show, Exp)):-!,
+	% write('SHOW:'),
+        q_link(Exp, LExp),
+        q_to_pcf(LExp, Pcf, rd),
+        q_pcf_print(Pcf),
+        nl.
+
+q_do_command(cmd(prisnif, Exp)):-!,
+        q_to_pcf(Exp, Pcf, rd),
+        q_pcf_pp(Pcf),
+        nl.
+
 q_do_command(cmd(formula, Term, Exp)):-!,
         assertz(fol(Term, Exp)),
         write(Term),
         write(' added.'), nl.
 
+q_do_command(C):-
+	write('Command \''), write(C), write('\' not supported'), nl.
 
 q_do_command(_):-
 	write('Command not supported'), nl.
