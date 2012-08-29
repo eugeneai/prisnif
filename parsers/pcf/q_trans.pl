@@ -474,6 +474,9 @@ write_l([X|T]):-!,
 
 % Prisnif print.
 
+q_pcf_pp(A):-
+        q_pcf_pp(A,0).
+
 q_pcf_pp(q(S,X,T,L), N):-!,
         nl,q_tabs(N),write(S),
         write('['),write_l(X),write(']'),
