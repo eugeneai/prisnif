@@ -1,3 +1,4 @@
+:-dynamic(fol/2).
 
 q_syn_error(Error, _, _):-
         syntax_error_info('<input>', 0, 0, Error).
@@ -693,6 +694,11 @@ q_do_command_list([C|T]):-
 q_do_command(cmd(show, Param)):-!,
 	write('SHOW:'),
 	write(Param), nl.
+q_do_command(cmd(formula, Term, Exp)):-!,
+        assertz(fol(Term, Exp)),
+        write(Term),
+        write(' added.'), nl.
+
 
 q_do_command(_):-
 	write('Command not supported'), nl.
