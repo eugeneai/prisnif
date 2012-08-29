@@ -712,8 +712,22 @@ q_do_command(cmd(formula, Term, Exp)):-!,
 q_do_command(C):-
 	write('Command \''), write(C), write('\' not supported'), nl.
 
-q_do_command(_):-
-	write('Command not supported'), nl.
+% linking the formula
+
+q_link(t(Name, P1), Exp1):-
+        fol(t(Name,P2), Exp),
+        length(P1, LP1), length(P2, LP2), LP1==LP2,!,
+        q_subst(P1, P2, Subst), % P1 instead of P2
+        write('Ok'),nl,
+        q_apply_subst(Exp, Subst, Exp1, []),
+        write(Exp1), nl.
+
+q_subst([], [], []):-!.
+q_subst([X|T], [X1|T1], [X-X1|R]):-
+        q_subst(T, T1, R).
+
+q_apply_subst(Exp, Subst, RExp, []):-
+        Exp=RExp.
 
 
 % -----------------------------------------------------------------------------------------------------------
