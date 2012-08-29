@@ -891,4 +891,5 @@ tr:-
         q_pcf_print(PCF).
 
 
-:- initialization(tr).
+%:- initialization(tr).
+:- initialization(t).
