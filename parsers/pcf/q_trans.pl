@@ -801,9 +801,9 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_to_pcf(I, S, rd),
         q_pcf_pp(S,sq).
 
-test(on, 101, '/translate/FM/1', I, O, S):-
-	I='fm a(x)=a>b. sw a(c).',
-	q_tr_command_list(I,O,S),
+test(on, 101, '/translate/FM/1', I, [], S):-
+	I='fm a(x)=a(x)>b(x). sw a(c). pp a(c).',
+	q_tr_command_list(I,[],S),
 	q_do_command_list(S).
 
 test(N):-
