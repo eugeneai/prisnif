@@ -700,7 +700,8 @@ q_do_command(cmd(show, Exp)):-!,
         nl.
 
 q_do_command(cmd(prisnif, Exp)):-!,
-        q_to_pcf(Exp, Pcf, rd),
+        q_link(Exp, LExp),
+        q_to_pcf(LExp, Pcf, rd),
         q_pcf_pp(Pcf),
         nl.
 
@@ -719,16 +720,36 @@ q_link(t(Name, P1), Exp1):-
         length(P1, LP1), length(P2, LP2), LP1==LP2,!,
         q_subst(P1, P2, Subst), % P1 instead of P2
         write('Ok'),nl,
+%        trace,
         q_apply_subst(Exp, Subst, Exp1, []),
+%        notrace,
         write(Exp1), nl.
 
 q_subst([], [], []):-!.
-q_subst([X|T], [X1|T1], [X-X1|R]):-
+q_subst([X|T], [X1|T1], [X1-X|R]):-
         q_subst(T, T1, R).
 
-q_apply_subst(Exp, Subst, RExp, []):-
-        Exp=RExp.
+q_apply_subst(E, Subst, S, Vars):-
+        % E=t(Name),
+        \+ member(E, Vars),
+        member(E-S, Subst),!.
 
+q_apply_subst(E, Subst, t(Name, AArgs), Vars):-
+        E=t(Name,Args),
+        \+ member(E, Vars),!,
+        q_apply_subst(Args, Subst, AArgs, Vars).
+
+q_apply_subst(imp(A, B), Subst, imp(AA, AB), Vars):-
+        q_apply_subst(A, Subst, AA, Vars),!,
+        q_apply_subst(B, Subst, AB, Vars),!.
+
+% Now the lists.
+q_apply_subst([], _, [], _):-!.
+q_apply_subst([X|T], Subst, [AX|AT], Vars):-
+        q_apply_subst(X, Subst, AX, Vars),!,
+        q_apply_subst(T, Subst, AT, Vars),!.
+
+q_apply_subst(E, Subst, E, _).
 
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
@@ -816,7 +837,7 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_pcf_pp(S,sq).
 
 test(on, 101, '/translate/FM/1', I, [], S):-
-	I='fm a(x)=a(x)>b(x). sw a(c). pp a(c).',
+	I='fm a(x)=b(x,y)>c(y,x). sw a(c). pp a(c).',
 	q_tr_command_list(I,[],S),
 	q_do_command_list(S).
 
