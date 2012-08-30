@@ -739,6 +739,11 @@ q_apply_subst([X|T], Subst, [AX|AT], Vars):-
         q_apply_subst(X, Subst, AX, Vars),!,
         q_apply_subst(T, Subst, AT, Vars),!.
 
+q_apply_subst(ip_q(S, V, E), Subst, ip_q(S, V, NE), Vars):-!,
+        q_t_vars(V, TV),        % A bad patch t(X) = X as a quantifier variable.
+        append(TV, Vars, NVars),!,
+        q_apply_subst(E, Subst, NE, NVars).
+
 q_apply_subst(E, Subst, NS, Vars):-
         E=..[t|_],                 % Is it a term t(...) structure.
         \+ member(E, Vars),
@@ -757,6 +762,10 @@ q_apply_subst(E, Subst, AE, Vars):-
         AE=..[Op | AArgs],!.
 
 q_apply_subst(E, _, E, _).
+
+q_t_vars([], []).
+q_t_vars([X|T], [t(X)|TT]):-
+        q_t_vars(T,TT).
 
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
@@ -844,7 +853,7 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_pcf_pp(S,sq).
 
 test(on, 101, '/translate/FM/1', I, [], S):-
-	I='fm a1(x)=b(x,y)<>c(y,x). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.',
+	I='fm a1(y)=(! {y}(b(x,y)<>c(y,x)))&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.',
 	q_tr_command_list(I,[],S),
 	q_do_command_list(S).
 
