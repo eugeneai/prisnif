@@ -961,15 +961,15 @@ main_program([X|T],_):-
         prog([X|T], R),!,
         main_program(R,t).
 
-prog(['-tptp'|R], R):-!,
+prog(['--tptp'|R], R):-!,
         tr,!.
+
+prog(['--test', 'all' |R], R):-
+        test(_),fail; true,!.
 
 prog(['--test', SNum |R], R):-
         number_atom(Num, SNum),!,
         test(Num),fail; true,!.
-
-prog(['--test', 'all' |R], R):-
-        test(_),fail; true,!.
 
 prog(['--tests' |R], R):-
         test(_),fail; true,!.
