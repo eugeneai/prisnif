@@ -750,9 +750,9 @@ q_apply_subst(E, Subst, NE, Vars):-
         q_link(E, NE, Subst), !.
 
 q_apply_subst(E, Subst, AE, Vars):-
-        E=..[Op, Args],
+        E=..[Op | Args],
         q_apply_subst(Args, Subst, AArgs, Vars),!,
-        AE=..[Op, AArgs],!.
+        AE=..[Op | AArgs],!.
 
 q_apply_subst(E, _, E, _).
 
