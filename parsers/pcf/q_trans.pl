@@ -950,6 +950,29 @@ tr:-
         m(PCF),
         q_pcf_print(PCF).
 
+main_program:-
+        current_prolog_flag(argv, [_|L]),!,
+        main_program(L,f).
 
-%:- initialization(tr).
-:- initialization(t).
+main_program([],t):-!.
+main_program([],f):-!,          % Default behaviour
+        t.
+main_program([X|T],_):-
+        prog([X|T], R),!,
+        main_program(R,t).
+
+prog(['-tptp'|R], R):-!,
+        tr,!.
+
+prog(['--test', SNum |R], R):-
+        atom_number(SNum, Num),!,
+        test(Num),fail; true,!.
+
+prog(['--test', 'all' |R], R):-
+        test(_),fail; true,!.
+
+prog(['--tests' |R], R):-
+        test(_),fail; true,!.
+
+
+:- initialization(main_program).
