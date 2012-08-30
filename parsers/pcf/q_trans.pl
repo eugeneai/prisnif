@@ -746,8 +746,10 @@ q_apply_subst(E, Subst, NS, Vars):-
         q_link(S, NS, Subst), !.
 
 q_apply_subst(E, Subst, NE, Vars):-
-        E=..[t|_],!,              % Is it a term t(...) structure.
-        q_link(E, NE, Subst), !.
+        E=..[t,Name|Args],!,              % Is it a term t(...) structure.
+        q_apply_subst(Args, Subst, NArgs, Vars),!,
+        E1=..[t,Name|NArgs],!,
+        q_link(E1, NE, Subst), !.
 
 q_apply_subst(E, Subst, AE, Vars):-
         E=..[Op | Args],
@@ -842,7 +844,7 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_pcf_pp(S,sq).
 
 test(on, 101, '/translate/FM/1', I, [], S):-
-	I='fm a1(x)=b(x,y)<>c(y,x). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a. pp a.',
+	I='fm a1(x)=b(x,y)<>c(y,x). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.',
 	q_tr_command_list(I,[],S),
 	q_do_command_list(S).
 
