@@ -693,24 +693,31 @@ q_do_command_list([C|T]):-
 	q_do_command_list(T).
 
 q_do_command(cmd(show, Exp)):-!,
-        q_link(Exp, LExp, []),
-        q_to_pcf(LExp, Pcf, rd),
+        q_link(Exp, LExp, []),!,
+        q_to_pcf(LExp, Pcf, rd),!,
         q_pcf_print(Pcf),
         nl.
 
 q_do_command(cmd(prisnif, Exp)):-!,
-        q_link(Exp, LExp, []),
-        q_to_pcf(LExp, Pcf, rd),
+        q_link(Exp, LExp, []),!,
+        q_to_pcf(LExp, Pcf, rd),!,
         q_pcf_pp(Pcf),
         nl.
 
 q_do_command(cmd(formula, Term, Exp)):-!,
-        assertz(fol(Term, Exp)),
-        write(Term),
+        assertz(fol(Term, Exp)),!,
+        write(Term),!,
         write(' added.'), nl.
 
 q_do_command(C):-
 	write('Command \''), write(C), write('\' not supported'), nl.
+
+% Interprete a string.
+q_interp(I):-
+	q_tr_command_list(I,[],S),!,
+        write('------>'), write(S),nl,
+	q_do_command_list(S).
+
 
 % linking the formula
 
@@ -793,6 +800,9 @@ test_rd('-(T)', 'False').
 test_rd('-(a>(a>a))', 'False').
 test_rd('a<>a', 'True').
 
+test_fm('fm a1(y)=(! {y}(b(x,y)<>c(y,x)))&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
+test_fm('fm a1(y)=! {y}{b(x,y),c(y,x)}{}&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
+
 test(on, 1, '/translate/lexical', A, L, []) :-
         test1_input(A),
         q_lex_s(A,L).
@@ -852,10 +862,9 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_to_pcf(I, S, rd),
         q_pcf_pp(S,sq).
 
-test(on, 101, '/translate/FM/1', I, [], S):-
-	I='fm a1(y)=(! {y}(b(x,y)<>c(y,x)))&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.',
-	q_tr_command_list(I,[],S),
-	q_do_command_list(S).
+test(on, 101, '/translate/FM/1', I, [], _):-
+	test_fm(I),
+        q_interp(I).
 
 test(N):-
         nl,
