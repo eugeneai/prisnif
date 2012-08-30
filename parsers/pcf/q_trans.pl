@@ -974,5 +974,6 @@ prog(['--test', SNum |R], R):-
 prog(['--tests' |R], R):-
         test(_),fail; true,!.
 
+prog([_|T], T):-!.
 
 :- initialization(main_program).
