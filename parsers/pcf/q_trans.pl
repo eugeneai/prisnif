@@ -965,7 +965,7 @@ prog(['-tptp'|R], R):-!,
         tr,!.
 
 prog(['--test', SNum |R], R):-
-        atom_number(SNum, Num),!,
+        number_atom(Num, SNum),!,
         test(Num),fail; true,!.
 
 prog(['--test', 'all' |R], R):-
