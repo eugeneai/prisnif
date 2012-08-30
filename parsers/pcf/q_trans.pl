@@ -716,8 +716,8 @@ q_do_command(C):-
 
 q_link(t(Name, P1), Exp1, Subst):-
         fol(t(Name,P2), Exp),
-        length(P1, LP1), length(P2, LP2), LP1==LP2,!,
-        q_subst(Subst, P1, P2, NSubst), % P1 instead of P2
+        length(P1, LP), length(P2, LP),!,
+        q_subst(Subst, P1, P2, NSubst),!, % P1 instead of P2
         q_apply_subst(Exp, NSubst, Exp1, []).
 
 q_link(t(Name), Exp1, Subst):-
