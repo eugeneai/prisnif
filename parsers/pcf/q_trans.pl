@@ -693,14 +693,13 @@ q_do_command_list([C|T]):-
 	q_do_command_list(T).
 
 q_do_command(cmd(show, Exp)):-!,
-	% write('SHOW:'),
-        q_link(Exp, LExp),
+        q_link(Exp, LExp, []),
         q_to_pcf(LExp, Pcf, rd),
         q_pcf_print(Pcf),
         nl.
 
 q_do_command(cmd(prisnif, Exp)):-!,
-        q_link(Exp, LExp),
+        q_link(Exp, LExp, []),
         q_to_pcf(LExp, Pcf, rd),
         q_pcf_pp(Pcf),
         nl.
@@ -715,22 +714,33 @@ q_do_command(C):-
 
 % linking the formula
 
-q_link(t(Name, P1), Exp1):-
+q_link(t(Name, P1), Exp1, Subst):-
         fol(t(Name,P2), Exp),
         length(P1, LP1), length(P2, LP2), LP1==LP2,!,
-        q_subst(P1, P2, Subst), % P1 instead of P2
-        write('Ok'),nl,
-%        trace,
-        q_apply_subst(Exp, Subst, Exp1, []),
-%        notrace,
-        write(Exp1), nl.
+        q_subst(Subst, P1, P2, NSubst), % P1 instead of P2
+        q_apply_subst(Exp, NSubst, Exp1, []).
 
-q_subst([], [], []):-!.
-q_subst([X|T], [X1|T1], [X1-X|R]):-
-        q_subst(T, T1, R).
+q_link(t(Name), Exp1, Subst):-
+        fol(t(Name), Exp),!,
+        q_apply_subst(Exp, Subst, Exp1, []).
+
+q_link(F,F):-
+        write('Error: Formula \''),
+        write(F), write('\' not found.'),nl.
+
+q_subst([], [], [], []):-!.
+q_subst([], [X|T], [X1|T1], [X1-X|R]):-!,
+        q_subst([], T, T1, R).
+q_subst([X|T], I1, I2, [X|R]):-!,
+        q_subst(T, I1, I2, R).
+
+% Now the lists.
+q_apply_subst([], _, [], _):-!.
+q_apply_subst([X|T], Subst, [AX|AT], Vars):-
+        q_apply_subst(X, Subst, AX, Vars),!,
+        q_apply_subst(T, Subst, AT, Vars),!.
 
 q_apply_subst(E, Subst, S, Vars):-
-        % E=t(Name),
         \+ member(E, Vars),
         member(E-S, Subst),!.
 
@@ -739,17 +749,12 @@ q_apply_subst(E, Subst, t(Name, AArgs), Vars):-
         \+ member(E, Vars),!,
         q_apply_subst(Args, Subst, AArgs, Vars).
 
-q_apply_subst(imp(A, B), Subst, imp(AA, AB), Vars):-
-        q_apply_subst(A, Subst, AA, Vars),!,
-        q_apply_subst(B, Subst, AB, Vars),!.
+q_apply_subst(E, Subst, AE, Vars):-
+        E=..[Op, Args],
+        q_apply_subst(Args, Subst, AArgs, Vars),!,
+        AE=..[Op, AArgs],!.
 
-% Now the lists.
-q_apply_subst([], _, [], _):-!.
-q_apply_subst([X|T], Subst, [AX|AT], Vars):-
-        q_apply_subst(X, Subst, AX, Vars),!,
-        q_apply_subst(T, Subst, AT, Vars),!.
-
-q_apply_subst(E, Subst, E, _).
+q_apply_subst(E, _, E, _).
 
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
@@ -837,7 +842,7 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_pcf_pp(S,sq).
 
 test(on, 101, '/translate/FM/1', I, [], S):-
-	I='fm a(x)=b(x,y)>c(y,x). sw a(c). pp a(c).',
+	I='fm a1(x)=b(x,y)<>c(y,x). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a. pp a.',
 	q_tr_command_list(I,[],S),
 	q_do_command_list(S).
 
