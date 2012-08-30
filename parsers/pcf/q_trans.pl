@@ -724,15 +724,14 @@ q_link(t(Name), Exp1, Subst):-
         fol(t(Name), Exp),!,
         q_apply_subst(Exp, Subst, Exp1, []).
 
-q_link(F,F):-
-        write('Error: Formula \''),
-        write(F), write('\' not found.'),nl.
+q_link(F,F, _).
 
 q_subst([], [], [], []):-!.
 q_subst([], [X|T], [X1|T1], [X1-X|R]):-!,
         q_subst([], T, T1, R).
-q_subst([X|T], I1, I2, [X|R]):-!,
-        q_subst(T, I1, I2, R).
+q_subst([X|T], I1, I2, NR):-!,
+        q_subst([], I1, I2, R),!,
+        append(R, [X|T], NR). % Old substitutions should be fartherst.
 
 % Now the lists.
 q_apply_subst([], _, [], _):-!.
@@ -740,14 +739,15 @@ q_apply_subst([X|T], Subst, [AX|AT], Vars):-
         q_apply_subst(X, Subst, AX, Vars),!,
         q_apply_subst(T, Subst, AT, Vars),!.
 
-q_apply_subst(E, Subst, S, Vars):-
+q_apply_subst(E, Subst, NS, Vars):-
+        E=..[t|_],                 % Is it a term t(...) structure.
         \+ member(E, Vars),
-        member(E-S, Subst),!.
+        member(E-S, Subst), !,
+        q_link(S, NS, Subst), !.
 
-q_apply_subst(E, Subst, t(Name, AArgs), Vars):-
-        E=t(Name,Args),
-        \+ member(E, Vars),!,
-        q_apply_subst(Args, Subst, AArgs, Vars).
+q_apply_subst(E, Subst, NE, Vars):-
+        E=..[t|_],!,              % Is it a term t(...) structure.
+        q_link(E, NE, Subst), !.
 
 q_apply_subst(E, Subst, AE, Vars):-
         E=..[Op, Args],
