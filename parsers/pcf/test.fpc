@@ -1,0 +1,16 @@
+#!./atp
+
+# Transitivity from Chang-Lee
+set trace 10
+
+fm a1=a:x[p(x,e(),x),p(e(),x,x)];
+fm a2=a:x[p(x,x,e())];
+fm a3=a:x,y,z,w,u,v[p(x,y,w),p(w,z,u), p(y,z,v) > p(x,v,u)];
+fm r=a:x,y,v[p(x,y,v),p(y,x,v)];
+
+fm teo=a1&a2&a3>r;
+fm nteo=^teo;
+
+set trace 10
+
+pr nteo;

@@ -5,7 +5,7 @@ q_syn_error(Error, _, _):-
 
 q_formula(F) -->
         q_pcf_formula(F) ;
-         q_ip_formula(F).
+        q_ip_formula(F).
 
 q_ip_quant(ip_q(S,L,I)) -->
         q_quant_sign(S),
@@ -111,16 +111,43 @@ q_term_list([T|L]) -->
 q_term_list([T]) -->
 	q_term(T).
 
-q_lex(Stream, L) :-
+q_lex(Stream, L):-
+        open_output_atom_stream(OStream),!,
+        q_clean_stream(Stream,OStream),!,
+        close_output_atom_stream(OStream, O),!,
+        write('Processed stream:'),nl,
+        write(O), nl,
+        open_input_atom_stream(O, IStream),!,
+        q_lex1(IStream, L).
+
+q_lex1(Stream, L) :-
         read_token(Stream, Term),!,
         (
            Term=punct(end_of_file),
            L=[],!;
            !,
            q_conv_lex(Term, T),
-           q_lex(Stream, Tail),
+           q_lex1(Stream, Tail),
            app(T, Tail, L)
         ).
+
+q_clean_stream(I,O):-
+        q_clean_stream(I,O,false).
+
+q_clean_stream(I, O, Comment):-
+        get_char(I, C),
+        (
+         C=end_of_file -> true;
+         C='\n' -> write(O, '#new_line\n'),
+               q_clean_stream(I,O, false);
+         C='#' -> write(O, ' '),
+               q_clean_stream(I,O, true);
+         Comment=true -> write(O, ' '),
+               q_clean_stream(I,O, true);
+         write(O, C),
+               q_clean_stream(I,O, false)
+        ).
+
 
 app([], L, L).
 app([X|L1], L2, [X|L3]):-
@@ -679,8 +706,11 @@ q_command_list([C|T]) --> q_command(C),  q_command_end, q_command_list(T).
 q_command(cmd(show, Param)) --> [sw], q_command_show(Param).
 q_command(cmd(prisnif, Param)) --> [pp], q_command_show(Param).
 q_command(cmd(formula, T, Exp)) --> [fm], q_command_fm(T, Exp).
+q_command(cmd(input, Atom)) --> [i], q_name(Atom).
 
 q_command_end --> [full_stop].
+q_command_end --> [';'].
+q_command_end --> ['.'].
 
 q_command_show(P) --> q_formula(P).
 q_command_fm(P, Exp) --> q_term(P), ['='], q_formula(Exp).
@@ -709,13 +739,19 @@ q_do_command(cmd(formula, Term, Exp)):-!,
         write(Term),!,
         write(' added.'), nl.
 
+q_do_command(cmd(input, Atom)):-!,
+        open(Atom, read, Stream,[]),!,
+        q_lex(Stream, Lex),!,
+        close(Stream),!,
+        q_tr_command_list(Lex, [], _),
+        format('Input success for \'~a\'.~n',[Atom]).
+
 q_do_command(C):-
 	write('Command \''), write(C), write('\' not supported'), nl.
 
 % Interprete a string.
 q_interp(I):-
 	q_tr_command_list(I,[],S),!,
-        write('------>'), write(S),nl,
 	q_do_command_list(S).
 
 
@@ -777,7 +813,7 @@ q_t_vars([X|T], [t(X)|TT]):-
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
 
-test1_input('v(x,y,z), K(v), p(K(v)), P{}[]$!@#$^&*(), a^b, a>b, a&b').
+test1_input('v(x,y,z), K(v), p(K(v)), P{}[]$!@#$^&*(), a^b, a>b, a&b.;').
 test2_conjunct('{p(x),p(y),p(f(x),g(x,y))}').
 test2_conjunct('{}').
 test2_conjunct('').
@@ -801,7 +837,8 @@ test_rd('-(a>(a>a))', 'False').
 test_rd('a<>a', 'True').
 
 test_fm('fm a1(y)=(! {y}(b(x,y)<>c(y,x)))&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
-test_fm('fm a1(y)=! {y}{b(x,y),c(y,x)}{}&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
+% test_fm('fm a1(y)=! {y}{b(x,y),c(y,x)}{}&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
+test_fm('i \'test.fpc\'.').
 
 test(on, 1, '/translate/lexical', A, L, []) :-
         test1_input(A),
