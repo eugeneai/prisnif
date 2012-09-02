@@ -320,7 +320,7 @@ class GTerm{
 					foreach(i,subt;tq.args){
 						Answer subanswer = subt.matching(tb.args[i]);
 						if(subanswer is null){
-							answer.reset(); 
+							answer.reset_full(); 
 							return null;
 						}
 						else{
@@ -350,7 +350,7 @@ class GTerm{
 				foreach(i,subt;tq.args){
 					Answer subanswer = subt.matching(newt.args[i]);
 					if(subanswer is null){
-						answer.reset(); 
+						answer.reset_full(); 
 						return null;
 					}
 					else{
@@ -374,7 +374,7 @@ class GTerm{
 						Answer subanswer = subt.matching(tb.args[i]);
 						if(subanswer is null){ 
 							//writeln("atom null");
-							answer.reset();
+							answer.reset_full();
 							return null;
 						}
 						else{

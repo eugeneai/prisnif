@@ -25,12 +25,21 @@ class Answer{
 		is_applied = true;
 	}
 	
+	//простой ресет. не ресетит НЭЭ. Применяется для ресета после шага вывода.
 	void reset(){
 		foreach(b;binds){
 			b.reset();
 		}	
 		is_applied = false;
 	}
+
+	//полный ресет. вместе с НЭЭ. Применяется после неудачной попытки унификации.
+	void reset_full(){
+		foreach(b;binds){
+			b.reset_full();
+		}	
+		is_applied = false;
+	}	
 	
 	/*Добавить биндинг*/
 	void add_binding(Binding b){
@@ -159,6 +168,13 @@ class Binding{
 			left.sub_zero(null);
 		is_applied = false;
 	}
+
+	/*полный reset вместе с НЭЭ*/
+	void reset_full(){
+		left.sub_zero(null);
+		is_applied = false;
+	}
+
 	
 	string to_string(){
 		string s;
