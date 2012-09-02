@@ -9,7 +9,7 @@ q_trans: q_trans.pl
 	#$(GPLC) $< -o $@
 
 test: all
-	./q_trans
+	./q_trans --tests
 
 clean:
 	rm ./q_trans

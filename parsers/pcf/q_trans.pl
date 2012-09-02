@@ -1,10 +1,11 @@
+:-dynamic(fol/2).
 
 q_syn_error(Error, _, _):-
         syntax_error_info('<input>', 0, 0, Error).
 
 q_formula(F) -->
         q_pcf_formula(F) ;
-         q_ip_formula(F).
+        q_ip_formula(F).
 
 q_ip_quant(ip_q(S,L,I)) -->
         q_quant_sign(S),
@@ -110,16 +111,43 @@ q_term_list([T|L]) -->
 q_term_list([T]) -->
 	q_term(T).
 
-q_lex(Stream, L) :-
+q_lex(Stream, L):-
+        open_output_atom_stream(OStream),!,
+        q_clean_stream(Stream,OStream),!,
+        close_output_atom_stream(OStream, O),!,
+        write('Processed stream:'),nl,
+        write(O), nl,
+        open_input_atom_stream(O, IStream),!,
+        q_lex1(IStream, L).
+
+q_lex1(Stream, L) :-
         read_token(Stream, Term),!,
         (
            Term=punct(end_of_file),
            L=[],!;
            !,
            q_conv_lex(Term, T),
-           q_lex(Stream, Tail),
+           q_lex1(Stream, Tail),
            app(T, Tail, L)
         ).
+
+q_clean_stream(I,O):-
+        q_clean_stream(I,O,false).
+
+q_clean_stream(I, O, Comment):-
+        get_char(I, C),
+        (
+         C=end_of_file -> true;
+         C='\n' -> write(O, '#new_line\n'),
+               q_clean_stream(I,O, false);
+         C='#' -> write(O, ' '),
+               q_clean_stream(I,O, true);
+         Comment=true -> write(O, ' '),
+               q_clean_stream(I,O, true);
+         write(O, C),
+               q_clean_stream(I,O, false)
+        ).
+
 
 app([], L, L).
 app([X|L1], L2, [X|L3]):-
@@ -474,6 +502,9 @@ write_l([X|T]):-!,
 
 % Prisnif print.
 
+q_pcf_pp(A):-
+        q_pcf_pp(A,0).
+
 q_pcf_pp(q(S,X,T,L), N):-!,
         nl,q_tabs(N),write(S),
         write('['),write_l(X),write(']'),
@@ -673,11 +704,15 @@ q_command_list([C]) --> q_command(C),  q_command_end.
 q_command_list([C|T]) --> q_command(C),  q_command_end, q_command_list(T).
 
 q_command(cmd(show, Param)) --> [sw], q_command_show(Param).
+q_command(cmd(prisnif, Param)) --> [pp], q_command_show(Param).
 q_command(cmd(formula, T, Exp)) --> [fm], q_command_fm(T, Exp).
+q_command(cmd(input, Atom)) --> [i], q_name(Atom).
 
 q_command_end --> [full_stop].
+q_command_end --> [';'].
+q_command_end --> ['.'].
 
-q_command_show(P) --> q_term(P).
+q_command_show(P) --> q_formula(P).
 q_command_fm(P, Exp) --> q_term(P), ['='], q_formula(Exp).
 
 %-------------------------------------------------------------
@@ -687,18 +722,98 @@ q_do_command_list([C|T]):-
 	q_do_command(C),
 	q_do_command_list(T).
 
-q_do_command(cmd(show, Param)):-!,
-	write('SHOW:'),
-	write(Param), nl.
+q_do_command(cmd(show, Exp)):-!,
+        q_link(Exp, LExp, []),!,
+        q_to_pcf(LExp, Pcf, rd),!,
+        q_pcf_print(Pcf),
+        nl.
 
-q_do_command(_):-
-	write('Command not supported'), nl.
+q_do_command(cmd(prisnif, Exp)):-!,
+        q_link(Exp, LExp, []),!,
+        q_to_pcf(LExp, Pcf, rd),!,
+        q_pcf_pp(Pcf),
+        nl.
 
+q_do_command(cmd(formula, Term, Exp)):-!,
+        assertz(fol(Term, Exp)),!,
+        write(Term),!,
+        write(' added.'), nl.
+
+q_do_command(cmd(input, Atom)):-!,
+        open(Atom, read, Stream,[]),!,
+        q_lex(Stream, Lex),!,
+        close(Stream),!,
+        q_tr_command_list(Lex, [], _),
+        format('Input success for \'~a\'.~n',[Atom]).
+
+q_do_command(C):-
+	write('Command \''), write(C), write('\' not supported'), nl.
+
+% Interprete a string.
+q_interp(I):-
+	q_tr_command_list(I,[],S),!,
+	q_do_command_list(S).
+
+
+% linking the formula
+
+q_link(t(Name, P1), Exp1, Subst):-
+        fol(t(Name,P2), Exp),
+        length(P1, LP), length(P2, LP),!,
+        q_subst(Subst, P1, P2, NSubst),!, % P1 instead of P2
+        q_apply_subst(Exp, NSubst, Exp1, []).
+
+q_link(t(Name), Exp1, Subst):-
+        fol(t(Name), Exp),!,
+        q_apply_subst(Exp, Subst, Exp1, []).
+
+q_link(F,F, _).
+
+q_subst([], [], [], []):-!.
+q_subst([], [X|T], [X1|T1], [X1-X|R]):-!,
+        q_subst([], T, T1, R).
+q_subst([X|T], I1, I2, NR):-!,
+        q_subst([], I1, I2, R),!,
+        append(R, [X|T], NR). % Old substitutions should be fartherst.
+
+% Now the lists.
+q_apply_subst([], _, [], _):-!.
+q_apply_subst([X|T], Subst, [AX|AT], Vars):-
+        q_apply_subst(X, Subst, AX, Vars),!,
+        q_apply_subst(T, Subst, AT, Vars),!.
+
+q_apply_subst(ip_q(S, V, E), Subst, ip_q(S, V, NE), Vars):-!,
+        q_t_vars(V, TV),        % A bad patch t(X) = X as a quantifier variable.
+        append(TV, Vars, NVars),!,
+        q_apply_subst(E, Subst, NE, NVars).
+
+q_apply_subst(E, Subst, NS, Vars):-
+        E=..[t|_],                 % Is it a term t(...) structure.
+        \+ member(E, Vars),
+        member(E-S, Subst), !,
+        q_link(S, NS, Subst), !.
+
+q_apply_subst(E, Subst, NE, Vars):-
+        E=..[t,Name|Args],!,              % Is it a term t(...) structure.
+        q_apply_subst(Args, Subst, NArgs, Vars),!,
+        E1=..[t,Name|NArgs],!,
+        q_link(E1, NE, Subst), !.
+
+q_apply_subst(E, Subst, AE, Vars):-
+        E=..[Op | Args],
+        q_apply_subst(Args, Subst, AArgs, Vars),!,
+        AE=..[Op | AArgs],!.
+
+q_apply_subst(E, _, E, _).
+
+q_t_vars([], []).
+q_t_vars([X|T], [t(X)|TT]):-
+        q_t_vars(T,TT).
 
 % -----------------------------------------------------------------------------------------------------------
 % Functional tests
 
-test1_input('v(x,y,z), K(v), p(K(v)), P{}[]$!@#$^&*(), a^b, a>b, a&b').
+test1_input('v(x,y,z), K(v), p(K(v)), P{}[]$!@#$^&*(), a^b, a>b, a&b.;').
 test2_conjunct('{p(x),p(y),p(f(x),g(x,y))}').
 test2_conjunct('{}').
 test2_conjunct('').
@@ -720,6 +835,10 @@ test_rd('-(a>b)','a&-b').
 test_rd('-(T)', 'False').
 test_rd('-(a>(a>a))', 'False').
 test_rd('a<>a', 'True').
+
+test_fm('fm a1(y)=(! {y}(b(x,y)<>c(y,x)))&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
+% test_fm('fm a1(y)=! {y}{b(x,y),c(y,x)}{}&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
+test_fm('i \'test.fpc\'.').
 
 test(on, 1, '/translate/lexical', A, L, []) :-
         test1_input(A),
@@ -780,10 +899,9 @@ test(on, 10, '/TPTP/po-conversion/1', I, nil, S):-
         q_to_pcf(I, S, rd),
         q_pcf_pp(S,sq).
 
-test(on, 101, '/translate/FM/1', I, O, S):-
-	I='fm a(x)=a>b. sw a(c).',
-	q_tr_command_list(I,O,S),
-	q_do_command_list(S).
+test(on, 101, '/translate/FM/1', I, [], _):-
+	test_fm(I),
+        q_interp(I).
 
 test(N):-
         nl,
@@ -869,5 +987,30 @@ tr:-
         m(PCF),
         q_pcf_print(PCF).
 
+main_program:-
+        current_prolog_flag(argv, [_|L]),!,
+        main_program(L,f).
 
-:- initialization(tr).
+main_program([],t):-!.
+main_program([],f):-!,          % Default behaviour
+        t.
+main_program([X|T],_):-
+        prog([X|T], R),!,
+        main_program(R,t).
+
+prog(['--tptp'|R], R):-!,
+        tr,!.
+
+prog(['--test', 'all' |R], R):-
+        test(_),fail; true,!.
+
+prog(['--test', SNum |R], R):-
+        number_atom(Num, SNum),!,
+        test(Num),fail; true,!.
+
+prog(['--tests' |R], R):-
+        test(_),fail; true,!.
+
+prog([_|T], T):-!.
+
+:- initialization(main_program).
