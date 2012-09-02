@@ -125,7 +125,7 @@ class GTerm{
 	bool is_twin_h(GTerm t){
 		GTerm tthis = get_value();
 		GTerm t2 = t.get_value();
-		if(tthis.is_uhe() && t2.is_uhe()) return true;
+		if(tthis.is_uhe() && t2.is_uhe()) return false;
 		return tthis.is_twin(t2);		
 	}
 	

@@ -50,7 +50,7 @@ class Supervisor{
 				break;
 			}
 			if(!is_all_refuted){
-				//print();
+				print();
 			}else{
 				writeln("FORMULA IS REFUTED!");
 				break;	
