@@ -42,6 +42,10 @@ class GTerm{
 				int r = to!int(t.args[0].reduce().symbol.name) + to!int(t.args[1].reduce().symbol.name);
 				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
 			}
+			if(t.symbol.name=="-"){
+				int r = to!int(t.args[0].reduce().symbol.name) - to!int(t.args[1].reduce().symbol.name);
+				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
+			}			
 			if(t.symbol.name=="*"){
 				int r = to!int(t.args[0].reduce().symbol.name) * to!int(t.args[1].reduce().symbol.name);
 				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
