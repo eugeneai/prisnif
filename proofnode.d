@@ -72,6 +72,7 @@ class ProofNode{
 
 	/*Search subanswers for all question from proof node*/
 	void search_subanswers(){
+		//writeln("search...");
 		//поиска для старых вопросов только по текущей базе узла
 		for(int i=0;i<oldquestions_size;i++){
 			PNode!(GTerm) curr = base.first;
@@ -104,6 +105,7 @@ class ProofNode{
 				curr = curr.next;
 			}			
 		}
+		//writeln("..end");
 	}
 
 	//ВЫБОР ВОПРОСА
@@ -122,8 +124,10 @@ class ProofNode{
 		Answer a;
 		while(k>0){
 			q = select_question();
+			//writeln("question selected");
 			if(q is null) return null;
 			a = q.retrieve_answer();
+			//writeln("answer retrieved");
 			if(a is null){
 				k--;
 			}else break;
@@ -135,7 +139,7 @@ class ProofNode{
 			return new ProofNode[0];
 		}
 	
-		//q.print();
+		q.print();
 		a.apply();
 		a.print();
 		//-----------

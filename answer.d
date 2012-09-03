@@ -9,10 +9,16 @@ class Answer{
 	//Binding[] binds;
 	Binding[GTerm] binds;
 	bool is_applied;
+
+	bool fict = false;
 	
 	this(){
 		is_applied = false;
 	}
+	this(bool _fict){
+		is_applied = false;
+		fict = _fict;
+	}	
 	
 	bool is_empty(){
 		if(binds.length==0) return true; else return false;

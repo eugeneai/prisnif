@@ -42,15 +42,19 @@ class Question{
 
 	Answer retrieve_answer(){
 		startr:
+		//writeln("start retrieve");
 		Answer ans = qd.retrieve_next_answer();
+		//writeln("next retrieved");
 		if(ans is null) {
 			return null;
 		}
 		ans.add_answer(af.vars.get_unconfined_answers());
+		//writeln("cont: ");
 		//ans.print();
+		//qd.answers.print();
 		//if (false){
 		if(is_contains_answer(ans)){
-			if(ans.is_empty()) return null;
+			if(ans.fict) return null;
 			writeln("contains");
 			//print();
 			//ans.print();
@@ -92,6 +96,7 @@ class Question{
 /*----------------------------------------------------*/
 /*questions data: base of answers*/
 class QData{
+	static int obr = 0;
 	PChunk!(Answer)[] subanswers;//чанк ответов для каждого атома
 	PChunk!(Answer) answers;//чанк полных ответов
 	//aindex это текущая выборка возможных подответов.
@@ -227,16 +232,30 @@ class QData{
 	}
 
 	Answer retrieve_next_answer(){
+		obr++;
+		int obr2 = 0;
 		//writeln("QData: retrieve_next_answer: [start]");
 		if(aindex.length>0){
 			if(!is_ready()) return null;
 			start:
+			obr2++;
 			next_aindex();
 			next_hvalid();
 			if(overflow) return null;
 			Answer ans = new Answer();
+			/*foreach(ind,i;subanswers){
+				writeln(ind," :");
+				i.print();
+			}*/
+			//writeln("bound: ",get_aindex_bound());
+			if(obr2 % 500000 == 0)writeln("aindex: ",aindex);
+			//writeln("aindex: ",aindex);
+			//writeln(obr);
 			foreach(i,ind;aindex){
+				//writeln("size: ",subanswers[i].size);
 				Answer ans2 = subanswers[i].get_by_number(ind);
+				//ans.print();
+				//if(ans2 is null) writeln("null"); else ans2.print();
 				ans = Answer.combine(ans,ans2);
 				if(ans is null){
 					//writeln("ans is null");
@@ -250,7 +269,7 @@ class QData{
 			//} 
 		}else{
 			//writeln("catch");
-			return new Answer();
+			return new Answer(true);
 		}
 	}	
 }
