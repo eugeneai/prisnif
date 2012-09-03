@@ -1,0 +1,111 @@
+% - ISDCT SB RAS Dissertation package -----
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                         \refstepcounter{chapter}%
+                         \typeout{\@chapapp\space\thechapter.}%
+                         \addcontentsline{toc}{chapter}%
+                                   {\protect\@chapapp\ \protect\numberline{\thechapter}#1}%
+                    \else
+                      \addcontentsline{toc}{chapter}{#1}%
+                    \fi
+                    \chaptermark{#1}%
+                    \addtocontents{lof}{\protect\addvspace{10\p@}}%
+                    \addtocontents{lot}{\protect\addvspace{10\p@}}%
+                    \if@twocolumn
+                      \@topnewpage[\@makechapterhead{#2}]%
+                    \else
+                      \@makechapterhead{#2}%
+                      \@afterheading
+                    \fi}
+\def\@makechapterhead#1{%
+  \vspace*{30\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \Large\bfseries \@chapapp\space \thechapter{}\space
+        \nobreak
+    \fi
+    \interlinepenalty\@M
+    \Large \bfseries #1\par\nobreak
+    \vskip 20\p@
+  }}
+
+\def\@schapter#1{\if@twocolumn
+                   \@topnewpage[\@makeschapterhead{#1}]%
+                 \else
+                   \@makeschapterhead{#1}%
+                   \@afterheading
+                 \fi
+                 \addcontentsline{toc}{chapter}{#1}%
+}
+\def\@sschapter#1{\if@twocolumn
+                   \@topnewpage[\@makeschapterhead{#1}]%
+                 \else
+                   \@makeschapterhead{#1}%
+                   \@afterheading
+                 \fi
+}
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \@sschapter{\contentsname
+        \@mkboth{%
+           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    }
+
+\def\@makeschapterhead#1{%
+  \vspace*{30\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Large \bfseries  #1\par\nobreak
+    \vskip 20\p@
+  }}
+
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\large\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+
+\renewcommand \thepart {\@Roman\c@part}
+\renewcommand \thechapter {\@arabic\c@chapter.}
+\renewcommand \thesection {\thechapter\@arabic\c@section.}
+\renewcommand\thesubsection   {\thesection\@arabic\c@subsection.}
+\renewcommand\thesubsubsection{\thesubsection\@arabic\c@subsubsection.}
+\renewcommand\theparagraph    {\thesubsubsection\@arabic\c@paragraph.}
+\renewcommand\thesubparagraph {\theparagraph\@arabic\c@subparagraph.}
+\renewcommand \thefigure
+     {\ifnum \c@chapter>\z@ \thechapter\fi \@arabic\c@figure.}
+\renewcommand \thetable
+     {\ifnum \c@chapter>\z@ \thechapter\fi \@arabic\c@table.}
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1 #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1 #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                    {3.25ex \@plus1ex \@minus.2ex}%
+                                    {-1em}%
+                                    {\normalfont\normalsize\bfseries}}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "dis"
+%%% End: 
