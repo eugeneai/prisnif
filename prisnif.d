@@ -32,13 +32,26 @@ class Prover{
 		writeln("Time: ",dt/10000000.0,"s.");		
 		writeln("================================");
 	}
+
+	void uncoTest(){
+		foreach (string name; dirEntries("parsers/tptp/tasks.out", SpanMode.breadth)) { 
+			//writeln(name);
+			ParserHu ph = new ParserHu();
+			ph.parseFromFile(name);
+			if(!ph.unco())writeln(name,": Ok.");
+		}
+	}
 	
 }
 
 
 /*================ MAIN ================*/
 void main(string args[]){
-	Prover p = new Prover();				
-	p.start(args[1],to!int(args[2]));
+	Prover p = new Prover();
+	if (args[1]=="z"){
+		p.uncoTest();
+	} else{
+		p.start(args[1],to!int(args[2]));
+	}
 
 }

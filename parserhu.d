@@ -21,6 +21,12 @@ class ParserHu{
 	
 	SymbolTable st;
 	
+	bool uncoflag = false;
+	bool unco(){
+		return uncoflag;
+	}
+
+
 	this(){
 		st = new SymbolTable();
 	}
@@ -200,7 +206,9 @@ class ParserHu{
 		
 		af.efs = parse_EFList(afstr3[left..right+1],vl);//!!!
 		
-		af.set_unconfined_vars();//устанавливаем открытые переменные
+		bool flag8 = false;
+		flag8 = af.set_unconfined_vars();//устанавливаем открытые переменные
+		if(flag8) uncoflag = true; 
 		af.set_is_goal();//целевой ли это вопрос
 		//af.addEmptyAnswer();
 		

@@ -70,7 +70,7 @@ class Supervisor{
 	//step of inference
 	bool step(){
 		ProofNode[] newleafs = leafs[0].answer_the_question(); 
-		if(newleafs is null && leafs[0].is_refuted==false) return false;
+		//if(newleafs is null && leafs[0].is_refuted==false) return false;
 		if(leafs[0].is_refuted==true) refuted_base_count++;
 		leafs = newleafs~leafs[1..$];
 		return true;
@@ -79,5 +79,11 @@ class Supervisor{
 	//--------------------------------
 	bool is_all_refuted(){
 		if(leafs.length==0) return true; else return false;
+	}
+
+	//---------------------------------
+	void analize(){
+
+
 	}
 }

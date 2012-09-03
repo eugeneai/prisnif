@@ -143,7 +143,8 @@ class AFormula{
 	}
 
 	/*set unconfined variables*/
-	void set_unconfined_vars(){
+	bool set_unconfined_vars(){
+		bool flag8 = false;
 		foreach(i,v;vars.vars){
 			//writeln("0");
 			if(!conjunct.is_contains(v)){
@@ -151,8 +152,10 @@ class AFormula{
 				//writeln("1");
 				vars.unconfined_vars~=[v];
 				//writeln("2");
+				flag8 = true;
 			}
 		}
+		return flag8;
 	}
 
 	void set_is_goal(){
@@ -226,6 +229,10 @@ class QVars{
 
 	GTerm[] unconfined_vars;//неограниченные переменные
 
+
+	bool unc(){
+		if (unconfined_vars.length==0) return false; else return true; 
+	}
 
 	this(){
 		vars = new GTerm[0];
