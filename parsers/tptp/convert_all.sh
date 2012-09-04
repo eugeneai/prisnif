@@ -11,12 +11,36 @@ q_tr="GLOBALSZ=1500000 gprolog < tr_s.pl"
 
 prg="./hotptp-yl-parser-verbose"
 
-# Remove all old resulting files.
+usage()
+{
+cat << EOF
+usage: $0 options
 
-#Do not remove old files from output directory
-#cd $outdir
-#rm *
-#cd - > /dev/null
+This script converts som or all files in TPTP/TPTP/Problems/...
+directories into tasks.out directory.
+
+OPTIONS:
+   -e      Remove old tasks in tasks.out.
+   -h      This help message.
+EOF
+}
+
+while getopts “r” OPTION
+do
+     case $OPTION in
+         r)
+             #Remove old files from output directory
+             cd $outdir
+             rm *
+             cd - > /dev/null
+
+             ;;
+         h)
+             usage
+             exit
+             ;;
+     esac
+done
 
 # prune the log file and output file.
 
