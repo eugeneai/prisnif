@@ -1,0 +1,19 @@
+In order to use convert_all.sh utility a paramter should be passed.
+The parameter has the following form:
+<Directory inside ./TPTP/TPTP/Problems directory>/[<Part of file name to be converted>]
+e.g.
+./convert_all.sh ALG/ALG045
+will convert
+file ALG/ALG045+.p
+So the second optional part of the parameter is the beginning part of file name and
+its directory  [ALG/ALG045]+.p.
+
+The ./TPTP/TPTP direcory is installed as follows:
+1. Create ./TPTP in the directory, where convert_all.sh resides: mkdir TPTP
+2. Change the TPTP directory into and unpack prevously downloaded TPTP-XXX.tar.gz archive
+3. ln -s <the created directory after unpacking> TPTP
+
+Evgeny Cherkashin
+
+
+TODO: Support include command.

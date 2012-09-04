@@ -1,6 +1,6 @@
 #!/bin/bash
 
-indir=tasks.in
+indir=TPTP/TPTP/Problems
 outdir=tasks.out
 tmp=tmp_ast.txt
 pcf=../pcf
@@ -22,12 +22,12 @@ cd - > /dev/null
 echo > $log
 echo > $out
 
-for file in $indir/$1*.*
+for file in $indir/$1*+*.*
 do
     fb=$(basename $file)
-    echo "Processing $fb."
+    echo "Processing $indir/$fb."
     fo="$outdir/$fb"
-    
+
     $prg < $file > $tmp
     if [ "$?" = "0" ]; then
 	echo "Phase one is Ok $file" >> $log
