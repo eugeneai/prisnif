@@ -256,13 +256,15 @@ q_r(disj(L), t('True')):-
         member(neg(A), L),
         !.
 
+/*
 q_r(q(e, A,ZA, F), q(e, NA,NZA, NF)):-
         member(q(a,[],[], [R]),F),!,
         q_remove_in(F, q(a, [],[], [R]), F1),
         R=q(e, B, ZB, FBs),
         append(A,B, NA),
-        append(ZA,ZB, NZA),
+        append(ZA,ZB, NZA), % TODO: Rename added variables and apply following substitution.
         append(F1, FBs, NF).
+*/
 
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
