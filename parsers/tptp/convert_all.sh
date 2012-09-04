@@ -13,9 +13,10 @@ prg="./hotptp-yl-parser-verbose"
 
 # Remove all old resulting files.
 
-cd $outdir
-rm *
-cd - > /dev/null
+#Do not remove old files from output directory
+#cd $outdir
+#rm *
+#cd - > /dev/null
 
 # prune the log file and output file.
 
