@@ -8,6 +8,11 @@ file ALG/ALG045+.p
 So the second optional part of the parameter is the beginning part of file name and
 its directory  [ALG/ALG045]+.p.
 
+Also the following example shows how to convert all ALG*+*.p files in all the
+Problem's subdirectories:
+./convert_all.sh */ALG
+
+
 The ./TPTP/TPTP direcory is installed as follows:
 1. Create ./TPTP in the directory, where convert_all.sh resides: mkdir TPTP
 2. Change the TPTP directory into and unpack prevously downloaded TPTP-XXX.tar.gz archive

@@ -432,6 +432,9 @@ q_to_pcf_e_e(disj(L), [], [F]):-!,
 q_to_pcf_e_e(neg(A), [], [F]):-!,
         q_to_pcf_a(neg(A), F).
 
+q_to_pcf_e_e(ip_q(S,L,I), [], [F]):-!,
+        q_to_pcf_a(ip_q(S,L,I), F).
+
 q_to_pcf_e_e(A, [A], []). % The only terminal leave
 
 % writing pcfs
