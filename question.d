@@ -49,9 +49,12 @@ class Question{
 			return null;
 		}
 		ans.add_answer(af.vars.get_unconfined_answers());
-		//writeln("cont: ");
-		//ans.print();
-		//qd.answers.print();
+
+		writeln("====cont====");
+		print();
+		ans.print();
+		qd.answers.print();
+		writeln("====end cont====");
 		//if (false){
 		if(is_contains_answer(ans)){
 			if(ans.fict) return null;

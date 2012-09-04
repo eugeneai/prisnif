@@ -64,6 +64,7 @@ class Supervisor{
 			writeln(refuted_base_count," bases are refuted.");
 		}else{
 			writeln("FAIL! ",maxsteps-k+1," steps.");
+			writeln("Bases: ",leafs.length);
 		}
 	}
 
