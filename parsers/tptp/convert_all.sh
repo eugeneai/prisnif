@@ -1,11 +1,16 @@
 #!/bin/bash
 
-indir=TPTP/TPTP/Problems
+tptpdir=TPTP/TPTP
+indir="$tptpdir/Problems"
 outdir=tasks.out
-tmp=tmp_ast.txt
 pcf=../pcf
+
+tmp=tmp_ast.txt
 log="conversion.log"
 out="conv_out.txt"
+
+TPTP4X_PRG="Scripts/tptp4X"
+TPTP4X="$tptpdir/$TPTP4X_PRG"
 
 q_tr="GLOBALSZ=1500000 gprolog < tr_s.pl"
 
@@ -25,7 +30,7 @@ OPTIONS:
 EOF
 }
 
-while getopts “r” OPTION
+while getopts “rh” OPTION
 do
      case $OPTION in
          r)
@@ -52,8 +57,15 @@ do
     fb=$(basename $file)
     echo "Processing $indir/$fb."
     fo="$outdir/$fb"
+    cd $tptpdir
 
-    $prg < $file > $tmp
+    sfb=$(basename $fb .p)
+    pwd
+    ./$TPTP4X_PRG -x -d../../$outdir ../../$file
+    cd -
+
+    $prg < "$outdir/$sfb.tptp" > $tmp
+    rm "$outdir/$sfb.tptp"
     if [ "$?" = "0" ]; then
 	echo "Phase one is Ok $file" >> $log
     else
