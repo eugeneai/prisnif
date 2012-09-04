@@ -15,4 +15,4 @@ parsers/tptp/tmp_ast.txt
 /parsers/pcf/_
 /parsers/tptp/_.pl
 /parsers/tptp/TPTP
-/parsert/tptp/tasks.out/*
+/parsers/tptp/tasks.out/*
