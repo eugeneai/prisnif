@@ -34,11 +34,14 @@ class Prover{
 	}
 
 	void uncoTest(){
-		foreach (string name; dirEntries("parsers/tptp/tasks.out", SpanMode.breadth)) { 
-			//writeln(name);
-			ParserHu ph = new ParserHu();
-			ph.parseFromFile(name);
-			if(!ph.unco())writeln(name,": Ok.");
+		foreach (string name; dirEntries("../tasks.out", SpanMode.breadth)) { 
+			string s = readText(name);
+			if(indexOf(s,'=')<0){
+				writeln(name);
+				ParserHu ph = new ParserHu();
+				ph.parseFromFile(name);
+				if(!ph.unco())writeln("Ok.");
+			}
 		}
 	}
 	
