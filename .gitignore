@@ -14,5 +14,5 @@ parsers/pcf/gram_test.out
 parsers/tptp/tmp_ast.txt
 /parsers/pcf/_
 /parsers/tptp/_.pl
-/parsers/tptp/tasks.out/#ALG211+1.p#
-parsers/tptp/TPTP
+/parsers/tptp/TPTP
+/parsert/tptp/tasks.out/*
