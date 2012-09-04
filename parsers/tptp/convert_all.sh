@@ -52,6 +52,8 @@ done
 echo > $log
 echo > $out
 
+NPROC=0
+
 for file in $indir/$1*+*.*
 do
     fb=$(basename $file)
