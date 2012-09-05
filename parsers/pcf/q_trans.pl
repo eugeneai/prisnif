@@ -502,6 +502,12 @@ write_l([t(X, As)]):-!,
         write(X),
         write('('),write_l(As),write(')').
 
+write_l([A=B]):-!,
+        write('=('),
+        write_l([A]),
+        write(','),
+        write_l([B]),
+        write(')').
 write_l([X]):-!,
         write(X).
 write_l([X|T]):-
@@ -847,7 +853,7 @@ test_rd('-(T)', 'False').
 test_rd('-(a>(a>a))', 'False').
 test_rd('a<>a', 'True').
 
-test_fm('fm a1(y)=(! {y}(b(x,y)<>c(y,x)))&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
+test_fm('fm a1(y)=(! {y}(b(x,y), A=B<>c(y,x)))&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
 % test_fm('fm a1(y)=! {y}{b(x,y),c(y,x)}{}&d(y,y). fm a2(y)=c(y). fm a=a1(c)&a2(q). sw a2(i). pp a.').
 test_fm('i \'test.fpc\'.').
 
