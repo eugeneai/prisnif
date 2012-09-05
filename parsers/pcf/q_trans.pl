@@ -226,6 +226,8 @@ q_r(neg(ip_q(S,V,E)), ip_q(AS,V,neg(E))):-
         q_alter_q(S,AS),!.
 q_r(conj([]), t('True')):-!.
 q_r(disj([]), t('False')):-!.
+q_r(conj([A]), A):-!.
+q_r(disj([A]), A):-!.
 q_r(conj([A,A]),A):-!. % XXX Should be generalized.
 q_r(disj([A,A]),A):-!. % XXX Should be generalized.
 q_r(imp(A,A), t('True')):-!.
@@ -242,9 +244,9 @@ q_r(disj(L), R):- member(disj(_), L),!,
 q_r(disj(L), t('True')):- member(t('True'), L),!.
 q_r(conj(L), t('False')):- member(t('False'), L),!.
 
-q_r(conj(L), R):- member(t('True'), L),!,
+q_r(conj(L), conj(R)):- member(t('True'), L),!,
         q_remove_in(L, t('True'), R).
-q_r(disj(L), R):- member(t('False'), L),!,
+q_r(disj(L), disj(R)):- member(t('False'), L),!,
         q_remove_in(L, t('False'), R).
 
 q_r(conj(L), t('False')):-
@@ -256,13 +258,15 @@ q_r(disj(L), t('True')):-
         member(neg(A), L),
         !.
 
+/*
 q_r(q(e, A,ZA, F), q(e, NA,NZA, NF)):-
         member(q(a,[],[], [R]),F),!,
         q_remove_in(F, q(a, [],[], [R]), F1),
         R=q(e, B, ZB, FBs),
         append(A,B, NA),
-        append(ZA,ZB, NZA),
+        append(ZA,ZB, NZA), % TODO: Rename added variables and apply following substitution.
         append(F1, FBs, NF).
+*/
 
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
@@ -420,8 +424,12 @@ q_to_pcf_e_e_l([X|T], [TC|TT]):-!,
 
 q_to_pcf_e_e(conj(L), C, F):-
 	q_split_cd(L, [], C, FF, _),!,
-        q_rd(FF,RFF),
-        q_to_pcf_e_e_l(RFF, F).
+        q_rd(conj(FF),RFF),
+        (
+         RFF=conj(CRFF)->
+             q_to_pcf_e_e_l(CRFF, F);
+         q_to_pcf_a(RFF, PCF_F), F=[PCF_F]
+        ).
 
 q_to_pcf_e_e(imp(A,B), [], [F]):-!,
         q_to_pcf_a(imp(A,B), F).
@@ -996,7 +1004,7 @@ main_program:-
 
 main_program([],t):-!.
 main_program([],f):-!,          % Default behaviour
-        t.
+        tr.
 main_program([X|T],_):-
         prog([X|T], R),!,
         main_program(R,t).
