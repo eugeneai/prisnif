@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# test string
+
 tptpdir=TPTP/TPTP
 indir="$tptpdir/Problems"
 outdir=tasks.out
