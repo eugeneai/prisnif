@@ -56,7 +56,7 @@ echo > $out
 
 NPROC=0
 
-for file in $indir/$1*+*.*
+for file in $indir/$1*.p
 do
     fb=$(basename $file)
     echo "Processing $indir/$fb."
