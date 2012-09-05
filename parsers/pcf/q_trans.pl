@@ -346,6 +346,7 @@ q_to_pcf_e(ip_q(e,L,I), q(e,L, T,F)):-!,
         q_to_pcf_e_e(I, T,F).
 
 q_to_pcf_e(I, q(e,[], T,F)):-
+        format('--T--> ~w~n',[I]),
         q_to_pcf_e_e(I, T,F).
 
 % individual conversion
@@ -996,7 +997,7 @@ main_program:-
 
 main_program([],t):-!.
 main_program([],f):-!,          % Default behaviour
-        t.
+        tr.
 main_program([X|T],_):-
         prog([X|T], R),!,
         main_program(R,t).
