@@ -65,8 +65,8 @@ NPROC=0
 
 for file in $indir/$1*.p
 do
+    TS=$(LC_ALL=C date)
     fb=$(basename $file)
-    echo "Processing $indir/$fb."
     fo="$outdir/$fb"
     if [ $PRESERVE -eq 1 ] && [ -e $fo ]
     then
@@ -85,9 +85,9 @@ do
     $prg < "$outdir/$sfb.tptp" > $tmp
     rm "$outdir/$sfb.tptp"
     if [ "$?" = "0" ]; then
-	echo "Phase one is Ok $file" >> $log
+	echo "[$TS] Phase one is Ok $file" >> $log
     else
-	echo "Phase one is NOT Ok $file" >> $log
+	echo "[$TS] Phase one is NOT Ok $file" >> $log
 	continue
     fi
 
@@ -99,12 +99,13 @@ do
     cd - > /dev/null
 
     if [ "$rc" = "0" ]; then
-	echo "Phase two is Ok $file" >> $log
+	echo "[$TS] Phase two is Ok $file" >> $log
 	mv $pcf/result.p $fo
-	echo "Soure file: $file" >> $out
+	echo "[$TS]"
+        echo "Soure file: $file" >> $out
 	echo "----------------------------------" >> $out
 	cat $pcf/gram_test.out >> $out
-	echo "==================================" >> $out
+	echo "[$TS]==================================" >> $out
     fi
 
     # rm -f $tmp $pcf/input.pl $pcf/result.p
