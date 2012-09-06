@@ -19,6 +19,8 @@ class ProofNode{
 	int curr_question=-1;
 	bool is_refuted = false;
 
+	static d8 = 0;
+
 	this(){
 	
 	}
@@ -138,10 +140,14 @@ class ProofNode{
 			is_refuted = true;
 			return new ProofNode[0];
 		}
-	
+		
+		writeln("====answer====");
 		q.print();
 		a.apply();
+		//d8++;
+		//if(d8%1000==0)writeln(d8);
 		a.print();
+		writeln("===end answer====");
 		//-----------
 		ProofNode[] pnl = new ProofNode[q.af.efs.length];
 		//для каждой е-консеквента

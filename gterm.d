@@ -303,11 +303,17 @@ class GTerm{
 		//если справа uhe
 		else if(tq.is_top_uhe()){
 			if(tb.is_top_uhe()){
-				//НЭЭ считаются разными
+				//Если это два одинаковых НЭЭ
 				if(tq.is_twin_names(tb)){
 					return answer;
-				}else return null;
-				//!!!Подумать если НЭЭ одинаковые считаются
+				}else{
+					//Если это разные НЭЭ. То есть два варианта. Или они унифицируются или нет. !!!
+					Binding b = new Binding(tq,tb);
+					b.apply();
+					answer.add_binding(b);
+					//return null;
+					return answer;
+				}
 			}else{
 				Binding b = new Binding(tq,tb);
 				b.apply();

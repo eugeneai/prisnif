@@ -96,7 +96,10 @@ class ParserHu{
 				//if(tstr[0..x]=="Print"){
 				//	t.nature=GTermNature.print;
 				//}
+				//writeln(s8.name);
 			}
+			//writeln();
+			//t.print();
 			foreach(i,a;args){
 				t.set_arg(args[i],i);
 			}
@@ -170,7 +173,9 @@ class ParserHu{
 		string efs_str[] = splitFList(str[1..$-1]);
 		ProofNode efs[] = new ProofNode[efs_str.length];
 		foreach(i,e;efs_str){
+			//writeln("start");
 			efs[i] = parse_BaseFormula(e, vl.get_fuzzy_copy());
+			//writeln("finish");
 		}
 		return efs;
 	}
@@ -322,6 +327,7 @@ class ParserHu{
 	
 	//распарсить строкове представление формулы
 	ProofNode[] parsePCF(string pcfstr){
+		//writeln("start parsePCF");
 		//формат
 		//{e[][]{..;..;..};...}. False
 		orig = pcfstr;
