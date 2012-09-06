@@ -59,7 +59,7 @@ done
 
 # prune the log file and output file.
 
-echo > $log
+#echo > $log
 echo > $out
 
 NPROC=0
