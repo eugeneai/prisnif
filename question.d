@@ -42,18 +42,19 @@ class Question{
 
 	Answer retrieve_answer(){
 		startr:
-		//writeln("start retrieve");
+		writeln("start retrieve");
+		//qd.answers.print();
 		Answer ans = qd.retrieve_next_answer();
-		//writeln("next retrieved");
+		writeln("next retrieved");
 		if(ans is null) {
 			return null;
 		}
 		ans.add_answer(af.vars.get_unconfined_answers());
 
 		writeln("====cont====");
-		print();
+		//print();
 		ans.print();
-		qd.answers.print();
+		//qd.answers.print();
 		writeln("====end cont====");
 		//if (false){
 		if(is_contains_answer(ans)){
@@ -174,6 +175,7 @@ class QData{
 		while(aindex[k] == bound[k]){
 			k++;		
 			if(k == aindex.length){
+				writeln("overflow nextaindex");
 				overflow = true;
 				return false;
 			}			
@@ -212,6 +214,7 @@ class QData{
 			while(aindex[k] == bound[k]){
 				k++;
 				if(k == aindex.length){
+					writeln("overflow hvalid");
 					overflow = true;
 					return false;
 				}
@@ -229,7 +232,9 @@ class QData{
 	bool is_ready(){
 		foreach(i,pch; subanswers){
 			if(pch is null) return false;
+			writeln("e",i);
 			if(pch.first is null) return false; 
+			writeln("ee",i);
 		}
 		return true;
 	}
@@ -239,17 +244,24 @@ class QData{
 		int obr2 = 0;
 		//writeln("QData: retrieve_next_answer: [start]");
 		if(aindex.length>0){
+			writeln("is ready ", aindex.length);
 			if(!is_ready()) return null;
+			writeln("ok");
 			start:
 			obr2++;
 			next_aindex();
 			next_hvalid();
-			if(overflow) return null;
+
+			if(overflow){
+				writeln("nulll");
+				return null;
+			}
 			Answer ans = new Answer();
-			/*foreach(ind,i;subanswers){
+			writeln("subanswers");
+			foreach(ind,i;subanswers){
 				writeln(ind," :");
 				i.print();
-			}*/
+			}
 			//writeln("bound: ",get_aindex_bound());
 			if(obr2 % 500000 == 0)writeln("aindex: ",aindex);
 			//writeln("aindex: ",aindex);

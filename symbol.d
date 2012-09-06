@@ -17,6 +17,8 @@ class Symbol{
 	int arity;
 	//semantic... reducibility
 
+	//GTerm gen;
+
 	static int uhecount=1;
 	static Symbol cr_uhe(){
 		Symbol s = new Symbol(SymbolType.UHE,"h"~to!string(uhecount),0);

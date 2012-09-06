@@ -84,7 +84,7 @@ class ProofNode{
 				foreach(j,qatom;tempconj){
 					Answer ans  = qatom.matching(curr.value);
 					if(ans !is null){
-						ans.reset();
+						ans.reset_full();
 						questions[i].qd.add(ans,j);
 						//questions[i].qd.overflow = false;
 					}

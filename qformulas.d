@@ -83,9 +83,15 @@ class Conjunct{
 
 	/*hard copy*/
 	Conjunct get_hard_copy(VarMap vm){
+		//writeln("conjunct hard copy start");
+		//writeln(conjunct.length);
 		Conjunct ncon = new Conjunct(conjunct.length);
 		foreach(i,gt;conjunct){
+			//writeln("i: ",i);
+			//gt.print();
 			ncon.conjunct[i] = conjunct[i].get_hard_copy(vm);
+			//writeln("con");
+			//writeln(ncon.conjunct[i].args.length);
 		}
 		return ncon;
 	}
@@ -246,7 +252,11 @@ class QVars{
 		else{
 			Answer ans = new Answer();
 			foreach(uv;unconfined_vars){
-				Binding b = new Binding(uv,new GTerm(Symbol.cr_uhe()));
+				GTerm hx = new GTerm(Symbol.cr_uhe());
+				hx.args[1] = uv;
+				//hx.print();
+				//uv.print();
+				Binding b = new Binding(uv,hx);
 				ans.add_binding(b);
 			}
 			return ans;

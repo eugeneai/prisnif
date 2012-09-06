@@ -12,19 +12,43 @@ class GTerm{
 	Symbol symbol;
 	GTerm[] args;
 	
+	GTerm[] concretized;
+
 	this(Symbol _symbol){
 		symbol = _symbol;
 		SymbolType type = symbol.type;
 		//writeln(symbol.name, " ",symbol.arity);
 		if(type==SymbolType.EVARIABLE || type==SymbolType.INTEGER || type==SymbolType.FLOAT || type==SymbolType.CONSTANT){
 			args = new GTerm[0];
-		}else if(type==SymbolType.AVARIABLE || type==SymbolType.UHE){
+		}else if(type==SymbolType.AVARIABLE){
 			args = new GTerm[1];
+		}else if(type==SymbolType.UHE){
+			//writeln("uhe created");
+			//первый аргумент это то до чего доопределяется НЭЭ
+			//второй аргумент это родитель НЭЭ, т.е. та переменная, которая его создала.
+			args = new GTerm[2];
+			//print();
+			//writeln(args.length);
 		}else{
 			args = new GTerm[symbol.arity];
 		}		
+		concretized = new GTerm[0];
 		
 	}
+
+	void add_conc(GTerm t){
+		concretized~=[t];
+	}
+	bool cont_term(GTerm t){
+		//writeln("cont term");
+		//print();
+		//t.print();
+		foreach(tl;concretized){
+			if(t.is_twin(tl)) return true;
+		}
+		return false;
+	}
+
 	
 	GTerm reduce(){
 		//writeln("reduce: [start]");
@@ -177,30 +201,54 @@ class GTerm{
 		//Если это НЭЭ, то он не разыменовывается и копия делается мягкая
 		//т.е. с сохранением информации что вместо данного НЭЭ
 		//что-то подставлено (если подставлено)
+		//print();
 		if(is_uhe()){
-			if(is_substed()){
+			//print();
+			//writeln(args.length);
+			/*if(is_substed()){
 				GTerm t = new GTerm(symbol);
+				//writeln("w");
 				t.set_arg(args[0].get_hard_copy(vm),0);
 				return t;		
-			}else return this;
+			}else*/ 
+			return this;
 		}
 		//writeln("++++++++++++++++++++++++++++++++++++");
 		//print();
-		cvt = get_value();
+			//cvt = get_value();
 		//cvt.print(); 
-		if(cvt.is_var()){
+		if(is_var()){
+			if(is_substed){
+				return args[0].get_hard_copy(vm);
+			}else{
+				return vm.get(this);
+			}
+		}else{
+			GTerm t = new GTerm(symbol);
+			for(int i=0;i<symbol.arity;i++){
+				t.set_arg(args[i].get_hard_copy(vm),i);
+			}
+			return t;
+		}
+
+		/*if(cvt.is_var()){
 			//тут происходит разыменование переменных
 			//vm
 			//Symbol varsimbol = new Symbol(cvt.symbol.type);
 			return vm.get(cvt);//new GTerm(varsimbol);
 		}else{
 			//Symbol s = new Symbol();
+			//writeln("yy");
 			GTerm t = new GTerm(cvt.symbol);
+			//writeln("ww");
+			//writeln(t.args.length);
 			for(int i=0;i<cvt.symbol.arity;i++){
 				t.set_arg(cvt.args[i].get_hard_copy(vm),i);
 			}
+			//writeln(t.args.length,".");
+			//t.print();
 			return t;			
-		}
+		}*/
 	
 		return null;
 	}
@@ -261,10 +309,21 @@ class GTerm{
 			}
 			//если слева НЭЭ
 			else if(tb.is_top_uhe()){
+				//writeln("left uhe");
+				//if(args is null)writeln("args is null");
 				//доопределить НЭЭ до константы
-				Binding b = new Binding(tb,tq);
-				b.apply();
-				answer.add_binding(b);
+				if(tb.args[1].cont_term(tq)){ 
+					//writeln("x");
+					return null;
+				}else{			
+					//writeln("y");	
+					Binding b = new Binding(tb,tq);
+					b.apply();
+					answer.add_binding(b);
+					tb.args[1].add_conc(tq);//
+					
+				}
+				answer.print();
 				return answer;
 			}
 			//если слева что-то другое, то fail
@@ -282,10 +341,16 @@ class GTerm{
 			}
 			//если слева НЭЭ
 			else if(tb.is_top_uhe()){
+				if(tb.args[1].cont_term(tq)) 
+					return null;
+				else{	
 				//доопределить НЭЭ до константы
-				Binding b = new Binding(tb,tq);
-				b.apply();
-				answer.add_binding(b);
+					Binding b = new Binding(tb,tq);
+					b.apply();
+					answer.add_binding(b);
+
+					tb.args[1].add_conc(tq);//
+				}
 				return answer;
 			}
 			//если слева что-то другое, то fail
@@ -308,16 +373,24 @@ class GTerm{
 					return answer;
 				}else{
 					//Если это разные НЭЭ. То есть два варианта. Или они унифицируются или нет. !!!
+					if(Oracle.iffff()){
+						Binding b = new Binding(tq,tb);
+						b.apply();
+						answer.add_binding(b);
+						return answer;
+					}else return null;
+					
+				}
+			}else{
+				if(tq.args[1].cont_term(tb)) 
+					return null;
+				else{
 					Binding b = new Binding(tq,tb);
 					b.apply();
 					answer.add_binding(b);
-					//return null;
-					return answer;
+
+					tq.args[1].add_conc(tb);//
 				}
-			}else{
-				Binding b = new Binding(tq,tb);
-				b.apply();
-				answer.add_binding(b);
 				return answer;
 			}
 		}		
@@ -380,6 +453,8 @@ class GTerm{
 				if(!tq.is_twin_names(tb)){
 					return null;
 				}else{
+					//tq.print();
+					//tb.print();
 					foreach(i,subt;tq.args){
 						Answer subanswer = subt.matching(tb.args[i]);
 						if(subanswer is null){ 

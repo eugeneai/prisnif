@@ -3,6 +3,7 @@ import std.stdio;
 import gterm;
 import symbol;
 import qformulas;
+import std.random;
 
 /*===============================================================================================*/
 class VarMap{
@@ -105,6 +106,11 @@ class Oracle{
 			
 		}
 	}	
+
+	static bool iffff(){
+		auto x = uniform(0,10);
+		if(x>5)return true; else return false;
+	}
 }
 
 GTerm xsum(GTerm t1, GTerm t2){

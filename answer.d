@@ -83,6 +83,10 @@ class Answer{
 	*/
 	static Answer combine(Answer a1, Answer a2){
 		if(a1 is null || a2 is null) return null;
+		//writeln("combine:");
+		//a1.print();
+		//a2.print();
+		//writeln("----------");
 		/*
 		Последовательно перебираем все биндинги из a2 и пытаемся их добавиить в a1.
 		Если левая часть биндинга из a2 уже имеется в a1, то необходимо провести унификацию
@@ -95,7 +99,10 @@ class Answer{
 		foreach(b2;a2.binds){
 			if(b2.left in a1.binds){
 				Answer subanswer = b2.right.matching(a1.binds[b2.left].right);
-				if(subanswer is null) return null;
+				if(subanswer is null){
+					//writeln("null");
+					return null;
+				}
 				else {
 					subanswer.reset();
 					comboanswer.add_answer(subanswer);
@@ -104,6 +111,7 @@ class Answer{
 				comboanswer.add_binding(b2);
 			}
 		}
+		//comboanswer.print();
 		return comboanswer;
 	}
 
