@@ -32,7 +32,9 @@ OPTIONS:
 EOF
 }
 
-while getopts “rh” OPTION
+PRESERVE=1
+
+while getopts “:rph” OPTION;
 do
      case $OPTION in
          r)
@@ -41,6 +43,11 @@ do
              rm *
              cd - > /dev/null
 
+             ;;
+         p)
+             #Skip conversion if target file exists.
+             PRESERVE=0
+             echo "Do not preserve existing files."
              ;;
          h)
              usage
@@ -61,6 +68,13 @@ do
     fb=$(basename $file)
     echo "Processing $indir/$fb."
     fo="$outdir/$fb"
+    if [ $PRESERVE -eq 1 ] && [ -e $fo ]
+    then
+        echo "Skipping $indir/$fb as it exists."
+        continue
+    fi
+    echo "-----[$TS]--------------------------------------------------"
+    echo "Processing $indir/$fb."
     cd $tptpdir
 
     sfb=$(basename $fb .p)
