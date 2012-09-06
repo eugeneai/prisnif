@@ -56,6 +56,7 @@ do
      esac
 done
 
+
 # prune the log file and output file.
 
 echo > $log
@@ -79,11 +80,11 @@ do
 
     sfb=$(basename $fb .p)
     pwd
-    ./$TPTP4X_PRG -x -d../../$outdir ../../$file
+    ./$TPTP4X_PRG -x -d../../ ../../$file
     cd -
 
-    $prg < "$outdir/$sfb.tptp" > $tmp
-    rm "$outdir/$sfb.tptp"
+    $prg < "$sfb.tptp" > $tmp
+    rm "$sfb.tptp"
     if [ "$?" = "0" ]; then
 	echo "[$TS] Phase one is Ok $file" >> $log
     else
