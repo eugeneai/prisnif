@@ -42,24 +42,24 @@ class Question{
 
 	Answer retrieve_answer(){
 		startr:
-		writeln("start retrieve");
+		//writeln("start retrieve");
 		//qd.answers.print();
 		Answer ans = qd.retrieve_next_answer();
-		writeln("next retrieved");
+		//writeln("next retrieved");
 		if(ans is null) {
 			return null;
 		}
 		ans.add_answer(af.vars.get_unconfined_answers());
 
-		writeln("====cont====");
+		//writeln("====cont====");
 		//print();
-		ans.print();
+		//ans.print();
 		//qd.answers.print();
-		writeln("====end cont====");
+		//writeln("====end cont====");
 		//if (false){
 		if(is_contains_answer(ans)){
 			if(ans.fict) return null;
-			writeln("contains");
+			//writeln("contains");
 			//print();
 			//ans.print();
 			//Oracle.pause();
@@ -156,6 +156,8 @@ class QData{
 		if(subanswers[i].add(a)){
 			overflow = false;
 		}
+		//a.print();
+		//writeln("added");
 	}
 
 	int[] get_aindex_bound(){
@@ -175,7 +177,7 @@ class QData{
 		while(aindex[k] == bound[k]){
 			k++;		
 			if(k == aindex.length){
-				writeln("overflow nextaindex");
+				//writeln("overflow nextaindex");
 				overflow = true;
 				return false;
 			}			
@@ -214,7 +216,7 @@ class QData{
 			while(aindex[k] == bound[k]){
 				k++;
 				if(k == aindex.length){
-					writeln("overflow hvalid");
+					//writeln("overflow hvalid");
 					overflow = true;
 					return false;
 				}
@@ -232,9 +234,9 @@ class QData{
 	bool is_ready(){
 		foreach(i,pch; subanswers){
 			if(pch is null) return false;
-			writeln("e",i);
+			//writeln("e",i);
 			if(pch.first is null) return false; 
-			writeln("ee",i);
+			//writeln("ee",i);
 		}
 		return true;
 	}
@@ -244,34 +246,38 @@ class QData{
 		int obr2 = 0;
 		//writeln("QData: retrieve_next_answer: [start]");
 		if(aindex.length>0){
-			writeln("is ready ", aindex.length);
+			//writeln("is ready ", aindex.length);
 			if(!is_ready()) return null;
-			writeln("ok");
+			//writeln("ok");
 			start:
 			obr2++;
 			next_aindex();
 			next_hvalid();
 
 			if(overflow){
-				writeln("nulll");
+				//writeln("nulll");
 				return null;
 			}
 			Answer ans = new Answer();
-			writeln("subanswers");
-			foreach(ind,i;subanswers){
+			//writeln("subanswers");
+			/*foreach(ind,i;subanswers){
 				writeln(ind," :");
 				i.print();
-			}
+			}*/
+			//writeln("end print subanswers");
 			//writeln("bound: ",get_aindex_bound());
-			if(obr2 % 500000 == 0)writeln("aindex: ",aindex);
+			//if(obr2 % 500000 == 0)writeln("aindex: ",aindex);
 			//writeln("aindex: ",aindex);
 			//writeln(obr);
 			foreach(i,ind;aindex){
+				//writeln("start combine iteration");
 				//writeln("size: ",subanswers[i].size);
 				Answer ans2 = subanswers[i].get_by_number(ind);
+				//writeln("get by number Ok");
 				//ans.print();
 				//if(ans2 is null) writeln("null"); else ans2.print();
 				ans = Answer.combine(ans,ans2);
+				//writeln("end combine iteration");
 				if(ans is null){
 					//writeln("ans is null");
 					goto start;	

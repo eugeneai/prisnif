@@ -37,6 +37,7 @@ class GTerm{
 	}
 
 	void add_conc(GTerm t){
+		//writeln("add conc");
 		concretized~=[t];
 	}
 	bool cont_term(GTerm t){
@@ -197,14 +198,18 @@ class GTerm{
 	
 	/*hard copy of term*/
 	GTerm get_hard_copy(VarMap vm){
-		GTerm cvt;
+		//GTerm cvt;
+		//writeln("hard copy start");
+		//print_type();
 		//Если это НЭЭ, то он не разыменовывается и копия делается мягкая
 		//т.е. с сохранением информации что вместо данного НЭЭ
 		//что-то подставлено (если подставлено)
 		//print();
 		if(is_uhe()){
+			//writeln("uhe");
 			//print();
 			//writeln(args.length);
+			//if(args[1] is null) writeln("1 null");else writeln("1 not null");
 			/*if(is_substed()){
 				GTerm t = new GTerm(symbol);
 				//writeln("w");
@@ -219,11 +224,15 @@ class GTerm{
 		//cvt.print(); 
 		if(is_var()){
 			if(is_substed){
+				//writeln("var substed");
 				return args[0].get_hard_copy(vm);
 			}else{
+				//writeln("var free");
 				return vm.get(this);
 			}
 		}else{
+			//writeln("other");
+			//print();
 			GTerm t = new GTerm(symbol);
 			for(int i=0;i<symbol.arity;i++){
 				t.set_arg(args[i].get_hard_copy(vm),i);
@@ -261,6 +270,7 @@ class GTerm{
 		if(is_top_avar)writeln("AVARIABLE");
 		if(is_top_constant)writeln("CONSTANT");
 		if(is_top_evar)writeln("EVARIABLE");
+		if(is_top_uhe)writeln("UHE");
 		
 	}
 	
@@ -289,16 +299,22 @@ class GTerm{
 		Answer answer = new Answer();
 		GTerm tq = get_value();// из вопроса (правый)
 		GTerm tb = t.get_value();// из базы (левый)
+		//writeln("matching in");
 		//writeln("----------");
 		//tq.print();
 		//tq.print_type();
 		//tb.print();
 		//tb.print_type();
+		//t.print();
+		//if(t.args is null)writeln("null."); else writeln(t.args.length);
+		//if(tb.args is null)writeln("null."); else writeln(tb.args.length);
 		//если справа константа
 		if(tq.is_top_constant()){
 			//writeln("point: GTerm: matching: tq is constant.");
+			//if(tb.args is null)writeln("null."); else writeln(tb.args.length);
 			//если слева константа
 			if(tb.is_top_constant()){
+				//writeln("top constant");
 				if(!tq.is_twin_names(tb)){ 
 					//writeln("return null");
 					return null;
@@ -310,7 +326,15 @@ class GTerm{
 			//если слева НЭЭ
 			else if(tb.is_top_uhe()){
 				//writeln("left uhe");
-				//if(args is null)writeln("args is null");
+				//if(tb.args is null)writeln("args is null");else writeln(tb.args.length);				
+				
+				if(tb.args[1] is null){
+					//writeln("args[1] is null");
+					Binding b = new Binding(tb,tq);
+					b.apply();
+					answer.add_binding(b);
+					//tb.args[1].add_conc(tq);					
+				}else
 				//доопределить НЭЭ до константы
 				if(tb.args[1].cont_term(tq)){ 
 					//writeln("x");
@@ -323,7 +347,7 @@ class GTerm{
 					tb.args[1].add_conc(tq);//
 					
 				}
-				answer.print();
+				//answer.print();
 				return answer;
 			}
 			//если слева что-то другое, то fail
@@ -341,6 +365,13 @@ class GTerm{
 			}
 			//если слева НЭЭ
 			else if(tb.is_top_uhe()){
+				if(tb.args[1] is null){
+					//writeln("args[1] is null");
+					Binding b = new Binding(tb,tq);
+					b.apply();
+					answer.add_binding(b);
+					//tb.args[1].add_conc(tq);					
+				}else				
 				if(tb.args[1].cont_term(tq)) 
 					return null;
 				else{	
@@ -382,6 +413,13 @@ class GTerm{
 					
 				}
 			}else{
+				if(tq.args[1] is null){
+					//writeln("args[1] is null");
+					Binding b = new Binding(tq,tb);
+					b.apply();
+					answer.add_binding(b);
+					//tb.args[1].add_conc(tq);					
+				}else
 				if(tq.args[1].cont_term(tb)) 
 					return null;
 				else{

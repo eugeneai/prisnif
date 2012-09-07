@@ -82,8 +82,14 @@ class ProofNode{
 			while(curr !is base.last.next){
 				GTerm[] tempconj = questions[i].get_conjunct();
 				foreach(j,qatom;tempconj){
+					//writeln("start matching:");
+					//qatom.print();
+					//curr.value.print();
 					Answer ans  = qatom.matching(curr.value);
+					//writeln("finish matching");
 					if(ans !is null){
+						//writeln("matching ans:");
+						//ans.print();
 						ans.reset_full();
 						questions[i].qd.add(ans,j);
 						//questions[i].qd.overflow = false;
