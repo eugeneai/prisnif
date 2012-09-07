@@ -105,10 +105,13 @@ class GTerm{
 		string res="";
 		//If symbol is AVARIABLE or UHE
 		if(symbol.is_mutable()){
+			//writeln(symbol.name, " is mutable");
 			//if not substituted
 			if( args[0] is null){
+				//writeln("args[0] is null");
 				return symbol.name;
 			}else{
+				//writeln("args[0] not null");
 				return args[0].to_string();
 			}
 		}else{
@@ -299,7 +302,7 @@ class GTerm{
 		Answer answer = new Answer();
 		GTerm tq = get_value();// из вопроса (правый)
 		GTerm tb = t.get_value();// из базы (левый)
-		writeln("GTerm.matching [start]");
+		//writeln("GTerm.matching [start]");
 		//writeln("----------");
 		//tq.print();
 		//tq.print_type();
@@ -310,10 +313,12 @@ class GTerm{
 		//if(tb.args is null)writeln("null."); else writeln(tb.args.length);
 		//если справа константа
 		if(tq.is_top_constant()){
+			//writeln("tq top constant");
 			//writeln("point: GTerm: matching: tq is constant.");
 			//if(tb.args is null)writeln("null."); else writeln(tb.args.length);
 			//если слева константа
 			if(tb.is_top_constant()){
+				//writeln("tb top constant");
 				//writeln("top constant");
 				if(!tq.is_twin_names(tb)){ 
 					//writeln("return null");
@@ -325,6 +330,7 @@ class GTerm{
 			}
 			//если слева НЭЭ
 			else if(tb.is_top_uhe()){
+				//writeln("tb top uhe");
 				//writeln("left uhe");
 				//if(tb.args is null)writeln("args is null");else writeln(tb.args.length);				
 				
@@ -355,8 +361,10 @@ class GTerm{
 		}
 		//если справа е-переменная
 		else if(tq.is_top_evar()){
+			//writeln("tq top evar");
 			//если слева evar
 			if(tb.is_top_evar()){
+				//writeln("tb top evar");
 				if(!tq.is_twin_names(tb)) 
 					return null;
 				else{
@@ -365,6 +373,7 @@ class GTerm{
 			}
 			//если слева НЭЭ
 			else if(tb.is_top_uhe()){
+				//writeln("tb top uhe");
 				if(tb.args[1] is null){
 					//writeln("args[1] is null");
 					Binding b = new Binding(tb,tq);
@@ -389,6 +398,7 @@ class GTerm{
 		}
 		//если справа avar
 		else if(tq.is_top_avar()){
+			//writeln("tq top avar");
 			//writeln("point: matching; tq is avar." );
 			Binding b = new Binding(tq,tb);
 			b.apply();
@@ -398,7 +408,9 @@ class GTerm{
 		}
 		//если справа uhe
 		else if(tq.is_top_uhe()){
+			//writeln("tq top uhe");
 			if(tb.is_top_uhe()){
+				//writeln("tb top uhe");
 				//Если это два одинаковых НЭЭ
 				if(tq.is_twin_names(tb)){
 					return answer;
@@ -413,6 +425,13 @@ class GTerm{
 					
 				}
 			}else{
+				//writeln("tb top not uhe");
+				//tq.print();
+				//tb.print();
+				if(tb.is_contains(tq)){
+					//writeln("match contains null");
+					return null;
+				}				
 				if(tq.args[1] is null){
 					//writeln("args[1] is null");
 					Binding b = new Binding(tq,tb);
@@ -434,6 +453,7 @@ class GTerm{
 		}		
 		//если справа функ.символ
 		else if(tq.is_top_function()){
+			//writeln("tq top function");
 			if(tb.is_top_function()){
 				if(!tq.is_twin_names(tb)){
 					return null;
@@ -453,11 +473,24 @@ class GTerm{
 			}
 			//а если слева НЭЭ
 			else if(tb.is_top_uhe()){
+				//writeln("tb top uhe");
 				//writeln("matching left h:");
 				//tq.print();
 				//tb.print();
 				//чтоб не зациклилось
-				if(tq.is_contains(tb))return null;
+				//writeln("tt");
+				//writeln(tq.args[0].symbol.name);
+				//writeln(tq.args[0].args[0].symbol.name);
+				//tq.args[]
+				//if(tq.args is null)writeln("args is null");else writeln(args.length);
+				//tq.print();
+				//tb.print();
+				//if(tq is null) writeln("tq null");
+				if(tq.is_contains(tb)){
+					//writeln("match contains null");
+					return null;
+				}
+				//writeln("ok containts");
 				GTerm newt = new GTerm(tq.symbol);
 				foreach(i,subt;tq.args){
 					//Symbol newuhe = new Symbol(SymbolType.UHE,"h",0);
@@ -487,7 +520,9 @@ class GTerm{
 		}
 		//если справа атом
 		else if(tq.is_top_atom()){
+			//writeln("tq top atom");
 			if(tb.is_top_atom()){
+				//writeln("tb top atom");
 				if(!tq.is_twin_names(tb)){
 					return null;
 				}else{

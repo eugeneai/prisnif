@@ -143,6 +143,11 @@ class ProofNode{
 		if(k == 0) return null;
 
 		if(q.is_goal()){
+			writeln("====goal answer====");
+			q.print();
+			//a.apply();
+			a.print();
+			writeln("===end goal answer====");			
 			is_refuted = true;
 			return new ProofNode[0];
 		}
