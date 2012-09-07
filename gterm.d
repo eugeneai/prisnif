@@ -299,7 +299,7 @@ class GTerm{
 		Answer answer = new Answer();
 		GTerm tq = get_value();// из вопроса (правый)
 		GTerm tb = t.get_value();// из базы (левый)
-		//writeln("matching in");
+		writeln("GTerm.matching [start]");
 		//writeln("----------");
 		//tq.print();
 		//tq.print_type();
