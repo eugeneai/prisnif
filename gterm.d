@@ -122,6 +122,7 @@ class GTerm{
 				if(i<args.length-1) res ~= ",";
 			}
 			if(symbol.arity>0) res ~= ")";
+			if(symbol.type==SymbolType.EVARIABLE) res~=":e";
 		}
 		return res;	
 	}
@@ -418,7 +419,11 @@ class GTerm{
 					//Если это разные НЭЭ. То есть два варианта. Или они унифицируются или нет. !!!
 					if(Oracle.iffff()){
 						Binding b = new Binding(tq,tb);
-						b.apply();
+						//b.apply();
+						//writeln("----------");
+						//tq.print();
+						//tb.print();
+						//writeln("----------+");
 						answer.add_binding(b);
 						return answer;
 					}else return null;

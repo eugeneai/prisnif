@@ -123,10 +123,33 @@ class ProofNode{
 		return questions[curr_question];
 	}
 
+	bool goal(){
+		foreach(q;questions){
+			if(q.is_goal()){
+				Answer a = q.retrieve_answer();
+				if(a !is null){
+					writeln("====goal answer====");
+					base.print();
+					writeln("----------");
+					q.print();
+					a.print();
+					writeln("====end goal answer====\n");
+					return true;					
+				}
+			}
+		}
+		return false;
+	}
 
 	ProofNode[] answer_the_question(){
 		is_refuted = false;
 		
+		//сразу проверяем целевые вопросы.
+		if(goal()){
+			is_refuted = true;
+			return new ProofNode[0];
+		}
+
 		int k = questions.length;
 		Question q;
 		Answer a;
@@ -142,7 +165,7 @@ class ProofNode{
 		}
 		if(k == 0) return null;
 
-		if(q.is_goal()){
+		/*if(q.is_goal()){
 			writeln("====goal answer====");
 			q.print();
 			//a.apply();
@@ -150,15 +173,17 @@ class ProofNode{
 			writeln("===end goal answer====");			
 			is_refuted = true;
 			return new ProofNode[0];
-		}
+		}*/
 		
 		writeln("====answer====");
+		base.print();
+		writeln("----------");
 		q.print();
 		a.apply();
 		//d8++;
 		//if(d8%1000==0)writeln(d8);
 		a.print();
-		writeln("===end answer====");
+		writeln("====end answer====\n");
 		//-----------
 		ProofNode[] pnl = new ProofNode[q.af.efs.length];
 		//для каждой е-консеквента

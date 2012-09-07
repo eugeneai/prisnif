@@ -39,11 +39,14 @@ class Supervisor{
 	
 	//-----------------------START------------------------
 	void start(){
+		writeln("После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.");
+		writeln("На каждом шаге выводится: номер шага; база; вопрос; ответ. В самом начале выводится вся формула.\n");
+		writeln("================FORMULA================\n");
 		print();
 		int k = maxsteps;
 		bool b = true;
 		while(!is_all_refuted() && k>0){
-			//writeln("========== Step ",maxsteps-k+1, " ==========");
+			writeln("==================== Step ",maxsteps-k+1, " ====================");
 			b = step();
 			if(!b){
 				writeln("The formula is satisfiable.");
