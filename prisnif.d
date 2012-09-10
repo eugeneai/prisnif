@@ -67,7 +67,7 @@ class Prover{
 		foreach (string name; dirEntries("/home/ale/Dropbox/TPTP/", SpanMode.breadth)) { 
 			auto size = getSize(name);
 			//Размер от 20 байт до 
-			if((size>20) && size<100000){
+			if((size>20) && size<1000000){
 				string s = readText(name);
 				//без равенства
 				if(indexOf(s,'=')<0){
