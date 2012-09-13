@@ -195,6 +195,13 @@ class GTerm{
 	bool is_var(){
 		if(symbol.type == SymbolType.EVARIABLE || symbol.type == SymbolType.AVARIABLE) return true; else return false;
 	}
+
+	bool is_avar(){
+		if(symbol.type == SymbolType.AVARIABLE) return true; else return false;
+	}
+	bool is_evar(){
+		if(symbol.type == SymbolType.EVARIABLE) return true; else return false;
+	}		
 	
 	bool is_uhe(){
 		if(symbol.type == SymbolType.UHE) return true; else return false;
@@ -202,41 +209,28 @@ class GTerm{
 	
 	/*hard copy of term*/
 	GTerm get_hard_copy(VarMap vm){
-		//GTerm cvt;
-		//writeln("hard copy start");
-		//print_type();
-		//Если это НЭЭ, то он не разыменовывается и копия делается мягкая
-		//т.е. с сохранением информации что вместо данного НЭЭ
-		//что-то подставлено (если подставлено)
-		//print();
+		//НЭЭ копируется как есть
 		if(is_uhe()){
-			//writeln("uhe");
-			//print();
-			//writeln(args.length);
-			//if(args[1] is null) writeln("1 null");else writeln("1 not null");
-			/*if(is_substed()){
-				GTerm t = new GTerm(symbol);
-				//writeln("w");
-				t.set_arg(args[0].get_hard_copy(vm),0);
-				return t;		
-			}else*/ 
 			return this;
 		}
-		//writeln("++++++++++++++++++++++++++++++++++++");
-		//print();
-			//cvt = get_value();
-		//cvt.print(); 
-		if(is_var()){
+		//Если это а-переменная
+		//Если она конкретизирована, то копируем конкретизацию
+		//Если она свободна, то разыменовываем.
+		if(is_avar()){
 			if(is_substed){
-				//writeln("var substed");
 				return args[0].get_hard_copy(vm);
 			}else{
-				//writeln("var free");
 				return vm.get(this);
 			}
+		}else if(is_evar()){
+			return vm.get(this);
+			/*if(vm.is_contains(symbol)){
+				GTerm t = new GTerm(new Symbol(symbol));
+				return t;
+			}else{
+				return this;
+			}*/ 
 		}else{
-			//writeln("other");
-			//print();
 			GTerm t = new GTerm(symbol);
 			for(int i=0;i<symbol.arity;i++){
 				t.set_arg(args[i].get_hard_copy(vm),i);
@@ -244,25 +238,6 @@ class GTerm{
 			return t;
 		}
 
-		/*if(cvt.is_var()){
-			//тут происходит разыменование переменных
-			//vm
-			//Symbol varsimbol = new Symbol(cvt.symbol.type);
-			return vm.get(cvt);//new GTerm(varsimbol);
-		}else{
-			//Symbol s = new Symbol();
-			//writeln("yy");
-			GTerm t = new GTerm(cvt.symbol);
-			//writeln("ww");
-			//writeln(t.args.length);
-			for(int i=0;i<cvt.symbol.arity;i++){
-				t.set_arg(cvt.args[i].get_hard_copy(vm),i);
-			}
-			//writeln(t.args.length,".");
-			//t.print();
-			return t;			
-		}*/
-	
 		return null;
 	}
 	

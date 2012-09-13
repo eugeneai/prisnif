@@ -74,7 +74,6 @@ class Conjunct{
 
 	/*---*/
 	bool is_contains(GTerm t){
-		//writeln("4");
 		foreach(gt;conjunct){
 			if(gt.is_contains(t))return true;
 		}
@@ -83,15 +82,9 @@ class Conjunct{
 
 	/*hard copy*/
 	Conjunct get_hard_copy(VarMap vm){
-		//writeln("conjunct hard copy start");
-		//writeln(conjunct.length);
 		Conjunct ncon = new Conjunct(conjunct.length);
 		foreach(i,gt;conjunct){
-			//writeln("i: ",i);
-			//gt.print();
 			ncon.conjunct[i] = conjunct[i].get_hard_copy(vm);
-			//writeln("con");
-			//writeln(ncon.conjunct[i].args.length);
 		}
 		return ncon;
 	}
@@ -137,7 +130,6 @@ class AFormula{
 	AFormula get_hard_copy(VarMap vm){
 		AFormula naf = new AFormula();
 		naf.vars = vm.add_qvars(vars);
-		//vars.get_fuzzy_copy(vm);//vm.addQVars(vars);
 		naf.conjunct = conjunct.get_hard_copy(vm);
 		naf.efs.length = efs.length;
 		foreach(i,e;efs){
@@ -196,7 +188,6 @@ class EFormula{
 
 	bool is_contains_false(){
 		if(conjunct.is_contains(GTerm.cr_false())){
-			//writeln("set as goal");
 			return true;
 		}else return false;
 	}
@@ -204,7 +195,6 @@ class EFormula{
 	EFormula get_hard_copy(VarMap vm){
 		EFormula nef = new EFormula();
 		nef.vars = vm.add_qvars(vars);
-		//vars.get_fuzzy_copy(vm);//vm.addQVars(vars);
 		nef.conjunct = conjunct.get_hard_copy(vm);
 		nef.afs.length = afs.length;
 		if(afs.length==0)return nef;

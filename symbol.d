@@ -5,7 +5,7 @@ import std.conv;
 
 enum SymbolType {CONSTANT, EVARIABLE, AVARIABLE, FUNCTION, ATOM, INTEGER, FLOAT, STRING, UHE};
 /*
-UHE means "unconfined herbrand element".
+UHE = "unconfined herbrand element".
 */
 
 /*------------------------------------------------------------*/
@@ -15,9 +15,6 @@ class Symbol{
 	string name;
 	SymbolType type;
 	int arity;
-	//semantic... reducibility
-
-	//GTerm gen;
 
 	static int uhecount=1;
 	static Symbol cr_uhe(){
@@ -61,8 +58,8 @@ class Symbol{
 
 	bool compare(Symbol _s){
 		if(_s==this) return true;
-		//if(_s.type==SymbolType.INTEGER && _s.type==SymbolType.INTEGER){
-			if(_s.name == name)return true; else return false;
+		if(_s.type==SymbolType.EVARIABLE) return false;
+		if(_s.name == name)return true; else return false;
 		//}
 		return false;
 	}

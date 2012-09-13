@@ -82,17 +82,10 @@ class ProofNode{
 			while(curr !is base.last.next){
 				GTerm[] tempconj = questions[i].get_conjunct();
 				foreach(j,qatom;tempconj){
-					//writeln("start matching:");
-					//qatom.print();
-					//curr.value.print();
 					Answer ans  = qatom.matching(curr.value);
-					//writeln("finish matching");
 					if(ans !is null){
-						//writeln("matching ans:");
-						//ans.print();
 						ans.reset_full();
 						questions[i].qd.add(ans,j);
-						//questions[i].qd.overflow = false;
 					}
 				}
 				curr = curr.next;
@@ -106,7 +99,7 @@ class ProofNode{
 				foreach(j,qatom;questions[i].get_conjunct()){
 					Answer ans  = qatom.matching(curr.value);
 					if(ans !is null){
-						ans.reset();
+						ans.reset_full();
 						questions[i].qd.add(ans,j);
 					}
 				}
@@ -132,6 +125,7 @@ class ProofNode{
 					base.print();
 					writeln("----------");
 					q.print();
+					a.apply();
 					a.print();
 					writeln("====end goal answer====\n");
 					return true;					
@@ -165,16 +159,6 @@ class ProofNode{
 		}
 		if(k == 0) return null;
 
-		/*if(q.is_goal()){
-			writeln("====goal answer====");
-			q.print();
-			//a.apply();
-			a.print();
-			writeln("===end goal answer====");			
-			is_refuted = true;
-			return new ProofNode[0];
-		}*/
-		
 		writeln("====answer====");
 		base.print();
 		writeln("----------");

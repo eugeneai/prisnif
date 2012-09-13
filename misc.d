@@ -21,42 +21,25 @@ class VarMap{
 	QVars add_qvars(QVars qvs){
 		QVars new_qvs = new QVars();
 		foreach(i,e; qvs.vars){
-			Symbol s = new Symbol(e.symbol);
-			GTerm t = new GTerm(s);
+			GTerm t = new GTerm(new Symbol(e.symbol));
 			new_qvs.add_var(t);
 			add(t,e.symbol);
 		}
 		foreach(i,e; qvs.unconfined_vars){
-			Symbol s = new Symbol(e.symbol);
-			GTerm t = new GTerm(s);
+			GTerm t = new GTerm(new Symbol(e.symbol));
 			new_qvs.add_unconfined_var(t);
 			add(t,e.symbol);
-		}	
-		
+		}
+
 		return new_qvs;
 	}
 	
-	/*VarMap get_fuzzy_copy(){
-		VarMap cvm = new VarMap();
-		
-		GTerm[Symbol] vm2 = vm;
-		cvm.vm = vm;
-			
-		return cvm;
-	}*/
-
 	GTerm get(GTerm t){
 		if(t.symbol in vm){
 			return vm[t.symbol];
 		}else{
-			//writeln("VARMAPGET FAILURE");
 			return t;
 		}
-		/*else{
-			GTerm* tx =new GTerm(t.type, t.nature,0,0);
-			vm[t.name] = tx;
-			return tx;
-		}*/
 	}
 }
 
