@@ -40,6 +40,13 @@ class GTerm{
 		//writeln("add conc");
 		concretized~=[t];
 	}
+
+	void rem_conc(GTerm t){
+		foreach(i,c;concretized){
+			if(t.is_twin(c))concretized = concretized[0..i]~concretized[i+1..$];
+		}
+	}
+
 	bool cont_term(GTerm t){
 		//writeln("cont term");
 		//print();
@@ -316,9 +323,7 @@ class GTerm{
 					b.apply();
 					answer.add_binding(b);
 					//tb.args[1].add_conc(tq);					
-				}else
-				//доопределить НЭЭ до константы
-				if(tb.args[1].cont_term(tq)){ 
+				}else if(tb.args[1].cont_term(tq)){ 
 					//writeln("x");
 					return null;
 				}else{			

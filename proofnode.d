@@ -82,7 +82,12 @@ class ProofNode{
 			while(curr !is base.last.next){
 				GTerm[] tempconj = questions[i].get_conjunct();
 				foreach(j,qatom;tempconj){
+					//writeln("matching");
+					//qatom.print();
+					//curr.value.print();
+					//writeln("end matching");
 					Answer ans  = qatom.matching(curr.value);
+					//if(ans is null)writeln("ans is null"); else ans.print;
 					if(ans !is null){
 						ans.reset_full();
 						questions[i].qd.add(ans,j);

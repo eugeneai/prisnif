@@ -43,10 +43,13 @@ class Question{
 	Answer retrieve_answer(){
 		startr:
 		//writeln("start retrieve");
+		//print();
+		//writeln("..........");
 		//qd.answers.print();
 		Answer ans = qd.retrieve_next_answer();
 		//writeln("next retrieved");
 		if(ans is null) {
+			//writeln("ans is null");
 			return null;
 		}
 		ans.add_answer(af.vars.get_unconfined_answers());
@@ -58,8 +61,9 @@ class Question{
 		//writeln("====end cont====");
 		//if (false){
 		if(is_contains_answer(ans)){
-			if(ans.fict) return null;
 			//writeln("contains");
+			if(ans.fict) return null;
+			//writeln("nofict");
 			//print();
 			//ans.print();
 			//Oracle.pause();
@@ -247,15 +251,18 @@ class QData{
 		//writeln("QData: retrieve_next_answer: [start]");
 		if(aindex.length>0){
 			//writeln("is ready ", aindex.length);
-			if(!is_ready()) return null;
+			if(!is_ready()){
+				//writeln("not ready, return null");
+				return null;
+			}
 			//writeln("ok");
 			start:
 			obr2++;
 			next_aindex();
 			next_hvalid();
-
+			//writeln("hvalid");
 			if(overflow){
-				//writeln("nulll");
+				//writeln("overflow");
 				return null;
 			}
 			Answer ans = new Answer();

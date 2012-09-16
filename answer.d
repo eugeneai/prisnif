@@ -129,7 +129,7 @@ class Answer{
 			if(b.left.is_uhe()){
 				//если он УЖЕ подставлен, то false
 				if(b.left.is_substed()){
-					return false;
+					if(!b.left.is_twin(b.right)) return false;
 				}
 			}
 		}
@@ -186,6 +186,9 @@ class Binding{
 	/*полный reset вместе с НЭЭ*/
 	void reset_full(){
 		left.sub_zero(null);
+		if(left.is_uhe()){
+			if(left.args[1] !is null)left.args[1].rem_conc(right);
+		}
 		is_applied = false;
 	}
 
