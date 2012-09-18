@@ -2,7 +2,7 @@
 
 \usepackage{amssymb,amsmath,amsfonts}
 \usepackage{ntheorem}
-\usepackage{color} 
+\usepackage{color}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{psfrag}
@@ -10,7 +10,7 @@
 \usepackage[unicode=true,colorlinks=true,pdfstartview=FitH,pdfpagemode=UseOutlines,linkcolor=black,citecolor=black,urlcolor=black,pdftitle={dis},pdfauthor={steve},pdfkeywords={},pdfproducer={LaTeX},pdfcreator={LaTeX}
 ]{hyperref}
 %breaklinks=true]{hyperref}
-\usepackage[T2A]{fontenc} 
+\usepackage[T2A]{fontenc}
 % \usepackage{pscyr}
 \usepackage{geometry}
 \usepackage{framed}
@@ -22,6 +22,8 @@
 \usepackage{iccdisser}
 \usepackage{indentfirst}
 \usepackage[sorting=none]{biblatex}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \bibliography{intelle}
 
 
@@ -63,9 +65,9 @@
 
 \newenvironment{code}
 {
-\fboxrule=1.0pt 
-\fboxsep=5pt 
-\renewcommand{\FrameCommand}{\fcolorbox{black}{code_bk}} 
+\fboxrule=1.0pt
+\fboxsep=5pt
+\renewcommand{\FrameCommand}{\fcolorbox{black}{code_bk}}
 \begin{framed}\footnotesize
 }
 {
@@ -73,9 +75,9 @@
 }
 \newenvironment{note}
 {
-\fboxrule=1.0pt 
-\fboxsep=5pt 
-\renewcommand{\FrameCommand}{\fcolorbox{black}{note_bk}} 
+\fboxrule=1.0pt
+\fboxsep=5pt
+\renewcommand{\FrameCommand}{\fcolorbox{black}{note_bk}}
 \begin{framed}\sl\footnotesize
 }
 {
@@ -100,6 +102,10 @@
 \newcommand{\eqdef}{\stackrel{\mathrm{df}}{=}}
 \newcommand{\bigand}[2]{\raisebox{-4pt}{\ensuremath{\overset{#1}{\underset{#2}{\text{\huge\&\normalfont}}}}}}
 
+\definecolor{rclr}{rgb}{0,0.1,0.1}
+\definecolor{eclr}{rgb}{0,0.1,0.1}
+\newcommand{\rem}[2]{\textcolor{rclr}{#1}\marginpar{[-- #2}}
+\newcommand{\app}[1]{\textcolor{eclr}{#1}}
 
 % \sffamily
 %\maketitle
@@ -108,7 +114,7 @@
 %\end{center}
 
 \begin{titlepage}
-\begin{center} 
+\begin{center}
     УЧРЕЖДЕНИЕ РОССИЙСКОЙ АКАДЕМИИ НАУК \\
 ИНСТИТУТ ДИНАМИКИ СИСТЕМ И ТЕОРИИ УПРАВЛЕНИЯ \\
 СИБИРСКОГО ОТДЕЛЕНИЯ РАН
@@ -175,7 +181,7 @@
 \end{document}
 
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "dis"
-%%% End: 
+%%% End:
