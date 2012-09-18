@@ -130,7 +130,7 @@ class ProofNode{
 					base.print();
 					writeln("----------");
 					q.print();
-					a.apply();
+					//a.apply();
 					a.print();
 					writeln("====end goal answer====\n");
 					return true;					
@@ -165,6 +165,7 @@ class ProofNode{
 		if(k == 0) return null;
 
 		writeln("====answer====");
+		//writeln(base.get_size());
 		base.print();
 		writeln("----------");
 		q.print();

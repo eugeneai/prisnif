@@ -59,6 +59,11 @@ class PChunk(T){
 	bool is_dummy(){
 		if(size==0) return true; else return false;
 	}
+
+	int get_size(){
+		if(first !is null) return first.number;
+		return 0;
+	}
 	
 	//линковка.
 	void link(PChunk!(T) _c){
