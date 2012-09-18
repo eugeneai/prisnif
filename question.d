@@ -43,13 +43,16 @@ class Question{
 	Answer retrieve_answer(){
 		startr:
 		//writeln("start retrieve");
+		//print();
+		//writeln("..........");
 		//qd.answers.print();
 		Answer ans = qd.retrieve_next_answer();
 		//writeln("next retrieved");
 		if(ans is null) {
+			//writeln("ans is null");
 			return null;
 		}
-		ans.add_answer(af.vars.get_unconfined_answers());
+		//ans.add_answer(af.vars.get_unconfined_answers());
 
 		//writeln("====cont====");
 		//print();
@@ -58,8 +61,9 @@ class Question{
 		//writeln("====end cont====");
 		//if (false){
 		if(is_contains_answer(ans)){
-			if(ans.fict) return null;
 			//writeln("contains");
+			if(ans.fict) return null;
+			//writeln("nofict");
 			//print();
 			//ans.print();
 			//Oracle.pause();
@@ -190,16 +194,16 @@ class QData{
 	}
 
 	/*Является ли aindex годным с точки зрения НЭЭ*/
-	private bool is_hvalid(){
+	/*private bool is_hvalid(){
 		foreach(i,s;subanswers){
 			if(!s.get_by_number(aindex[i]).is_hvalid()){
 				return false;
 			}
 		}
 		return true;
-	}
+	}*/
 
-	bool next_hvalid(){
+	/*bool next_hvalid(){
 		auto bound = get_aindex_bound();
 
 		int z = 100000;
@@ -229,7 +233,7 @@ class QData{
 			z--;
 		}
 		return false;
-	}
+	}*/
 
 	bool is_ready(){
 		foreach(i,pch; subanswers){
@@ -247,24 +251,27 @@ class QData{
 		//writeln("QData: retrieve_next_answer: [start]");
 		if(aindex.length>0){
 			//writeln("is ready ", aindex.length);
-			if(!is_ready()) return null;
+			if(!is_ready()){
+				//writeln("not ready, return null");
+				return null;
+			}
 			//writeln("ok");
 			start:
 			obr2++;
 			next_aindex();
-			next_hvalid();
-
+			//next_hvalid();
+			//writeln("hvalid");
 			if(overflow){
-				//writeln("nulll");
+				//writeln("overflow");
 				return null;
 			}
 			Answer ans = new Answer();
-			//writeln("subanswers");
-			/*foreach(ind,i;subanswers){
+			/*writeln("subanswers");
+			foreach(ind,i;subanswers){
 				writeln(ind," :");
 				i.print();
-			}*/
-			//writeln("end print subanswers");
+			}
+			writeln("end print subanswers");*/
 			//writeln("bound: ",get_aindex_bound());
 			//if(obr2 % 500000 == 0)writeln("aindex: ",aindex);
 			//writeln("aindex: ",aindex);
@@ -276,16 +283,23 @@ class QData{
 				//writeln("get by number Ok");
 				//ans.print();
 				//if(ans2 is null) writeln("null"); else ans2.print();
+				//ans.print();
+				//ans2.print();
+
 				ans = Answer.combine(ans,ans2);
 				//writeln("end combine iteration");
 				if(ans is null){
 					//writeln("ans is null");
 					goto start;	
+				}else {
+					//ans.print();
+					//writeln("..........");
 				} 
 			}
 			//if(is_contains_answer(ans)) goto start; 
 			//else{
 				//add_answer(ans);
+				//ans.print();
 				return ans;	
 			//} 
 		}else{

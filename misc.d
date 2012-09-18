@@ -21,12 +21,18 @@ class VarMap{
 	QVars add_qvars(QVars qvs){
 		QVars new_qvs = new QVars();
 		foreach(i,e; qvs.vars){
-			GTerm t = new GTerm(new Symbol(e.symbol));
+			Symbol s;
+			if(e.is_evar()) s = Symbol.cr_evar();
+			if(e.is_avar()) s = Symbol.cr_avar();
+			GTerm t = new GTerm(s);
 			new_qvs.add_var(t);
 			add(t,e.symbol);
 		}
 		foreach(i,e; qvs.unconfined_vars){
-			GTerm t = new GTerm(new Symbol(e.symbol));
+			Symbol s;
+			if(e.is_evar()) s = Symbol.cr_evar();
+			if(e.is_avar()) s = Symbol.cr_avar();			
+			GTerm t = new GTerm(s);
 			new_qvs.add_unconfined_var(t);
 			add(t,e.symbol);
 		}
@@ -36,8 +42,10 @@ class VarMap{
 	
 	GTerm get(GTerm t){
 		if(t.symbol in vm){
+			//writeln("ye");
 			return vm[t.symbol];
 		}else{
+			//writeln("ey");
 			return t;
 		}
 	}

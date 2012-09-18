@@ -82,9 +82,14 @@ class ProofNode{
 			while(curr !is base.last.next){
 				GTerm[] tempconj = questions[i].get_conjunct();
 				foreach(j,qatom;tempconj){
+					//writeln("matching");
+					//qatom.print();
+					//curr.value.print();
+					//writeln("end matching");
 					Answer ans  = qatom.matching(curr.value);
+					//if(ans is null)writeln("ans is null"); else ans.print;
 					if(ans !is null){
-						ans.reset_full();
+						ans.reset();
 						questions[i].qd.add(ans,j);
 					}
 				}
@@ -99,7 +104,7 @@ class ProofNode{
 				foreach(j,qatom;questions[i].get_conjunct()){
 					Answer ans  = qatom.matching(curr.value);
 					if(ans !is null){
-						ans.reset_full();
+						ans.reset();
 						questions[i].qd.add(ans,j);
 					}
 				}
@@ -125,7 +130,7 @@ class ProofNode{
 					base.print();
 					writeln("----------");
 					q.print();
-					a.apply();
+					//a.apply();
 					a.print();
 					writeln("====end goal answer====\n");
 					return true;					
@@ -160,6 +165,7 @@ class ProofNode{
 		if(k == 0) return null;
 
 		writeln("====answer====");
+		//writeln(base.get_size());
 		base.print();
 		writeln("----------");
 		q.print();
@@ -171,8 +177,10 @@ class ProofNode{
 		//-----------
 		ProofNode[] pnl = new ProofNode[q.af.efs.length];
 		//для каждой е-консеквента
+		VarMap vm = new VarMap();
+		vm.add_qvars(q.af.vars);
 		foreach(i,ef;q.af.efs){
-			EFormula newef = ef.get_hard_copy(new VarMap());
+			EFormula newef = ef.get_hard_copy(vm);
 			newef.reduce();
 			PChunk!(GTerm) newbase  = newef.conjunct.to_pchunk(base);
 			Question[] newqs = new Question[newef.afs.length];
