@@ -89,7 +89,7 @@ class ProofNode{
 					Answer ans  = qatom.matching(curr.value);
 					//if(ans is null)writeln("ans is null"); else ans.print;
 					if(ans !is null){
-						ans.reset_full();
+						ans.reset();
 						questions[i].qd.add(ans,j);
 					}
 				}
@@ -104,7 +104,7 @@ class ProofNode{
 				foreach(j,qatom;questions[i].get_conjunct()){
 					Answer ans  = qatom.matching(curr.value);
 					if(ans !is null){
-						ans.reset_full();
+						ans.reset();
 						questions[i].qd.add(ans,j);
 					}
 				}
@@ -176,8 +176,10 @@ class ProofNode{
 		//-----------
 		ProofNode[] pnl = new ProofNode[q.af.efs.length];
 		//для каждой е-консеквента
+		VarMap vm = new VarMap();
+		vm.add_qvars(q.af.vars);
 		foreach(i,ef;q.af.efs){
-			EFormula newef = ef.get_hard_copy(new VarMap());
+			EFormula newef = ef.get_hard_copy(vm);
 			newef.reduce();
 			PChunk!(GTerm) newbase  = newef.conjunct.to_pchunk(base);
 			Question[] newqs = new Question[newef.afs.length];

@@ -40,12 +40,12 @@ class Answer{
 	}
 
 	//полный ресет. вместе с НЭЭ. Применяется после неудачной попытки унификации.
-	void reset_full(){
+	/*void reset_full(){
 		foreach(b;binds){
 			b.reset_full();
 		}	
 		is_applied = false;
-	}	
+	}*/	
 	
 	/*Добавить биндинг*/
 	void add_binding(Binding b){
@@ -100,10 +100,14 @@ class Answer{
 			if(b2.left in a1.binds){
 				Answer subanswer = b2.right.matching(a1.binds[b2.left].right);
 				if(subanswer is null){
-					//writeln("null");
 					return null;
 				}
 				else {
+					//subanswer.reset();
+					if(a1.loop() || a2.loop()){
+						subanswer.reset();
+						return null;
+					} 
 					subanswer.reset();
 					comboanswer.add_answer(subanswer);
 				}
@@ -115,6 +119,13 @@ class Answer{
 		return comboanswer;
 	}
 
+	bool loop(){
+		foreach(b;binds){
+			if(b.loop())return true;
+		}
+		return false;
+	}
+
 	/*
 	Если в подстановке имеется биндинг типа h -> t, где h - НЭЭ, то
 	подстановка корректна, если h ещё нигде не доопределился.
@@ -123,7 +134,7 @@ class Answer{
 	h может вернуться на место.
 	Данная функция проверяет является ли подстановка корректной.	
 	*/
-	bool is_hvalid(){
+	/*bool is_hvalid(){
 		foreach(b;binds){
 			//если левая часть это НЭЭ
 			if(b.left.is_uhe()){
@@ -134,7 +145,7 @@ class Answer{
 			}
 		}
 		return true;
-	}
+	}*/
 	
 	string to_string(){
 		string res="{";
@@ -184,14 +195,19 @@ class Binding{
 	}
 
 	/*полный reset вместе с НЭЭ*/
-	void reset_full(){
+	/*void reset_full(){
 		left.sub_zero(null);
 		if(left.is_uhe()){
 			if(left.args[1] !is null)left.args[1].rem_conc(right);
 		}
 		is_applied = false;
-	}
+	}*/
 
+	bool loop(){
+		if(right.is_contains(left)){
+			return true; 
+		}else return false;
+	}
 	
 	string to_string(){
 		string s;

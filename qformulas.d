@@ -235,7 +235,7 @@ class QVars{
 		unconfined_vars = new GTerm[0];
 	}
 
-	Answer get_unconfined_answers(){
+	/*Answer get_unconfined_answers(){
 		//если открытых переменных нет, то и подстановки для них нет
 		if(unconfined_vars.length==0)
 			return null;
@@ -251,7 +251,7 @@ class QVars{
 			}
 			return ans;
 		}
-	}
+	}*/
 
 	string to_string(){
 		string res="[";
