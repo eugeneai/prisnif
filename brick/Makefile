@@ -24,3 +24,7 @@ dis.tex:
 
 view:	dis.dvi
 	evince dis.dvi
+
+pdf:	dis.pdf
+	evince dis.pdf
+
