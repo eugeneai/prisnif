@@ -16,9 +16,12 @@ parsers/tptp/tmp_ast.txt
 /parsers/tptp/_.pl
 /parsers/tptp/TPTP
 /parsers/tptp/tasks.out/*
-/brick/dis.dvi
+*.dvi
 /brick/dis.log
-/brick/dis.out
-/brick/dis.toc
-/brick/dis.aux
-/brick/dis-blx.bib
+*.out
+*.toc
+*.aux
+*.bib
+*.bak
+\#*\#
+*.bcf
