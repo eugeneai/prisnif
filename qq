@@ -150,7 +150,28 @@ GEO262+1; 0.04;
 GEO263+1; 0.08;
 GEO264+1; 0.04;
 
-GRA014; 0.00; 
+GRA014+1; 0.00; 
+
+KRS018+1; 0.00; (satisfiable)
+KRS019+1; 0.00; (satisfiable)
+KRS020+1; 0.00; (satisfiable)
+KRS021+1; 0.00; (satisfiable)
+KRS022+1; 0.00; (satisfiable)
+KRS023+1; 0.00; (satisfiable)
+KRS024+1; 0.00; (satisfiable)
+KRS025+1; 0.00; (satisfiable)
+KRS027+1; 0.00; (satisfiable)
+KRS039+1; 0.00; (satisfiable)
+KRS050+1; 0.00; (satisfiable)
+KRS053+1; 0.00; (satisfiable)
+KRS054+1; 0.00; (satisfiable)
+KRS055+1; 0.00; (satisfiable)
+KRS056+1; 0.00; (satisfiable)
+KRS058+1; 0.00; (satisfiable)
+KRS059+1; 0.00; (satisfiable)
+KRS060+1; 0.00; (satisfiable)
+KRS061+1; 0.00; (satisfiable)
+KRS062+1; 0.00; (satisfiable)
 
 MED001+1; 0.12;
 MED002+1; 0.38;
@@ -175,6 +196,7 @@ MGT022+2; 0.04;
 MGT036+1; 0.12;
 MGT036+2; 0.12;
 
+MSC009+1; 0.00; (satisfiable)
 MSC011+1; 0.00;
 MSC012+1; 0.12;
 MSC014+1; 0.43; (satisfiable)
@@ -205,10 +227,9 @@ SWB003+2; 0.00;
 SWB014+2; 0.08;
 SWB014+3; 0.33;
 
-SWV010+1; 0.00;
+SWV010+1; 0.00; (satisfiable)
 SWV438+1; 0.21;
 SWV437+1; 0.29;
-
 
 SYN062+1; 0.0;
 SYN407+1; 0.0;
