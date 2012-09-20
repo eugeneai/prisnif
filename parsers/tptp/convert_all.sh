@@ -13,6 +13,7 @@ out="conv_out.txt"
 
 TPTP4X_PRG="Scripts/tptp4X"
 TPTP4X="$tptpdir/$TPTP4X_PRG"
+TIME_OUT=20s
 
 q_tr="GLOBALSZ=1500000 gprolog < tr_s.pl"
 
@@ -80,17 +81,23 @@ do
 
     sfb=$(basename $fb .p)
     pwd
-    ./$TPTP4X_PRG -x -d../../ ../../$file
+    timeout $TIME_OUT ./$TPTP4X_PRG -x -d../../ ../../$file
+    TPTP_RC=$?
     cd -
 
+    if [ "$TPTP_RC" = "124" ]; then
+	echo "[$TS] Phase one is NOT Ok $file. Time out." >> $log
+	continue
+    fi
+
     $prg < "$sfb.tptp" > $tmp
-    rm "$sfb.tptp"
     if [ "$?" = "0" ]; then
 	echo "[$TS] Phase one is Ok $file" >> $log
     else
 	echo "[$TS] Phase one is NOT Ok $file" >> $log
 	continue
     fi
+    rm "$sfb.tptp"
 
     ln -sf $PWD/$tmp $pcf/input.pl
 
