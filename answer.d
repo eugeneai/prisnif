@@ -116,6 +116,9 @@ class Answer{
 			}
 		}
 		//comboanswer.print();
+		comboanswer.apply();
+		if(comboanswer.loop())return null;
+		comboanswer.reset;			
 		return comboanswer;
 	}
 
