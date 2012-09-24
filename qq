@@ -226,8 +226,18 @@ SEU275+1; 0.00;
 SWB003+2; 0.00;
 SWB014+2; 0.08;
 SWB014+3; 0.33;
+SWB030+3; 0.67; (satisfiable)
+SWB030+4; 0.00; (satisfiable)
+SWB031+3; 0.67; (satisfiable)
+SWB031+4; 0.00; (satisfiable)
+SWB034+1; 0.33; (satisfiable)
+SWB035+1; 0.00; (satisfiable)
 
 SWV010+1; 0.00; (satisfiable)
+SWV012+1; 0.33; (satisfiable)
+SWV013+1; 0.00; (satisfiable)
+SWV015+1; 0.00; (satisfiable)
+SWV017+1; 0.00; (satisfiable)
 SWV438+1; 0.21;
 SWV437+1; 0.29;
 

@@ -117,8 +117,11 @@ class Answer{
 		}
 		//comboanswer.print();
 		comboanswer.apply();
-		if(comboanswer.loop())return null;
-		comboanswer.reset;			
+		if(comboanswer.loop()){
+			comboanswer.reset();
+			return null;
+		}
+		comboanswer.reset();			
 		return comboanswer;
 	}
 
