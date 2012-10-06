@@ -102,6 +102,7 @@ class Oracle{
 		auto x = uniform(0,10);
 		if(x>5)return true; else return false;
 	}
+
 }
 
 GTerm xsum(GTerm t1, GTerm t2){
