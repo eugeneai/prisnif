@@ -1,4 +1,4 @@
-.PHONY: all dis view
+.PHONY: all dis view clean
 
 PICS=pics/AnBase.eps pics/Chunk2.eps pics/Chunk.eps pics/logics_schema_1.eps \
 	pics/Parallel.eps pics/PST2.eps pics/PST.eps
@@ -17,8 +17,8 @@ dis.ps: dis.dvi $(PICS)
 	dvips -O-1in,-1in -o dis.ps dis.dvi
 
 dis.dvi: $(TEXS)
-	latex dis.tex
-	latex dis.tex
+	latex dis.tex || true
+	latex dis.tex || true
 
 dis.tex:
 
@@ -28,3 +28,5 @@ view:	dis.dvi
 pdf:	dis.pdf
 	evince dis.pdf
 
+clean:
+	rm -f dis.{ps,pdf,aux,bib,toc,aux,log,bcf,dvi,out,run.xml,thm}
