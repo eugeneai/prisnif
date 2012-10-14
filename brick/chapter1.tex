@@ -171,6 +171,7 @@ $$ Ax\boldsymbol{JF} = \forall\colon\boldsymbol{True}\left(\exists \bar{x}_1\col
 %The unique unary inference rule $\bomega$ is defined as follows.
 
 \begin{definition}
+\label{omega}
 Если $F$ имеет структуру $\forall\colon\boldsymbol{True}\left(\exists \bar{x}\colon B\left(\Phi\right),\Sigma\right)$, где $\Sigma$ есть список других базовых подформул, и $\Phi$ есть список подформул--вопросов содержащий подформулу--вопрос $\forall \bar{y}\colon A(\exists \bar{z}_i\colon C_i\left(\Psi_i\right))_{i=\overline{1,k}}$, тогда заключение $\bomega F$ есть результат применения унарного правила вывода $\bomega$ к вопросу $\forall \bar{y}\colon A$ с ответом $\theta$, и $\bomega F = \forall\colon\boldsymbol{True}(\exists \bar{x} \cup \bar{z}_i\colon B \cup C_i\theta\left(\Phi \cup \Psi_i\theta\right)_{i=\overline{1,k}},\Sigma).$
 
 \end{definition}
