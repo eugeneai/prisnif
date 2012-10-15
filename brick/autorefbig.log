@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  14 OCT 2012 20:51
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  15 OCT 2012 11:58
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -1153,55 +1153,73 @@ Normal \count register pool exhausted, switching to extended pool.
 [1
 
 ] [1] [2]
-Overfull \hbox (9.3601pt too wide) in paragraph at lines 243--247
+Overfull \hbox (3.89294pt too wide) in paragraph at lines 223--224
+[]\T2A/cmr/m/n/14.4 Стратегии эко-но-мии па-мя-ти. Пред-ло-жен-но несколь-ко ва
+-ри-ан-тов: агрес-
+ []
+
+[3]
+Overfull \hbox (10.09741pt too wide) in paragraph at lines 238--239
+\T2A/cmr/m/n/14.4 во-да, по-зи-ци-о-ни-ру-ю-ща-я-ся как по-ло-жи-тель-ная осо-б
+ен-ность ПО--формализма;
+ []
+
+
+Overfull \hbox (2.50581pt too wide) in paragraph at lines 242--243
+\T2A/cmr/m/n/14.4 дач гео-мет-рии (GEO), ме-недж-мен-та (MGT), Commonsense Reas
+oning (CSR),
+ []
+
+[4]
+Overfull \hbox (9.3601pt too wide) in paragraph at lines 263--267
 []\T2A/cmr/m/n/14.4 Давыдов А.В., Ла-ри-о-нов А.А., Чер-ка-шин Е.А. Об ис-чис-л
 е-нии позитивно-
  []
 
 
-Overfull \hbox (20.41817pt too wide) in paragraph at lines 252--256
+Overfull \hbox (20.41817pt too wide) in paragraph at lines 272--276
 \T2A/cmr/m/n/14.4 ма-ти-че-ско-го до-ка-за-тель-ства тео-рем в ис-чис-ле-нии по
 зитивно-образованных
  []
 
-[3]
-Overfull \hbox (2.11235pt too wide) in paragraph at lines 256--259
+[5]
+Overfull \hbox (2.11235pt too wide) in paragraph at lines 276--279
 []\T2A/cmr/m/n/14.4 Davydov A.V., Larionov A.A., Cherkashin E.A. On the calculu
 s of positively
  []
 
 
-Overfull \hbox (0.73734pt too wide) in paragraph at lines 256--259
+Overfull \hbox (0.73734pt too wide) in paragraph at lines 276--279
 \T2A/cmr/m/n/14.4 constructed formulas for automated theorem proving. // Automa
 tic Control
  []
 
 
-Overfull \hbox (1.84937pt too wide) in paragraph at lines 265--270
+Overfull \hbox (1.84937pt too wide) in paragraph at lines 285--290
 \T2A/cmr/m/n/14.4 electronics and microelectronics. Vol. III. May 23-27, 2011. 
 Croatia, Opatija.
  []
 
-[4]
-Overfull \hbox (25.18518pt too wide) in paragraph at lines 290--295
+[6]
+Overfull \hbox (25.18518pt too wide) in paragraph at lines 310--315
 []\T2A/cmr/m/n/14.4 Ларионов А.А. Ме-то-ди-ка по-вы-ше-ния эф-фек-тив-но-сти об
 -ра-бот-ки позитивно-
  []
 
-[5]
-Overfull \hbox (11.94202pt too wide) in paragraph at lines 319--320
+[7]
+Overfull \hbox (11.94202pt too wide) in paragraph at lines 339--340
 []\T2A/cmr/m/n/14.4 ПРОГРАММНАЯ СИ-СТЕ-МА АВ-ТО-МА-ТИ-ЧЕ-СКО-ГО ДО-КА-ЗА-ТЕЛЬ-
  []
 
 
-Overfull \hbox (15.46976pt too wide) in paragraph at lines 319--320
+Overfull \hbox (15.46976pt too wide) in paragraph at lines 339--340
 \T2A/cmr/m/n/14.4 СТВА ТЕО-РЕМ В ИС-ЧИС-ЛЕ-НИИ ПОЗИТИВНО-ОБРАЗОВАННЫХ ФОР-
  []
 
 \tf@thm=\write7
 \openout7 = `autorefbig.thm'.
 
-[6] (./autorefbig.aux)
+[8] (./autorefbig.aux)
 Package logreq Info: Writing requests to 'autorefbig.run.xml'.
 \openout1 = `autorefbig.run.xml'.
 
@@ -1213,6 +1231,6 @@ Here is how much of TeX's memory you used:
  16697 multiletter control sequences out of 15000+50000
  7984 words of font info for 20 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,5n,35p,813b,1386s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,5n,35p,1733b,1386s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (7 pages, 23640 bytes).
+Output written on autorefbig.dvi (9 pages, 32876 bytes).
