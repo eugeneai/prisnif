@@ -140,9 +140,12 @@ fof(con,conjecture,(
 \subsection{Задачи менеджмента}
 
 \paragraph{MGT001+1.p}
-Selection within populations of organizations in modern societies favours organizations whose structure have high inertia.
+
+Фрмулировка: Selection within populations of organizations in modern societies favours organizations whose structure have high inertia.
 
 \paragraph{MGT015+1.p}
+
+Формулировка: Complexity increases the expected duration of reorganisation.
 
 \paragraph{MGT017+1.p}
  The length of reorganizational period grows by the size the organization begins reorganization (if the bigger organization survives it).
@@ -219,7 +222,9 @@ After unsuccessful treatment with single oral anti-diabetic for patients with QI
 
 %===============================================================
 \subsection{Задачи головоломки}
-
+PUZ031+1
+20 шагов
+0.08с
 
 
 %===============================================================
@@ -249,20 +254,37 @@ SET913+1; 0.04; ..
 
 
 %Новое
-MSC010+1; 812, 0.2; 0.33 +
-MSC011+1; 7, 0.0002; 0.0 
-MSC012+1; 48, 0.02; 0.12
-MSC014+1; 49, 0.007; 0.33 (satisfiable)
+\paragraph{MSC010+1}
+Рейинг 0.33. Время решеня 0.03с. Количество шагов 812. Для сравнения, EP 0.01, Vampire 0.5c, iProver 3.8c.
 
-%===========================
-\subsection{Отличия доказательства ПО--формул от метода резолюций}
+Формулировка: Verification of the negation of a conjecture, which is simply to prove the double negated version of a formula from the formula.
+
+Формализация включает 136 атомов.
 
 
+%------------
+%MSC011+1; 7, 0.0002; 0.0 
+%MSC012+1; 48, 0.02; 0.12
+
+%----------------------
+\paragraph{MSC014+1}
+Рейтинг 0.33. Время решения 0.0007с. Для сравнения, EP, Vampire, iProver все близко к 0.
+
+Задача является satisfiable.
 
 %===============================================================
 \subsection{Прошлые задачи}
+Задача о паровом катке, как демонстрация решения сложной задачи была представлена в диссертации Черкашина Е.А. \cite{dissChe}.
+В библиотеке TPTP на данный момент она имеет три формализации PUZ031+1 (рейтинг 0.08), PUZ031+2 (рейтинг 0.04), PUZ031+3 (рейтинг 0.08). 
 
-Паровокй каток, телескоп, леса, бутаков...
+Решение всех трёх вариантов осуществляется за 0.005 (близко к 0), 0.002 (близко к 0) и 0.4 секунды соответстенно. Количество шагов 20, без учёта возвратов. Для сравнения, EP, Vampire, Otter близко к 0. С учётом прокола вывода во всех перечисленных системах, включая нашу не более 0.8 секунд.
+
+То есть, заметно повышение производительности, как с точки зрения количества шагов, так и с точки зрения затраченного времени.
+
+%телескоп, леса, бутаков...
+
+%===========================
+\subsection{Отличия доказательства ПО--формул от метода резолюций}
 
 
 %==============================================================================
