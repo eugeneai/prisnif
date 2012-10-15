@@ -37,7 +37,29 @@
 \subsection{Сложные задачи}
 LCL876+1, рейтинг 1.0... Noooooooooooooooooooo (Косяк есть)
 
-SYN723+1; 0.5; на этапе трансляции
+SYN723+1; рейтинг 0.5; на этапе трансляции
+
+SYN353+1; рейтинг 0.54; за 33 шага доказывается.
+
+SWB020+2; рейтинг 0.5; 1.32 секунды. 
+
+MED010+1; рейтинг 0.46. g15.
+
+%LCL631+1.005
+\paragraph{LCL636+1.005}
+рейтинг 0.5; 5 секунд; g20
+
+Формулировка: The branching formula plus a negation symbol in front and an additional subformula to make the formula provable.
+Взято из статьи \cite{SourceLCL}
+
+%LCL640+1.005
+\paragraph{LCL640+1.005}
+рейтинг 0.62; 0.4 секунды; g20
+
+
+%LCL652+1.005
+\paragraph{LCL652+1.005}
+рейтинг 0.79. решает быстро..
 
 %===============================================================
 \subsection{Задачи геометрии}
@@ -81,6 +103,27 @@ Satisfiability of medical subject headings axioms
 \paragraph{MED009+1.p}
 After unsuccessful treatment with single oral anti-diabetic for patients with QI greater equal than 27 medical management moves to next step.
 
+\paragraph{MED010+1.p}
+Рейтинг 0.46
+After unsuccessful treatment with two oral anti-diabetic medical management moves to next step.
+
+Формализация цели в FOF формата TPTP выглядит так:
+\texttt{fof(unsuccesfuls2,conjecture,
+    ( ( s2(n0)
+      \& ! [X0] :
+          ( gt(n0,X0)
+         => conditionhyper(X0) )
+      \& bcapacityex(n0) )
+   => ? [X0] :
+        ( ~ gt(n0,X0)
+        \& s3(X0)
+        \& ! [X1] :
+            ( gt(X0,X1)
+           => conditionhyper(X1) )
+        \& bcapacityex(X0) ) ))}
+Вывод базируется на двух группах аксиом: MED001+0 (18 формул) и MED001+1 (22 формулы).
+
+
 
 %=========================================================
 \subsection{Задачи верификации}
@@ -121,6 +164,8 @@ MSC011+1; 7, 0.0002; 0.0
 MSC012+1; 48, 0.02; 0.12
 MSC014+1; 49, 0.007; 0.33 (satisfiable)
 
+%===========================
+\subsection{Отличия доказательства ПО--формул от метода резолюций}
 
 
 
