@@ -46,32 +46,33 @@
 
 Задача взята из книги \cite{Church1}, где имеет номер  46.18 (5). В формате FOF TPTP формализуется следующим образом:
 
-\texttt{
-{}fof(church\_46\_18\_5,conjecture,\\
-{}~~~~(~!~[X]~:\\
-{}~~~~~~?~[Y1,Y2,Y3]~:\\
-{}~~~~~~!~[Z]~:\\
-{}~~~~~~~~(~(~big\_f(Y1,Y2,Y3)\\
-{}~~~~~~~~~=>~(~big\_f(X,X,Z)\\
-{}~~~~~~~~~~~=>~(~big\_f(Y2,Y3,Y1)\\
-{}~~~~~~~~~~~~~~|~big\_f(Y3,Y1,Y2)~)~)~)\\
-{}~~~~~~~=>~(~(~(~big\_f(Y3,Y1,Y2)\\
-{}~~~~~~~~~~~~~=>~(~big\_f(Y1,Y2,Y3)\\
-{}~~~~~~~~~~~~~~~~\&~big\_f(Y2,Y3,Y1)~)~)\\
-{}~~~~~~~~~~<=>~big\_f(Y2,Y1,Z)~)\\
-{}~~~~~~~~~=>~(~(~(~big\_f(Y2,Y3,Y1)\\
-{}~~~~~~~~~~~~~~~=>~(~big\_f(Y1,Y2,Y3)\\
-{}~~~~~~~~~~~~~~~~~~~big\_f(Y3,Y1,Y2)~)~)\\
-{}~~~~~~~~~~~~<=>~big\_f(Y1,Z,Y2)~)\\
-{}~~~~~~~~~~~=>~(~(~(~(~big\_f(Y3,Y1,Y2)\\
-{}~~~~~~~~~~~~~~~~~~~=>~\~~big\_f(Y2,Y3,Y1)~)\\
-{}~~~~~~~~~~~~~~~~~=>~big\_f(Y1,Y2,Y3)~)\\
-{}~~~~~~~~~~~~~~<=>~big\_f(Z,Y2,Y1)~)\\
-{}~~~~~~~~~~~~~=>~(~(~big\_f(Y1,Y2,Y3)\\
-{}~~~~~~~~~~~~~~~~~~\&~big\_f(Y2,Y3,Y1)\\
-{}~~~~~~~~~~~~~~~~~~\&~big\_f(Y3,Y1,Y2)~)\\
-{}~~~~~~~~~~~~~~<=>~big\_f(Z,Z,Z)~)~)~)~)~)~)).\\}
-
+\begin{quote}
+\texttt{\raggedright\noindent
+fof(church\_46\_18\_5,conjecture,\\
+~~~~(~!~[X]~:\\
+~~~~~~?~[Y1,Y2,Y3]~:\\
+~~~~~~!~[Z]~:\\
+~~~~~~~~(~(~big\_f(Y1,Y2,Y3)\\
+~~~~~~~~~=>~(~big\_f(X,X,Z)\\
+~~~~~~~~~~~=>~(~big\_f(Y2,Y3,Y1)\\
+~~~~~~~~~~~~~~|~big\_f(Y3,Y1,Y2)~)~)~)\\
+~~~~~~~=>~(~(~(~big\_f(Y3,Y1,Y2)\\
+~~~~~~~~~~~~~=>~(~big\_f(Y1,Y2,Y3)\\
+~~~~~~~~~~~~~~~~\&~big\_f(Y2,Y3,Y1)~)~)\\
+~~~~~~~~~~<=>~big\_f(Y2,Y1,Z)~)\\
+~~~~~~~~~=>~(~(~(~big\_f(Y2,Y3,Y1)\\
+~~~~~~~~~~~~~~~=>~(~big\_f(Y1,Y2,Y3)\\
+~~~~~~~~~~~~~~~~~~~big\_f(Y3,Y1,Y2)~)~)\\
+~~~~~~~~~~~~<=>~big\_f(Y1,Z,Y2)~)\\
+~~~~~~~~~~~=>~(~(~(~(~big\_f(Y3,Y1,Y2)\\
+~~~~~~~~~~~~~~~~~~~=>~\~~big\_f(Y2,Y3,Y1)~)\\
+~~~~~~~~~~~~~~~~~=>~big\_f(Y1,Y2,Y3)~)\\
+~~~~~~~~~~~~~~<=>~big\_f(Z,Y2,Y1)~)\\
+~~~~~~~~~~~~~=>~(~(~big\_f(Y1,Y2,Y3)\\
+~~~~~~~~~~~~~~~~~~\&~big\_f(Y2,Y3,Y1)\\
+~~~~~~~~~~~~~~~~~~\&~big\_f(Y3,Y1,Y2)~)\\
+~~~~~~~~~~~~~~<=>~big\_f(Z,Z,Z)~)~)~)~)~)~)).\\}
+\end{quote}
 
 
 \paragraph{SWB020+2}
@@ -119,7 +120,7 @@
 
 %----------------------------------------------
 \paragraph{GEO264+1}
-Рейтинг 0.04. Время решения 0.005с. Для сравнения, Ayane 0.01c, Vampire 0.01, iProver 0.04c.    
+Рейтинг 0.04. Время решения 0.005с. Для сравнения, Ayane 0.01c, Vampire 0.01, iProver 0.04c.
 
 Формулировка: ``Traingle divides plane into seven regions''.
 
@@ -131,7 +132,7 @@
 %      ( left\_apart\_point(C,line\_connecting(A,B))\\
 %     => ( ( left\_apart\_point(D,reverse\_line(line\_connecting(B,C)))\\
 %          \& left\_apart\_point(D,reverse\_line(line\_connecting(C,A))))\\
-%       => left\_apart\_point(D,line\_connecting(A,B)) ) ) ))\\.  
+%       => left\_apart\_point(D,line\_connecting(A,B)) ) ) ))\\.
 %}
 
 Используется набор аксиом GEO007+0 из \cite{constrgeo}.
@@ -167,7 +168,7 @@ fof(con,conjecture,(\\
 Формулировка: ``Complexity increases the expected duration of reorganisation''.
 
 \paragraph{MGT017+1}
-Рейтинг 0.12. Время решения 0.05с. Для сравнения, Vampire 0.01c, EP 0.01c, Ayane 3.1c. 
+Рейтинг 0.12. Время решения 0.05с. Для сравнения, Vampire 0.01c, EP 0.01c, Ayane 3.1c.
 
  Формулировка: ``The length of reorganizational period grows by the size the organization begins reorganization (if the bigger organization survives it)''.
 
@@ -211,11 +212,11 @@ fof(con,conjecture,(\\
 
 %-------------------------------------
 \paragraph{MED009+1}
-Рейтинг 0.54. Время решения 1.9c. Для сравнения, Vampire 1.2c, EP 14c, SPASS 18.7c.  
+Рейтинг 0.54. Время решения 1.9c. Для сравнения, Vampire 1.2c, EP 14c, SPASS 18.7c.
 
 Формулировка: ``After unsuccessful treatment with single oral anti-diabetic for patients with QI greater equal than 27 medical management moves to next step.''
 
-Формализация цели: 
+Формализация цели:
 \texttt{
 fof(transs1s2\_qige27,conjecture,
     ( ( s1(n0)
@@ -231,7 +232,7 @@ fof(transs1s2\_qige27,conjecture,
             ( gt(X0,X1)
            => conditionhyper(X1) )
         \& ( bcapacityne(X0)
-          | bcapacityex(X0) ) ) )) 
+          | bcapacityex(X0) ) ) ))
 .}
 
 Используется две группы аксиом MED001+1 и MED001+1.
@@ -281,7 +282,7 @@ fof(transs1s2\_qige27,conjecture,
 \paragraph{CSR025+3}
 Рейтинг 0.17. Время решения 1с. Для сравнения, Vampire 0.14c, EP 0.7c, iProver 1.5c.
 
-Данная задача содержит 1 группу аксиом, содержащую 8006 формул и 13036 атомов. 
+Данная задача содержит 1 группу аксиом, содержащую 8006 формул и 13036 атомов.
 %Формализация в языке ПО--формул составляет .. байт. Количество вопросов ... из них с неограниченными переменными ..., глубоких ..., с дизъюнктивным ветвлением ..., целевых ... . Количество атомов ..., количество функциональных символов...
 
 \paragraph{CSR115+92}
@@ -294,7 +295,7 @@ fof(transs1s2\_qige27,conjecture,
 \paragraph{PUZ068+2}
 Задача относится к классу satisfiable.
 
-Рейтинг 0.0. Время решения 4с. Для сравнения. Vampire 1.1c, iProver 1.7c, EP 1.8c.   
+Рейтинг 0.0. Время решения 4с. Для сравнения. Vampire 1.1c, iProver 1.7c, EP 1.8c.
 
 %Формулировка: Monday's Sudoku.
 
