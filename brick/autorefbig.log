@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  15 OCT 2012 14:50
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  16 OCT 2012 23:57
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -814,188 +814,6 @@ File: size14.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
 (/usr/share/texmf-texlive/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
-(/usr/share/texmf/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2011/11/13 v1.7 programmable bibliographies
-
-(/usr/share/texmf/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
-
-(/usr/share/texmf-texlive/tex/latex/etex-pkg/etex.sty
-Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count119
-)
-\etb@tempcnta=\count120
-)
-(/usr/share/texmf/tex/latex/logreq/logreq.sty
-Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count121
-
-(/usr/share/texmf/tex/latex/logreq/logreq.def
-File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-))
-\c@listtotal=\count122
-\c@listcount=\count123
-\c@liststart=\count124
-\c@liststop=\count125
-\c@citecount=\count126
-\c@citetotal=\count127
-\c@multicitecount=\count128
-\c@multicitetotal=\count129
-\c@instcount=\count130
-\c@maxnames=\count131
-\c@minnames=\count132
-\c@maxitems=\count133
-\c@minitems=\count134
-\c@citecounter=\count135
-\c@savedcitecounter=\count136
-\c@uniquelist=\count137
-\c@uniquename=\count138
-\c@refsection=\count139
-\c@refsegment=\count140
-\c@maxextrayear=\count141
-\c@maxextraalpha=\count142
-\c@abbrvpenalty=\count143
-\c@highnamepenalty=\count144
-\c@lownamepenalty=\count145
-\c@maxparens=\count146
-\c@parenlevel=\count147
-\blx@tempcnta=\count148
-\blx@tempcntb=\count149
-\blx@tempcntc=\count150
-\blx@maxsection=\count151
-\blx@maxsegment=\count152
-\blx@notetype=\count153
-\blx@parenlevel@text=\count154
-\blx@parenlevel@foot=\count155
-\labelnumberwidth=\skip51
-\labelalphawidth=\skip52
-\shorthandwidth=\skip53
-\biblabelsep=\skip54
-\bibitemsep=\skip55
-\bibnamesep=\skip56
-\bibinitsep=\skip57
-\bibparsep=\skip58
-\bibhang=\skip59
-\blx@auxin=\read2
-\blx@auxout=\write5
-\c@mincomprange=\count156
-\c@maxcomprange=\count157
-\c@mincompwidth=\count158
-\c@labelname=\count159
-\c@savedlabelname=\count160
-\c@author=\count161
-\c@savedauthor=\count162
-\c@shortauthor=\count163
-\c@savedshortauthor=\count164
-\c@editor=\count165
-\c@savededitor=\count166
-\c@editora=\count167
-\c@savededitora=\count168
-\c@editorb=\count169
-\c@savededitorb=\count170
-\c@editorc=\count171
-\c@savededitorc=\count172
-\c@shorteditor=\count173
-\c@savedshorteditor=\count174
-\c@bookauthor=\count175
-\c@savedbookauthor=\count176
-\c@translator=\count177
-\c@savedtranslator=\count178
-\c@annotator=\count179
-\c@savedannotator=\count180
-\c@commentator=\count181
-\c@savedcommentator=\count182
-\c@introduction=\count183
-\c@savedintroduction=\count184
-\c@foreword=\count185
-\c@savedforeword=\count186
-\c@afterword=\count187
-\c@savedafterword=\count188
-\c@holder=\count189
-\c@savedholder=\count190
-\c@namea=\count191
-\c@savednamea=\count192
-\c@nameb=\count193
-\c@savednameb=\count194
-\c@namec=\count195
-\c@savednamec=\count196
-\c@institution=\count197
-\c@savedinstitution=\count198
-\c@language=\count199
-\c@savedlanguage=\count200
-\c@location=\count201
-\c@savedlocation=\count202
-\c@organization=\count203
-\c@savedorganization=\count204
-\c@origlocation=\count205
-\c@savedoriglocation=\count206
-\c@origpublisher=\count207
-\c@savedorigpublisher=\count208
-\c@pageref=\count209
-\c@savedpageref=\count210
-\c@publisher=\count211
-\c@savedpublisher=\count212
-\c@lista=\count213
-\c@savedlista=\count214
-\c@listb=\count215
-\c@savedlistb=\count216
-\c@listc=\count217
-\c@savedlistc=\count218
-\c@listd=\count219
-\c@savedlistd=\count220
-\c@liste=\count221
-\c@savedliste=\count222
-\c@listf=\count223
-\c@savedlistf=\count224
-Package biblatex Info: Trying to load compatibility code...
-Package biblatex Info: ... file 'blx-compat.def' found.
-
-(/usr/share/texmf/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2011/11/13 v1.7 biblatex generic compatibility
-)
-Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
-
-(/usr/share/texmf/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2011/11/13 v1.7 biblatex generic definitions
-\c@biburlnumpenalty=\count225
-\c@biburlucpenalty=\count226
-\c@biburllcpenalty=\count227
-\c@smartand=\count228
-)
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
-
-(/usr/share/texmf/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2011/11/13 v1.7 biblatex bibliography style
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
-
-(/usr/share/texmf/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2011/11/13 v1.7 biblatex bibliography style
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
-
-(/usr/share/texmf/tex/latex/biblatex/cbx/numeric.cbx
-File: numeric.cbx 2011/11/13 v1.7 biblatex citation style
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\supercite'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
-
-(/usr/share/texmf/tex/latex/biblatex/biblatex.cfg
-File: biblatex.cfg 
-))
 (/usr/share/texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
@@ -1013,14 +831,14 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen129
 \extrarowheight=\dimen130
 \NC@list=\toks47
-\extratabsurround=\skip60
-\backup@length=\skip61
+\extratabsurround=\skip51
+\backup@length=\skip52
 )
 \everycr=\toks48
-\minrowclearance=\skip62
+\minrowclearance=\skip53
 )
 LaTeX Info: Redefining \color on input line 702.
-\rownum=\count229
+\rownum=\count119
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
@@ -1036,18 +854,8 @@ File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 (/usr/share/texmf/tex/latex/xcolor/svgnam.def
 File: svgnam.def 2007/01/21 v2.11 Predefined colors according to SVG 1.1 (UK)
 ))
-Package biblatex Info: Trying to load language 'russian'...
-Package biblatex Info: ... file 'russian.lbx' found.
-
-(/usr/share/texmf/tex/latex/biblatex/lbx/russian.lbx
-File: russian.lbx 2011/11/13 v1.7 biblatex localization
-)
-
-Package biblatex Warning: 'babel' detected but 'csquotes' missing.
-(biblatex)                Loading 'csquotes' recommended.
-
-\@quotelevel=\count230
-\@quotereset=\count231
+\bibdata{intelle}
+No file autorefbig.bbl.
 (./autorefbig.aux)
 \openout1 = `autorefbig.aux'.
 
@@ -1076,14 +884,14 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count232
+\c@section@level=\count120
 )
 LaTeX Info: Redefining \ref on input line 50.
 LaTeX Info: Redefining \pageref on input line 50.
  (./autorefbig.out)
 (./autorefbig.out)
-\@outlinefile=\write6
-\openout6 = `autorefbig.out'.
+\@outlinefile=\write5
+\openout5 = `autorefbig.out'.
 
 \AtBeginShipoutBox=\box33
 
@@ -1128,157 +936,159 @@ driver: dvips
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-
-Package biblatex Warning: Data encoding is 'utf8'.
-(biblatex)                Use backend=biber.
-
-\openout5 = `autorefbig-blx.bib'.
-
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'autorefbig.bbl' not found.
-No file autorefbig.bbl.
-Package biblatex Info: Reference section=0 on input line 50.
-Package biblatex Info: Reference segment=0 on input line 50.
-\c@definition=\count233
-Normal \count register pool exhausted, switching to extended pool.
-\c@example=\count277
-\c@remark=\count278
-\c@theorem=\count279
-\c@proposition=\count280
-\c@lemma=\count281
-\c@corollary=\count282
+\c@definition=\count121
+\c@example=\count122
+\c@remark=\count123
+\c@theorem=\count124
+\c@proposition=\count125
+\c@lemma=\count126
+\c@corollary=\count127
 [1
 
-] [1] [2]
-LaTeX Font Info:    Try loading font information for U+msa on input line 225.
+] [1]
+Overfull \hbox (4.0309pt too wide) in paragraph at lines 188--190
+[]\T2A/cmr/bx/n/14.4 Основные за-да-чи дис-сер-та-ци-он-ной ра-бо-ты. \T2A/cmr/
+m/n/14.4 Для до-сти-же-ния опи-
+ []
+
+
+Overfull \hbox (1.02443pt too wide) in paragraph at lines 192--193
+[]\T2A/cmr/m/n/14.4 Разработка эф-фек-тив-ных струк-тур дан-ных пред-став-ле-ни
+я ПО--формул
+ []
+
+[2]
+LaTeX Font Info:    Try loading font information for U+msa on input line 211.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 225.
+LaTeX Font Info:    Try loading font information for U+msb on input line 211.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) [3]
+)
+Overfull \hbox (14.34207pt too wide) in paragraph at lines 212--213
+[]\T2A/cmr/m/n/14.4 Усовершенствован под-ход к пред-став-ле-нию струк-тур дан-н
+ых ПО--формул
+ []
 
-LaTeX Warning: Citation 'dissChe' on page 4 undefined on input line 229.
+[3] [4]
+Overfull \hbox (15.7882pt too wide) in paragraph at lines 237--239
+\T2A/cmr/m/n/14.4 лич-но ав-то-ром или в со-ав-тор-стве с на-уч-ным ру-ко-во-ди
+-те-лем Чер-ка-ши-ным Е.А.
+ []
+
+[5] [6]
+
+LaTeX Warning: Citation `dissChe' on page 7 undefined on input line 287.
 
 
-LaTeX Warning: Citation 'Che2' on page 4 undefined on input line 229.
+LaTeX Warning: Citation `Che2' on page 7 undefined on input line 287.
 
-[4]
-Overfull \hbox (21.22083pt too wide) in paragraph at lines 237--238
+[7]
+Overfull \hbox (21.22083pt too wide) in paragraph at lines 295--296
 []\T2A/cmr/m/n/14.4 Для ре-ше-ния про-блем неогра-ни-чен-ных пе-ре-мен-ных пред
 -лол-же-но несколь-
  []
 
 
-Overfull \hbox (4.64363pt too wide) in paragraph at lines 239--240
+Overfull \hbox (4.64363pt too wide) in paragraph at lines 297--298
 []\T2A/cmr/m/n/14.4 Стратегия ле-ни-вых кон-кре-ти-за-ций. В ка-че-стве под-ста
 -нов-ки для неогра-
  []
 
-[5]
-Overfull \hbox (0.7624pt too wide) in paragraph at lines 243--244
+[8]
+Overfull \hbox (0.7624pt too wide) in paragraph at lines 301--302
 \T2A/cmr/m/n/14.4 опре-де-лјн-ных огра-ни-че-ний, вы-во-ди-мых из дру-гих подфо
 рмул-вопросов фо-
  []
 
-
-Overfull \hbox (7.42378pt too wide) in paragraph at lines 251--252
+[9]
+Overfull \hbox (7.42378pt too wide) in paragraph at lines 309--310
 \T2A/cmr/m/n/14.4 неэф-фек-тив-но на-пря-мую ис-поль-зо-вать ак-си-о-мы ра-вен-
 ства (ре-флек-сив-ность,
  []
 
 
-Overfull \hbox (1.12442pt too wide) in paragraph at lines 251--252
+Overfull \hbox (1.12442pt too wide) in paragraph at lines 309--310
 \T2A/cmr/m/n/14.4 сим-мет-рич-ность, тран-зи-тив-ность, под-ста-но-воч-ность) [
 ]без спе-ци-аль-ной адап-
  []
 
-[6]
-Overfull \hbox (10.09741pt too wide) in paragraph at lines 281--282
+[10]
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 334
+.
+ (/usr/share/texmf-texlive/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+) [11]
+Overfull \hbox (10.09741pt too wide) in paragraph at lines 344--345
 \T2A/cmr/m/n/14.4 во-да, по-зи-ци-о-ни-ру-ю-ща-я-ся как по-ло-жи-тель-ная осо-б
 ен-ность ПО--формализма;
  []
 
-[7]
-Overfull \hbox (2.50581pt too wide) in paragraph at lines 285--286
+
+Overfull \hbox (2.50581pt too wide) in paragraph at lines 348--349
 \T2A/cmr/m/n/14.4 дач гео-мет-рии (GEO), ме-недж-мен-та (MGT), Commonsense Reas
 oning (CSR),
  []
 
-[8]
-Overfull \hbox (9.3601pt too wide) in paragraph at lines 306--310
+[12]
+Overfull \hbox (9.3601pt too wide) in paragraph at lines 369--373
 []\T2A/cmr/m/n/14.4 Давыдов А.В., Ла-ри-о-нов А.А., Чер-ка-шин Е.А. Об ис-чис-л
 е-нии позитивно-
  []
 
 
-Overfull \hbox (20.41817pt too wide) in paragraph at lines 315--319
+Overfull \hbox (20.41817pt too wide) in paragraph at lines 378--382
 \T2A/cmr/m/n/14.4 ма-ти-че-ско-го до-ка-за-тель-ства тео-рем в ис-чис-ле-нии по
 зитивно-образованных
  []
 
 
-Overfull \hbox (2.11235pt too wide) in paragraph at lines 319--322
+Overfull \hbox (2.11235pt too wide) in paragraph at lines 382--385
 []\T2A/cmr/m/n/14.4 Davydov A.V., Larionov A.A., Cherkashin E.A. On the calculu
 s of positively
  []
 
 
-Overfull \hbox (0.73734pt too wide) in paragraph at lines 319--322
+Overfull \hbox (0.73734pt too wide) in paragraph at lines 382--385
 \T2A/cmr/m/n/14.4 constructed formulas for automated theorem proving. // Automa
 tic Control
  []
 
 
-Overfull \hbox (1.84937pt too wide) in paragraph at lines 328--333
+Overfull \hbox (1.84937pt too wide) in paragraph at lines 391--396
 \T2A/cmr/m/n/14.4 electronics and microelectronics. Vol. III. May 23-27, 2011. 
 Croatia, Opatija.
  []
 
-[9]
-Overfull \hbox (25.18518pt too wide) in paragraph at lines 353--358
+[13]
+Overfull \hbox (25.18518pt too wide) in paragraph at lines 416--421
 []\T2A/cmr/m/n/14.4 Ларионов А.А. Ме-то-ди-ка по-вы-ше-ния эф-фек-тив-но-сти об
 -ра-бот-ки позитивно-
  []
 
-[10] [11]
-Overfull \hbox (11.94202pt too wide) in paragraph at lines 382--383
-[]\T2A/cmr/m/n/14.4 ПРОГРАММНАЯ СИ-СТЕ-МА АВ-ТО-МА-ТИ-ЧЕ-СКО-ГО ДО-КА-ЗА-ТЕЛЬ-
+[14] [15]
+Overfull \hbox (74.11053pt too wide) in paragraph at lines 445--446
+\T2A/cmr/m/n/14.4 КА ЛО-ГИ-ЧЕ-СКО-ГО ВЫ-ВО-ДА В ИС-ЧИС-ЛЕ-НИИ ПОЗИТИВНО-ОБРАЗОВ
+АННЫХ
  []
 
+\tf@thm=\write6
+\openout6 = `autorefbig.thm'.
 
-Overfull \hbox (15.46976pt too wide) in paragraph at lines 382--383
-\T2A/cmr/m/n/14.4 СТВА ТЕО-РЕМ В ИС-ЧИС-ЛЕ-НИИ ПОЗИТИВНО-ОБРАЗОВАННЫХ ФОР-
- []
-
-\tf@thm=\write7
-\openout7 = `autorefbig.thm'.
-
-[12] (./autorefbig.aux)
+[16] (./autorefbig.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                autorefbig
-(biblatex)                and rerun LaTeX afterwards.
-
-Package logreq Info: Writing requests to 'autorefbig.run.xml'.
-\openout1 = `autorefbig.run.xml'.
-
  ) 
 Here is how much of TeX's memory you used:
- 13777 strings out of 493849
- 200112 string characters out of 1152846
- 417865 words of memory out of 3000000
- 16818 multiletter control sequences out of 15000+50000
- 10285 words of font info for 30 fonts, out of 3000000 for 9000
+ 9147 strings out of 493849
+ 121529 string characters out of 1152846
+ 210816 words of memory out of 3000000
+ 12229 multiletter control sequences out of 15000+50000
+ 10595 words of font info for 31 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,5n,35p,2398b,1385s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,6n,35p,2398b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (13 pages, 50624 bytes).
+Output written on autorefbig.dvi (17 pages, 73304 bytes).
