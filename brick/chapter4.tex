@@ -74,7 +74,7 @@ fof(church\_46\_18\_5,conjecture,\\
 ~~~~~~~~~~~~~=>~(~(~big\_f(Y1,Y2,Y3)\\
 ~~~~~~~~~~~~~~~~~~\&~big\_f(Y2,Y3,Y1)\\
 ~~~~~~~~~~~~~~~~~~\&~big\_f(Y3,Y1,Y2)~)\\
-~~~~~~~~~~~~~~<=>~big\_f(Z,Z,Z)~)~)~)~)~)~)).\\}
+~~~~~~~~~~~~~~<=>~big\_f(Z,Z,Z)~)~)~)~)~)~)).}
 \end{quote}
 
 
@@ -114,11 +114,12 @@ fof(church\_46\_18\_5,conjecture,\\
 Формулировка задчи: ``A line L is parallel to the line, that is orthogonal to the orthogonal to L through A, and goes through A as well''.
 
 Формализация цели следующая:
-
-\texttt{fof(con,conjecture,(
-    ! [A,L] : parallel\_lines(L,orthogonal\_through\_point(orthogonal\_through\_point(L,A),A)) )).
-    }
-
+\begin{quote}
+\texttt{\raggedright\noindent{}fof(con,conjecture,(\\
+~~~~!~[A,L]~:~parallel\_lines(L,\\
+~~~~~~~~~orthogonal\_through\_point(\\
+~~~~~~~~~~~~~orthogonal\_through\_point(L,A),A))~)).}
+\end{quote}
 При этом используется 7 групп аксиом, общий объём которых в языке ПО--формул составляет 5~кб.
 
 %----------------------------------------------
@@ -127,17 +128,16 @@ fof(church\_46\_18\_5,conjecture,\\
 
 Формулировка: ``Traingle divides plane into seven regions''.
 
-%Формализация цели:
-
-%\texttt{
-%fof(con,conjecture,(\\
-%    ! [A,B,C,D] :\\
-%      ( left\_apart\_point(C,line\_connecting(A,B))\\
-%     => ( ( left\_apart\_point(D,reverse\_line(line\_connecting(B,C)))\\
-%          \& left\_apart\_point(D,reverse\_line(line\_connecting(C,A))))\\
-%       => left\_apart\_point(D,line\_connecting(A,B)) ) ) ))\\.
-%}
-
+Формализация цели:
+\begin{quote}
+\texttt{\raggedright\noindent
+fof(con,conjecture,(\\
+~~~~!~[A,B,C,D]~:\\
+~~~~~~(~left\_apart\_point(C,line\_connecting(A,B))\\
+~~~~~=>~(~(~left\_apart\_point(D,reverse\_line(line\_connecting(B,C)))\\
+~~~~~~~~~~\&~left\_apart\_point(D,reverse\_line(line\_connecting(C,A))))\\
+~~~~~~~=>~left\_apart\_point(D,line\_connecting(A,B))~)~)~)).}
+\end{quote}
 Используется набор аксиом GEO007+0 из \cite{constrgeo}.
 
 %----------------------------------------------
@@ -145,16 +145,17 @@ fof(church\_46\_18\_5,conjecture,\\
 Рейтинг 0.33. Время решения 0.08. Количество шагов 12. Для сравнения, Ayane 0.26c, Vampire 0.42c, EP 1.63c.
 
 Формалуировка: ``If the lines X and Y are convergent, and Y and Z are  equivalent, then X and Z are convergent, and the intersection   point of X and Y, and the intersection point of X and Z are equal''.
-
-\texttt{
+\begin{quote}
+\texttt{\raggedright\noindent
 fof(con,conjecture,(\\
-    ! [X,Y,Z] :\\
-      ( ( convergent\_lines(X,Y)\\
-        \& equal\_lines(Y,Z) )\\
-     => ( convergent\_lines(X,Z)\\
-        \& equal\_points(intersection\_point(X,Y),intersection\_point(X,Z)) ) ) )).\\
-        }
-
+~~~~!~[X,Y,Z]~:\\
+~~~~~~(~(~convergent\_lines(X,Y)\\
+~~~~~~~~\&~equal\_lines(Y,Z)~)\\
+~~~~~=>~(~convergent\_lines(X,Z)\\
+~~~~~~~~\&~equal\_points(intersection\_point(X,Y),\\
+~~~~~~~~~~~intersection\_point(X,Z))~)~)~)).\\
+~~~~~~~~}
+\end{quote}
 При этом используется 7 групп аксиом, общий объём которых в языке ПО--формул составляет 5~кб.
 
 %============================================================
@@ -197,19 +198,20 @@ fof(con,conjecture,(\\
 Формулировка: ``Whether or not patients with nearly-exhausted production of glucose in the B-cells are cured with a biguanide and sulfonylurea combination therapy''.
 
 Формализация цели:
-\texttt{fof(treatmentne,conjecture,\\
-    ( ( ! [X0] :\\
-          ( \~ gt(n0,X0)\\
-         => ( drugbg(X0)\\
-            \& drugsu(X0) ) )\\
-      \& ! [X0] :\\
-          ( gt(n0,X0)\\
-         => conditionhyper(X0) )\\
-      \& bcapacityne(n0) )\\
-   => ! [X0] :\\
-        ( \~ gt(n0,X0)\\
-       => conditionnormo(X0) ) ))\\.
-       }
+\begin{quote}
+\texttt{\raggedright\noindent{}fof(treatmentne,conjecture,\\
+~~~~(~(~!~[X0]~:\\
+~~~~~~~~~~(~\~~gt(n0,X0)\\
+~~~~~~~~~=>~(~drugbg(X0)\\
+~~~~~~~~~~~~\&~drugsu(X0)~)~)\\
+~~~~~~\&~!~[X0]~:\\
+~~~~~~~~~~(~gt(n0,X0)\\
+~~~~~~~~~=>~conditionhyper(X0)~)\\
+~~~~~~\&~bcapacityne(n0)~)\\
+~~~=>~!~[X0]~:\\
+~~~~~~~~(~\~~gt(n0,X0)\\
+~~~~~~~=>~conditionnormo(X0)~)~)).}
+\end{quote}
 
 При этом используется следующий набор аксиом MED001+0, включающий в себя 18 формул.
 
@@ -220,23 +222,24 @@ fof(con,conjecture,(\\
 Формулировка: ``After unsuccessful treatment with single oral anti-diabetic for patients with QI greater equal than 27 medical management moves to next step.''
 
 Формализация цели:
-\texttt{
-fof(transs1s2\_qige27,conjecture,
-    ( ( s1(n0)
-      \& ! [X0] :
-          ( gt(n0,X0)
-         => conditionhyper(X0) )
-      \& \~ bcapacitysn(n0)
-      \& \~ qilt27(n0) )
-   => ? [X0] :
-        ( \~ gt(n0,X0)
-        \& s2(X0)
-        \& ! [X1] :
-            ( gt(X0,X1)
-           => conditionhyper(X1) )
-        \& ( bcapacityne(X0)
-          | bcapacityex(X0) ) ) ))
-.}
+\begin{quote}
+\texttt{\raggedright\noindent{}
+fof(transs1s2\_qige27,conjecture,\\
+~~~~(~(~s1(n0)\\
+~~~~~~\&~!~[X0]~:\\
+~~~~~~~~~~(~gt(n0,X0)\\
+~~~~~~~~~=>~conditionhyper(X0)~)\\
+~~~~~~\&~\~~bcapacitysn(n0)\\
+~~~~~~\&~\~~qilt27(n0)~)\\
+~~~=>~?~[X0]~:\\
+~~~~~~~~(~\~~gt(n0,X0)\\
+~~~~~~~~\&~s2(X0)\\
+~~~~~~~~\&~!~[X1]~:\\
+~~~~~~~~~~~~(~gt(X0,X1)\\
+~~~~~~~~~~~=>~conditionhyper(X1)~)\\
+~~~~~~~~\&~(~bcapacityne(X0)\\
+~~~~~~~~~~|~bcapacityex(X0)~)~)~)).}
+\end{quote}
 
 Используется две группы аксиом MED001+1 и MED001+1.
 
@@ -247,19 +250,21 @@ fof(transs1s2\_qige27,conjecture,
 Формулировка: ``After unsuccessful treatment with two oral anti-diabetic medical management moves to next step''.
 
 Формализация цели в FOF формата TPTP выглядит так:
-\texttt{fof(unsuccesfuls2,conjecture,
-    ( ( s2(n0)\\
-      \& ! [X0] :\\
-          ( gt(n0,X0)\\
-         => conditionhyper(X0) )\\
-      \& bcapacityex(n0) )\\
-   => ? [X0] :\\
-        ( ~ gt(n0,X0)\\
-        \& s3(X0)\\
-        \& ! [X1] :\\
-            ( gt(X0,X1)\\
-           => conditionhyper(X1) )\\
-        \& bcapacityex(X0) ) ))\\}
+\begin{quote}
+\texttt{\raggedright\noindent{}fof(unsuccesfuls2,conjecture,
+~~~~(~(~s2(n0)\\
+~~~~~~\&~!~[X0]~:\\
+~~~~~~~~~~(~gt(n0,X0)\\
+~~~~~~~~~=>~conditionhyper(X0)~)\\
+~~~~~~\&~bcapacityex(n0)~)\\
+~~~=>~?~[X0]~:\\
+~~~~~~~~(~~~gt(n0,X0)\\
+~~~~~~~~\&~s3(X0)\\
+~~~~~~~~\&~!~[X1]~:\\
+~~~~~~~~~~~~(~gt(X0,X1)\\
+~~~~~~~~~~~=>~conditionhyper(X1)~)\\
+~~~~~~~~\&~bcapacityex(X0)~)~)).}
+\end{quote}
 
 При это используется две группы аксиом: MED001+0 (18 формул) и MED001+1 (22 формулы).
 
@@ -296,7 +301,7 @@ fof(transs1s2\_qige27,conjecture,
 
 
 \paragraph{PUZ068+2}
-Задача относится к классу satisfiable. 
+Задача относится к классу satisfiable.
 
 Рейтинг 0.0. Время решения 4с. Для сравнения. Vampire 1.1c, iProver 1.7c, EP 1.8c.
 

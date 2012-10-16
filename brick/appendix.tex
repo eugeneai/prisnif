@@ -58,7 +58,7 @@ GEO202+3; 96, 0.02; 0.29
 
 GEO203+1; 10, 0.007; 0.12
 
-GEO204+2; 6, 0.01; 0.04 
+GEO204+2; 6, 0.01; 0.04
 
 GEO205+3; 12, 0.01; 0.33
 
@@ -80,7 +80,7 @@ GEO208+2; 9, 0.01; 0.04
 
 GEO208+3; 81, 0.02; 0.04
 
-GEO209+1; 45, 0.08; 0.08 
+GEO209+1; 45, 0.08; 0.08
 
 GEO209+2; 76, 0.01; 0.08
 
@@ -340,7 +340,7 @@ SYN926+1; 4, 0.0002; 0
 
 SYN927+1; 2, 0.0002; 0
 
-SYN928+1; 2, 0.0002; 0.11 
+SYN928+1; 2, 0.0002; 0.11
 
 SYN929+1; 3, 0.0002; 0
 
@@ -514,18 +514,315 @@ TOP021+1; 6, 0.01; 0.04
 MSC004-1;
 
 \section{Пример формализации задачи в языке ПО--формул}
-Задача SWB020+2 в языке ПО--формул имеет следующий вид:
-
+Задача SWB020+2.p в языке ПО--формул имеет следующий вид:
+\begin{quote}
+\texttt{\raggedright\noindent
+~~e[][]~\{\\
+~~~~a[X,Y][iext(uri\_owl\_disjointWith,X,Y)]~\{\\
+~~~~~~e[][ic(X),ic(Y)]~\{\\
+~~~~~~~~a[][]~\{\\
+~~~~~~~~~~e[][]~\{\}\}\}\};\\
+~~~~a[Z,C][iext(uri\_owl\_complementOf,Z,C)]~\{\\
+~~~~~~e[][ic(Z),ic(C)]~\{\\
+~~~~~~~~a[X][]~\{\\
+~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~a[][icext(Z,X),icext(C,X)]~\{\\
+~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~e[][icext(C,X)]~\{\};\\
+~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\};\\
+~~~~a[Z,S1,C1,S2,C2][iext(uri\_rdf\_first,S1,C1),iext(uri\_rdf\_rest,S1,S2),iext(uri\_rdf\_first,S2,C2),iext(uri\_rdf\_rest,S2,uri\_rdf\_nil)]~\{\\
+~~~~~~e[][]~\{\\
+~~~~~~~~a[][iext(uri\_owl\_intersectionOf,Z,S1)]~\{\\
+~~~~~~~~~~e[][ic(Z),ic(C1),ic(C2)]~\{\\
+~~~~~~~~~~~~a[X][]~\{\\
+~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][icext(C1,X),icext(C2,X)]~\{\\
+~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~e[][]~\{\}\}\}\};\\
+~~~~~~~~~~~~~~~~a[][icext(C1,X),icext(C2,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\};\\
+~~~~~~~~a[][ic(Z),ic(C1),ic(C2)]~\{\\
+~~~~~~~~~~e[X][]~\{\\
+~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\\
+~~~~~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+~~~~~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
+~~~~~~~~~~~~~~e[][icext(C1,X),icext(C2,X)]~\{\\
+~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
+~~~~~~~~~~e[][iext(uri\_owl\_intersectionOf,Z,S1)]~\{\}\}\}\};\\
+~~~~a[Z,S1,C1,S2,C2,S3,C3][iext(uri\_rdf\_first,S1,C1),iext(uri\_rdf\_rest,S1,S2),iext(uri\_rdf\_first,S2,C2),iext(uri\_rdf\_rest,S2,S3),iext(uri\_rdf\_first,S3,C3),iext(uri\_rdf\_rest,S3,uri\_rdf\_nil)]~\{\\
+~~~~~~e[][]~\{\\
+~~~~~~~~a[][iext(uri\_owl\_unionOf,Z,S1)]~\{\\
+~~~~~~~~~~e[][ic(Z),ic(C1),ic(C2),ic(C3)]~\{\\
+~~~~~~~~~~~~a[X][]~\{\\
+~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~e[][icext(C1,X)]~\{\};\\
+~~~~~~~~~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\};\\
+~~~~~~~~~~~~~~~~~~~~~~e[][icext(C3,X)]~\{\}\}\}\};\\
+~~~~~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C3,X)]~\{\\
+~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+~~~~~~~~~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\}\}\};\\
+~~~~~~~~a[][ic(Z),ic(C1),ic(C2),ic(C3)]~\{\\
+~~~~~~~~~~e[X][]~\{\\
+~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\\
+~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+~~~~~~~~~~~~~~~~a[][icext(C3,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~~~~~e[][icext(C1,X)]~\{\};\\
+~~~~~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\};\\
+~~~~~~~~~~~~~~~~~~e[][icext(C3,X)]~\{\}\};\\
+~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
+~~~~~~~~~~e[][iext(uri\_owl\_unionOf,Z,S1)]~\{\}\}\}\};\\
+~~~~a[C1,C2][]~\{\\
+~~~~~~e[][]~\{\\
+~~~~~~~~a[][iext(uri\_rdfs\_subClassOf,C1,C2)]~\{\\
+~~~~~~~~~~e[][ic(C1),ic(C2)]~\{\\
+~~~~~~~~~~~~a[X][icext(C1,X)]~\{\\
+~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\}\}\}\};\\
+~~~~~~~~a[][ic(C1),ic(C2)]~\{\\
+~~~~~~~~~~e[X][icext(C1,X)]~\{\\
+~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+~~~~~~~~~~e[][iext(uri\_rdfs\_subClassOf,C1,C2)]~\{\}\}\}\};\\
+~~~~a[C1,C2][]~\{\\
+~~~~~~e[][]~\{\\
+~~~~~~~~a[][iext(uri\_owl\_disjointWith,C1,C2)]~\{\\
+~~~~~~~~~~e[][ic(C1),ic(C2)]~\{\\
+~~~~~~~~~~~~a[X][]~\{\\
+~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+~~~~~~~~~~~~~~e[][]~\{\\
+~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\}\};\\
+~~~~~~~~a[][ic(C1),ic(C2)]~\{\\
+~~~~~~~~~~e[X][icext(C1,X),icext(C2,X)]~\{\\
+~~~~~~~~~~~~a[][]~\{\\
+~~~~~~~~~~~~~~e[][]~\{\}\}\};\\
+~~~~~~~~~~e[][iext(uri\_owl\_disjointWith,C1,C2)]~\{\}\}\}\};\\
+~~~~a[][iext(uri\_rdfs\_subClassOf,uri\_ex\_d,uri\_ex\_c3)]~\{\\
+~~~~~~e[][False]~\{\}\};\\
+~~~~a[][]~\{\\
+~~~~~~e[BNODE\_xs,BNODE\_xc,BNODE\_lu1,BNODE\_lu2,BNODE\_lu3,BNODE\_li1,BNODE\_li2][iext(uri\_owl\_unionOf,uri\_ex\_c,BNODE\_lu1),iext(uri\_rdf\_first,BNODE\_lu1,uri\_ex\_c1),iext(uri\_rdf\_rest,BNODE\_lu1,BNODE\_lu2),iext(uri\_rdf\_first,BNODE\_lu2,uri\_ex\_c2),iext(uri\_rdf\_rest,BNODE\_lu2,BNODE\_lu3),iext(uri\_rdf\_first,BNODE\_lu3,uri\_ex\_c3),iext(uri\_rdf\_rest,BNODE\_lu3,uri\_rdf\_nil),iext(uri\_owl\_disjointWith,uri\_ex\_d,uri\_ex\_c1),iext(uri\_rdfs\_subClassOf,uri\_ex\_d,BNODE\_xs),iext(uri\_owl\_intersectionOf,BNODE\_xs,BNODE\_li1),iext(uri\_rdf\_first,BNODE\_li1,uri\_ex\_c),iext(uri\_rdf\_rest,BNODE\_li1,BNODE\_li2),iext(uri\_rdf\_first,BNODE\_li2,BNODE\_xc),iext(uri\_rdf\_rest,BNODE\_li2,uri\_rdf\_nil),iext(uri\_owl\_complementOf,BNODE\_xc,uri\_ex\_c2)]~\{\\
+~~~~~~~~a[][]~\{\\
+~~~~~~~~~~e[][]~\{\}\}\}\}\}}
+\end{quote}
 %===================================================================================
 \section{Пример сокращённого протокола вывода для задачи}
 %MSC004-1;
-
+\begin{quote}
+\tt\raggedright\noindent
+e[in(john,boy)0,]\\
+~~~~a[Big\_part,~Number\_of\_mid\_parts,~Mid\_part,~Small\_part,~Number\_of\_small\_parts,~]\\
+~~~~a[has\_parts(Big\_part,Number\_of\_mid\_parts,Mid\_part),has\_parts(object\_in(Big\_part,Mid\_part,Small\_part,Number\_of\_mid\_parts,Number\_of\_small\_parts),Number\_of\_small\_parts,Small\_part),]\\
+~~~~~~~~e[]\\
+~~~~~~~~e[has\_parts(Big\_part,times(Number\_of\_mid\_parts,Number\_of\_small\_parts),Small\_part),]\\
+~\\
+~\\
+~~~~a[X,~]\\
+~~~~a[in(X,boy),]\\
+~~~~~~~~e[]\\
+~~~~~~~~e[in(X,human),]\\
+~\\
+~\\
+~~~~a[X,~]\\
+~~~~a[in(X,hand),]\\
+~~~~~~~~e[]\\
+~~~~~~~~e[has\_parts(X,n5,fingers),]\\
+~\\
+~\\
+~~~~a[X,~]\\
+~~~~a[in(X,human),]\\
+~~~~~~~~e[]\\
+~~~~~~~~e[has\_parts(X,n2,arm),]\\
+~\\
+~\\
+~~~~a[X,~]\\
+~~~~a[in(X,arm),]\\
+~~~~~~~~e[]\\
+~~~~~~~~e[has\_parts(X,n1,hand),]\\
+~\\
+~\\
+~~~~a[]\\
+~~~~a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~~~~~e[]\\
+~~~~~~~~e[False,]\\
+~\\
+~\\
+~~~~a[Big\_part,~Number\_of\_mid\_parts,~Mid\_part,~Small\_part,~Number\_of\_small\_parts,~]\\
+~~~~a[has\_parts(Big\_part,Number\_of\_mid\_parts,Mid\_part),]\\
+~~~~~~~~e[]\\
+~~~~~~~~e[has\_parts(Big\_part,times(Number\_of\_mid\_parts,Number\_of\_small\_parts),Small\_part),]\\
+~\\
+~~~~~~~~e[]\\
+~~~~~~~~e[in(object\_in(Big\_part,Mid\_part,Small\_part,Number\_of\_mid\_parts,Number\_of\_small\_parts),Mid\_part),]\\
+~\\
+~\\
+~\\
+\{X~->~john,~\}\\
+\{X~->~john,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~n2,~Mid\_part~->~arm,~Small\_part~->~h1,~Number\_of\_small\_parts~->~h2,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,h2),~Mid\_part~->~h1,~Small\_part~->~h3,~Number\_of\_small\_parts~->~h4,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{h2~->~n1,~h4~->~n5,~h3~->~fingers,~\}\\
+\{X~->~object\_in(john,boy,fingers,times(n2,n1),n5),~h1~->~boy,~\}\\
+\{X~->~object\_in(john,boy,fingers,times(n2,n1),n5),~\}\\
+\{Big\_part~->~object\_in(john,boy,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~n2,~Mid\_part~->~arm,~Small\_part~->~h5,~Number\_of\_small\_parts~->~h6,~\}\\
+\{Big\_part~->~object\_in(john,boy,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~times(n2,h6),~Mid\_part~->~h5,~Small\_part~->~h7,~Number\_of\_small\_parts~->~h8,~\}\\
+\{Big\_part~->~object\_in(john,boy,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~times(times(n2,h6),h8),~Mid\_part~->~h7,~Small\_part~->~h9,~Number\_of\_small\_parts~->~h10,~\}\\
+\{Big\_part~->~object\_in(john,boy,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~times(times(times(n2,h6),h8),h10),~Mid\_part~->~h9,~Small\_part~->~h11,~Number\_of\_small\_parts~->~h12,~\}\\
+\{Big\_part~->~object\_in(john,boy,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~times(times(times(times(n2,h6),h8),h10),h12),~Mid\_part~->~h11,~Small\_part~->~h13,~Number\_of\_small\_parts~->~h14,~\}\\
+\{Big\_part~->~object\_in(john,boy,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~times(times(times(times(times(n2,h6),h8),h10),h12),h14),~Mid\_part~->~h13,~Small\_part~->~h15,~Number\_of\_small\_parts~->~h16,~\}\\
+\{Big\_part~->~object\_in(john,boy,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~times(times(times(times(times(times(n2,h6),h8),h10),h12),h14),h16),~Mid\_part~->~h15,~Small\_part~->~h17,~Number\_of\_small\_parts~->~h18,~\}\\
+\{X~->~object\_in(john,hand,fingers,times(n2,n1),n5),~h1~->~hand,~\}\\
+\{Big\_part~->~object\_in(john,hand,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~n5,~Mid\_part~->~fingers,~Small\_part~->~h19,~Number\_of\_small\_parts~->~h20,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{\}\\
+\{X~->~object\_in(john,arm,hand,n2,n1),~\}\\
+\{Big\_part~->~object\_in(john,arm,hand,n2,n1),~Number\_of\_mid\_parts~->~n1,~Mid\_part~->~hand,~Small\_part~->~h21,~Number\_of\_small\_parts~->~h22,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~n2,~Mid\_part~->~arm,~Small\_part~->~hand,~Number\_of\_small\_parts~->~n1,~\}\\
+\{Big\_part~->~object\_in(john,arm,hand,n2,n1),~Number\_of\_mid\_parts~->~times(n1,h22),~Mid\_part~->~h21,~Small\_part~->~h23,~Number\_of\_small\_parts~->~h24,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~h25,~Number\_of\_small\_parts~->~h26,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{h26~->~n5,~h25~->~fingers,~\}\\
+\{X~->~object\_in(john,hand,fingers,times(n2,n1),n5),~\}\\
+\{Big\_part~->~object\_in(john,arm,hand,n2,n1),~Number\_of\_mid\_parts~->~times(times(n1,h22),h24),~Mid\_part~->~h23,~Small\_part~->~h27,~Number\_of\_small\_parts~->~h28,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{\}\\
+\{X~->~object\_in(object\_in(john,arm,hand,n2,n1),boy,h23,times(n1,h22),h24),~h21~->~boy,~\}\\
+\{X~->~object\_in(object\_in(john,arm,hand,n2,n1),boy,h23,times(n1,h22),h24),~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~h29,~Number\_of\_small\_parts~->~h30,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{h30~->~n5,~h29~->~fingers,~\}\\
+\{Big\_part~->~object\_in(john,arm,hand,n2,n1),~Number\_of\_mid\_parts~->~times(n1,h22),~Mid\_part~->~boy,~Small\_part~->~arm,~Number\_of\_small\_parts~->~n2,~h24~->~n2,~h23~->~arm,~\}\\
+\{X~->~object\_in(john,hand,fingers,times(n2,n1),n5),~\}\\
+\{Big\_part~->~object\_in(object\_in(john,arm,hand,n2,n1),boy,arm,times(n1,h22),n2),~Number\_of\_mid\_parts~->~n2,~Mid\_part~->~arm,~Small\_part~->~h31,~Number\_of\_small\_parts~->~h32,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+\{Big\_part~->~object\_in(object\_in(john,arm,hand,n2,n1),boy,arm,times(n1,h22),n2),~Number\_of\_mid\_parts~->~n2,~Mid\_part~->~arm,~Small\_part~->~h33,~Number\_of\_small\_parts~->~h34,~\}\\
+\{Big\_part~->~object\_in(john,arm,hand,n2,n1),~Number\_of\_mid\_parts~->~times(times(n1,h22),n2),~Mid\_part~->~arm,~Small\_part~->~h35,~Number\_of\_small\_parts~->~h36,~\}\\
+\{Big\_part~->~object\_in(object\_in(john,arm,hand,n2,n1),boy,arm,times(n1,h22),n2),~Number\_of\_mid\_parts~->~times(n2,h34),~Mid\_part~->~h33,~Small\_part~->~h37,~Number\_of\_small\_parts~->~h38,~\}\\
+\{X~->~object\_in(john,hand,fingers,times(n2,n1),n5),~\}\\
+\{Big\_part~->~object\_in(object\_in(john,arm,hand,n2,n1),boy,h23,times(n1,h22),h24),~Number\_of\_mid\_parts~->~n2,~Mid\_part~->~arm,~Small\_part~->~h39,~Number\_of\_small\_parts~->~h40,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+\{Big\_part~->~object\_in(john,hand,fingers,times(n2,n1),n5),~Number\_of\_mid\_parts~->~n5,~Mid\_part~->~fingers,~Small\_part~->~h41,~Number\_of\_small\_parts~->~h42,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~n2,~Mid\_part~->~arm,~Small\_part~->~hand,~Number\_of\_small\_parts~->~n1,~\}\\
+\{X~->~object\_in(object\_in(john,arm,hand,n2,n1),hand,boy,n1,h22),~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~h43,~Number\_of\_small\_parts~->~h44,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{h44~->~n5,~h43~->~fingers,~\}\\
+\{X~->~object\_in(john,hand,fingers,times(n2,n1),n5),~\}\\
+\{Big\_part~->~object\_in(object\_in(john,arm,hand,n2,n1),hand,boy,n1,h22),~Number\_of\_mid\_parts~->~n5,~Mid\_part~->~fingers,~Small\_part~->~h45,~Number\_of\_small\_parts~->~h46,~\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{\}\\
+\{Big\_part~->~john,~Number\_of\_mid\_parts~->~times(n2,n1),~Mid\_part~->~hand,~Small\_part~->~fingers,~Number\_of\_small\_parts~->~n5,~\}\\
+a[]\\
+a[has\_parts(john,times(times(n2,n1),n5),fingers),]\\
+~~~~e[]\\
+~~~~e[False,]\\
+~\\
+~\\
+\{\}\\
+==========ok==========\\
+sc:~70\\
+Опровергнуто~баз:~11\\
+.........................\\
+Time:~0.006316s.\\
+================================
+\end{quote}
 
 \section*{Описание стратегии}
 
 
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "dis"
-%%% End: 
+%%% End:
