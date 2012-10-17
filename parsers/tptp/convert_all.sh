@@ -24,7 +24,7 @@ usage()
 cat << EOF
 usage: $0 options
 
-This script converts som or all files in TPTP/TPTP/Problems/...
+This script converts some or all files in TPTP/TPTP/Problems/...
 directories into tasks.out directory.
 
 OPTIONS:
