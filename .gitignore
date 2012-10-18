@@ -20,6 +20,8 @@ parsers/tptp/tmp_ast.txt
 /brick/dis.log
 /brick/dis.ps
 /brick/dis.pdf
+/brick/dis.thm
+/brick/dis.run*
 *.out
 *.toc
 *.aux
