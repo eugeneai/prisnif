@@ -75,7 +75,7 @@ fof(church\_46\_18\_5,conjecture,\\
 
 
 \paragraph{SWB020+2}
-Рейтинг 0.5. Время решения 1.32 секунды. Для сравнения, Vampire 8с, Otter 1.1c, EP 0.2с.
+Рейтинг 0.5. Время решения 0.04 секунды. Для сравнения, EP 0.01с, Vampire 0.01с, iProver 10c.
 
 Формализация занимает 60 атомов и 8 подформул--вопросов. Формализация в языке ПО--формул занимает 5~кб, и представлена в приложении.
 
@@ -107,6 +107,23 @@ fof(church\_46\_18\_5,conjecture,\\
 %===============================================================
 \subsection{Задачи геометрии}
 Рассмотрим более подробную информацию о задачах из геометрии и сравнении с другими системами. Полный список решенных задач представлен в приложении.
+
+\paragraph{GEO205+3}
+Рейтинг 0.33. Время решения 0.08. Количество шагов 12. Для сравнения, Ayane 0.26c, Vampire 0.42c, EP 1.63c.
+
+Формалуировка: ``If the lines X and Y are convergent, and Y and Z are  equivalent, then X and Z are convergent, and the intersection   point of X and Y, and the intersection point of X and Z are equal''.
+\begin{quote}
+\texttt{\raggedright\noindent
+fof(con,conjecture,(\\
+~~~~!~[X,Y,Z]~:\\
+~~~~~~(~(~convergent\_lines(X,Y)\\
+~~~~~~~~\&~equal\_lines(Y,Z)~)\\
+~~~~~=>~(~convergent\_lines(X,Z)\\
+~~~~~~~~\&~equal\_points(intersection\_point(X,Y),\\
+~~~~~~~~~~~intersection\_point(X,Z))~)~)~)).\\
+~~~~~~~~}
+\end{quote}
+При этом используется 7 групп аксиом, общий объём которых в языке ПО--формул составляет 5~кб.
 
 %----------------------------------------------
 \paragraph{GEO222+3.p}
@@ -142,40 +159,26 @@ fof(con,conjecture,(\\
 Используется набор аксиом GEO007+0 из \cite{constrgeo}.
 
 %----------------------------------------------
-\paragraph{GEO205+3}
-Рейтинг 0.33. Время решения 0.08. Количество шагов 12. Для сравнения, Ayane 0.26c, Vampire 0.42c, EP 1.63c.
-
-Формалуировка: ``If the lines X and Y are convergent, and Y and Z are  equivalent, then X and Z are convergent, and the intersection   point of X and Y, and the intersection point of X and Z are equal''.
-\begin{quote}
-\texttt{\raggedright\noindent
-fof(con,conjecture,(\\
-~~~~!~[X,Y,Z]~:\\
-~~~~~~(~(~convergent\_lines(X,Y)\\
-~~~~~~~~\&~equal\_lines(Y,Z)~)\\
-~~~~~=>~(~convergent\_lines(X,Z)\\
-~~~~~~~~\&~equal\_points(intersection\_point(X,Y),\\
-~~~~~~~~~~~intersection\_point(X,Z))~)~)~)).\\
-~~~~~~~~}
-\end{quote}
-При этом используется 7 групп аксиом, общий объём которых в языке ПО--формул составляет 5~кб.
 
 %============================================================
 \subsection{Задачи менеджмента}
 
-\paragraph{MGT001+1}
+%006, 008
+
+\paragraph{MGT006+1}
 Рейтинг 0.12. Время решения 0.01с. Для сравнения, Vampire 0.01c, EP 0.05c.
 
-Формулировка: ``Selection within populations of organizations in modern societies favours organizations whose structure have high inertia''.
+Формулировка: ``Reliability and accountability increase with time.''.
 
-\paragraph{MGT015+1}
-Рейтинг 0.12. Время решения 0.1с. Для сравнения, Vampire 0.01c. EP 0.01, Ayane 3.2c.
+\paragraph{MGT036+1}
+Рейтинг 0.12. Время решения 0.05с. Для сравнения, Vampire 0.01c. EP 0.01, Ayane 3.2c.
 
-Формулировка: ``Complexity increases the expected duration of reorganisation''.
+Формулировка: ``First movers never outcompete efficient producers.''.
 
-\paragraph{MGT017+1}
-Рейтинг 0.12. Время решения 0.05с. Для сравнения, Vampire 0.01c, EP 0.01c, Ayane 3.1c.
+\paragraph{MGT022+2}
+Рейтинг 0.04. Время решения 0.002с. Для сравнения, Vampire 0.01c, EP 0.01c, Ayane 3.1c.
 
- Формулировка: ``The length of reorganizational period grows by the size the organization begins reorganization (if the bigger organization survives it)''.
+ Формулировка: ``Decreasing resource availability affects the disbanding rate of first movers more than the disbanding rate of efficient producers.''.
 
 %\paragraph{MGT018+1.p}
 %The bigger an organization is at the beginning of reorganization, the sooner disbanding due to reorganization (possibly) happens - i.e. the shorter is the reorganization.
@@ -184,14 +187,6 @@ fof(con,conjecture,(\\
 %===============================================================
 \subsection{Задача из медицины}
 Основным источником формализации задач медицины является работа \cite{med1}.
-
-\paragraph{MED011+1}
-Рейтинг 0.33. Время решения 11с. Для сравнения, Vampire 1c, iProver 13.7c. Отметим что данная задача решается всего тремя системами АДТ.
-
-Формулировка: ``Satisfiability of medical subject headings axioms (MED002+0)''
-
-Количество атомов 568530.
-
 
 \paragraph{MED002+1}
 Рейтинг 0.38. Время решения 0.04с. Для сравнения, Vampire 0.01c, iProver 0.04c, SPASS 6.78c.
@@ -284,7 +279,7 @@ fof(transs1s2\_qige27,conjecture,\\
 
 %===============================================================
 \subsection{Крупные задачи}
-Рассмотрим поведение системы при решении некоторых крупных задач, формализация которых превышает 1~Мб. Как правило, это задачи с формализацией очень большого количества аксиом, многие из которых не пригождаются в выводе, т.е. ответы на многие вопросы заведомо не приносят никакой пользы, более того, наоборот, захламляют вывод. Основной тактикой при решении таких задач является во-первых повсеместное использование экономии памяти, тщательное использование собранной статистики для удаления ненужных фактов и вопросов, и использование знаний о задаче, для выявления заведомо плохих ветвей вывода.
+Рассмотрим поведение системы при решении некоторых крупных задач, формализация которых превышает 100~Кб. Как правило, это задачи с формализацией очень большого количества аксиом, многие из которых не пригождаются в выводе, т.е. ответы на многие вопросы заведомо не приносят никакой пользы, более того, наоборот, захламляют вывод. Основной тактикой при решении таких задач является во-первых повсеместное использование экономии памяти, тщательное использование собранной статистики для удаления ненужных фактов и вопросов, и использование знаний о задаче, для выявления заведомо плохих ветвей вывода.
 
 Примером, успешного решения крупной задачи, является задача MED011+1.
 
@@ -294,8 +289,8 @@ fof(transs1s2\_qige27,conjecture,\\
 Данная задача содержит 1 группу аксиом, содержащую 8006 формул и 13036 атомов.
 %Формализация в языке ПО--формул составляет .. байт. Количество вопросов ... из них с неограниченными переменными ..., глубоких ..., с дизъюнктивным ветвлением ..., целевых ... . Количество атомов ..., количество функциональных символов...
 
-\paragraph{CSR115+92}
-Рейтинг 0.46. Время решения 4.4с. Для сравнения, EP 0.24c, iProver 5.8c.
+\paragraph{CSR064+3}
+Рейтинг 0.58. Время решения 4.4с. Для сравнения, EP 0.24c, iProver 5.8c.
 Формулировка: ``Which British company was taken over by BMW in 1994?''
 
 Количество формул 10189. Количество атомов 10803.
@@ -315,6 +310,13 @@ fof(transs1s2\_qige27,conjecture,\\
 
 %===============================================================
 \subsection{Разное}
+
+\paragraph{COM003+1}
+Рейтинг 0.33. Время решения 0.01с.
+
+Формулировка: ``The halting problem is undecidable'' (Неразрешимость проблемы остановки)
+
+
 %Задачи которые стоит посмотреть:
 %SYN457+1.p
 
