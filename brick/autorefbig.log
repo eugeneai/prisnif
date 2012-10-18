@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  16 OCT 2012 23:57
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  18 OCT 2012 13:01
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -946,130 +946,135 @@ driver: dvips
 [1
 
 ] [1]
-Overfull \hbox (4.0309pt too wide) in paragraph at lines 188--190
+Overfull \hbox (4.0309pt too wide) in paragraph at lines 191--193
 []\T2A/cmr/bx/n/14.4 Основные за-да-чи дис-сер-та-ци-он-ной ра-бо-ты. \T2A/cmr/
 m/n/14.4 Для до-сти-же-ния опи-
  []
 
-
-Overfull \hbox (1.02443pt too wide) in paragraph at lines 192--193
+[2]
+Overfull \hbox (1.02443pt too wide) in paragraph at lines 195--196
 []\T2A/cmr/m/n/14.4 Разработка эф-фек-тив-ных струк-тур дан-ных пред-став-ле-ни
 я ПО--формул
  []
 
-[2]
-LaTeX Font Info:    Try loading font information for U+msa on input line 211.
- (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 214.
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 211.
+LaTeX Font Info:    Try loading font information for U+msb on input line 214.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-Overfull \hbox (14.34207pt too wide) in paragraph at lines 212--213
+) [3]
+Overfull \hbox (14.34207pt too wide) in paragraph at lines 215--216
 []\T2A/cmr/m/n/14.4 Усовершенствован под-ход к пред-став-ле-нию струк-тур дан-н
 ых ПО--формул
  []
 
-[3] [4]
-Overfull \hbox (15.7882pt too wide) in paragraph at lines 237--239
+
+Overfull \hbox (11.48012pt too wide) in paragraph at lines 234--235
+\T2A/cmr/m/n/14.4 чис-ле-ния ПО-формул. Де-ре-во со-сто-я-ний вы-во-да, $\OML/c
+mm/m/it/14.4 k; m$\T2A/cmr/m/n/14.4 --ограничение, стра-
+ []
+
+[4]
+Overfull \hbox (15.7882pt too wide) in paragraph at lines 240--242
 \T2A/cmr/m/n/14.4 лич-но ав-то-ром или в со-ав-тор-стве с на-уч-ным ру-ко-во-ди
 -те-лем Чер-ка-ши-ным Е.А.
  []
 
-[5] [6]
+[5]
+Overfull \hbox (1.901pt too wide) in paragraph at lines 278--279
+\T2A/cmr/m/n/14.4 про-бле-ма неогра-ни-чен-ных пе-ре-мен-ных, т.е. тех пе-ре-ме
+н-ных в подформулах-
+ []
 
-LaTeX Warning: Citation `dissChe' on page 7 undefined on input line 287.
+[6]
+
+LaTeX Warning: Citation `dissChe' on page 7 undefined on input line 290.
 
 
-LaTeX Warning: Citation `Che2' on page 7 undefined on input line 287.
+LaTeX Warning: Citation `Che2' on page 7 undefined on input line 290.
 
 [7]
-Overfull \hbox (21.22083pt too wide) in paragraph at lines 295--296
+Overfull \hbox (13.2239pt too wide) in paragraph at lines 298--299
 []\T2A/cmr/m/n/14.4 Для ре-ше-ния про-блем неогра-ни-чен-ных пе-ре-мен-ных пред
--лол-же-но несколь-
+-ло-же-но несколь-
  []
 
 
-Overfull \hbox (4.64363pt too wide) in paragraph at lines 297--298
+Overfull \hbox (4.64363pt too wide) in paragraph at lines 300--301
 []\T2A/cmr/m/n/14.4 Стратегия ле-ни-вых кон-кре-ти-за-ций. В ка-че-стве под-ста
 -нов-ки для неогра-
  []
 
-[8]
-Overfull \hbox (0.7624pt too wide) in paragraph at lines 301--302
-\T2A/cmr/m/n/14.4 опре-де-лјн-ных огра-ни-че-ний, вы-во-ди-мых из дру-гих подфо
-рмул-вопросов фо-
- []
-
-[9]
-Overfull \hbox (7.42378pt too wide) in paragraph at lines 309--310
+[8] [9]
+Overfull \hbox (7.42378pt too wide) in paragraph at lines 312--313
 \T2A/cmr/m/n/14.4 неэф-фек-тив-но на-пря-мую ис-поль-зо-вать ак-си-о-мы ра-вен-
 ства (ре-флек-сив-ность,
  []
 
 
-Overfull \hbox (1.12442pt too wide) in paragraph at lines 309--310
+Overfull \hbox (1.12442pt too wide) in paragraph at lines 312--313
 \T2A/cmr/m/n/14.4 сим-мет-рич-ность, тран-зи-тив-ность, под-ста-но-воч-ность) [
 ]без спе-ци-аль-ной адап-
  []
 
 [10]
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 334
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 336
 .
  (/usr/share/texmf-texlive/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ) [11]
-Overfull \hbox (10.09741pt too wide) in paragraph at lines 344--345
+Overfull \hbox (10.09741pt too wide) in paragraph at lines 346--347
 \T2A/cmr/m/n/14.4 во-да, по-зи-ци-о-ни-ру-ю-ща-я-ся как по-ло-жи-тель-ная осо-б
 ен-ность ПО--формализма;
  []
 
 
-Overfull \hbox (2.50581pt too wide) in paragraph at lines 348--349
+Overfull \hbox (2.50581pt too wide) in paragraph at lines 350--351
 \T2A/cmr/m/n/14.4 дач гео-мет-рии (GEO), ме-недж-мен-та (MGT), Commonsense Reas
 oning (CSR),
  []
 
 [12]
-Overfull \hbox (9.3601pt too wide) in paragraph at lines 369--373
+Overfull \hbox (9.3601pt too wide) in paragraph at lines 371--375
 []\T2A/cmr/m/n/14.4 Давыдов А.В., Ла-ри-о-нов А.А., Чер-ка-шин Е.А. Об ис-чис-л
 е-нии позитивно-
  []
 
 
-Overfull \hbox (20.41817pt too wide) in paragraph at lines 378--382
+Overfull \hbox (20.41817pt too wide) in paragraph at lines 380--384
 \T2A/cmr/m/n/14.4 ма-ти-че-ско-го до-ка-за-тель-ства тео-рем в ис-чис-ле-нии по
 зитивно-образованных
  []
 
-
-Overfull \hbox (2.11235pt too wide) in paragraph at lines 382--385
+[13]
+Overfull \hbox (2.11235pt too wide) in paragraph at lines 384--387
 []\T2A/cmr/m/n/14.4 Davydov A.V., Larionov A.A., Cherkashin E.A. On the calculu
 s of positively
  []
 
 
-Overfull \hbox (0.73734pt too wide) in paragraph at lines 382--385
+Overfull \hbox (0.73734pt too wide) in paragraph at lines 384--387
 \T2A/cmr/m/n/14.4 constructed formulas for automated theorem proving. // Automa
 tic Control
  []
 
 
-Overfull \hbox (1.84937pt too wide) in paragraph at lines 391--396
+Overfull \hbox (1.84937pt too wide) in paragraph at lines 393--398
 \T2A/cmr/m/n/14.4 electronics and microelectronics. Vol. III. May 23-27, 2011. 
 Croatia, Opatija.
  []
 
-[13]
-Overfull \hbox (25.18518pt too wide) in paragraph at lines 416--421
+[14]
+Overfull \hbox (25.18518pt too wide) in paragraph at lines 418--423
 []\T2A/cmr/m/n/14.4 Ларионов А.А. Ме-то-ди-ка по-вы-ше-ния эф-фек-тив-но-сти об
 -ра-бот-ки позитивно-
  []
 
-[14] [15]
-Overfull \hbox (74.11053pt too wide) in paragraph at lines 445--446
+[15]
+Overfull \hbox (74.11053pt too wide) in paragraph at lines 447--448
 \T2A/cmr/m/n/14.4 КА ЛО-ГИ-ЧЕ-СКО-ГО ВЫ-ВО-ДА В ИС-ЧИС-ЛЕ-НИИ ПОЗИТИВНО-ОБРАЗОВ
 АННЫХ
  []
@@ -1085,10 +1090,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  9147 strings out of 493849
  121529 string characters out of 1152846
- 210816 words of memory out of 3000000
+ 211816 words of memory out of 3000000
  12229 multiletter control sequences out of 15000+50000
  10595 words of font info for 31 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,6n,35p,2398b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,5n,35p,2379b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (17 pages, 73304 bytes).
+Output written on autorefbig.dvi (17 pages, 73728 bytes).
