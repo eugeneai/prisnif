@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  22 OCT 2012 22:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  22 OCT 2012 22:59
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -1104,6 +1104,9 @@ Underfull \hbox (badness 1062) in paragraph at lines 403--403
 зор вза-и-мо-дей-ству-ет со все-ми
  []
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [15] [16]
 LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 428
 .
@@ -1127,13 +1130,13 @@ Overfull \hbox (28.0375pt too wide) in paragraph at lines 530--534
 чис-ле-нии позитивно-
  []
 
-
+[20]
 Overfull \hbox (22.8322pt too wide) in paragraph at lines 541--545
 \T2A/cmr/m/n/14.4 ав-то-ма-ти-че-ско-го до-ка-за-тель-ства тео-рем в ис-чис-ле-
 нии позитивно-образованных
  []
 
-[20]
+
 Overfull \hbox (17.04279pt too wide) in paragraph at lines 553--558
 []\T2A/cmr/m/n/14.4 5) A.A. Larionov, E.A. Cherkashin, A.V. Davydov Theorem Pro
 ving Software,
@@ -1164,14 +1167,17 @@ Overfull \hbox (74.11053pt too wide) in paragraph at lines 615--616
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  9243 strings out of 493849
  122601 string characters out of 1152846
- 216816 words of memory out of 3000000
+ 217816 words of memory out of 3000000
  12319 multiletter control sequences out of 15000+50000
  11469 words of font info for 32 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,6n,35p,2671b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,6n,35p,2671b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (24 pages, 107392 bytes).
+Output written on autorefbig.dvi (24 pages, 107652 bytes).
