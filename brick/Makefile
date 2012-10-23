@@ -41,4 +41,4 @@ autoref: autoref.pdf
 	evince autoref.pdf
 
 clean:
-	rm -f dis.{ps,pdf,aux,bib,toc,aux,log,bcf,dvi,out,run.xml,thm}
+	rm -f dis.{ps,pdf,aux,bib,toc,aux,log,bcf,dvi,out,run.xml,thm} autoref.pdf autoref.ps
