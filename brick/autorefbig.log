@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 20:53
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 21:44
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -936,11 +936,11 @@ driver: dvips
 -------------------- Page layout dimensions and switches
 \paperwidth  597.50787pt
 \paperheight 845.04684pt
-\textwidth  469.47046pt
-\textheight 682.86613pt
+\textwidth  483.69684pt
+\textheight 711.3189pt
 \oddsidemargin  71.13188pt
 \evensidemargin 71.13188pt
-\topmargin  56.9055pt
+\topmargin  48.36967pt
 \headheight 0.0pt
 \headsep    0.0pt
 \footskip   45.0pt
@@ -961,119 +961,88 @@ driver: dvips
 \c@proposition=\count130
 \c@lemma=\count131
 \c@corollary=\count132
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+
+ []
+
 [1
 
 ] [1]
-LaTeX Font Info:    Try loading font information for U+msa on input line 180.
+LaTeX Font Info:    Try loading font information for U+msa on input line 182.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 180.
+LaTeX Font Info:    Try loading font information for U+msb on input line 182.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [2]
-Overfull \hbox (36.14188pt too wide) in paragraph at lines 182--183
-\T2A/cmr/m/n/14.4 стем по-ис-ка ЛВ внес-ли Ж.Эрбран, Дж.А.Робинсон, Л.Уос, Е.В.
-Бет, С.Ю.Маслов,
- []
-
-
-Overfull \hbox (50.41968pt too wide) in paragraph at lines 182--183
+Overfull \hbox (36.1933pt too wide) in paragraph at lines 184--185
 \T2A/cmr/m/n/14.4 Р.Ковальский, Д.Уоррен, Д.Кнут, А.Воронков, А.Рязанов, В.МакК
 ьюн, М.Стикель,
  []
 
 
-LaTeX Warning: Citation `ICDS2000' on page 3 undefined on input line 184.
+LaTeX Warning: Citation `ICDS2000' on page 3 undefined on input line 186.
 
 
-Overfull \hbox (20.93332pt too wide) in paragraph at lines 184--185
-\T2A/cmr/m/n/14.4 он-ной ра-бо-те си-сте-мы АДТ ис-поль-зо-ва-но ис-чис-ле-ние 
-позитивно--образованных
+Overfull \hbox (6.13986pt too wide) in paragraph at lines 186--187
+\T2A/cmr/m/n/14.4 тео-ре-ти-че-ско-го ба-зи-са раз-ра-бо-тан-ной си-сте-мы: маш
+инная--ориентированность,
+ []
+
+
+Overfull \hbox (2.37653pt too wide) in paragraph at lines 186--187
+\T2A/cmr/m/n/14.4 обу-слов-лен-ная \T2A/cmr/m/it/14.4 хо-ро-шей струк-ту-ри-ро-
+ван-но-стью \T2A/cmr/m/n/14.4 фор-мул и \T2A/cmr/m/it/14.4 един-ствен-но-стью
+ []
+
+
+Overfull \hbox (51.59442pt too wide) in paragraph at lines 195--197
+[]\T2A/cmr/bx/n/14.4 Предмет ис-сле-до-ва-ния: \T2A/cmr/m/n/14.4 Свой-ства язы-
+ка и ис-чис-ле-ния позитивно--образованных
  []
 
 [3]
-Overfull \hbox (1.02443pt too wide) in paragraph at lines 205--206
-[]\T2A/cmr/m/n/14.4 Разработка эф-фек-тив-ных струк-тур дан-ных пред-став-ле-ни
-я ПО--формул
+Overfull \hbox (22.7009pt too wide) in paragraph at lines 199--201
+\T2A/cmr/m/n/14.4 эф-фек-тив-но-го по-ис-ка ло-ги-че-ско-го вы-во-да в ис-чис-л
+е-нии позитивно--образованных
  []
 
 [4]
-Overfull \hbox (4.06671pt too wide) in paragraph at lines 220--221
-[]\T2A/cmr/m/n/14.4 Изучены свой-ства ис-чис-ле-ния ПО--формул, вли-я-ю-щих на 
-при-ме-ни-мость
+Overfull \hbox (0.29666pt too wide) in paragraph at lines 232--233
+\T2A/cmr/m/n/14.4 АДТ, на-прав-лен-ных на ре-ше-ния за-дач пер-во-по-ряд-ко-во-
+го ис-чис-ле-ния ПО--
  []
 
 [5]
-Overfull \hbox (37.78917pt too wide) in paragraph at lines 239--244
-\T2A/cmr/m/n/14.4 2009-2013 го-ды, гос-кон-тракт ќ П696; ба-зо-вые про-ек-ты на
-учно--исследовательской
- []
-
-
-Overfull \hbox (10.55252pt too wide) in paragraph at lines 239--244
-\T2A/cmr/m/n/14.4 ра-бо-ты ИД-СТУ СО РАН, Про-ект IV.31.2.4., ќ гос. ре-ги-стра
--ции: 01201001350,
- []
-
-
-Overfull \hbox (5.40372pt too wide) in paragraph at lines 252--253
-\T2A/cmr/m/n/14.4 в ис-чис-ле-нии ПО--формул: эф-фек-тив-ные струк-ту-ры пред-с
-тав-ле-ния ПО--
- []
-
-
-Overfull \hbox (53.7479pt too wide) in paragraph at lines 252--253
+Overfull \hbox (39.52151pt too wide) in paragraph at lines 254--255
 \T2A/cmr/m/n/14.4 формул, стра-те-гии ра-бо-ты с неогра-ни-чен-ны-ми пе-ре-мен-
 ны-ми, $\OML/cmm/m/it/14.4 k; m$\T2A/cmr/m/n/14.4 --ограничение,
  []
 
 [6]
 
-LaTeX Warning: Citation `mais' on page 7 undefined on input line 265.
-
-
-LaTeX Warning: Citation `burvestm' on page 7 undefined on input line 265.
-
-
-LaTeX Warning: Citation `viner' on page 7 undefined on input line 265.
-
-
-LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 265.
-
-
-LaTeX Warning: Citation `mipro' on page 7 undefined on input line 265.
-
-
-LaTeX Warning: Citation `mais' on page 7 undefined on input line 266.
-
-
-LaTeX Warning: Citation `parallel' on page 7 undefined on input line 266.
-
-
-LaTeX Warning: Citation `viner' on page 7 undefined on input line 266.
-
-
-LaTeX Warning: Citation `mipro' on page 7 undefined on input line 266.
-
-
 LaTeX Warning: Citation `mais' on page 7 undefined on input line 267.
+
+
+LaTeX Warning: Citation `burvestm' on page 7 undefined on input line 267.
 
 
 LaTeX Warning: Citation `viner' on page 7 undefined on input line 267.
 
 
-LaTeX Warning: Citation `mipro' on page 7 undefined on input line 267.
-
-
 LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 267.
 
 
+LaTeX Warning: Citation `mipro' on page 7 undefined on input line 267.
+
+
+LaTeX Warning: Citation `mais' on page 7 undefined on input line 268.
+
+
 LaTeX Warning: Citation `parallel' on page 7 undefined on input line 268.
-
-
-LaTeX Warning: Citation `burvest' on page 7 undefined on input line 268.
 
 
 LaTeX Warning: Citation `viner' on page 7 undefined on input line 268.
@@ -1082,10 +1051,7 @@ LaTeX Warning: Citation `viner' on page 7 undefined on input line 268.
 LaTeX Warning: Citation `mipro' on page 7 undefined on input line 268.
 
 
-LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 268.
-
-
-LaTeX Warning: Citation `parallel' on page 7 undefined on input line 269.
+LaTeX Warning: Citation `mais' on page 7 undefined on input line 269.
 
 
 LaTeX Warning: Citation `viner' on page 7 undefined on input line 269.
@@ -1094,91 +1060,121 @@ LaTeX Warning: Citation `viner' on page 7 undefined on input line 269.
 LaTeX Warning: Citation `mipro' on page 7 undefined on input line 269.
 
 
-Overfull \hbox (0.19785pt too wide) in paragraph at lines 279--290
-\T2A/cmr/m/n/14.4 суж-да-лись на сле-ду-ю-щих кон-фе-рен-ци-ях и се-ми-на-рах: 
-Меж-ду-на-род-ной кон-
+LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 269.
+
+
+LaTeX Warning: Citation `parallel' on page 7 undefined on input line 270.
+
+
+LaTeX Warning: Citation `burvest' on page 7 undefined on input line 270.
+
+
+LaTeX Warning: Citation `viner' on page 7 undefined on input line 270.
+
+
+LaTeX Warning: Citation `mipro' on page 7 undefined on input line 270.
+
+
+LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 270.
+
+
+LaTeX Warning: Citation `parallel' on page 7 undefined on input line 271.
+
+
+LaTeX Warning: Citation `viner' on page 7 undefined on input line 271.
+
+
+LaTeX Warning: Citation `mipro' on page 7 undefined on input line 271.
+
+[7] [8] [9]
+Overfull \hbox (30.98305pt too wide) in paragraph at lines 376--377
+\T2A/cmr/m/n/14.4 ной па-мя-ти сре-ди тер-мов. На-при-мер, в тер-мах $\OML/cmm/
+m/it/14.4 A\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 g\OT1/cmr/m/n/14.4 (\OML/cmm/m
+/it/14.4 a; f\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 x\OT1/cmr/m/n/14.4 ))\OML/cm
+m/m/it/14.4 ; h\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 c\OT1/cmr/m/n/14.4 ))$ \T2
+A/cmr/m/n/14.4 и $\OML/cmm/m/it/14.4 B\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 k; 
+g\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 a; f\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.
+4 x\OT1/cmr/m/n/14.4 )))$\T2A/cmr/m/n/14.4 ,
  []
 
-[7] [8]
-Overfull \hbox (0.81409pt too wide) in paragraph at lines 335--336
-[]\T2A/cmr/bx/n/14.4 Во вве-де-нии \T2A/cmr/m/n/14.4 обос-но-ва-на ак-ту-аль-но
-сть ра-бо-ты, сфор-му-ли-ро-ва-на цель,
- []
-
-[9] [10]
-Overfull \hbox (13.2239pt too wide) in paragraph at lines 352--353
-[]\T2A/cmr/m/n/14.4 Для ре-ше-ния про-блем неогра-ни-чен-ных пе-ре-мен-ных пред
--ло-же-но несколь-
- []
-
-[11]
-Overfull \hbox (7.42378pt too wide) in paragraph at lines 358--359
-\T2A/cmr/m/n/14.4 неэф-фек-тив-но на-пря-мую ис-поль-зо-вать ак-си-о-мы ра-вен-
-ства (ре-флек-сив-ность,
- []
-
-
-Overfull \hbox (1.12442pt too wide) in paragraph at lines 358--359
-\T2A/cmr/m/n/14.4 сим-мет-рич-ность, тран-зи-тив-ность, под-ста-но-воч-ность) б
-ез спе-ци-аль-ной адап-
+[10] [11]
+Overfull \hbox (1.48412pt too wide) in paragraph at lines 386--387
+[]\T2A/cmr/m/n/14.4 Равенства. Для об-ра-бот-ки пре-ди-ка-та ра-вен-ства, как п
+ра-ви-ло, крайне неэф-
  []
 
 [12]
 File: pics/Design1.eps Graphic file (type eps)
  <pics/Design1.eps> [13]
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 401
-.
+Overfull \hbox (7.99173pt too wide) in paragraph at lines 426--427
+\T2A/cmr/m/n/14.4 ми си-сте-ма-ми АДТ про-ве-де-но на на-бо-ре за-дач из биб-ли
+о-те-ки TPTP (Thousands
+ []
 
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 429
+.
 (/usr/share/texmf-texlive/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-) [14] [15]
-Underfull \vbox (badness 10000) detected at line 438
+) [14]
+Overfull \hbox (32.48238pt too wide) in paragraph at lines 436--437
+[]\T2A/cmr/m/n/14.4 Тестирование си-сте-мы про-во-ди-лось на за-да-чах из биб-л
+ио-те-ки TPTP (Thousands
  []
 
 
-Underfull \vbox (badness 10000) detected at line 455
+Overfull \hbox (0.80249pt too wide) in paragraph at lines 438--439
+\T2A/cmr/m/n/14.4 ная об-ласть, ко-ли-че-ствен-ные ха-рак-те-ри-сти-ки фор-му-л
+ы, ста-тус и фор-мат фор-
+ []
+
+[15]
+Underfull \vbox (badness 10000) detected at line 466
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 483
  []
 
 [16] [17]
-Overfull \hbox (28.0375pt too wide) in paragraph at lines 503--507
+Overfull \hbox (5.2753pt too wide) in paragraph at lines 531--535
 []\T2A/cmr/m/n/14.4 1) Да-вы-дов А.В., Ла-ри-о-нов А.А., Чер-ка-шин Е.А. Об ис-
 чис-ле-нии позитивно-
  []
 
 
-Overfull \hbox (22.8322pt too wide) in paragraph at lines 514--518
-\T2A/cmr/m/n/14.4 ав-то-ма-ти-че-ско-го до-ка-за-тель-ства тео-рем в ис-чис-ле-
-нии позитивно-образованных
- []
-
-
-Overfull \hbox (17.04279pt too wide) in paragraph at lines 526--531
-[]\T2A/cmr/m/n/14.4 5) A.A. Larionov, E.A. Cherkashin, A.V. Davydov Theorem Pro
-ving Software,
- []
-
-
-Overfull \hbox (18.66216pt too wide) in paragraph at lines 526--531
+Overfull \hbox (4.43578pt too wide) in paragraph at lines 554--559
 \T2A/cmr/m/n/14.4 international convention on information and communication tec
 hnology, electronics
  []
 
 
-Overfull \hbox (17.20343pt too wide) in paragraph at lines 532--537
-[]\T2A/cmr/m/n/14.4 6) А.В. Да-вы-дов, А.А. Ла-ри-о-нов. Об ис-чис-ле-нии позит
-ивно-образованных
+Overfull \hbox (34.30478pt too wide) in paragraph at lines 566--571
+\T2A/cmr/m/n/14.4 для ав-то-ма-ти-че-ско-го до-ка-за-тель-ства тео-рем в ис-чис
+-ле-нии позитивно-образованных
  []
 
-[18] [19] [20]
-Overfull \hbox (74.11053pt too wide) in paragraph at lines 588--589
-\T2A/cmr/m/n/14.4 КА ЛО-ГИ-ЧЕ-СКО-ГО ВЫ-ВО-ДА В ИС-ЧИС-ЛЕ-НИИ ПОЗИТИВНО-ОБРАЗОВ
-АННЫХ
+
+Overfull \hbox (4.61638pt too wide) in paragraph at lines 566--571
+\T2A/cmr/m/n/14.4 фор-мул. / Ви-не-ров-ские чте-ния / Тру-ды IV Все-рос-сий-ско
+й кон-фе-рен-ции. Часть
+ []
+
+[18]
+Overfull \hbox (27.95389pt too wide) in paragraph at lines 584--589
+[]\T2A/cmr/m/n/14.4 10) Ла-ри-о-нов А.А. Ме-то-ди-ка по-вы-ше-ния эф-фек-тив-но
+-сти об-ра-бот-ки позитивно-
+ []
+
+[19]
+Overfull \hbox (35.90044pt too wide) in paragraph at lines 616--617
+\T2A/cmr/m/n/14.4 ЛО-ГИ-ЧЕ-СКО-ГО ВЫ-ВО-ДА В ИС-ЧИС-ЛЕ-НИИ ПОЗИТИВНО-ОБРАЗОВАНН
+ЫХ
  []
 
 \tf@thm=\write6
 \openout6 = `autorefbig.thm'.
 
-[21] (./autorefbig.aux)
+[20] (./autorefbig.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1190,6 +1186,6 @@ Here is how much of TeX's memory you used:
  12322 multiletter control sequences out of 15000+50000
  12920 words of font info for 36 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,8n,35p,2847b,397s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,15n,35p,2847b,397s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (22 pages, 96400 bytes).
+Output written on autorefbig.dvi (21 pages, 98712 bytes).
