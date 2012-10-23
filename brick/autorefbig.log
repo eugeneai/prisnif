@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 23:02
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 23:17
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -1115,6 +1115,6 @@ Here is how much of TeX's memory you used:
  12314 multiletter control sequences out of 15000+50000
  12920 words of font info for 36 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,15n,35p,2847b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,15n,35p,2874b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (21 pages, 97372 bytes).
+Output written on autorefbig.dvi (21 pages, 97396 bytes).
