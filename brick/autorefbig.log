@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 21:44
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 21:46
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -1127,21 +1127,21 @@ Overfull \hbox (0.80249pt too wide) in paragraph at lines 438--439
 ы, ста-тус и фор-мат фор-
  []
 
-[15]
+
 Underfull \vbox (badness 10000) detected at line 466
  []
 
-
+[15]
 Underfull \vbox (badness 10000) detected at line 483
  []
 
-[16] [17]
+[16]
 Overfull \hbox (5.2753pt too wide) in paragraph at lines 531--535
 []\T2A/cmr/m/n/14.4 1) Да-вы-дов А.В., Ла-ри-о-нов А.А., Чер-ка-шин Е.А. Об ис-
 чис-ле-нии позитивно-
  []
 
-
+[17]
 Overfull \hbox (4.43578pt too wide) in paragraph at lines 554--559
 \T2A/cmr/m/n/14.4 international convention on information and communication tec
 hnology, electronics
@@ -1182,10 +1182,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  9249 strings out of 493849
  122658 string characters out of 1152846
- 215816 words of memory out of 3000000
+ 216816 words of memory out of 3000000
  12322 multiletter control sequences out of 15000+50000
  12920 words of font info for 36 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,15n,35p,2847b,397s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,15n,35p,2847b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (21 pages, 98712 bytes).
+Output written on autorefbig.dvi (21 pages, 97904 bytes).
