@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 22:24
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 23:02
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -984,9 +984,6 @@ Overfull \hbox (36.1933pt too wide) in paragraph at lines 184--185
  []
 
 
-LaTeX Warning: Citation `ICDS2000' on page 3 undefined on input line 186.
-
-
 Overfull \hbox (6.13986pt too wide) in paragraph at lines 186--187
 \T2A/cmr/m/n/14.4 тео-ре-ти-че-ско-го ба-зи-са раз-ра-бо-тан-ной си-сте-мы: маш
 инная--ориентированность,
@@ -1022,71 +1019,7 @@ Overfull \hbox (39.52151pt too wide) in paragraph at lines 254--255
 ны-ми, $\OML/cmm/m/it/14.4 k; m$\T2A/cmr/m/n/14.4 --ограничение,
  []
 
-[6]
-
-LaTeX Warning: Citation `mais' on page 7 undefined on input line 267.
-
-
-LaTeX Warning: Citation `burvestm' on page 7 undefined on input line 267.
-
-
-LaTeX Warning: Citation `viner' on page 7 undefined on input line 267.
-
-
-LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 267.
-
-
-LaTeX Warning: Citation `mipro' on page 7 undefined on input line 267.
-
-
-LaTeX Warning: Citation `mais' on page 7 undefined on input line 268.
-
-
-LaTeX Warning: Citation `parallel' on page 7 undefined on input line 268.
-
-
-LaTeX Warning: Citation `viner' on page 7 undefined on input line 268.
-
-
-LaTeX Warning: Citation `mipro' on page 7 undefined on input line 268.
-
-
-LaTeX Warning: Citation `mais' on page 7 undefined on input line 269.
-
-
-LaTeX Warning: Citation `viner' on page 7 undefined on input line 269.
-
-
-LaTeX Warning: Citation `mipro' on page 7 undefined on input line 269.
-
-
-LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 269.
-
-
-LaTeX Warning: Citation `parallel' on page 7 undefined on input line 270.
-
-
-LaTeX Warning: Citation `burvest' on page 7 undefined on input line 270.
-
-
-LaTeX Warning: Citation `viner' on page 7 undefined on input line 270.
-
-
-LaTeX Warning: Citation `mipro' on page 7 undefined on input line 270.
-
-
-LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 270.
-
-
-LaTeX Warning: Citation `parallel' on page 7 undefined on input line 271.
-
-
-LaTeX Warning: Citation `viner' on page 7 undefined on input line 271.
-
-
-LaTeX Warning: Citation `mipro' on page 7 undefined on input line 271.
-
-[7] [8] [9]
+[6] [7] [8] [9]
 Overfull \hbox (30.98305pt too wide) in paragraph at lines 373--374
 \T2A/cmr/m/n/14.4 ной па-мя-ти сре-ди тер-мов. На-при-мер, в тер-мах $\OML/cmm/
 m/it/14.4 A\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 g\OT1/cmr/m/n/14.4 (\OML/cmm/m
@@ -1174,18 +1107,14 @@ Overfull \hbox (35.90044pt too wide) in paragraph at lines 608--609
 \tf@thm=\write6
 \openout6 = `autorefbig.thm'.
 
-[20] (./autorefbig.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[20] (./autorefbig.aux) ) 
 Here is how much of TeX's memory you used:
- 9249 strings out of 493849
- 122658 string characters out of 1152846
+ 9241 strings out of 493849
+ 122591 string characters out of 1152846
  216816 words of memory out of 3000000
- 12322 multiletter control sequences out of 15000+50000
+ 12314 multiletter control sequences out of 15000+50000
  12920 words of font info for 36 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  41i,15n,35p,2847b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (21 pages, 97520 bytes).
+Output written on autorefbig.dvi (21 pages, 97372 bytes).
