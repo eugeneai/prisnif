@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 21:46
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 22:24
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -1087,7 +1087,7 @@ LaTeX Warning: Citation `viner' on page 7 undefined on input line 271.
 LaTeX Warning: Citation `mipro' on page 7 undefined on input line 271.
 
 [7] [8] [9]
-Overfull \hbox (30.98305pt too wide) in paragraph at lines 376--377
+Overfull \hbox (30.98305pt too wide) in paragraph at lines 373--374
 \T2A/cmr/m/n/14.4 ной па-мя-ти сре-ди тер-мов. На-при-мер, в тер-мах $\OML/cmm/
 m/it/14.4 A\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 g\OT1/cmr/m/n/14.4 (\OML/cmm/m
 /it/14.4 a; f\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 x\OT1/cmr/m/n/14.4 ))\OML/cm
@@ -1098,7 +1098,7 @@ g\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 a; f\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.
  []
 
 [10] [11]
-Overfull \hbox (1.48412pt too wide) in paragraph at lines 386--387
+Overfull \hbox (1.48412pt too wide) in paragraph at lines 383--384
 []\T2A/cmr/m/n/14.4 Равенства. Для об-ра-бот-ки пре-ди-ка-та ра-вен-ства, как п
 ра-ви-ло, крайне неэф-
  []
@@ -1106,67 +1106,67 @@ Overfull \hbox (1.48412pt too wide) in paragraph at lines 386--387
 [12]
 File: pics/Design1.eps Graphic file (type eps)
  <pics/Design1.eps> [13]
-Overfull \hbox (7.99173pt too wide) in paragraph at lines 426--427
+Overfull \hbox (7.99173pt too wide) in paragraph at lines 419--420
 \T2A/cmr/m/n/14.4 ми си-сте-ма-ми АДТ про-ве-де-но на на-бо-ре за-дач из биб-ли
 о-те-ки TPTP (Thousands
  []
 
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 429
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 422
 .
 (/usr/share/texmf-texlive/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ) [14]
-Overfull \hbox (32.48238pt too wide) in paragraph at lines 436--437
+Overfull \hbox (32.48238pt too wide) in paragraph at lines 428--429
 []\T2A/cmr/m/n/14.4 Тестирование си-сте-мы про-во-ди-лось на за-да-чах из биб-л
 ио-те-ки TPTP (Thousands
  []
 
 
-Overfull \hbox (0.80249pt too wide) in paragraph at lines 438--439
+Overfull \hbox (0.80249pt too wide) in paragraph at lines 430--431
 \T2A/cmr/m/n/14.4 ная об-ласть, ко-ли-че-ствен-ные ха-рак-те-ри-сти-ки фор-му-л
 ы, ста-тус и фор-мат фор-
  []
 
 
-Underfull \vbox (badness 10000) detected at line 466
+Underfull \vbox (badness 10000) detected at line 458
  []
 
 [15]
-Underfull \vbox (badness 10000) detected at line 483
+Underfull \vbox (badness 10000) detected at line 475
  []
 
 [16]
-Overfull \hbox (5.2753pt too wide) in paragraph at lines 531--535
+Overfull \hbox (5.2753pt too wide) in paragraph at lines 523--527
 []\T2A/cmr/m/n/14.4 1) Да-вы-дов А.В., Ла-ри-о-нов А.А., Чер-ка-шин Е.А. Об ис-
 чис-ле-нии позитивно-
  []
 
 [17]
-Overfull \hbox (4.43578pt too wide) in paragraph at lines 554--559
+Overfull \hbox (4.43578pt too wide) in paragraph at lines 546--551
 \T2A/cmr/m/n/14.4 international convention on information and communication tec
 hnology, electronics
  []
 
 
-Overfull \hbox (34.30478pt too wide) in paragraph at lines 566--571
+Overfull \hbox (34.30478pt too wide) in paragraph at lines 558--563
 \T2A/cmr/m/n/14.4 для ав-то-ма-ти-че-ско-го до-ка-за-тель-ства тео-рем в ис-чис
 -ле-нии позитивно-образованных
  []
 
 
-Overfull \hbox (4.61638pt too wide) in paragraph at lines 566--571
+Overfull \hbox (4.61638pt too wide) in paragraph at lines 558--563
 \T2A/cmr/m/n/14.4 фор-мул. / Ви-не-ров-ские чте-ния / Тру-ды IV Все-рос-сий-ско
 й кон-фе-рен-ции. Часть
  []
 
-[18]
-Overfull \hbox (27.95389pt too wide) in paragraph at lines 584--589
+
+Overfull \hbox (27.95389pt too wide) in paragraph at lines 576--581
 []\T2A/cmr/m/n/14.4 10) Ла-ри-о-нов А.А. Ме-то-ди-ка по-вы-ше-ния эф-фек-тив-но
 -сти об-ра-бот-ки позитивно-
  []
 
-[19]
-Overfull \hbox (35.90044pt too wide) in paragraph at lines 616--617
+[18] [19]
+Overfull \hbox (35.90044pt too wide) in paragraph at lines 608--609
 \T2A/cmr/m/n/14.4 ЛО-ГИ-ЧЕ-СКО-ГО ВЫ-ВО-ДА В ИС-ЧИС-ЛЕ-НИИ ПОЗИТИВНО-ОБРАЗОВАНН
 ЫХ
  []
@@ -1188,4 +1188,4 @@ Here is how much of TeX's memory you used:
  714 hyphenation exceptions out of 8191
  41i,15n,35p,2847b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (21 pages, 97904 bytes).
+Output written on autorefbig.dvi (21 pages, 97520 bytes).
