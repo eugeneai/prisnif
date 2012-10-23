@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 00:25
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 20:19
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -964,273 +964,207 @@ driver: dvips
 [1
 
 ] [1]
-
-LaTeX Warning: Citation `Newell1' on page 2 undefined on input line 178.
-
-
-LaTeX Warning: Citation `Newell2' on page 2 undefined on input line 178.
-
-
-LaTeX Warning: Citation `WangHao' on page 2 undefined on input line 178.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 178.
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 180.
+ (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 178.
+LaTeX Font Info:    Try loading font information for U+msb on input line 180.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-
-LaTeX Warning: Citation `mendelson' on page 2 undefined on input line 178.
-
-
-LaTeX Warning: Citation `mendelson' on page 2 undefined on input line 178.
-
-
-LaTeX Warning: Citation `mendelson' on page 2 undefined on input line 182.
-
-
-LaTeX Warning: Citation `turing' on page 2 undefined on input line 183.
-
-
-LaTeX Warning: Citation `Godel1' on page 2 undefined on input line 184.
-
-
-LaTeX Warning: Citation `Godel2' on page 2 undefined on input line 185.
-
-[2]
-
-LaTeX Warning: Citation `Frege' on page 3 undefined on input line 188.
-
-
-LaTeX Warning: Citation `Sourcebook' on page 3 undefined on input line 188.
-
-
-LaTeX Warning: Citation `mendelson' on page 3 undefined on input line 188.
-
-
-LaTeX Warning: Citation `McCuneRob' on page 3 undefined on input line 190.
-
-
-LaTeX Warning: Reference `basis' on page 3 undefined on input line 190.
-
-
-LaTeX Warning: Citation `tptp' on page 3 undefined on input line 192.
-
-[3]
-Overfull \hbox (9.67386pt too wide) in paragraph at lines 203--204
-\T2A/cmr/m/n/14.4 лее, в ра-бо-те, го-во-ря об эф-фек-тив-но-сти, бу-дем иметь 
-вви-ду один или несколь-
+Overfull \hbox (35.95316pt too wide) in paragraph at lines 182--183
+\T2A/cmr/m/n/14.4 Р.Ковальский, Уо-р-рен, Д.Кнут, А.Воронков, А.Рязанов, В.МакК
+ьюн, М.Стикель,
  []
 
 
-LaTeX Warning: Citation `ICDS2000' on page 4 undefined on input line 207.
+LaTeX Warning: Citation `ICDS2000' on page 2 undefined on input line 184.
 
 
-LaTeX Warning: Citation `Vas1995' on page 4 undefined on input line 207.
+Overfull \hbox (20.93332pt too wide) in paragraph at lines 184--185
+\T2A/cmr/m/n/14.4 он-ной ра-бо-те си-сте-мы АДТ ис-поль-зо-ва-но ис-чис-ле-ние 
+позитивно--образованных
+ []
 
-
-LaTeX Warning: Citation `ICDS2000' on page 4 undefined on input line 207.
-
-[4]
-
-LaTeX Warning: Citation `dissChe' on page 5 undefined on input line 216.
-
-
-LaTeX Warning: Reference `basis' on page 5 undefined on input line 216.
-
-[5]
-Overfull \hbox (1.02443pt too wide) in paragraph at lines 235--236
+[2] [3]
+Overfull \hbox (1.02443pt too wide) in paragraph at lines 205--206
 []\T2A/cmr/m/n/14.4 Разработка эф-фек-тив-ных струк-тур дан-ных пред-став-ле-ни
 я ПО--формул
  []
 
-[6] [7]
-Overfull \hbox (2.12871pt too wide) in paragraph at lines 271--272
-\T2A/cmr/m/n/14.4 Про-ект IV.31.2.4. ``Ме-то-ды и тех-но-ло-гии раз-ра-бот-ки п
-ро-грамм-но-го обес-
+
+Overfull \hbox (4.06671pt too wide) in paragraph at lines 220--221
+[]\T2A/cmr/m/n/14.4 Изучены свой-ства ис-чис-ле-ния ПО--формул, вли-я-ю-щих на 
+при-ме-ни-мость
+ []
+
+[4]
+Overfull \hbox (37.78917pt too wide) in paragraph at lines 239--244
+\T2A/cmr/m/n/14.4 2009-2013 го-ды, гос-кон-тракт ќ П696; ба-зо-вые про-ек-ты на
+учно--исследовательской
  []
 
 
-Overfull \hbox (15.28839pt too wide) in paragraph at lines 271--272
-\T2A/cmr/m/n/14.4 их вза-и-мо-дей-ствия'', . Про-ект IV.32.1.2. Информационно--
-вычислительные
+Overfull \hbox (10.55252pt too wide) in paragraph at lines 239--244
+\T2A/cmr/m/n/14.4 ра-бо-ты ИД-СТУ СО РАН, Про-ект IV.31.2.4., ќ гос. ре-ги-стра
+-ции: 01201001350,
  []
 
-
-Overfull \hbox (82.30948pt too wide) in paragraph at lines 272--273
-[]\T2A/cmr/m/n/14.4 РФФИ 08-07-98005-р_сибирь_а ``Про-грамм-ные тех-но-ло-гии л
-огико--математического
- []
-
-
-Overfull \hbox (5.40372pt too wide) in paragraph at lines 283--284
+[5]
+Overfull \hbox (5.40372pt too wide) in paragraph at lines 252--253
 \T2A/cmr/m/n/14.4 в ис-чис-ле-нии ПО--формул: эф-фек-тив-ные струк-ту-ры пред-с
 тав-ле-ния ПО--
  []
 
 
-Overfull \hbox (53.7479pt too wide) in paragraph at lines 283--284
+Overfull \hbox (53.7479pt too wide) in paragraph at lines 252--253
 \T2A/cmr/m/n/14.4 формул, стра-те-гии ра-бо-ты с неогра-ни-чен-ны-ми пе-ре-мен-
 ны-ми, $\OML/cmm/m/it/14.4 k; m$\T2A/cmr/m/n/14.4 --ограничение,
  []
 
-[8]
+[6]
 
-LaTeX Warning: Citation `mais' on page 9 undefined on input line 296.
-
-
-LaTeX Warning: Citation `burvestm' on page 9 undefined on input line 296.
+LaTeX Warning: Citation `mais' on page 7 undefined on input line 265.
 
 
-LaTeX Warning: Citation `viner' on page 9 undefined on input line 296.
+LaTeX Warning: Citation `burvestm' on page 7 undefined on input line 265.
 
 
-LaTeX Warning: Citation `QUANT4' on page 9 undefined on input line 296.
+LaTeX Warning: Citation `viner' on page 7 undefined on input line 265.
 
 
-LaTeX Warning: Citation `mipro' on page 9 undefined on input line 296.
+LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 265.
 
 
-LaTeX Warning: Citation `mais' on page 9 undefined on input line 297.
+LaTeX Warning: Citation `mipro' on page 7 undefined on input line 265.
 
 
-LaTeX Warning: Citation `parallel' on page 9 undefined on input line 297.
+LaTeX Warning: Citation `mais' on page 7 undefined on input line 266.
 
 
-LaTeX Warning: Citation `viner' on page 9 undefined on input line 297.
+LaTeX Warning: Citation `parallel' on page 7 undefined on input line 266.
 
 
-LaTeX Warning: Citation `mipro' on page 9 undefined on input line 297.
+LaTeX Warning: Citation `viner' on page 7 undefined on input line 266.
 
 
-LaTeX Warning: Citation `mais' on page 9 undefined on input line 298.
+LaTeX Warning: Citation `mipro' on page 7 undefined on input line 266.
 
 
-LaTeX Warning: Citation `viner' on page 9 undefined on input line 298.
+LaTeX Warning: Citation `mais' on page 7 undefined on input line 267.
 
 
-LaTeX Warning: Citation `mipro' on page 9 undefined on input line 298.
+LaTeX Warning: Citation `viner' on page 7 undefined on input line 267.
 
 
-LaTeX Warning: Citation `QUANT4' on page 9 undefined on input line 298.
+LaTeX Warning: Citation `mipro' on page 7 undefined on input line 267.
 
 
-LaTeX Warning: Citation `parallel' on page 9 undefined on input line 299.
+LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 267.
 
 
-LaTeX Warning: Citation `burvest' on page 9 undefined on input line 299.
+LaTeX Warning: Citation `parallel' on page 7 undefined on input line 268.
 
 
-LaTeX Warning: Citation `viner' on page 9 undefined on input line 299.
+LaTeX Warning: Citation `burvest' on page 7 undefined on input line 268.
 
 
-LaTeX Warning: Citation `mipro' on page 9 undefined on input line 299.
+LaTeX Warning: Citation `viner' on page 7 undefined on input line 268.
 
 
-LaTeX Warning: Citation `QUANT4' on page 9 undefined on input line 299.
+LaTeX Warning: Citation `mipro' on page 7 undefined on input line 268.
 
 
-LaTeX Warning: Citation `parallel' on page 9 undefined on input line 300.
+LaTeX Warning: Citation `QUANT4' on page 7 undefined on input line 268.
 
 
-LaTeX Warning: Citation `viner' on page 9 undefined on input line 300.
+LaTeX Warning: Citation `parallel' on page 7 undefined on input line 269.
 
 
-LaTeX Warning: Citation `mipro' on page 9 undefined on input line 300.
+LaTeX Warning: Citation `viner' on page 7 undefined on input line 269.
 
-[9]
-Overfull \hbox (0.19785pt too wide) in paragraph at lines 310--321
+
+LaTeX Warning: Citation `mipro' on page 7 undefined on input line 269.
+
+
+Overfull \hbox (0.19785pt too wide) in paragraph at lines 279--290
 \T2A/cmr/m/n/14.4 суж-да-лись на сле-ду-ю-щих кон-фе-рен-ци-ях и се-ми-на-рах: 
 Меж-ду-на-род-ной кон-
  []
 
-[10]
-Overfull \hbox (0.81409pt too wide) in paragraph at lines 368--369
+[7] [8]
+Overfull \hbox (0.81409pt too wide) in paragraph at lines 335--336
 []\T2A/cmr/bx/n/14.4 Во вве-де-нии \T2A/cmr/m/n/14.4 обос-но-ва-на ак-ту-аль-но
 сть ра-бо-ты, сфор-му-ли-ро-ва-на цель,
  []
 
-[11] [12]
-Overfull \hbox (13.2239pt too wide) in paragraph at lines 387--388
+[9] [10]
+Overfull \hbox (13.2239pt too wide) in paragraph at lines 352--353
 []\T2A/cmr/m/n/14.4 Для ре-ше-ния про-блем неогра-ни-чен-ных пе-ре-мен-ных пред
 -ло-же-но несколь-
  []
 
-[13]
-Overfull \hbox (7.42378pt too wide) in paragraph at lines 393--394
+[11]
+Overfull \hbox (7.42378pt too wide) in paragraph at lines 358--359
 \T2A/cmr/m/n/14.4 неэф-фек-тив-но на-пря-мую ис-поль-зо-вать ак-си-о-мы ра-вен-
 ства (ре-флек-сив-ность,
  []
 
 
-Overfull \hbox (1.12442pt too wide) in paragraph at lines 393--394
+Overfull \hbox (1.12442pt too wide) in paragraph at lines 358--359
 \T2A/cmr/m/n/14.4 сим-мет-рич-ность, тран-зи-тив-ность, под-ста-но-воч-ность) б
 ез спе-ци-аль-ной адап-
  []
 
-[14]
+[12]
 File: pics/Design1.eps Graphic file (type eps)
- <pics/Design1.eps>
-Underfull \hbox (badness 1062) in paragraph at lines 406--406
-[]\T2A/cmr/m/n/14.4 Рис. 1. [][][][][][]  Ар-хи-тек-ту-ра си-сте-мы (Су-пер-ви-
-зор вза-и-мо-дей-ству-ет со все-ми
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[15] [16]
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 431
+ <pics/Design1.eps> [13]
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 401
 .
- (/usr/share/texmf-texlive/tex/latex/cyrillic/t2acmtt.fd
+
+(/usr/share/texmf-texlive/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-) [17]
-Underfull \vbox (badness 10000) detected at line 468
+) [14]
+Underfull \vbox (badness 10000) detected at line 438
  []
 
-
-Underfull \vbox (badness 10000) detected at line 485
+[15]
+Underfull \vbox (badness 10000) detected at line 455
  []
 
-[18]
-Underfull \vbox (badness 10000) detected at line 500
- []
-
-[19]
-Overfull \hbox (28.0375pt too wide) in paragraph at lines 533--537
+[16] [17]
+Overfull \hbox (28.0375pt too wide) in paragraph at lines 503--507
 []\T2A/cmr/m/n/14.4 1) Да-вы-дов А.В., Ла-ри-о-нов А.А., Чер-ка-шин Е.А. Об ис-
 чис-ле-нии позитивно-
  []
 
-[20]
-Overfull \hbox (22.8322pt too wide) in paragraph at lines 544--548
+
+Overfull \hbox (22.8322pt too wide) in paragraph at lines 514--518
 \T2A/cmr/m/n/14.4 ав-то-ма-ти-че-ско-го до-ка-за-тель-ства тео-рем в ис-чис-ле-
 нии позитивно-образованных
  []
 
 
-Overfull \hbox (17.04279pt too wide) in paragraph at lines 556--561
+Overfull \hbox (17.04279pt too wide) in paragraph at lines 526--531
 []\T2A/cmr/m/n/14.4 5) A.A. Larionov, E.A. Cherkashin, A.V. Davydov Theorem Pro
 ving Software,
  []
 
 
-Overfull \hbox (18.66216pt too wide) in paragraph at lines 556--561
+Overfull \hbox (18.66216pt too wide) in paragraph at lines 526--531
 \T2A/cmr/m/n/14.4 international convention on information and communication tec
 hnology, electronics
  []
 
 
-Overfull \hbox (17.20343pt too wide) in paragraph at lines 562--567
+Overfull \hbox (17.20343pt too wide) in paragraph at lines 532--537
 []\T2A/cmr/m/n/14.4 6) А.В. Да-вы-дов, А.А. Ла-ри-о-нов. Об ис-чис-ле-нии позит
 ивно-образованных
  []
 
-[21] [22]
-Overfull \hbox (74.11053pt too wide) in paragraph at lines 618--619
+[18] [19] [20]
+Overfull \hbox (74.11053pt too wide) in paragraph at lines 588--589
 \T2A/cmr/m/n/14.4 КА ЛО-ГИ-ЧЕ-СКО-ГО ВЫ-ВО-ДА В ИС-ЧИС-ЛЕ-НИИ ПОЗИТИВНО-ОБРАЗОВ
 АННЫХ
  []
@@ -1238,18 +1172,18 @@ Overfull \hbox (74.11053pt too wide) in paragraph at lines 618--619
 \tf@thm=\write6
 \openout6 = `autorefbig.thm'.
 
-[23] (./autorefbig.aux)
+[21] (./autorefbig.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 9258 strings out of 493849
- 122734 string characters out of 1152846
- 217816 words of memory out of 3000000
- 12334 multiletter control sequences out of 15000+50000
- 11469 words of font info for 32 fonts, out of 3000000 for 9000
+ 9249 strings out of 493849
+ 122658 string characters out of 1152846
+ 216816 words of memory out of 3000000
+ 12322 multiletter control sequences out of 15000+50000
+ 12920 words of font info for 36 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,6n,35p,2671b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,8n,35p,2671b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (24 pages, 107760 bytes).
+Output written on autorefbig.dvi (22 pages, 94708 bytes).
