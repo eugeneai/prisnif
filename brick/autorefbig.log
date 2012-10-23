@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 20:19
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.6.25)  23 OCT 2012 20:53
 entering extended mode
  %&-line parsing enabled.
 **autorefbig.tex
@@ -972,14 +972,20 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 180.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-Overfull \hbox (35.95316pt too wide) in paragraph at lines 182--183
-\T2A/cmr/m/n/14.4 Р.Ковальский, Уо-р-рен, Д.Кнут, А.Воронков, А.Рязанов, В.МакК
+) [2]
+Overfull \hbox (36.14188pt too wide) in paragraph at lines 182--183
+\T2A/cmr/m/n/14.4 стем по-ис-ка ЛВ внес-ли Ж.Эрбран, Дж.А.Робинсон, Л.Уос, Е.В.
+Бет, С.Ю.Маслов,
+ []
+
+
+Overfull \hbox (50.41968pt too wide) in paragraph at lines 182--183
+\T2A/cmr/m/n/14.4 Р.Ковальский, Д.Уоррен, Д.Кнут, А.Воронков, А.Рязанов, В.МакК
 ьюн, М.Стикель,
  []
 
 
-LaTeX Warning: Citation `ICDS2000' on page 2 undefined on input line 184.
+LaTeX Warning: Citation `ICDS2000' on page 3 undefined on input line 184.
 
 
 Overfull \hbox (20.93332pt too wide) in paragraph at lines 184--185
@@ -987,19 +993,19 @@ Overfull \hbox (20.93332pt too wide) in paragraph at lines 184--185
 позитивно--образованных
  []
 
-[2] [3]
+[3]
 Overfull \hbox (1.02443pt too wide) in paragraph at lines 205--206
 []\T2A/cmr/m/n/14.4 Разработка эф-фек-тив-ных струк-тур дан-ных пред-став-ле-ни
 я ПО--формул
  []
 
-
+[4]
 Overfull \hbox (4.06671pt too wide) in paragraph at lines 220--221
 []\T2A/cmr/m/n/14.4 Изучены свой-ства ис-чис-ле-ния ПО--формул, вли-я-ю-щих на 
 при-ме-ни-мость
  []
 
-[4]
+[5]
 Overfull \hbox (37.78917pt too wide) in paragraph at lines 239--244
 \T2A/cmr/m/n/14.4 2009-2013 го-ды, гос-кон-тракт ќ П696; ба-зо-вые про-ек-ты на
 учно--исследовательской
@@ -1011,7 +1017,7 @@ Overfull \hbox (10.55252pt too wide) in paragraph at lines 239--244
 -ции: 01201001350,
  []
 
-[5]
+
 Overfull \hbox (5.40372pt too wide) in paragraph at lines 252--253
 \T2A/cmr/m/n/14.4 в ис-чис-ле-нии ПО--формул: эф-фек-тив-ные струк-ту-ры пред-с
 тав-ле-ния ПО--
@@ -1125,11 +1131,11 @@ LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 401
 
 (/usr/share/texmf-texlive/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-) [14]
+) [14] [15]
 Underfull \vbox (badness 10000) detected at line 438
  []
 
-[15]
+
 Underfull \vbox (badness 10000) detected at line 455
  []
 
@@ -1180,10 +1186,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  9249 strings out of 493849
  122658 string characters out of 1152846
- 216816 words of memory out of 3000000
+ 215816 words of memory out of 3000000
  12322 multiletter control sequences out of 15000+50000
  12920 words of font info for 36 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,8n,35p,2671b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,8n,35p,2847b,397s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on autorefbig.dvi (22 pages, 94708 bytes).
+Output written on autorefbig.dvi (22 pages, 96400 bytes).
