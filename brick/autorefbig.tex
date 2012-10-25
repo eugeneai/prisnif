@@ -112,11 +112,33 @@
 
 \definecolor{rclr}{rgb}{0.5,0.1,0.1}
 \definecolor{eclr}{rgb}{0,0.5,0.5}
+\definecolor{ccurl}{rgb}{0,0.1,0.5}
 \newcommand{\rem}[2]{\textcolor{rclr}{\framebox{#1}}%
   \ovalbox{\small{}\it{}\color{rclr} #2}%
 }
 \newcommand{\que}[1]{\rem{#1}{???}}
 \newcommand{\app}[1]{\textcolor{eclr}{#1}}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
 
 % \sffamily
 %\maketitle
