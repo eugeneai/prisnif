@@ -25,10 +25,13 @@
 %\usepackage[sorting=none,style=numeric]{biblatex}
 \usepackage{color}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{longtable}%длинные таблицы
+
 \bibliography{intelle}
 
 
 \setcounter{tocdepth}{3}  % Точность представления содержания
+
 
 \setlength{\textwidth}{16.5cm}
 \setlength{\textheight}{24cm}
@@ -172,6 +175,8 @@
 \newpage
 
 % Введение.
+\input{introduction.tex}
+%теория
 \input{chapter1.tex}
 % Алгоритмы
 \input{chapter2.tex}
