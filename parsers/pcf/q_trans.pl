@@ -317,9 +317,9 @@ q_remove_in([B|T], A, [B|R]):-
 
 % XXX stack overflow on a + ~a.
 
-q_pcf_unnamed(q(S, V, T, Fs), q(S,UV, UT, UFs), Subst, Vars, AV):-
-        q_pcf_var_subst(V,Subst, Vars, AV, NSubst, NVars, NAV, UV),
-        q_apply_subst(T, NSubst, UT, )
+%q_pcf_unnamed(q(S, V, T, Fs), q(S,UV, UT, UFs), Subst, Vars, AV):-
+%        q_pcf_var_subst(V,Subst, Vars, AV, NSubst, NVars, NAV, UV),
+%        q_apply_subst(T, NSubst, UT, )
 
 
 
@@ -791,12 +791,9 @@ q_link(t(Name), Exp1, Subst):-
 
 q_link(F,F, _).
 
-q_subst([], [], [], []):-!.
-q_subst([], [X|T], [X1|T1], [X1-X|R]):-!,
-        q_subst([], T, T1, R).
-q_subst([X|T], I1, I2, NR):-!,
-        q_subst([], I1, I2, R),!,
-        append(R, [X|T], NR). % Old substitutions should be fartherst.
+q_subst(S, [], [], S):-!.
+q_subst(S, [X|T], [X1|T1], [X1-X|R]):-!,
+        q_subst(S, T, T1, R).
 
 % Now the lists.
 q_apply_subst([], _, [], _):-!.
