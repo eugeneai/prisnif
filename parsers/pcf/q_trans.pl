@@ -317,6 +317,11 @@ q_remove_in([B|T], A, [B|R]):-
 
 % XXX stack overflow on a + ~a.
 
+q_pcf_unnamed(q(S, V, T, Fs), q(S,UV, UT, UFs), Subst, Vars, AV):-
+        q_pcf_var_subst(V,Subst, Vars, AV, NSubst, NVars, NAV, UV),
+        q_apply_subst(T, NSubst, UT, )
+
+
 
 % --------- Conversion to PCF, RD=rd if defined adds reduction step ---
 q_to_pcf(fof(_, _, A, _), B):-!,
@@ -983,8 +988,9 @@ main(PCF):-
 	% write(IPR), nl,
         write('Converting to PCF.'),nl,
         q_to_pcf(IPR, CPCF, rd),!,
+        q_pcf_unnamed(CPCF, UCPCF, []),!,
         write('Converted. Reducing the PCF.'), nl,
-        q_rd(CPCF, PCF), !,
+        q_rd(UCPCF, PCF), !,
         % write(PCF), nl,
         PCF=q(a,[],_, Bases),
         %write(Bases),
