@@ -111,14 +111,16 @@ q_term_list([T|L]) -->
 q_term_list([T]) -->
 	q_term(T).
 
-q_lex(Stream, L):-
+q_load(Stream, Atom):-
         open_output_atom_stream(OStream),!,
         q_clean_stream(Stream,OStream),!,
-        close_output_atom_stream(OStream, O),!,
-        write('Processed stream:'),nl,
-        write(O), nl,
-        open_input_atom_stream(O, IStream),!,
-        q_lex1(IStream, L).
+        close_output_atom_stream(OStream, Atom),!.
+
+q_lex(Stream, Lex):-
+        q_load(Stream, Atom),
+        open_input_atom_stream(Atom, S),
+        q_lex1(S, Lex),
+        close_input_atom_stream(S).
 
 q_lex1(Stream, L) :-
         read_token(Stream, Term),!,
@@ -321,6 +323,7 @@ q_remove_in([B|T], A, [B|R]):-
 %        q_pcf_var_subst(V,Subst, Vars, AV, NSubst, NVars, NAV, UV),
 %        q_apply_subst(T, NSubst, UT, )
 
+q_pcf_unnamed(I,I, Subst).
 
 
 % --------- Conversion to PCF, RD=rd if defined adds reduction step ---
@@ -762,10 +765,12 @@ q_do_command(cmd(formula, Term, Exp)):-!,
         write(' added.'), nl.
 
 q_do_command(cmd(input, Atom)):-!,
-        open(Atom, read, Stream,[]),!,
-        q_lex(Stream, Lex),!,
+        open(Atom, read, Stream, []),!,
+        q_load(Stream, AtomProg),!,
+        write('Loaded text:'),nl,
+        write(AtomProg), nl,
         close(Stream),!,
-        q_tr_command_list(Lex, [], _),
+        q_tr_command_list(AtomProg, [], _),
         format('Input success for \'~a\'.~n',[Atom]).
 
 q_do_command(C):-
@@ -1013,7 +1018,9 @@ main_program:-
 
 main_program([],t):-!.
 main_program([],f):-!,          % Default behaviour
-        tr.
+        t.
+%        tr.
+
 main_program([X|T],_):-
         prog([X|T], R),!,
         main_program(R,t).
@@ -1033,4 +1040,4 @@ prog(['--tests' |R], R):-
 
 prog([_|T], T):-!.
 
-:- initialization(main_program).
+%:- initialization(main_program).
