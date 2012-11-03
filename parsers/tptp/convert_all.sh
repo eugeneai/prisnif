@@ -122,7 +122,8 @@ do
     ln -sf $PWD/$tmp $pcf/input.pl
 
     cd $pcf
-    ./tptp_tr.sh
+    # ./tptp_tr.sh
+    ./tptp_tr_gpro.sh
     rc=$?
     cd - > /dev/null
 

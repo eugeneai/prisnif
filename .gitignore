@@ -33,3 +33,4 @@ parsers/tptp/tmp_ast.txt
 /brick/autoref.pdf
 /brick/autoref.ps
 /parsers/tptp/*.tptp
+/parsers/pcf/q
