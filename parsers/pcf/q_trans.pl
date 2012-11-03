@@ -285,6 +285,7 @@ q_r(neg(disj(L)), conj(R)):-!,
         q_all_neg(L,R).
 
 q_r(equ(A,B), conj([imp(A,B), imp(B,A)])):-!.
+q_r(xor(A,B), conj([imp(A,neg(B)), imp(B, neg(A))])):-!.
 
 q_alter_q(a,e).
 q_alter_q(e,a).
@@ -713,6 +714,8 @@ ap(I,c__(I)).
 %connectives ----------------
 
 bcn('<=>', F1, F2, equ(F1,F2)):-!.
+
+bcn('<~>', F1, F2, xor(F1,F2)):-!.
 
 bcn('=>', F1, F2, imp(F1,F2)):-!.
 
