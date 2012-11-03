@@ -320,11 +320,69 @@ q_remove_in([B|T], A, [B|R]):-
 
 % XXX stack overflow on a + ~a.
 
-%q_pcf_unnamed(q(S, V, T, Fs), q(S,UV, UT, UFs), Subst, Vars, AV):-
-%        q_pcf_var_subst(V,Subst, Vars, AV, NSubst, NVars, NAV, UV),
-%        q_apply_subst(T, NSubst, UT, )
+q_pcf_apply_subst([], _, []):-!.
+q_pcf_apply_subst([t(N)|T], S, [t(N)|NT]):-!,
+        q_pcf_apply_subst(T, S, NT).
+q_pcf_apply_subst([t(N,L)|T], S, [t(N,NL)|NT]):-!,
+        q_pcf_apply_subst(L, S, NL),
+        q_pcf_apply_subst(T, S, NT).
+q_pcf_apply_subst([X|T], S, [Y|NT]):-
+        member(Y-X, S),!,
+        q_pcf_apply_subst(T, S, NT).
+q_pcf_apply_subst([X|T], S, [X|NT]):-!,
+        q_pcf_apply_subst(T, S, NT).
 
-q_pcf_unnamed(I,I, Subst).
+q_pcf_unnamed(I, O):-
+        %             +  -  +Subst +Vars, -Vars
+        q_pcf_unnamed(I, O, [],    [],   _).
+
+q_pcf_unnamed(q(S, V, T, Fs), q(S, NV, NT, UFs), Subst, VI, VO):-
+        q_var_subst(V, VI, Subst,   NV, NVI, NSubst),
+        q_pcf_apply_subst(T, NSubst, NT),
+        q_pcf_unnamed(Fs, UFs, NSubst, NVI, VO).
+
+q_pcf_unnamed([], [], _, VI, VI).
+q_pcf_unnamed([F|T], [NF|NT], Subst, VI, VO):-
+        q_pcf_unnamed(F, NF, Subst, VI, VO1),
+        q_pcf_unnamed(T, NT, Subst, VO1, VO).
+
+q_var_subst([],    VI, S,  [],      VI,      S):-!.
+q_var_subst([X|T], VI, SI,  [NX|NT], VO, [NX-X|SR]):-
+        member(X, VI), !,
+        q_gen_name(X, VI, NX),
+        q_var_subst(T, [NX|VI], SI,  NT, VO, SR).
+q_var_subst([X|T], VI, SI,  [X|NT], VO, SR):-
+        q_var_subst(T, [X|VI], SI,  NT, VO, SR).
+
+q_gen_name(V, Vars, NV):-
+        atom_concat(V,'_', V_),
+        new_atom(V_, NVG),
+        atom_chars(NVG, NVCs),
+        q_gen_c_clean(NVCs, CNVCs),
+        atom_chars(NV1, CNVCs),
+        (member(NV1,Vars)->
+         q_gen_name(V, Vars, NV);
+         NV=NV1)
+        .
+
+q_gen_c_clean([],[]).
+q_gen_c_clean([X|T], [Y|NT]):-
+        q_gen_c_r(X,Y),
+        q_gen_c_clean(T, NT).
+
+% #, $, &, _, @
+q_gen_c_r('#','3'):-!.
+q_gen_c_r('$','4'):-!.
+q_gen_c_r('&','7'):-!.
+q_gen_c_r('_','_'):-!.
+q_gen_c_r('@','2'):-!.
+q_gen_c_r(X,X).
+
+
+
+%q_subst(S, [], [], S):-!.
+%q_subst(S, [X|T], [X1|T1], [X1-X|R]):-!,
+%        q_subst(S, T, T1, R).
 
 
 % --------- Conversion to PCF, RD=rd if defined adds reduction step ---
@@ -994,7 +1052,9 @@ main(PCF):-
 	% write(IPR), nl,
         write('Converting to PCF.'),nl,
         q_to_pcf(IPR, CPCF, rd),!,
-        q_pcf_unnamed(CPCF, UCPCF, []),!,
+        write('Unnaming the PCF.'),nl,
+        q_pcf_unnamed(CPCF, UCPCF),!,
+        write(UCPCF),nl,nl,
         write('Converted. Reducing the PCF.'), nl,
         q_rd(UCPCF, PCF), !,
         % write(PCF), nl,
