@@ -1022,8 +1022,8 @@ main_program:- notrace,
 
 main_program([],t):-!.
 main_program([],f):-!,          % Default behaviour
-        t.
-%        tr.
+%        t.
+        tr.
 
 main_program([X|T],_):-
         prog([X|T], R),!,
