@@ -725,7 +725,9 @@ uo(O,F, unary_(O,F)).
 %-------------------------------------------------------------
 % Translator of the language used in Eugene Cherkashin's PH.D.
 
+q_command_list([]) --> q_command_end.
 q_command_list([C]) --> q_command(C),  q_command_end.
+q_command_list(T) --> q_command_end, q_command_list(T).
 q_command_list([C|T]) --> q_command(C),  q_command_end, q_command_list(T).
 
 q_command(cmd(show, Param)) --> [sw], q_command_show(Param).
@@ -954,7 +956,6 @@ q_tr_command_list(I, R, S) :-
         q_lex_s(I,L),
         q_command_list(S, L, R).
 
-
 all_ast(L):-
         findall(X, ast(X), L).
 
@@ -1012,7 +1013,7 @@ tr:-
         m(PCF),
         q_pcf_print(PCF).
 
-main_program:-
+main_program:- notrace,
         current_prolog_flag(argv, [_|L]),!,
         main_program(L,f).
 
@@ -1040,4 +1041,4 @@ prog(['--tests' |R], R):-
 
 prog([_|T], T):-!.
 
-%:- initialization(main_program).
+:- initialization(main_program).
