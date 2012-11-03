@@ -28,14 +28,21 @@ This script converts some or all files in TPTP/TPTP/Problems/...
 directories into tasks.out directory.
 
 OPTIONS:
-   -e      Remove old tasks in tasks.out.
+   -r      Remove ALL tasks in ./tasks.out before conversion.
+   -o      Allow to overwrite old files. Else skip converstion if target file elready exists.
+   -l      Prune log file at first.
    -h      This help message.
+
+E.g. Convert all ..../TPTP/Problems/ALG/ALG*.p proglems:
+
+$0 ALG/ALG
+
 EOF
 }
 
-PRESERVE=1
+OVERWRITE=0
 
-while getopts “:rph” OPTION;
+while getopts “:rpoh” OPTION;
 do
      case $OPTION in
          r)
@@ -43,24 +50,33 @@ do
              cd $outdir
              rm *
              cd - > /dev/null
-
              ;;
-         p)
-             #Skip conversion if target file exists.
-             PRESERVE=0
-             echo "Do not preserve existing files."
+         o)
+             #Overwrite old target file.
+             OVERWRITE=1
+             echo "WARNING:Overwriting old target file."
              ;;
          h)
              usage
              exit
              ;;
+         l)
+             echo "Pruning the log file."
+             #echo > $log
+             ;;
+         ?)
+             echo "OTHER $OPTION"
+             ;;
+         :)
+             echo "Oparg $OPTARG."
+             ;;
      esac
 done
 
+shift $(( OPTIND-1 ))
 
 # prune the log file and output file.
 
-#echo > $log
 echo > $out
 
 NPROC=0
@@ -70,7 +86,7 @@ do
     TS=$(LC_ALL=C date)
     fb=$(basename $file)
     fo="$outdir/$fb"
-    if [ $PRESERVE -eq 1 ] && [ -e $fo ]
+    if [ $OVERWRITE -eq 0 ] && [ -e $fo ]
     then
         echo "Skipping $indir/$fb as it exists."
         continue
@@ -87,6 +103,7 @@ do
 
     if [ "$TPTP_RC" = "124" ]; then
 	echo "[$TS] Phase one is NOT Ok $file. Time out." >> $log
+        rm -f "$sfb.tptp"
 	continue
     fi
 
@@ -95,20 +112,24 @@ do
 	echo "[$TS] Phase one is Ok $file" >> $log
     else
 	echo "[$TS] Phase one is NOT Ok $file" >> $log
+        rm -f "$sfb.tptp"
 	continue
     fi
-    rm "$sfb.tptp"
+
+    # remove tptp joint file after translation.
+    rm -f "$sfb.tptp"
 
     ln -sf $PWD/$tmp $pcf/input.pl
 
     cd $pcf
-    ./tptp_tr.sh
+    # ./tptp_tr.sh
+    ./tptp_tr_gpro.sh
     rc=$?
     cd - > /dev/null
 
     if [ "$rc" = "0" ]; then
 	echo "[$TS] Phase two is Ok $file" >> $log
-	mv $pcf/result.p $fo
+	mv -f $pcf/result.p $fo
 	echo "[$TS]"
         echo "Soure file: $file" >> $out
 	echo "----------------------------------" >> $out

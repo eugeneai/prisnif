@@ -111,14 +111,16 @@ q_term_list([T|L]) -->
 q_term_list([T]) -->
 	q_term(T).
 
-q_lex(Stream, L):-
+q_load(Stream, Atom):-
         open_output_atom_stream(OStream),!,
         q_clean_stream(Stream,OStream),!,
-        close_output_atom_stream(OStream, O),!,
-        write('Processed stream:'),nl,
-        write(O), nl,
-        open_input_atom_stream(O, IStream),!,
-        q_lex1(IStream, L).
+        close_output_atom_stream(OStream, Atom),!.
+
+q_lex(Stream, Lex):-
+        q_load(Stream, Atom),
+        open_input_atom_stream(Atom, S),
+        q_lex1(S, Lex),
+        close_input_atom_stream(S).
 
 q_lex1(Stream, L) :-
         read_token(Stream, Term),!,
@@ -258,15 +260,15 @@ q_r(disj(L), t('True')):-
         member(neg(A), L),
         !.
 
-/*
+
 q_r(q(e, A,ZA, F), q(e, NA,NZA, NF)):-
         member(q(a,[],[], [R]),F),!,
         q_remove_in(F, q(a, [],[], [R]), F1),
         R=q(e, B, ZB, FBs),
-        append(A,B, NA),
-        append(ZA,ZB, NZA), % TODO: Rename added variables and apply following substitution.
+        append(A,B, NA), % Variables in A and B will be already renamed.
+        append(ZA,ZB, NZA),
         append(F1, FBs, NF).
-*/
+
 
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
@@ -283,6 +285,7 @@ q_r(neg(disj(L)), conj(R)):-!,
         q_all_neg(L,R).
 
 q_r(equ(A,B), conj([imp(A,B), imp(B,A)])):-!.
+q_r(xor(A,B), conj([imp(A,neg(B)), imp(neg(A),B)])):-!.
 
 q_alter_q(a,e).
 q_alter_q(e,a).
@@ -316,6 +319,75 @@ q_remove_in([B|T], A, [B|R]):-
 
 
 % XXX stack overflow on a + ~a.
+
+q_pcf_apply_subst([], _, []):-!.
+q_pcf_apply_subst([t(N)|T], S, [t(N)|NT]):-!,
+        q_pcf_apply_subst(T, S, NT).
+q_pcf_apply_subst([t(N,L)|T], S, [t(N,NL)|NT]):-!,
+        q_pcf_apply_subst(L, S, NL),
+        q_pcf_apply_subst(T, S, NT).
+q_pcf_apply_subst([X|T], S, [Y|NT]):-
+        X=..[Op,A|Args_],!,
+        q_pcf_apply_subst([A|Args_], S, NArgs),
+        Y=..[Op|NArgs],
+        q_pcf_apply_subst(T, S, NT).
+q_pcf_apply_subst([X|T], S, [Y|NT]):-
+        member(Y-X, S),!,
+        q_pcf_apply_subst(T, S, NT).
+q_pcf_apply_subst([X|T], S, [X|NT]):-!,
+        q_pcf_apply_subst(T, S, NT).
+
+q_pcf_unnamed(I, O):-
+        %             +  -  +Subst +Vars, -Vars
+        q_pcf_unnamed(I, O, [],    [],   _).
+
+q_pcf_unnamed(q(S, V, T, Fs), q(S, NV, NT, UFs), Subst, VI, VO):-
+        q_var_subst(V, VI, Subst,   NV, NVI, NSubst),
+        q_pcf_apply_subst(T, NSubst, NT),
+        q_pcf_unnamed(Fs, UFs, NSubst, NVI, VO).
+
+q_pcf_unnamed([], [], _, VI, VI).
+q_pcf_unnamed([F|T], [NF|NT], Subst, VI, VO):-
+        q_pcf_unnamed(F, NF, Subst, VI, VO1),
+        q_pcf_unnamed(T, NT, Subst, VO1, VO).
+
+q_var_subst([],    VI, S,  [],      VI,      S):-!.
+q_var_subst([X|T], VI, SI,  [NX|NT], VO, [NX-X|SR]):-
+        member(X, VI), !,
+        q_gen_name(X, VI, NX),
+        q_var_subst(T, [NX|VI], SI,  NT, VO, SR).
+q_var_subst([X|T], VI, SI,  [X|NT], VO, SR):-
+        q_var_subst(T, [X|VI], SI,  NT, VO, SR).
+
+q_gen_name(V, Vars, NV):-
+        atom_concat(V,'_', V_),
+        new_atom(V_, NVG),
+        atom_chars(NVG, NVCs),
+        q_gen_c_clean(NVCs, CNVCs),
+        atom_chars(NV1, CNVCs),
+        (member(NV1,Vars)->
+         q_gen_name(V, Vars, NV);
+         NV=NV1)
+        .
+
+q_gen_c_clean([],[]).
+q_gen_c_clean([X|T], [Y|NT]):-
+        q_gen_c_r(X,Y),
+        q_gen_c_clean(T, NT).
+
+% #, $, &, _, @
+q_gen_c_r('#','3'):-!.
+q_gen_c_r('$','4'):-!.
+q_gen_c_r('&','7'):-!.
+q_gen_c_r('_','_'):-!.
+q_gen_c_r('@','2'):-!.
+q_gen_c_r(X,X).
+
+
+
+%q_subst(S, [], [], S):-!.
+%q_subst(S, [X|T], [X1|T1], [X1-X|R]):-!,
+%        q_subst(S, T, T1, R).
 
 
 % --------- Conversion to PCF, RD=rd if defined adds reduction step ---
@@ -536,9 +608,9 @@ q_pcf_pp(F, sq, N):-
         q_pcf_pp(F, N),!,
         write('}').
 
-q_pcf_ppb([Bases]):-!,
+q_pcf_ppb(Bases):-!,
         write('{'),
-        q_pcf_ppl([Bases], 1),!,
+        q_pcf_ppl(Bases, 1),!,
         nl,
         write('}'),
         nl.
@@ -706,18 +778,24 @@ ap(I,c__(I)).
 
 bcn('<=>', F1, F2, equ(F1,F2)):-!.
 
+bcn('<~>', F1, F2, xor(F1,F2)):-!.
+
 bcn('=>', F1, F2, imp(F1,F2)):-!.
 
-bcn(C, F1, F2, bc(C, F1, F2)).
+bcn('<=', F1, F2, imp(F2,F1)):-!.
+
+bcn(C, F1, F2, unknown_bc(C, F1, F2)).
 
 uo('~', F, neg(F)):-!.
 
-uo(O,F, unary_(O,F)).
+uo(O,F, unknown_uo(O,F)).
 
 %-------------------------------------------------------------
 % Translator of the language used in Eugene Cherkashin's PH.D.
 
+q_command_list([]) --> q_command_end.
 q_command_list([C]) --> q_command(C),  q_command_end.
+q_command_list(T) --> q_command_end, q_command_list(T).
 q_command_list([C|T]) --> q_command(C),  q_command_end, q_command_list(T).
 
 q_command(cmd(show, Param)) --> [sw], q_command_show(Param).
@@ -757,10 +835,12 @@ q_do_command(cmd(formula, Term, Exp)):-!,
         write(' added.'), nl.
 
 q_do_command(cmd(input, Atom)):-!,
-        open(Atom, read, Stream,[]),!,
-        q_lex(Stream, Lex),!,
+        open(Atom, read, Stream, []),!,
+        q_load(Stream, AtomProg),!,
+        write('Loaded text:'),nl,
+        write(AtomProg), nl,
         close(Stream),!,
-        q_tr_command_list(Lex, [], _),
+        q_tr_command_list(AtomProg, [], _),
         format('Input success for \'~a\'.~n',[Atom]).
 
 q_do_command(C):-
@@ -786,12 +866,9 @@ q_link(t(Name), Exp1, Subst):-
 
 q_link(F,F, _).
 
-q_subst([], [], [], []):-!.
-q_subst([], [X|T], [X1|T1], [X1-X|R]):-!,
-        q_subst([], T, T1, R).
-q_subst([X|T], I1, I2, NR):-!,
-        q_subst([], I1, I2, R),!,
-        append(R, [X|T], NR). % Old substitutions should be fartherst.
+q_subst(S, [], [], S):-!.
+q_subst(S, [X|T], [X1|T1], [X1-X|R]):-!,
+        q_subst(S, T, T1, R).
 
 % Now the lists.
 q_apply_subst([], _, [], _):-!.
@@ -947,7 +1024,6 @@ q_tr_command_list(I, R, S) :-
         q_lex_s(I,L),
         q_command_list(S, L, R).
 
-
 all_ast(L):-
         findall(X, ast(X), L).
 
@@ -983,8 +1059,11 @@ main(PCF):-
 	% write(IPR), nl,
         write('Converting to PCF.'),nl,
         q_to_pcf(IPR, CPCF, rd),!,
+        write('Unnaming the PCF.'),nl,
+        q_pcf_unnamed(CPCF, UCPCF),!,
+        % write(UCPCF),nl,nl,
         write('Converted. Reducing the PCF.'), nl,
-        q_rd(CPCF, PCF), !,
+        q_rd(UCPCF, PCF), !,
         % write(PCF), nl,
         PCF=q(a,[],_, Bases),
         %write(Bases),
@@ -1004,13 +1083,15 @@ tr:-
         m(PCF),
         q_pcf_print(PCF).
 
-main_program:-
+main_program:- %notrace,
         current_prolog_flag(argv, [_|L]),!,
         main_program(L,f).
 
 main_program([],t):-!.
 main_program([],f):-!,          % Default behaviour
+%        t.
         tr.
+
 main_program([X|T],_):-
         prog([X|T], R),!,
         main_program(R,t).
