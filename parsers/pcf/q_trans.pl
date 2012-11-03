@@ -260,15 +260,15 @@ q_r(disj(L), t('True')):-
         member(neg(A), L),
         !.
 
-/*
+
 q_r(q(e, A,ZA, F), q(e, NA,NZA, NF)):-
         member(q(a,[],[], [R]),F),!,
         q_remove_in(F, q(a, [],[], [R]), F1),
         R=q(e, B, ZB, FBs),
-        append(A,B, NA),
-        append(ZA,ZB, NZA), % TODO: Rename added variables and apply following substitution.
+        append(A,B, NA), % Variables in A and B will be already renamed.
+        append(ZA,ZB, NZA),
         append(F1, FBs, NF).
-*/
+
 
 q_r(imp(t('True'),B), B):-!.
 q_r(imp(_, t('True')), t('True')):-!.
@@ -329,7 +329,8 @@ q_pcf_apply_subst([t(N,L)|T], S, [t(N,NL)|NT]):-!,
 q_pcf_apply_subst([X|T], S, [Y|NT]):-
         X=..[Op,A|Args_],!,
         q_pcf_apply_subst([A|Args_], S, NArgs),
-        Y=..[Op|NArgs].
+        Y=..[Op|NArgs],
+        q_pcf_apply_subst(T, S, NT).
 q_pcf_apply_subst([X|T], S, [Y|NT]):-
         member(Y-X, S),!,
         q_pcf_apply_subst(T, S, NT).
@@ -607,9 +608,9 @@ q_pcf_pp(F, sq, N):-
         q_pcf_pp(F, N),!,
         write('}').
 
-q_pcf_ppb([Bases]):-!,
+q_pcf_ppb(Bases):-!,
         write('{'),
-        q_pcf_ppl([Bases], 1),!,
+        q_pcf_ppl(Bases, 1),!,
         nl,
         write('}'),
         nl.
