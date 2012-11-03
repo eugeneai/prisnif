@@ -327,6 +327,10 @@ q_pcf_apply_subst([t(N,L)|T], S, [t(N,NL)|NT]):-!,
         q_pcf_apply_subst(L, S, NL),
         q_pcf_apply_subst(T, S, NT).
 q_pcf_apply_subst([X|T], S, [Y|NT]):-
+        X=..[Op,A|Args_],!,
+        q_pcf_apply_subst([A|Args_], S, NArgs),
+        Y=..[Op|NArgs].
+q_pcf_apply_subst([X|T], S, [Y|NT]):-
         member(Y-X, S),!,
         q_pcf_apply_subst(T, S, NT).
 q_pcf_apply_subst([X|T], S, [X|NT]):-!,
@@ -777,11 +781,13 @@ bcn('<~>', F1, F2, xor(F1,F2)):-!.
 
 bcn('=>', F1, F2, imp(F1,F2)):-!.
 
-bcn(C, F1, F2, bc(C, F1, F2)).
+bcn('<=', F1, F2, imp(F2,F1)):-!.
+
+bcn(C, F1, F2, unknown_bc(C, F1, F2)).
 
 uo('~', F, neg(F)):-!.
 
-uo(O,F, unary_(O,F)).
+uo(O,F, unknown_uo(O,F)).
 
 %-------------------------------------------------------------
 % Translator of the language used in Eugene Cherkashin's PH.D.
@@ -1054,7 +1060,7 @@ main(PCF):-
         q_to_pcf(IPR, CPCF, rd),!,
         write('Unnaming the PCF.'),nl,
         q_pcf_unnamed(CPCF, UCPCF),!,
-        write(UCPCF),nl,nl,
+        % write(UCPCF),nl,nl,
         write('Converted. Reducing the PCF.'), nl,
         q_rd(UCPCF, PCF), !,
         % write(PCF), nl,
@@ -1076,7 +1082,7 @@ tr:-
         m(PCF),
         q_pcf_print(PCF).
 
-main_program:- notrace,
+main_program:- %notrace,
         current_prolog_flag(argv, [_|L]),!,
         main_program(L,f).
 
