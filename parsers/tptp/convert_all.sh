@@ -103,6 +103,7 @@ do
 
     if [ "$TPTP_RC" = "124" ]; then
 	echo "[$TS] Phase one is NOT Ok $file. Time out." >> $log
+        rm -f "$sfb.tptp"
 	continue
     fi
 
@@ -111,9 +112,12 @@ do
 	echo "[$TS] Phase one is Ok $file" >> $log
     else
 	echo "[$TS] Phase one is NOT Ok $file" >> $log
+        rm -f "$sfb.tptp"
 	continue
     fi
-    rm "$sfb.tptp"
+
+    # remove tptp joint file after translation.
+    rm -f "$sfb.tptp"
 
     ln -sf $PWD/$tmp $pcf/input.pl
 
