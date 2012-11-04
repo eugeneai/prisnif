@@ -31,6 +31,7 @@ OPTIONS:
    -r      Remove ALL tasks in ./tasks.out before conversion.
    -o      Allow to overwrite old files. Else skip converstion if target file elready exists.
    -l      Prune log file at first.
+   -z      Archive output file with bzip2.
    -h      This help message.
 
 E.g. Convert all ..../TPTP/Problems/ALG/ALG*.p proglems:
@@ -41,8 +42,9 @@ EOF
 }
 
 OVERWRITE=0
+ZIP=0
 
-while getopts “:rpoh” OPTION;
+while getopts “:rpohz” OPTION;
 do
      case $OPTION in
          r)
@@ -63,6 +65,10 @@ do
          l)
              echo "Pruning the log file."
              #echo > $log
+             ;;
+         z)
+             echo "Ok. Ok. We will zip the ouput file."
+             ZIP=1
              ;;
          ?)
              echo "OTHER $OPTION"
@@ -86,9 +92,15 @@ do
     TS=$(LC_ALL=C date)
     fb=$(basename $file)
     fo="$outdir/$fb"
+    foz="$fo.bz2"
     if [ $OVERWRITE -eq 0 ] && [ -e $fo ]
     then
-        echo "Skipping $indir/$fb as it exists."
+        echo "Skipping $indir/$fb as its resulting file exists."
+        continue
+    fi
+    if [ $OVERWRITE -eq 0 ] && [ -e $foz ]
+    then
+        echo "Skipping $indir/$fb as its bzipped resulting file exists."
         continue
     fi
     echo "-----[$TS]--------------------------------------------------"
@@ -130,6 +142,12 @@ do
     if [ "$rc" = "0" ]; then
 	echo "[$TS] Phase two is Ok $file" >> $log
 	mv -f $pcf/result.p $fo
+
+        if [ $ZIP -eq 1 ]
+        then
+            echo "Bzipping $indir/$fo."
+            bzip2 $fo
+        fi
 	echo "[$TS]"
         echo "Soure file: $file" >> $out
 	echo "----------------------------------" >> $out
