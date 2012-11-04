@@ -1050,7 +1050,6 @@ all_ip([A|TA], [IP|TI]):-
         ast_to_ip(A, cnf(_,Type, D,_)),!,
         q_rd(disj(D), D1),
         q_cnv_cnf_type(Type, D1, OP1),
-        write(Type), write(OP1),nl,nl,
         q_rd(OP1, IP),!,
         all_ip(TA, TI),!.
 
