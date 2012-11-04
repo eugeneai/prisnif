@@ -266,6 +266,12 @@ q_r(disj(L), t('True')):-
         member(A, L),
         member(neg(A), L),
         !.
+q_r(disj(L), imp(conj(Con), B)):-
+        member(X,L),
+        q_neg_lit(X, _),
+        !,
+        q_split_cd([], disj(L), Con, [], B),!.
+
 
 
 q_r(q(e, A,ZA, F), q(e, NA,NZA, NF)):-
@@ -1035,15 +1041,55 @@ all_ast(L):-
         findall(X, ast(X), L).
 
 all_ip([], []).
-all_ip([A|TA], [IP|TI]):-!,
+all_ip([A|TA], [IP|TI]):-
         ast_to_ip(A, fof(_,Type, IP1,_)),!,
         q_cnv_type(Type, IP1, OP1),
+        q_rd(OP1, IP),!,
+        all_ip(TA, TI),!.
+all_ip([A|TA], [IP|TI]):-
+        ast_to_ip(A, cnf(_,Type, D,_)),!,
+        q_rd(disj(D), D1),
+        q_cnv_cnf_type(Type, D1, OP1),
         q_rd(OP1, IP),!,
         all_ip(TA, TI),!.
 
 
 q_cnv_type(conjecture, I, neg(I)):-!.
 q_cnv_type(_, I, I):-!.
+
+q_cnv_cnf_type(Type, I, ip_q(a, V, I)):-
+        q_cnv_cnf_known_type(Type),
+        q_collect_vars(I, [], V),
+        V=[_|_],!,
+        !.
+q_cnv_cnf_type(Type, I, I):-
+        q_cnv_cnf_known_type(Type),!.
+
+q_cnv_cnf_known_type(negated_conjecture).
+q_cnv_cnf_known_type(axiom).
+
+q_collect_vars([], VI, VI):-!.
+q_collect_vars([X], VI, VO):-!,
+        q_collect_vars(X, VI, VO).
+q_collect_vars([X,Y|T], VI, VO):-!,
+        q_collect_vars([X], VI, RC),
+        q_collect_vars([Y|T], RC, VO).
+q_collect_vars(t(_), VI, VI):-!.
+q_collect_vars(t(_, L), VI, VO):-!,
+        q_collect_vars(L, VI, VO).
+q_collect_vars(E, VI, VO):-
+        E=..[Op],
+        read_token_from_atom(Op, var(V)),
+        (member(V, VI) -> VO=VI;
+         VO=[V|VI]
+         ),
+        !.
+q_collect_vars(E, VI, VI):-
+        E=..[_],!.
+q_collect_vars(E, VI, VO):-
+        E=..[_|Args],!,
+        q_collect_vars(Args, VI, VO).
+
 
 as_conj([], t('True')):-!.
 as_conj([X], conj([X])):-!.
