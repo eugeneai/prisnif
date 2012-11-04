@@ -86,6 +86,9 @@ shift $(( OPTIND-1 ))
 echo > $out
 
 NPROC=0
+tmp_name=$$
+input_pl=input_$tmp_name.pl
+output_p=result_$tmp_name.p
 
 for file in $indir/$1*.p
 do
@@ -131,22 +134,28 @@ do
     # remove tptp joint file after translation.
     rm -f "$sfb.tptp"
 
-    ln -sf $PWD/$tmp $pcf/input.pl
+    mv -f $PWD/$tmp $pcf/$input_pl
+    rm -f $pcf/$output_p
 
     cd $pcf
     # ./tptp_tr.sh
-    ./tptp_tr_gpro.sh
+    ./tptp_tr_gpro.sh $input_pl $output_p
     rc=$?
+    # copy source file for debugging
+    cp -f $input_pl input.pl
     cd - > /dev/null
 
     if [ "$rc" = "0" ]; then
 	echo "[$TS] Phase two is Ok $file" >> $log
-	mv -f $pcf/result.p $fo
+        if [ -e $pcf/$output_p ]
+        then
+            mv -f $pcf/$output_p $fo
+        fi
 
-        if [ $ZIP -eq 1 ]
+        if [ $ZIP -eq 1 ] && [ -e $fo ]
         then
             echo "Bzipping $indir/$fo."
-            bzip2 $fo
+            bzip2 -f $fo
         fi
 	echo "[$TS]"
         echo "Soure file: $file" >> $out
@@ -155,6 +164,6 @@ do
 	echo "[$TS]==================================" >> $out
     fi
 
-    # rm -f $tmp $pcf/input.pl $pcf/result.p
+    rm -f $tmp $pcf/$input_pl $pcf/$output_p
 
 done

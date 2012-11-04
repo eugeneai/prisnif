@@ -1,4 +1,11 @@
 :-dynamic(fol/2).
+:-dynamic(q_option/2).
+
+q_set_option(Atom, Value):-
+        retract(q_option(Atom, _)),!,
+        assertz(q_option(Atom,Value)),!.
+q_set_option(Atom, Value):-
+        assertz(q_option(Atom,Value)),!.
 
 q_syn_error(Error, _, _):-
         syntax_error_info('<input>', 0, 0, Error).
@@ -1067,8 +1074,9 @@ main(PCF):-
         % write(PCF), nl,
         PCF=q(a,[],_, Bases),
         %write(Bases),
-        write('Making Output result.p file.'),nl,
-        open('result.p','write', S),
+        q_option(output_file_name, OName),
+        format('Making Output ~w file.~n',[OName]),
+        open(OName,'write', S),
         set_output(S),
         q_pcf_ppb(Bases), !,
         close(S).
@@ -1078,12 +1086,16 @@ m(PCF):-
         main(PCF),
         nl.
 
-tr:-
-        consult('input.pl'),
+tr(Name):-
+        consult(Name),
         m(PCF),
         q_pcf_print(PCF).
 
+tr:-
+        tr('input.pl').
+
 main_program:- %notrace,
+        q_set_option(output_file_name, 'result.p'),
         current_prolog_flag(argv, [_|L]),!,
         main_program(L,f).
 
@@ -1096,8 +1108,11 @@ main_program([X|T],_):-
         prog([X|T], R),!,
         main_program(R,t).
 
-prog(['--tptp'|R], R):-!,
-        tr,!.
+prog(['--out',Name|R], R):-!,
+        q_set_option(output_file_name, Name).
+
+prog(['--tptp',Name|R], R):-!,
+        tr(Name),!.
 
 prog(['--test', 'all' |R], R):-
         test(_),fail; true,!.
