@@ -29,3 +29,8 @@ parsers/tptp/tmp_ast.txt
 *.bak
 \#*\#
 *.bcf
+/brick/autorefbig.log
+/brick/autoref.pdf
+/brick/autoref.ps
+/parsers/tptp/*.tptp
+/parsers/pcf/q

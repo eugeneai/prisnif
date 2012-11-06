@@ -28,14 +28,23 @@ This script converts some or all files in TPTP/TPTP/Problems/...
 directories into tasks.out directory.
 
 OPTIONS:
-   -e      Remove old tasks in tasks.out.
+   -r      Remove ALL tasks in ./tasks.out before conversion.
+   -o      Allow to overwrite old files. Else skip converstion if target file elready exists.
+   -l      Prune log file at first.
+   -z      Archive output file with bzip2.
    -h      This help message.
+
+E.g. Convert all ..../TPTP/Problems/ALG/ALG*.p proglems:
+
+$0 ALG/ALG
+
 EOF
 }
 
-PRESERVE=1
+OVERWRITE=0
+ZIP=0
 
-while getopts “:rph” OPTION;
+while getopts “:rpohz” OPTION;
 do
      case $OPTION in
          r)
@@ -43,36 +52,58 @@ do
              cd $outdir
              rm *
              cd - > /dev/null
-
              ;;
-         p)
-             #Skip conversion if target file exists.
-             PRESERVE=0
-             echo "Do not preserve existing files."
+         o)
+             #Overwrite old target file.
+             OVERWRITE=1
+             echo "WARNING:Overwriting old target file."
              ;;
          h)
              usage
              exit
              ;;
+         l)
+             echo "Pruning the log file."
+             #echo > $log
+             ;;
+         z)
+             echo "Ok. Ok. We will zip the ouput file."
+             ZIP=1
+             ;;
+         ?)
+             echo "OTHER $OPTION"
+             ;;
+         :)
+             echo "Oparg $OPTARG."
+             ;;
      esac
 done
 
+shift $(( OPTIND-1 ))
 
 # prune the log file and output file.
 
-#echo > $log
 echo > $out
 
 NPROC=0
+tmp_name=$$
+input_pl=input_$tmp_name.pl
+output_p=result_$tmp_name.p
 
 for file in $indir/$1*.p
 do
     TS=$(LC_ALL=C date)
     fb=$(basename $file)
     fo="$outdir/$fb"
-    if [ $PRESERVE -eq 1 ] && [ -e $fo ]
+    foz="$fo.bz2"
+    if [ $OVERWRITE -eq 0 ] && [ -e $fo ]
     then
-        echo "Skipping $indir/$fb as it exists."
+        echo "Skipping $indir/$fb as its resulting file exists."
+        continue
+    fi
+    if [ $OVERWRITE -eq 0 ] && [ -e $foz ]
+    then
+        echo "Skipping $indir/$fb as its bzipped resulting file exists."
         continue
     fi
     echo "-----[$TS]--------------------------------------------------"
@@ -87,6 +118,7 @@ do
 
     if [ "$TPTP_RC" = "124" ]; then
 	echo "[$TS] Phase one is NOT Ok $file. Time out." >> $log
+        rm -f "$sfb.tptp"
 	continue
     fi
 
@@ -95,20 +127,36 @@ do
 	echo "[$TS] Phase one is Ok $file" >> $log
     else
 	echo "[$TS] Phase one is NOT Ok $file" >> $log
+        rm -f "$sfb.tptp"
 	continue
     fi
-    rm "$sfb.tptp"
 
-    ln -sf $PWD/$tmp $pcf/input.pl
+    # remove tptp joint file after translation.
+    rm -f "$sfb.tptp"
+
+    mv -f $PWD/$tmp $pcf/$input_pl
+    rm -f $pcf/$output_p
 
     cd $pcf
-    ./tptp_tr.sh
+    # ./tptp_tr.sh
+    ./tptp_tr_gpro.sh $input_pl $output_p
     rc=$?
+    # copy source file for debugging
+    cp -f $input_pl input.pl
     cd - > /dev/null
 
     if [ "$rc" = "0" ]; then
 	echo "[$TS] Phase two is Ok $file" >> $log
-	mv $pcf/result.p $fo
+        if [ -e $pcf/$output_p ]
+        then
+            mv -f $pcf/$output_p $fo
+        fi
+
+        if [ $ZIP -eq 1 ] && [ -e $fo ]
+        then
+            echo "Bzipping $indir/$fo."
+            bzip2 -f $fo
+        fi
 	echo "[$TS]"
         echo "Soure file: $file" >> $out
 	echo "----------------------------------" >> $out
@@ -116,6 +164,6 @@ do
 	echo "[$TS]==================================" >> $out
     fi
 
-    # rm -f $tmp $pcf/input.pl $pcf/result.p
+    rm -f $tmp $pcf/$input_pl $pcf/$output_p
 
 done

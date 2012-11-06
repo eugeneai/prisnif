@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 2.5.  */
+/* A Bison parser, made by GNU Bison 2.6.4.  */
 
 /* Bison implementation for Yacc-like parsers in C
    
-      Copyright (C) 1984, 1989-1990, 2000-2011 Free Software Foundation, Inc.
+      Copyright (C) 1984, 1989-1990, 2000-2012 Free Software Foundation, Inc.
    
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "2.5"
+#define YYBISON_VERSION "2.6.4"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -58,14 +58,11 @@
 /* Pull parsers.  */
 #define YYPULL 1
 
-/* Using locations.  */
-#define YYLSP_NEEDED 0
 
 
 
 /* Copy the first part of user declarations.  */
-
-/* Line 268 of yacc.c  */
+/* Line 358 of yacc.c  */
 #line 2 "syntaxBNF2-1.y"
 
 /* Compile with -DP_VERBOSE=1 for verbose output.                    */
@@ -162,14 +159,16 @@ int yywrap(void)
 
 #endif
 
+/* Line 358 of yacc.c  */
+#line 164 "y.tab.c"
 
-/* Line 268 of yacc.c  */
-#line 168 "y.tab.c"
-
-/* Enabling traces.  */
-#ifndef YYDEBUG
-# define YYDEBUG 0
-#endif
+# ifndef YY_NULL
+#  if defined __cplusplus && 201103L <= __cplusplus
+#   define YY_NULL nullptr
+#  else
+#   define YY_NULL 0
+#  endif
+# endif
 
 /* Enabling verbose error messages.  */
 #ifdef YYERROR_VERBOSE
@@ -179,11 +178,17 @@ int yywrap(void)
 # define YYERROR_VERBOSE 0
 #endif
 
-/* Enabling the token table.  */
-#ifndef YYTOKEN_TABLE
-# define YYTOKEN_TABLE 0
+/* In a future release of Bison, this section will be replaced
+   by #include "y.tab.h".  */
+#ifndef YY_YY_Y_TAB_H_INCLUDED
+# define YY_YY_Y_TAB_H_INCLUDED
+/* Enabling traces.  */
+#ifndef YYDEBUG
+# define YYDEBUG 0
 #endif
-
+#if YYDEBUG
+extern int yydebug;
+#endif
 
 /* Tokens.  */
 #ifndef YYTOKENTYPE
@@ -275,30 +280,43 @@ int yywrap(void)
 
 
 
-
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
 {
-
-/* Line 293 of yacc.c  */
+/* Line 374 of yacc.c  */
 #line 98 "syntaxBNF2-1.y"
 int ival; double dval; char* sval; void* pval;
 
-
-/* Line 293 of yacc.c  */
-#line 290 "y.tab.c"
+/* Line 374 of yacc.c  */
+#line 292 "y.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
 #endif
 
+extern YYSTYPE yylval;
+
+#ifdef YYPARSE_PARAM
+#if defined __STDC__ || defined __cplusplus
+int yyparse (void *YYPARSE_PARAM);
+#else
+int yyparse ();
+#endif
+#else /* ! YYPARSE_PARAM */
+#if defined __STDC__ || defined __cplusplus
+int yyparse (void);
+#else
+int yyparse ();
+#endif
+#endif /* ! YYPARSE_PARAM */
+
+#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-
-/* Line 343 of yacc.c  */
-#line 302 "y.tab.c"
+/* Line 377 of yacc.c  */
+#line 320 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -351,24 +369,24 @@ typedef short int yytype_int16;
 # if defined YYENABLE_NLS && YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
-#   define YY_(msgid) dgettext ("bison-runtime", msgid)
+#   define YY_(Msgid) dgettext ("bison-runtime", Msgid)
 #  endif
 # endif
 # ifndef YY_
-#  define YY_(msgid) msgid
+#  define YY_(Msgid) Msgid
 # endif
 #endif
 
 /* Suppress unused-variable warnings by "using" E.  */
 #if ! defined lint || defined __GNUC__
-# define YYUSE(e) ((void) (e))
+# define YYUSE(E) ((void) (E))
 #else
-# define YYUSE(e) /* empty */
+# define YYUSE(E) /* empty */
 #endif
 
 /* Identity function, used to suppress warnings about constant conditions.  */
 #ifndef lint
-# define YYID(n) (n)
+# define YYID(N) (N)
 #else
 #if (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
@@ -404,6 +422,7 @@ YYID (yyi)
 #    if ! defined _ALLOCA_H && ! defined EXIT_SUCCESS && (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 #     include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
+      /* Use EXIT_SUCCESS as a witness for stdlib.h.  */
 #     ifndef EXIT_SUCCESS
 #      define EXIT_SUCCESS 0
 #     endif
@@ -495,20 +514,20 @@ union yyalloc
 #endif
 
 #if defined YYCOPY_NEEDED && YYCOPY_NEEDED
-/* Copy COUNT objects from FROM to TO.  The source and destination do
+/* Copy COUNT objects from SRC to DST.  The source and destination do
    not overlap.  */
 # ifndef YYCOPY
 #  if defined __GNUC__ && 1 < __GNUC__
-#   define YYCOPY(To, From, Count) \
-      __builtin_memcpy (To, From, (Count) * sizeof (*(From)))
+#   define YYCOPY(Dst, Src, Count) \
+      __builtin_memcpy (Dst, Src, (Count) * sizeof (*(Src)))
 #  else
-#   define YYCOPY(To, From, Count)		\
-      do					\
-	{					\
-	  YYSIZE_T yyi;				\
-	  for (yyi = 0; yyi < (Count); yyi++)	\
-	    (To)[yyi] = (From)[yyi];		\
-	}					\
+#   define YYCOPY(Dst, Src, Count)              \
+      do                                        \
+        {                                       \
+          YYSIZE_T yyi;                         \
+          for (yyi = 0; yyi < (Count); yyi++)   \
+            (Dst)[yyi] = (Src)[yyi];            \
+        }                                       \
       while (YYID (0))
 #  endif
 # endif
@@ -644,7 +663,7 @@ static const yytype_uint16 yyrline[] =
 };
 #endif
 
-#if YYDEBUG || YYERROR_VERBOSE || YYTOKEN_TABLE
+#if YYDEBUG || YYERROR_VERBOSE || 0
 /* YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
@@ -672,7 +691,7 @@ static const char *const yytname[] =
   "general_list", "general_function", "general_arguments", "name",
   "atomic_word", "null", "number", "integer", "TPTP_input_formula",
   "TPTP_input_clause", "TPTP_literals", "TPTP_literal_list",
-  "TPTP_literal", "TPTP_sign", 0
+  "TPTP_literal", "TPTP_sign", YY_NULL
 };
 #endif
 
@@ -830,10 +849,10 @@ static const yytype_int16 yytable[] =
      173
 };
 
-#define yypact_value_is_default(yystate) \
-  ((yystate) == (-132))
+#define yypact_value_is_default(Yystate) \
+  (!!((Yystate) == (-132)))
 
-#define yytable_value_is_error(yytable_value) \
+#define yytable_value_is_error(Yytable_value) \
   YYID (0)
 
 static const yytype_uint8 yycheck[] =
@@ -916,17 +935,18 @@ static const yytype_uint8 yystos[] =
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
-#define YYBACKUP(Token, Value)					\
-do								\
-  if (yychar == YYEMPTY && yylen == 1)				\
-    {								\
-      yychar = (Token);						\
-      yylval = (Value);						\
-      YYPOPSTACK (1);						\
-      goto yybackup;						\
-    }								\
-  else								\
-    {								\
+#define YYBACKUP(Token, Value)                                  \
+do                                                              \
+  if (yychar == YYEMPTY)                                        \
+    {                                                           \
+      yychar = (Token);                                         \
+      yylval = (Value);                                         \
+      YYPOPSTACK (yylen);                                       \
+      yystate = *yyssp;                                         \
+      goto yybackup;                                            \
+    }                                                           \
+  else                                                          \
+    {                                                           \
       yyerror (YY_("syntax error: cannot back up")); \
       YYERROR;							\
     }								\
@@ -936,31 +956,32 @@ while (YYID (0))
 #define YYTERROR	1
 #define YYERRCODE	256
 
-
 /* YYLLOC_DEFAULT -- Set CURRENT to span from RHS[1] to RHS[N].
    If N is 0, then set CURRENT to the empty location which ends
    the previous symbol: RHS[0] (always defined).  */
 
-#define YYRHSLOC(Rhs, K) ((Rhs)[K])
 #ifndef YYLLOC_DEFAULT
-# define YYLLOC_DEFAULT(Current, Rhs, N)				\
-    do									\
-      if (YYID (N))                                                    \
-	{								\
-	  (Current).first_line   = YYRHSLOC (Rhs, 1).first_line;	\
-	  (Current).first_column = YYRHSLOC (Rhs, 1).first_column;	\
-	  (Current).last_line    = YYRHSLOC (Rhs, N).last_line;		\
-	  (Current).last_column  = YYRHSLOC (Rhs, N).last_column;	\
-	}								\
-      else								\
-	{								\
-	  (Current).first_line   = (Current).last_line   =		\
-	    YYRHSLOC (Rhs, 0).last_line;				\
-	  (Current).first_column = (Current).last_column =		\
-	    YYRHSLOC (Rhs, 0).last_column;				\
-	}								\
+# define YYLLOC_DEFAULT(Current, Rhs, N)                                \
+    do                                                                  \
+      if (YYID (N))                                                     \
+        {                                                               \
+          (Current).first_line   = YYRHSLOC (Rhs, 1).first_line;        \
+          (Current).first_column = YYRHSLOC (Rhs, 1).first_column;      \
+          (Current).last_line    = YYRHSLOC (Rhs, N).last_line;         \
+          (Current).last_column  = YYRHSLOC (Rhs, N).last_column;       \
+        }                                                               \
+      else                                                              \
+        {                                                               \
+          (Current).first_line   = (Current).last_line   =              \
+            YYRHSLOC (Rhs, 0).last_line;                                \
+          (Current).first_column = (Current).last_column =              \
+            YYRHSLOC (Rhs, 0).last_column;                              \
+        }                                                               \
     while (YYID (0))
 #endif
+
+#define YYRHSLOC(Rhs, K) ((Rhs)[K])
+
 
 
 /* This macro is provided for backward compatibility. */
@@ -1021,6 +1042,8 @@ yy_symbol_value_print (yyoutput, yytype, yyvaluep)
     YYSTYPE const * const yyvaluep;
 #endif
 {
+  FILE *yyo = yyoutput;
+  YYUSE (yyo);
   if (!yyvaluep)
     return;
 # ifdef YYPRINT
@@ -1272,12 +1295,12 @@ static int
 yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
                 yytype_int16 *yyssp, int yytoken)
 {
-  YYSIZE_T yysize0 = yytnamerr (0, yytname[yytoken]);
+  YYSIZE_T yysize0 = yytnamerr (YY_NULL, yytname[yytoken]);
   YYSIZE_T yysize = yysize0;
   YYSIZE_T yysize1;
   enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
   /* Internationalized format string. */
-  const char *yyformat = 0;
+  const char *yyformat = YY_NULL;
   /* Arguments of yyformat. */
   char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
   /* Number of reported tokens (one for the "unexpected", one per
@@ -1337,7 +1360,7 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
                     break;
                   }
                 yyarg[yycount++] = yytname[yyx];
-                yysize1 = yysize + yytnamerr (0, yytname[yyx]);
+                yysize1 = yysize + yytnamerr (YY_NULL, yytname[yyx]);
                 if (! (yysize <= yysize1
                        && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
                   return 2;
@@ -1429,24 +1452,19 @@ yydestruct (yymsg, yytype, yyvaluep)
 }
 
 
-/* Prevent warnings from -Wmissing-prototypes.  */
-#ifdef YYPARSE_PARAM
-#if defined __STDC__ || defined __cplusplus
-int yyparse (void *YYPARSE_PARAM);
-#else
-int yyparse ();
-#endif
-#else /* ! YYPARSE_PARAM */
-#if defined __STDC__ || defined __cplusplus
-int yyparse (void);
-#else
-int yyparse ();
-#endif
-#endif /* ! YYPARSE_PARAM */
 
 
 /* The lookahead symbol.  */
 int yychar;
+
+
+#ifndef YYLVAL_INITIALIZE
+# define YYLVAL_INITIALIZE()
+#endif
+#ifndef YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END
+#endif
 
 /* The semantic value of the lookahead symbol.  */
 YYSTYPE yylval;
@@ -1489,7 +1507,7 @@ yyparse ()
        `yyss': related to states.
        `yyvs': related to semantic values.
 
-       Refer to the stacks thru separate pointers, to allow yyoverflow
+       Refer to the stacks through separate pointers, to allow yyoverflow
        to reallocate them elsewhere.  */
 
     /* The state stack.  */
@@ -1507,7 +1525,7 @@ yyparse ()
   int yyn;
   int yyresult;
   /* Lookahead token as an internal (translated) token number.  */
-  int yytoken;
+  int yytoken = 0;
   /* The variables used to return semantic value and location from the
      action routines.  */
   YYSTYPE yyval;
@@ -1525,7 +1543,6 @@ yyparse ()
      Keep to zero when no symbol should be popped.  */
   int yylen = 0;
 
-  yytoken = 0;
   yyss = yyssa;
   yyvs = yyvsa;
   yystacksize = YYINITDEPTH;
@@ -1544,6 +1561,7 @@ yyparse ()
   yyssp = yyss;
   yyvsp = yyvs;
 
+  YYLVAL_INITIALIZE ();
   goto yysetstate;
 
 /*------------------------------------------------------------.
@@ -1684,7 +1702,9 @@ yybackup:
   yychar = YYEMPTY;
 
   yystate = yyn;
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   *++yyvsp = yylval;
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
 
   goto yynewstate;
 
@@ -1721,772 +1741,662 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 142 "syntaxBNF2-1.y"
     {}
     break;
 
   case 3:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 143 "syntaxBNF2-1.y"
     {}
     break;
 
   case 4:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 146 "syntaxBNF2-1.y"
     {P_PRINT((yyval.pval));}
     break;
 
   case 5:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 147 "syntaxBNF2-1.y"
     {P_PRINT((yyval.pval));}
     break;
 
   case 6:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 150 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("annotated_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 7:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 151 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("annotated_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 8:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 152 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("annotated_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 9:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 153 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("annotated_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 10:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 156 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("fof_annotated", P_TOKEN("_LIT_fof ", (yyvsp[(1) - (10)].ival)), P_TOKEN("LPAREN ", (yyvsp[(2) - (10)].ival)), (yyvsp[(3) - (10)].pval), P_TOKEN("COMMA ", (yyvsp[(4) - (10)].ival)), (yyvsp[(5) - (10)].pval), P_TOKEN("COMMA ", (yyvsp[(6) - (10)].ival)), (yyvsp[(7) - (10)].pval), (yyvsp[(8) - (10)].pval), P_TOKEN("RPAREN ", (yyvsp[(9) - (10)].ival)), P_TOKEN("PERIOD ", (yyvsp[(10) - (10)].ival)));}
     break;
 
   case 11:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 159 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("cnf_annotated", P_TOKEN("_LIT_cnf ", (yyvsp[(1) - (10)].ival)), P_TOKEN("LPAREN ", (yyvsp[(2) - (10)].ival)), (yyvsp[(3) - (10)].pval), P_TOKEN("COMMA ", (yyvsp[(4) - (10)].ival)), (yyvsp[(5) - (10)].pval), P_TOKEN("COMMA ", (yyvsp[(6) - (10)].ival)), (yyvsp[(7) - (10)].pval), (yyvsp[(8) - (10)].pval), P_TOKEN("RPAREN ", (yyvsp[(9) - (10)].ival)), P_TOKEN("PERIOD ", (yyvsp[(10) - (10)].ival)));}
     break;
 
   case 12:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 162 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("annotations", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 13:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 163 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("annotations", P_TOKEN("COMMA ", (yyvsp[(1) - (2)].ival)), (yyvsp[(2) - (2)].pval), 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 14:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 164 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("annotations", P_TOKEN("COMMA ", (yyvsp[(1) - (4)].ival)), (yyvsp[(2) - (4)].pval), P_TOKEN("COMMA ", (yyvsp[(3) - (4)].ival)), (yyvsp[(4) - (4)].pval), 0, 0, 0, 0, 0, 0);}
     break;
 
   case 15:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 167 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("formula_role", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 16:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 170 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("fof_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 17:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 171 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("fof_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 18:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 174 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("binary_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 19:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 175 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("binary_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 20:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 178 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("nonassoc_binary", (yyvsp[(1) - (3)].pval), (yyvsp[(2) - (3)].pval), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 21:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 181 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("binary_connective", P_TOKEN("LESS_EQUALS_GREATER ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 22:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 182 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("binary_connective", P_TOKEN("EQUALS_GREATER ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 23:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 183 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("binary_connective", P_TOKEN("LESS_EQUALS ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 24:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 184 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("binary_connective", P_TOKEN("LESS_TILDE_GREATER ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 25:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 185 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("binary_connective", P_TOKEN("TILDE_VLINE ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 26:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 186 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("binary_connective", P_TOKEN("TILDE_AMPERSAND ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 27:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 189 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("assoc_binary", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 28:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 190 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("assoc_binary", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 29:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 193 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("or_formula", (yyvsp[(1) - (3)].pval), P_TOKEN("VLINE ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 30:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 194 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("or_formula", (yyvsp[(1) - (3)].pval), P_TOKEN("VLINE ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 31:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 197 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("and_formula", (yyvsp[(1) - (3)].pval), P_TOKEN("AMPERSAND ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 32:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 198 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("and_formula", (yyvsp[(1) - (3)].pval), P_TOKEN("AMPERSAND ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 33:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 201 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("unitary_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 34:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 202 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("unitary_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 35:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 203 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("unitary_formula", P_TOKEN("LPAREN ", (yyvsp[(1) - (3)].ival)), (yyvsp[(2) - (3)].pval), P_TOKEN("RPAREN ", (yyvsp[(3) - (3)].ival)), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 36:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 204 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("unitary_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 37:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 207 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("quantified_formula", (yyvsp[(1) - (6)].pval), P_TOKEN("LBRKT ", (yyvsp[(2) - (6)].ival)), (yyvsp[(3) - (6)].pval), P_TOKEN("RBRKT ", (yyvsp[(4) - (6)].ival)), P_TOKEN("COLON ", (yyvsp[(5) - (6)].ival)), (yyvsp[(6) - (6)].pval), 0, 0, 0, 0);}
     break;
 
   case 38:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 210 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("quantifier", P_TOKEN("EXCLAMATION ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 39:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 211 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("quantifier", P_TOKEN("QUESTION ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 40:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 214 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("variable_list", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 41:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 215 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("variable_list", (yyvsp[(1) - (3)].pval), P_TOKEN("COMMA ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 42:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 218 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("unary_formula", (yyvsp[(1) - (2)].pval), (yyvsp[(2) - (2)].pval), 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 43:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 221 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("unary_connective", P_TOKEN("TILDE ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 44:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 224 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("cnf_formula", P_TOKEN("LPAREN ", (yyvsp[(1) - (3)].ival)), (yyvsp[(2) - (3)].pval), P_TOKEN("RPAREN ", (yyvsp[(3) - (3)].ival)), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 45:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 225 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("cnf_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 46:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 228 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("disjunction", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 47:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 229 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("disjunction", (yyvsp[(1) - (3)].pval), P_TOKEN("VLINE ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 48:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 232 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("literal", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 49:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 233 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("literal", P_TOKEN("TILDE ", (yyvsp[(1) - (2)].ival)), (yyvsp[(2) - (2)].pval), 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 50:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 236 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("atomic_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 51:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 237 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("atomic_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 52:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 238 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("atomic_formula", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 53:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 241 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("plain_atom", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 54:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 244 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("arguments", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 55:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 245 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("arguments", (yyvsp[(1) - (3)].pval), P_TOKEN("COMMA ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 56:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 248 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("defined_atom", P_TOKEN("_DLR_true ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 57:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 249 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("defined_atom", P_TOKEN("_DLR_false ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 58:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 250 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("defined_atom", (yyvsp[(1) - (3)].pval), P_TOKEN("EQUALS ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 59:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 251 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("defined_atom", (yyvsp[(1) - (3)].pval), P_TOKEN("EXCLAMATION_EQUALS ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 60:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 254 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("system_atom", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 61:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 257 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 62:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 258 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 63:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 261 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("function_term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 64:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 262 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("function_term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 65:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 263 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("function_term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 66:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 266 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("plain_term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 67:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 267 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("plain_term", (yyvsp[(1) - (4)].pval), P_TOKEN("LPAREN ", (yyvsp[(2) - (4)].ival)), (yyvsp[(3) - (4)].pval), P_TOKEN("RPAREN ", (yyvsp[(4) - (4)].ival)), 0, 0, 0, 0, 0, 0);}
     break;
 
   case 68:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 270 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("constant", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 69:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 273 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("functor", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 70:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 276 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("defined_term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 71:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 277 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("defined_term", P_TOKEN("distinct_object ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 72:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 280 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("system_term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 73:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 281 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("system_term", (yyvsp[(1) - (4)].pval), P_TOKEN("LPAREN ", (yyvsp[(2) - (4)].ival)), (yyvsp[(3) - (4)].pval), P_TOKEN("RPAREN ", (yyvsp[(4) - (4)].ival)), 0, 0, 0, 0, 0, 0);}
     break;
 
   case 74:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 284 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("system_functor", P_TOKEN("atomic_system_word ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 75:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 287 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("system_constant", P_TOKEN("atomic_system_word ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 76:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 290 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("variable", P_TOKEN("upper_word ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 77:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 293 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("source", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 78:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 296 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("file_name", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 79:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 299 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("useful_info", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 80:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 302 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("include", P_TOKEN("_LIT_include ", (yyvsp[(1) - (6)].ival)), P_TOKEN("LPAREN ", (yyvsp[(2) - (6)].ival)), (yyvsp[(3) - (6)].pval), (yyvsp[(4) - (6)].pval), P_TOKEN("RPAREN ", (yyvsp[(5) - (6)].ival)), P_TOKEN("PERIOD ", (yyvsp[(6) - (6)].ival)), 0, 0, 0, 0);}
     break;
 
   case 81:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 305 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("formula_selection", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 82:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 306 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("formula_selection", P_TOKEN("COMMA ", (yyvsp[(1) - (4)].ival)), P_TOKEN("LBRKT ", (yyvsp[(2) - (4)].ival)), (yyvsp[(3) - (4)].pval), P_TOKEN("RBRKT ", (yyvsp[(4) - (4)].ival)), 0, 0, 0, 0, 0, 0);}
     break;
 
   case 83:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 309 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("name_list", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 84:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 310 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("name_list", (yyvsp[(1) - (3)].pval), P_TOKEN("COMMA ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 85:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 313 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("general_term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 86:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 314 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("general_term", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 87:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 317 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("general_list", P_TOKEN("LBRKT ", (yyvsp[(1) - (2)].ival)), P_TOKEN("RBRKT ", (yyvsp[(2) - (2)].ival)), 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 88:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 318 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("general_list", P_TOKEN("LBRKT ", (yyvsp[(1) - (3)].ival)), (yyvsp[(2) - (3)].pval), P_TOKEN("RBRKT ", (yyvsp[(3) - (3)].ival)), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 89:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 321 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("general_function", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 90:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 322 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("general_function", (yyvsp[(1) - (4)].pval), P_TOKEN("LPAREN ", (yyvsp[(2) - (4)].ival)), (yyvsp[(3) - (4)].pval), P_TOKEN("RPAREN ", (yyvsp[(4) - (4)].ival)), 0, 0, 0, 0, 0, 0);}
     break;
 
   case 91:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 325 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("general_arguments", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 92:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 326 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("general_arguments", (yyvsp[(1) - (3)].pval), P_TOKEN("COMMA ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 93:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 329 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("name", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 94:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 330 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("name", P_TOKEN("unsigned_integer ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 95:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 333 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("atomic_word", P_TOKEN("lower_word ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 96:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 334 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("atomic_word", P_TOKEN("single_quoted ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 97:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 337 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("null", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 98:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 340 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("number", P_TOKEN("real ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 99:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 341 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("number", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 100:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 344 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("integer", P_TOKEN("signed_integer ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 101:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 345 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("integer", P_TOKEN("unsigned_integer ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 102:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 356 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_input_formula", P_TOKEN("_LIT_input_formula ", (yyvsp[(1) - (9)].ival)), P_TOKEN("LPAREN ", (yyvsp[(2) - (9)].ival)), (yyvsp[(3) - (9)].pval), P_TOKEN("COMMA ", (yyvsp[(4) - (9)].ival)), (yyvsp[(5) - (9)].pval), P_TOKEN("COMMA ", (yyvsp[(6) - (9)].ival)), (yyvsp[(7) - (9)].pval), P_TOKEN("RPAREN ", (yyvsp[(8) - (9)].ival)), P_TOKEN("PERIOD ", (yyvsp[(9) - (9)].ival)), 0);}
     break;
 
   case 103:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 367 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_input_clause", P_TOKEN("_LIT_input_clause ", (yyvsp[(1) - (9)].ival)), P_TOKEN("LPAREN ", (yyvsp[(2) - (9)].ival)), (yyvsp[(3) - (9)].pval), P_TOKEN("COMMA ", (yyvsp[(4) - (9)].ival)), (yyvsp[(5) - (9)].pval), P_TOKEN("COMMA ", (yyvsp[(6) - (9)].ival)), (yyvsp[(7) - (9)].pval), P_TOKEN("RPAREN ", (yyvsp[(8) - (9)].ival)), P_TOKEN("PERIOD ", (yyvsp[(9) - (9)].ival)), 0);}
     break;
 
   case 104:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 370 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_literals", P_TOKEN("LBRKT ", (yyvsp[(1) - (2)].ival)), P_TOKEN("RBRKT ", (yyvsp[(2) - (2)].ival)), 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 105:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 371 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_literals", P_TOKEN("LBRKT ", (yyvsp[(1) - (3)].ival)), (yyvsp[(2) - (3)].pval), P_TOKEN("RBRKT ", (yyvsp[(3) - (3)].ival)), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 106:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 374 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_literal_list", (yyvsp[(1) - (1)].pval), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 107:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 375 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_literal_list", (yyvsp[(1) - (3)].pval), P_TOKEN("COMMA ", (yyvsp[(2) - (3)].ival)), (yyvsp[(3) - (3)].pval), 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 108:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 378 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_literal", (yyvsp[(1) - (2)].pval), (yyvsp[(2) - (2)].pval), 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 109:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 381 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_sign", P_TOKEN("PLUS_PLUS ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
   case 110:
-
-/* Line 1806 of yacc.c  */
+/* Line 1813 of yacc.c  */
 #line 382 "syntaxBNF2-1.y"
     {(yyval.pval) = P_BUILD("TPTP_sign", P_TOKEN("MINUS_MINUS ", (yyvsp[(1) - (1)].ival)), 0, 0, 0, 0, 0, 0, 0, 0, 0);}
     break;
 
 
-
-/* Line 1806 of yacc.c  */
-#line 2490 "y.tab.c"
+/* Line 1813 of yacc.c  */
+#line 2400 "y.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2649,7 +2559,9 @@ yyerrlab1:
       YY_STACK_PRINT (yyss, yyssp);
     }
 
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   *++yyvsp = yylval;
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
 
 
   /* Shift the error token.  */
@@ -2673,7 +2585,7 @@ yyabortlab:
   yyresult = 1;
   goto yyreturn;
 
-#if !defined(yyoverflow) || YYERROR_VERBOSE
+#if !defined yyoverflow || YYERROR_VERBOSE
 /*-------------------------------------------------.
 | yyexhaustedlab -- memory exhaustion comes here.  |
 `-------------------------------------------------*/
@@ -2713,6 +2625,5 @@ yyreturn:
   /* Make sure YYID is used.  */
   return YYID (yyresult);
 }
-
 
 

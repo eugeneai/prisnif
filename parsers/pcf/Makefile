@@ -1,12 +1,14 @@
 .PHONY: all test tr
 
-GPLC="/usr/bin/gplc"
+GPLC=gplc
 
 all: q_trans
 
 q_trans: q_trans.pl
 	$(GPLC) --no-top-level $< -o $@
-	#$(GPLC) $< -o $@
+
+q: q_trans.pl
+	$(GPLC) $< -o $@
 
 test: all
 	./q_trans --tests
