@@ -1,4 +1,4 @@
-.PHONY: all test clean
+.PHONY: all test clean all-rec
 .PHONY: cleanall distrib distr distribution
 .PHONY: test
 
@@ -9,7 +9,9 @@ SRCS=answer.d misc.d pchunk.d proofnode.d question.d \
 
 DFLAGS=-g
 
-all:	prisnif
+ROOT=$(PWD)
+
+all:	prisnif all-rec
 
 prisnif: $(SRCS)
 	dmd $(DFLAGS) $^ -of$@
@@ -28,5 +30,8 @@ distr: distrib
 distribution: distrib
 
 test:	prisnif
-	# Task about John the boy with a lot of fingers.
 	./prisnif problems/john_boy 2000
+
+all-rec:
+	cd parsers/pcf/ && make
+	cd parsers/tptp/ && make
