@@ -1,5 +1,6 @@
 :-dynamic(fol/2).
 :-dynamic(q_option/2).
+:-dynamic(ast/1).
 
 q_set_option(Atom, Value):-
         retract(q_option(Atom, _)),!,
@@ -1040,6 +1041,15 @@ q_tr_command_list(I, R, S) :-
 all_ast(L):-
         findall(X, ast(X), L).
 
+all_ast_ip(Source, IPLI, IPLO):-
+        read_term(Source, ast(A), []), !,
+        %format('Read: ~w ~n', [A]),
+        all_ip([A],[IP]),!,
+        all_ast_ip(Source, [IP|IPLI], IPLO).
+all_ast_ip(Source, IPL, IPL).
+
+
+
 all_ip([], []).
 all_ip([A|TA], [IP|TI]):-
         ast_to_ip(A, fof(_,Type, IP1,_)),!,
@@ -1100,10 +1110,11 @@ as_conj([X|T], conj([X|CT])):-!,
 main(PCF):-
 
         write('Getting all formulas.'),nl,
-        all_ast(L), !,
+        q_option(input_file, Name),
+        open(Name, read, Source),
         % write(L), nl, nl,
         write('Converting to IP list.'),nl,
-        all_ip(L, IPL),!,
+        all_ast_ip(Source, [], IPL), !,
         % write(IPL),
         write('Converting to conjunction.'),nl,
         as_conj(IPL, IP),!,
@@ -1133,7 +1144,8 @@ m(PCF):-
         nl.
 
 tr(Name):-
-        consult(Name),
+        q_set_option(input_file, Name),
+        % consult(Name),
         m(PCF),
         q_pcf_print(PCF).
 
