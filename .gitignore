@@ -34,3 +34,10 @@ parsers/tptp/tmp_ast.txt
 /brick/autoref.ps
 /parsers/tptp/*.tptp
 /parsers/pcf/q
+parsers/pcf/input_*
+parsers/pcf/result_*
+parsers/tptp/lex.yy.c
+parsers/tptp/y.tab.c
+parsers/tptp/y.tab.h
+parsers/tptp/hotptp-yl-parser
+parsers/tptp/tptp-yl-parser
