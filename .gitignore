@@ -27,11 +27,13 @@ parsers/tptp/tmp_ast.txt
 *.aux
 *.bib
 *.bak
+brick/*.thm
 \#*\#
 *.bcf
-/brick/autorefbig.log
-/brick/autoref.pdf
-/brick/autoref.ps
+/brick/autorefbig*.log
+/brick/autoref*.pdf
+/brick/autoref*.ps
+/brick/autoref*.log
 /parsers/tptp/*.tptp
 /parsers/pcf/q
 parsers/pcf/input_*
@@ -41,3 +43,5 @@ parsers/tptp/y.tab.c
 parsers/tptp/y.tab.h
 parsers/tptp/hotptp-yl-parser
 parsers/tptp/tptp-yl-parser
+*.lock
+
