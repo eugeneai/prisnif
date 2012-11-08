@@ -94,6 +94,7 @@ for file in $indir/$1*.p
 do
     TS=$(LC_ALL=C date)
     fb=$(basename $file)
+    fblock=$fb.lock
     fo="$outdir/$fb"
     foz="$fo.bz2"
     if [ $OVERWRITE -eq 0 ] && [ -e $fo ]
@@ -106,19 +107,28 @@ do
         echo "Skipping $indir/$fb as its bzipped resulting file exists."
         continue
     fi
+
+    if [ -e $fblock ]
+    then
+        echo "Skipping $indir/$fb as its ALREADY under processing."
+        continue
+    fi
+
+    touch $fblock
+
     echo "-----[$TS]--------------------------------------------------"
     echo "Processing $indir/$fb."
     cd $tptpdir
 
     sfb=$(basename $fb .p)
-    pwd
-    timeout $TIME_OUT ./$TPTP4X_PRG -x -d../../ ../../$file
+    # pwd
+    timeout $TIME_OUT ./$TPTP4X_PRG -q10 -x -d../../ ../../$file > /dev/null
     TPTP_RC=$?
     cd -
 
     if [ "$TPTP_RC" = "124" ]; then
 	echo "[$TS] Phase one is NOT Ok $file. Time out." >> $log
-        rm -f "$sfb.tptp"
+        rm -f "$sfb.tptp" $fblock
 	continue
     fi
 
@@ -127,7 +137,7 @@ do
 	echo "[$TS] Phase one is Ok $file" >> $log
     else
 	echo "[$TS] Phase one is NOT Ok $file" >> $log
-        rm -f "$sfb.tptp"
+        rm -f "$sfb.tptp" $fblock
 	continue
     fi
 
@@ -164,6 +174,6 @@ do
 	echo "[$TS]==================================" >> $out
     fi
 
-    rm -f $tmp $pcf/$input_pl $pcf/$output_p
+    rm -f $tmp $pcf/$input_pl $pcf/$output_p $fblock
 
 done
