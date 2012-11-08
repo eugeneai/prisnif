@@ -29,6 +29,15 @@ autoref.pdf: autoref.dvi
 	dvips -O-1in,-1in -o autoref.ps autoref.dvi
 	epstopdf autoref.ps > autoref.pdf
 
+autoref17.dvi: autorefbig17.tex
+	latex autorefbig17.tex || true
+	latex autorefbig17.tex || true
+	mv -f autorefbig17.dvi autoref17.dvi
+
+autoref17.pdf: autoref17.dvi
+	dvips -O-1in,-1in -o autoref17.ps autoref17.dvi
+	epstopdf autoref17.ps > autoref17.pdf
+
 #dis.tex:
 
 view:	dis.dvi
@@ -37,8 +46,8 @@ view:	dis.dvi
 pdf:	dis.pdf
 	evince dis.pdf
 
-autoref: autoref.pdf
-	evince autoref.pdf
+autoref: autoref.pdf autoref17.pdf
+	evince autoref17.pdf &
 
 clean:
 	rm -f dis.{ps,pdf,aux,bib,toc,aux,log,bcf,dvi,out,run.xml,thm} autoref.pdf autoref.ps
