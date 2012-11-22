@@ -1044,125 +1044,236 @@ LCL652+1.015 & 32.1 \\
 
 %==================================================================
 \section*{Пример формализации задачи в языке ПО--формул}
-Задача SWB020+2 в языке ПО--формул имеет следующий вид:
+
+Задача COM003+1 в языке ПО--формул имеет следующий вид:
+
 \begin{quote}
 \texttt{\raggedright\noindent
-~~e[][]~\{\\
-~~~~a[X,Y][iext(uri\_owl\_disjointWith,X,Y)]~\{\\
-~~~~~~e[][ic(X),ic(Y)]~\{\\
-~~~~~~~~a[][]~\{\\
-~~~~~~~~~~e[][]~\{\}\}\}\};\\
-~~~~a[Z,C][iext(uri\_owl\_complementOf,Z,C)]~\{\\
-~~~~~~e[][ic(Z),ic(C)]~\{\\
-~~~~~~~~a[X][]~\{\\
-~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~a[][icext(Z,X),icext(C,X)]~\{\\
-~~~~~~~~~~~~~~e[][False]~\{\}\};\\
-~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~e[][icext(C,X)]~\{\};\\
-~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\};\\
-~~~~a[Z,S1,C1,S2,C2][iext(uri\_rdf\_first,S1,C1),iext(uri\_rdf\_rest,S1,S2),iext(uri\_rdf\_first,S2,C2),iext(uri\_rdf\_rest,S2,uri\_rdf\_nil)]~\{\\
-~~~~~~e[][]~\{\\
-~~~~~~~~a[][iext(uri\_owl\_intersectionOf,Z,S1)]~\{\\
-~~~~~~~~~~e[][ic(Z),ic(C1),ic(C2)]~\{\\
-~~~~~~~~~~~~a[X][]~\{\\
-~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][icext(C1,X),icext(C2,X)]~\{\\
-~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~e[][]~\{\}\}\}\};\\
-~~~~~~~~~~~~~~~~a[][icext(C1,X),icext(C2,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\};\\
-~~~~~~~~a[][ic(Z),ic(C1),ic(C2)]~\{\\
-~~~~~~~~~~e[X][]~\{\\
-~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\\
-~~~~~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
-~~~~~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
-~~~~~~~~~~~~~~e[][icext(C1,X),icext(C2,X)]~\{\\
-~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
-~~~~~~~~~~e[][iext(uri\_owl\_intersectionOf,Z,S1)]~\{\}\}\}\};\\
-~~~~a[Z,S1,C1,S2,C2,S3,C3][iext(uri\_rdf\_first,S1,C1),iext(uri\_rdf\_rest,S1,S2),iext(uri\_rdf\_first,S2,C2),iext(uri\_rdf\_rest,S2,S3),iext(uri\_rdf\_first,S3,C3),iext(uri\_rdf\_rest,S3,uri\_rdf\_nil)]~\{\\
-~~~~~~e[][]~\{\\
-~~~~~~~~a[][iext(uri\_owl\_unionOf,Z,S1)]~\{\\
-~~~~~~~~~~e[][ic(Z),ic(C1),ic(C2),ic(C3)]~\{\\
-~~~~~~~~~~~~a[X][]~\{\\
-~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~e[][icext(C1,X)]~\{\};\\
-~~~~~~~~~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\};\\
-~~~~~~~~~~~~~~~~~~~~~~e[][icext(C3,X)]~\{\}\}\}\};\\
-~~~~~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
-~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
-~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C3,X)]~\{\\
-~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
-~~~~~~~~~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\}\}\};\\
-~~~~~~~~a[][ic(Z),ic(C1),ic(C2),ic(C3)]~\{\\
-~~~~~~~~~~e[X][]~\{\\
-~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\\
-~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
-~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
-~~~~~~~~~~~~~~~~a[][icext(C3,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
-~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~~~~~e[][icext(C1,X)]~\{\};\\
-~~~~~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\};\\
-~~~~~~~~~~~~~~~~~~e[][icext(C3,X)]~\{\}\};\\
-~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
-~~~~~~~~~~e[][iext(uri\_owl\_unionOf,Z,S1)]~\{\}\}\}\};\\
-~~~~a[C1,C2][]~\{\\
-~~~~~~e[][]~\{\\
-~~~~~~~~a[][iext(uri\_rdfs\_subClassOf,C1,C2)]~\{\\
-~~~~~~~~~~e[][ic(C1),ic(C2)]~\{\\
-~~~~~~~~~~~~a[X][icext(C1,X)]~\{\\
-~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\}\}\}\};\\
-~~~~~~~~a[][ic(C1),ic(C2)]~\{\\
-~~~~~~~~~~e[X][icext(C1,X)]~\{\\
-~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
-~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
-~~~~~~~~~~e[][iext(uri\_rdfs\_subClassOf,C1,C2)]~\{\}\}\}\};\\
-~~~~a[C1,C2][]~\{\\
-~~~~~~e[][]~\{\\
-~~~~~~~~a[][iext(uri\_owl\_disjointWith,C1,C2)]~\{\\
-~~~~~~~~~~e[][ic(C1),ic(C2)]~\{\\
-~~~~~~~~~~~~a[X][]~\{\\
-~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
-~~~~~~~~~~~~~~e[][]~\{\\
-~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
-~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\}\};\\
-~~~~~~~~a[][ic(C1),ic(C2)]~\{\\
-~~~~~~~~~~e[X][icext(C1,X),icext(C2,X)]~\{\\
-~~~~~~~~~~~~a[][]~\{\\
-~~~~~~~~~~~~~~e[][]~\{\}\}\};\\
-~~~~~~~~~~e[][iext(uri\_owl\_disjointWith,C1,C2)]~\{\}\}\}\};\\
-~~~~a[][iext(uri\_rdfs\_subClassOf,uri\_ex\_d,uri\_ex\_c3)]~\{\\
-~~~~~~e[][False]~\{\}\};\\
-~~~~a[][]~\{\\
-~~~~~~e[BNODE\_xs,BNODE\_xc,BNODE\_lu1,BNODE\_lu2,BNODE\_lu3,BNODE\_li1,BNODE\_li2][iext(uri\_owl\_unionOf,uri\_ex\_c,BNODE\_lu1),iext(uri\_rdf\_first,BNODE\_lu1,uri\_ex\_c1),iext(uri\_rdf\_rest,BNODE\_lu1,BNODE\_lu2),iext(uri\_rdf\_first,BNODE\_lu2,uri\_ex\_c2),iext(uri\_rdf\_rest,BNODE\_lu2,BNODE\_lu3),iext(uri\_rdf\_first,BNODE\_lu3,uri\_ex\_c3),iext(uri\_rdf\_rest,BNODE\_lu3,uri\_rdf\_nil),iext(uri\_owl\_disjointWith,uri\_ex\_d,uri\_ex\_c1),iext(uri\_rdfs\_subClassOf,uri\_ex\_d,BNODE\_xs),iext(uri\_owl\_intersectionOf,BNODE\_xs,BNODE\_li1),iext(uri\_rdf\_first,BNODE\_li1,uri\_ex\_c),iext(uri\_rdf\_rest,BNODE\_li1,BNODE\_li2),iext(uri\_rdf\_first,BNODE\_li2,BNODE\_xc),iext(uri\_rdf\_rest,BNODE\_li2,uri\_rdf\_nil),iext(uri\_owl\_complementOf,BNODE\_xc,uri\_ex\_c2)]~\{\\
-~~~~~~~~a[][]~\{\\
-~~~~~~~~~~e[][]~\{\}\}\}\}\}}
+{
+  e[X1][algorithm(X1)] {
+    a[W_Iy4][program(W_Iy4)] {
+      e[Y_62o2,Z_62o2][program(Y_62o2)] {
+        a[][decides(W_Iy4,Y_62o2,Z_62o2)] {
+          e[][False] {}}};
+      e[][] {
+        a[Y_uQg2,Z_uQg2][] {
+          e[][] {
+            a[][program(Y_uQg2),halts2(Y_uQg2,Z_uQg2)] {
+              e[][halts3(W_Iy4,Y_uQg2,Z_uQg2),outputs(W_Iy4,good),] {}};
+            a[][program(Y_uQg2)] {
+              e[][halts2(Y_uQg2,Z_uQg2)] {};
+              e[][halts3(W_Iy4,Y_uQg2,Z_uQg2),outputs(W_Iy4,bad),] {}}}}}};
+    a[][] {
+      e[][] {
+        a[X][] {
+          e[][] {
+            a[][algorithm(X)] {
+              e[][False] {}}};
+          e[Y,Z][program(Y)] {
+            a[][decides(X,Y,Z)] {
+              e[][False] {}}}}};
+      e[W][program(W)] {
+        a[Y_q4E1][program(Y_q4E1)] {
+          e[][] {
+            a[Z_q4E1][] {
+              e[][decides(W,Y_q4E1,Z_q4E1)] {}}}}}};
+    a[][] {
+      e[][] {
+        a[W_MFP2][] {
+          e[][] {
+            a[][program(W_MFP2)] {
+              e[][False] {}}};
+          e[Y_pmk][] {
+            a[][] {
+              e[][program(Y_pmk),halts2(Y_pmk,Y_pmk)] {
+                a[][] {
+                  e[][] {
+                    a[][halts3(W_MFP2,Y_pmk,Y_pmk)] {
+                      e[][False] {}}};
+                  e[][] {
+                    a[][outputs(W_MFP2,good)] {
+                      e[][False] {}}}}};
+              e[][program(Y_pmk)] {
+                a[][halts2(Y_pmk,Y_pmk)] {
+                  e[][False] {}};
+                a[][] {
+                  e[][] {
+                    a[][halts3(W_MFP2,Y_pmk,Y_pmk)] {
+                      e[][False] {}}};
+                  e[][] {
+                    a[][outputs(W_MFP2,bad)] {
+                      e[][False] {}}}}}}}}};
+      e[V][program(V)] {
+        a[Y_MFP2][] {
+          e[][] {
+            a[][program(Y_MFP2),halts2(Y_MFP2,Y_MFP2)] {
+              e[][halts2(V,Y_MFP2),outputs(V,good),] {}};
+            a[][program(Y_MFP2)] {
+              e[][halts2(Y_MFP2,Y_MFP2)] {};
+              e[][halts2(V,Y_MFP2),outputs(V,bad),] {}}}}}};
+    a[][] {
+      e[][] {
+        a[V_t382][] {
+          e[][] {
+            a[][program(V_t382)] {
+              e[][False] {}}};
+          e[Y_5hG2][] {
+            a[][] {
+              e[][program(Y_5hG2),halts2(Y_5hG2,Y_5hG2)] {
+                a[][] {
+                  e[][] {
+                    a[][halts2(V_t382,Y_5hG2)] {
+                      e[][False] {}}};
+                  e[][] {
+                    a[][outputs(V_t382,good)] {
+                      e[][False] {}}}}};
+              e[][program(Y_5hG2)] {
+                a[][halts2(Y_5hG2,Y_5hG2)] {
+                  e[][False] {}};
+                a[][] {
+                  e[][] {
+                    a[][halts2(V_t382,Y_5hG2)] {
+                      e[][False] {}}};
+                  e[][] {
+                    a[][outputs(V_t382,bad)] {
+                      e[][False] {}}}}}}}}};
+      e[U][program(U)] {
+        a[Y_HbT][] {
+          e[][] {
+            a[][program(Y_HbT),halts2(Y_HbT,Y_HbT),halts2(U,Y_HbT)] {
+              e[][False] {}};
+            a[][program(Y_HbT)] {
+              e[][halts2(Y_HbT,Y_HbT)] {};
+              e[][halts2(U,Y_HbT),outputs(U,bad),] {}}}}}};
+    a[Y1][program(Y1)] {
+      e[][] {
+        a[Z1][] {
+          e[][decides(X1,Y1,Z1)] {}}}}}
 \end{quote}
+
+
+%Задача SWB020+2 в языке ПО--формул имеет следующий вид:
+%\begin{quote}
+%\texttt{\raggedright\noindent
+%~~e[][]~\{\\
+%~~~~a[X,Y][iext(uri\_owl\_disjointWith,X,Y)]~\{\\
+%~~~~~~e[][ic(X),ic(Y)]~\{\\
+%~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~e[][]~\{\}\}\}\};\\
+%~~~~a[Z,C][iext(uri\_owl\_complementOf,Z,C)]~\{\\
+%~~~~~~e[][ic(Z),ic(C)]~\{\\
+%~~~~~~~~a[X][]~\{\\
+%~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~a[][icext(Z,X),icext(C,X)]~\{\\
+%~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+%~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~e[][icext(C,X)]~\{\};\\
+%~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\};\\
+%~~~~a[Z,S1,C1,S2,C2][iext(uri\_rdf\_first,S1,C1),iext(uri\_rdf\_rest,S1,S2),iext(uri\_rdf\_first,S2,C2),iext(uri\_rdf\_rest,S2,uri\_rdf\_nil)]~\{\\
+%~~~~~~e[][]~\{\\
+%~~~~~~~~a[][iext(uri\_owl\_intersectionOf,Z,S1)]~\{\\
+%~~~~~~~~~~e[][ic(Z),ic(C1),ic(C2)]~\{\\
+%~~~~~~~~~~~~a[X][]~\{\\
+%~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][icext(C1,X),icext(C2,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~e[][]~\{\}\}\}\};\\
+%~~~~~~~~~~~~~~~~a[][icext(C1,X),icext(C2,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\};\\
+%~~~~~~~~a[][ic(Z),ic(C1),ic(C2)]~\{\\
+%~~~~~~~~~~e[X][]~\{\\
+%~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\\
+%~~~~~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+%~~~~~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
+%~~~~~~~~~~~~~~e[][icext(C1,X),icext(C2,X)]~\{\\
+%~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
+%~~~~~~~~~~e[][iext(uri\_owl\_intersectionOf,Z,S1)]~\{\}\}\}\};\\
+%~~~~a[Z,S1,C1,S2,C2,S3,C3][iext(uri\_rdf\_first,S1,C1),iext(uri\_rdf\_rest,S1,S2),iext(uri\_rdf\_first,S2,C2),iext(uri\_rdf\_rest,S2,S3),iext(uri\_rdf\_first,S3,C3),iext(uri\_rdf\_rest,S3,uri\_rdf\_nil)]~\{\\
+%~~~~~~e[][]~\{\\
+%~~~~~~~~a[][iext(uri\_owl\_unionOf,Z,S1)]~\{\\
+%~~~~~~~~~~e[][ic(Z),ic(C1),ic(C2),ic(C3)]~\{\\
+%~~~~~~~~~~~~a[X][]~\{\\
+%~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~e[][icext(C1,X)]~\{\};\\
+%~~~~~~~~~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\};\\
+%~~~~~~~~~~~~~~~~~~~~~~e[][icext(C3,X)]~\{\}\}\}\};\\
+%~~~~~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+%~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+%~~~~~~~~~~~~~~~~~~~~~~~~a[][icext(C3,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+%~~~~~~~~~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\}\}\}\}\}\}\}\};\\
+%~~~~~~~~a[][ic(Z),ic(C1),ic(C2),ic(C3)]~\{\\
+%~~~~~~~~~~e[X][]~\{\\
+%~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~e[][icext(Z,X)]~\{\\
+%~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+%~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][False]~\{\}\};\\
+%~~~~~~~~~~~~~~~~a[][icext(C3,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+%~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][icext(C1,X)]~\{\};\\
+%~~~~~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\};\\
+%~~~~~~~~~~~~~~~~~~e[][icext(C3,X)]~\{\}\};\\
+%~~~~~~~~~~~~~~~~a[][icext(Z,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\};\\
+%~~~~~~~~~~e[][iext(uri\_owl\_unionOf,Z,S1)]~\{\}\}\}\};\\
+%~~~~a[C1,C2][]~\{\\
+%~~~~~~e[][]~\{\\
+%~~~~~~~~a[][iext(uri\_rdfs\_subClassOf,C1,C2)]~\{\\
+%~~~~~~~~~~e[][ic(C1),ic(C2)]~\{\\
+%~~~~~~~~~~~~a[X][icext(C1,X)]~\{\\
+%~~~~~~~~~~~~~~e[][icext(C2,X)]~\{\}\}\}\};\\
+%~~~~~~~~a[][ic(C1),ic(C2)]~\{\\
+%~~~~~~~~~~e[X][icext(C1,X)]~\{\\
+%~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+%~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+%~~~~~~~~~~e[][iext(uri\_rdfs\_subClassOf,C1,C2)]~\{\}\}\}\};\\
+%~~~~a[C1,C2][]~\{\\
+%~~~~~~e[][]~\{\\
+%~~~~~~~~a[][iext(uri\_owl\_disjointWith,C1,C2)]~\{\\
+%~~~~~~~~~~e[][ic(C1),ic(C2)]~\{\\
+%~~~~~~~~~~~~a[X][]~\{\\
+%~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~a[][icext(C1,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\};\\
+%~~~~~~~~~~~~~~e[][]~\{\\
+%~~~~~~~~~~~~~~~~a[][icext(C2,X)]~\{\\
+%~~~~~~~~~~~~~~~~~~e[][False]~\{\}\}\}\}\}\};\\
+%~~~~~~~~a[][ic(C1),ic(C2)]~\{\\
+%~~~~~~~~~~e[X][icext(C1,X),icext(C2,X)]~\{\\
+%~~~~~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~~~~~e[][]~\{\}\}\};\\
+%~~~~~~~~~~e[][iext(uri\_owl\_disjointWith,C1,C2)]~\{\}\}\}\};\\
+%~~~~a[][iext(uri\_rdfs\_subClassOf,uri\_ex\_d,uri\_ex\_c3)]~\{\\
+%~~~~~~e[][False]~\{\}\};\\
+%~~~~a[][]~\{\\
+%~~~~~~e[BNODE\_xs,BNODE\_xc,BNODE\_lu1,BNODE\_lu2,BNODE\_lu3,BNODE\_li1,BNODE\_li2][iext(uri\_owl\_unionOf,uri\_ex\_c,BNODE\_lu1),iext(uri\_rdf\_first,BNODE\_lu1,uri\_ex\_c1),iext(uri\_rdf\_rest,BNODE\_lu1,BNODE\_lu2),iext(uri\_rdf\_first,BNODE\_lu2,uri\_ex\_c2),iext(uri\_rdf\_rest,BNODE\_lu2,BNODE\_lu3),iext(uri\_rdf\_first,BNODE\_lu3,uri\_ex\_c3),iext(uri\_rdf\_rest,BNODE\_lu3,uri\_rdf\_nil),iext(uri\_owl\_disjointWith,uri\_ex\_d,uri\_ex\_c1),iext(uri\_rdfs\_subClassOf,uri\_ex\_d,BNODE\_xs),iext(uri\_owl\_intersectionOf,BNODE\_xs,BNODE\_li1),iext(uri\_rdf\_first,BNODE\_li1,uri\_ex\_c),iext(uri\_rdf\_rest,BNODE\_li1,BNODE\_li2),iext(uri\_rdf\_first,BNODE\_li2,BNODE\_xc),iext(uri\_rdf\_rest,BNODE\_li2,uri\_rdf\_nil),iext(uri\_owl\_complementOf,BNODE\_xc,uri\_ex\_c2)]~\{\\
+%~~~~~~~~a[][]~\{\\
+%~~~~~~~~~~e[][]~\{\}\}\}\}\}}
+%\end{quote}
+
+
+
 %===================================================================================
 \section*{Пример сокращённого протокола вывода для задачи}
 Пример сокращённого протокола вывода для задачи MSC004-1:
