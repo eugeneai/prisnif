@@ -52,7 +52,7 @@
 \begin{figure}[h]
 	%\vspace{0.5cm}
 	\centering
-	\includegraphics[width=0.6\linewidth]{pics/ChunkFull.eps}
+	\includegraphics[width=0.8\linewidth]{pics/ChunkFull.eps}
 	\caption{Чанки}
 	\label{fig:chank1}
 \end{figure}
@@ -105,7 +105,7 @@
 \begin{figure}[h]
 	%\vspace{0.5cm}
 	\centering
-	\includegraphics[width=0.6\linewidth]{pics/PST2.eps}
+	\includegraphics[width=0.7\linewidth]{pics/PST2.eps}
 	\caption{Дерево состояний вывода рис.~\ref{fig:pst}, представленное в виде чанков}
 	\label{fig:pst2}
 \end{figure}
@@ -156,7 +156,7 @@ $$\exists: A(a) - \forall x: A(x) - \left\{
 \begin{figure}[h]
 	%\vspace{0.5cm}
 	\centering
-	\includegraphics[width=0.7\linewidth]{pics/DataSharing2.eps}
+	\includegraphics[width=0.82\linewidth]{pics/DataSharing2.eps}
 	\caption{Пример дерева состояний вывода опровержения базовой подформулы}
 	\label{fig:datasharing2}
 \end{figure}
@@ -204,8 +204,8 @@ $$\exists: A(t), A(f(e,t)) - \forall x:A(x) \exists B(x)$$
 \begin{figure}[h]
 	%\vspace{0.5cm}
 	\centering
-	\includegraphics[width=0.2\linewidth]{pics/Path1.eps}
-	\caption{Пример применения индексирования путями}
+	\includegraphics[width=0.25\linewidth]{pics/Path1.eps}
+	\caption{Пример построения путей}
 	\label{pathfig}
 \end{figure}
 
@@ -235,7 +235,7 @@ $$
 \begin{figure}[h]
 	%\vspace{0.5cm}
 	\centering
-	\includegraphics[width=0.4\linewidth]{pics/SharedIndex.eps}
+	\includegraphics[width=0.6\linewidth]{pics/SharedIndex.eps}
 	\caption{Дерево состояний вывода с указанием разделяемых базовых конъюнктов}
 	\label{fig:sharedindex}
 \end{figure}
@@ -245,7 +245,7 @@ $$
 \begin{figure}[h]
 	%\vspace{0.5cm}
 	\centering
-	\includegraphics[width=0.7\linewidth]{pics/SharedIndex2.eps}
+	\includegraphics[width=0.82\linewidth]{pics/SharedIndex2.eps}
 	\caption{Индексирование путями с учетом дерева состояний вывода}
 	\label{fig:sharedindex2}
 \end{figure}
@@ -326,7 +326,7 @@ $$\fictAquantor \; - \; \exists\colon M(e) \left\{
 
 В случае с дизъюнктивным ветвлением, вся совокупность ответов на вопрос означает не просто появление бесконечного конъюнкта, а бесконечно множества конъюнктов, поскольку база ещё и расщепляется. Т.е. конкретизация НЭЭ приводит не просто к порождению нового атома в конъюнкте, а к очередному расщеплению формулы, в той точке ЛВ, в которой впервые появился конкретизируемый НЭЭ. Данную точку легко отследить благодаря структуре ДСВ, в которой сохраняются все события произошедшие на каждом шаге вывода. Однако, ветвление целесообразно проводить не в этой точке, а во всех листах дерева, корнящегося из этой точки. Поскольку вставка ветвления в середину вывода потребует копирования для каждого нового узла той части вывода, которая была уже произведена.  На рис.~\ref{lazy21} схематично показано некоторое ДСВ.
 \begin{figure}[h]
-	%\vspace{0.5cm}
+	%\vspace{0.5cm} 
 	\centering
 	\includegraphics[width=0.5\linewidth]{pics/Lazy21.eps}
 	\caption{Структура дерева состояний вывода до конкретизации}
