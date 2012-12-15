@@ -14,7 +14,8 @@ dis.pdf: dis.ps
 	epstopdf dis.ps > dis.pdf
 
 dis.ps: dis.dvi $(PICS)
-	dvips -O-1in,-1in -o dis.ps dis.dvi
+	# dvips -O-1in,-1in -o dis.ps dis.dvi
+	dvips -o dis.ps dis.dvi
 
 dis.dvi: $(TEXS)
 	latex dis.tex || true
@@ -40,8 +41,11 @@ autoref17.pdf: autoref17.dvi
 
 #dis.tex:
 
-view:	dis.dvi
-	evince dis.dvi
+view:	dis.pdf
+	evince dis.pdf
+
+acro:	dis.pdf
+	acroread dis.pdf
 
 pdf:	dis.pdf
 	evince dis.pdf
