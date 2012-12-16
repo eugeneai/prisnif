@@ -133,7 +133,7 @@ $$F^{\text{\tiny{PCF}}} = \forall\colon \boldsymbol{True}-\exists\colon\boldsymb
 \subsection{Исчисление позитивно--образованных формул}
 
 Схема аксиом исчисления ПО--формул $\boldsymbol{JF}$ имеет следующую форму:
-$$ Ax\boldsymbol{JF} = \forall\colon\boldsymbol{True}\left(\exists \bar{x}_1\colon\boldsymbol{False}\left(\widetilde{\Phi}_1\right),\ldots,\exists \bar{x}_n\colon\boldsymbol{False}\left(\widetilde{\Phi}_n\right)\right) $$
+$$ Ax\boldsymbol{JF} = \forall\colon\boldsymbol{True}\left(\exists \bar{x}_1\colon\boldsymbol{False}\left(\widetilde{\Phi}_1\right),\ldots,\exists \bar{x}_n\colon\boldsymbol{False}\left(\widetilde{\Phi}_n\right)\right). $$
 
 В исчислении ПО--формул для того, чтобы доказать $F$ мы будем пытаться опровергнуть её отрицание, поэтому аксиома исчисления ПО--формул ---  тождественно ложное высказывание. Таким образом процесс вывода в исчислении ПО--формул является процессом {\em опровержения}.
 
@@ -181,7 +181,7 @@ $$ Ax\boldsymbol{JF} = \forall\colon\boldsymbol{True}\left(\exists \bar{x}_1\col
 \end{equation*}
 На первом шаге вывода существует только один ответ $\{x \rightarrow e\}$ на вопрос $Q_1$. После применения $\bomega$ с этим ответом, формула приобретает следующий вид:
 \begin{equation*}\label{ex:f2}
-	F_2 = \forall\colon\boldsymbol{True} - \exists\colon S(e),A(a)(Q_1,Q_2,Q_3,Q_4)
+	F_2 = \forall\colon\boldsymbol{True} - \exists\colon S(e),A(a)(Q_1,Q_2,Q_3,Q_4).
 \end{equation*}
 На втором шаге вывода существует только один ответ $\{x \rightarrow a\}$ на вопрос $Q_4$. После применения $\bomega$ с этим ответом, формула расщепляется, потому что $Q_4$ имеет дизъюнктивное ветвление. И теперь формулы имеет следующий вид:
 
@@ -201,7 +201,7 @@ F_3 =
 		Q_1 \\ \cdots \\ Q_4 \\
 		\forall z\colon A(z),C(z) - \exists\colon D(f(z))
 	\end{array}\right. \\
-\end{array}\right.
+\end{array}\right..
 \end{equation*}
 
 На третьем шаге вывода первая база может быть опровергнута ответом $\{x \rightarrow y_1; y \rightarrow a\}$ на целевой вопрос $Q_3$. Опровергнутая база (подформула) для удобства представления может быть удалена из списка базовых подформул.
@@ -213,7 +213,7 @@ F_3 =
 	\begin{array}{l}
 		Q_1 \\ \cdots \\ Q_4 \\
 		\forall z\colon A(z),C(z) - \exists\colon D(f(z))
-	\end{array}\right.
+	\end{array}\right..
 \end{equation*}
 
 На пятом шаге вывода единственная база может быть опровергнута ответом $\{x \rightarrow a; y \rightarrow f(a)\}$ на целевой вопрос $Q_4$.
