@@ -8,15 +8,15 @@
 \usepackage[english,russian]{babel}
 \usepackage{psfrag}
 \usepackage[dvips]{graphicx}
-\usepackage[unicode=true,colorlinks=true,pdfstartview=FitH,pdfpagemode=UseOutlines,linkcolor=black,citecolor=black,urlcolor=black,pdftitle={dis},pdfauthor={steve},pdfkeywords={},pdfproducer={LaTeX},pdfcreator={LaTeX}
+\usepackage[unicode=true,colorlinks=true,pdfstartview=FitH,pdfpagemode=UseOutlines,linkcolor=black,citecolor=black,urlcolor=black,pdftitle={dis},pdfauthor={snigavik},pdfkeywords={},pdfproducer={LaTeX},pdfcreator={LaTeX}
 ]{hyperref}
 %breaklinks=true]{hyperref}
 \usepackage[T2A]{fontenc}
 % \usepackage{pscyr}
-\usepackage{geometry}
+%\usepackage{geometry}
 \usepackage{framed}
 \usepackage{setspace}
-\usepackage{a4}
+%\usepackage{a4}
 \usepackage{algorithmic} % noend
 \usepackage[boxed]{algorithm} % boxed, ruled, plain (also)
 \usepackage[14pt]{extsizes}
@@ -26,34 +26,40 @@
 \usepackage{color}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \usepackage{longtable}%длинные таблицы
+\usepackage[top=20mm, bottom=20mm, left=30mm, right=10mm, paper=a4paper]{geometry}
 
 \bibliography{intelle}
+
+
+\makeatletter
+\makeatother
 
 
 \setcounter{tocdepth}{3}  % Точность представления содержания
 
 
-\setlength{\textwidth}{16.5cm}
-\setlength{\textheight}{24cm}
+%\setlength{\textwidth}{17cm}
+%\setlength{\textheight}{25.7cm}
 
-\setlength{\topmargin}{20mm}
-\setlength{\headheight}{0mm}
-\setlength{\headsep}{0mm}
+%\setlength{\topmargin}{20mm}
+%\setlength{\headheight}{0mm}
+%\setlength{\headsep}{0mm}
 
-\setlength{\evensidemargin}{25mm}
-\setlength{\oddsidemargin}{25mm}
+%\setlength{\evensidemargin}{30mm}
+%\setlength{\oddsidemargin}{30mm}
 
-\setlength{\footskip}{45pt} % Расстояние от нижней грани текста до нижней грани номера страницы
-\setlength{\parindent}{10mm} % Абзацный отступ
+%\setlength{\footskip}{13mm} % Расстояние от нижней грани текста до нижней грани номера страницы
+%\setlength{\parindent}{10mm} % Абзацный отступ
 
 %\doublespacing
-\onehalfspacing
+%\onehalfspacing
 
 \renewcommand{\baselinestretch}{1.5}
+
 %---------------------------------------------------------------
 \begin{document}
 %\setlanguage{russian}
-\renewcommand\contentsname{Содержание}
+\renewcommand\contentsname{Оглавление}
 \floatname{algorithm}{Процедура}
 \renewcommand{\listalgorithmname}{Список процедур}
 %\tolerance=5000
@@ -88,6 +94,9 @@
 {
 \end{framed}
 }
+
+%------------------------
+
 
 \theorembodyfont{\rmfamily}
 \newtheorem{definition}{Определение}
@@ -126,8 +135,6 @@
 %    УЧРЕЖДЕНИЕ РОССИЙСКОЙ АКАДЕМИИ НАУК \\
 %ИНСТИТУТ ДИНАМИКИ СИСТЕМ И ТЕОРИИ УПРАВЛЕНИЯ \\
 %СИБИРСКОГО ОТДЕЛЕНИЯ РАН
-МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ \\
-РОССИЙСКОЙ ФЕДЕРАЦИИ \\
 ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ \\
 ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ \\
 ВЫСШЕГО ПРОФЕССИОНАЛЬНОГО ОБРАЗОВАНИЯ\\
@@ -171,6 +178,7 @@
 \def\namepc{\hbox{$\rm\mu{}$PrISM}}
 
 \newpage
+\setcounter{page}{2}
 
 \tableofcontents
 
