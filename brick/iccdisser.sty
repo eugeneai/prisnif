@@ -101,6 +101,21 @@
   \fi
   \vskip\belowcaptionskip}
 
+\def\LT@makecaption#1#2#3{%
+  \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
+%    \end{macrocode}
+% Based on article class "\@makecaption", "#1" is "\@gobble" in star
+% form, and "\@firstofone" otherwise.
+%    \begin{macrocode}
+    \sbox\@tempboxa{#1{#2 }#3}%
+    \ifdim\wd\@tempboxa>\hsize
+      #1{#2 }#3%
+    \else
+      \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \endgraf\vskip\baselineskip}%
+  \hss}}}
+
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
                                     {3.25ex \@plus1ex \@minus.2ex}%
                                     {-1em}%

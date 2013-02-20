@@ -45,3 +45,5 @@ parsers/tptp/hotptp-yl-parser
 parsers/tptp/tptp-yl-parser
 *.lock
 
+/brick/dis.bbl
+/brick/dis.blg

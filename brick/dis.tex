@@ -29,10 +29,12 @@
 \usepackage[top=20mm, bottom=20mm, left=30mm, right=10mm, paper=a4paper]{geometry}
 
 \bibliography{intelle}
-
-
 \makeatletter
+\renewcommand{\@biblabel}[1]{#1.}
 \makeatother
+
+%\makeatletter
+%\makeatother
 
 
 \setcounter{tocdepth}{3}  % Точность представления содержания
@@ -192,8 +194,11 @@
 \input{chapter2.tex}
 % Программная система
 \input{chapter3.tex}
-% Применение
+% Тестирование
 \input{chapter4.tex}
+% Приложение
+\input{chapter5.tex}
+
 % Заключение
 \input{conclusions.tex}
 

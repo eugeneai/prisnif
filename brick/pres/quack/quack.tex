@@ -1,0 +1,148 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\begin{document}
+\Large{}
+\noindent{}Некоторые пациенты $P/1$ любят $L/2$ всех докторов $D/1$\\
+$$
+A_1=\exists{} e P(e)\&{}(\forall{} y D(y)\rightarrow{}L(e,y));
+$$
+Ни один из пациентов не любит знахарей $Q/1$.\\
+$$
+A_2=\neg{}[\exists{} x P(x)\&{}(\exists{} y Q(y)\&{}L(x,y))];
+$$
+Следовательно, не существует доктора, который является знахарем.
+$$
+C=\neg{}[\exists{} x P(x)\&{}Q(x)].
+$$
+Теорема и ее отрицание:
+$$
+T=A_1\&{}A_2\rightarrow{}C;\qquad{}\neg{}T=A_1\&{}A_2\&\neg{}C.
+$$
+\newpage{}
+\noindent{}Представление задачи (отрицания теоремы) в языке ПО--формул:
+$$
+\forall\colon True - \exists e\colon P(e) - \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False, \\
+ \forall \colon{} True - \exists{} z\colon{} D(z),Q(z).
+\end{array}
+\right.
+$$
+\newpage{}
+\noindent{}Шаг 1 логического вывода $\neg{}T$:
+$$
+\forall\colon True - \exists e\colon P(e) - \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False, \\
+ \forall \colon{} True - \exists{} z\colon{} D(z),Q(z).
+\end{array}
+\right.
+$$
+Пустая подстановка $\Theta=\emptyset{}$ в третий вопрос.
+$$
+\forall\colon True - \exists e, z\colon {\cal{} B}- \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False.
+\end{array}
+\right.
+$$
+$$
+{\cal{} B} = P(e),D(z),Q(z).
+$$
+
+\newpage{}
+\noindent{}Шаг 2 логического вывода $\neg{}T$:
+$$
+\forall\colon True - \exists e, z\colon {\cal{} B}- \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False.
+\end{array}
+\right.
+$$
+$$
+{\cal{} B} = P(e),D(z),Q(z).
+$$
+Подстановка $\Theta=\{x\rightarrow{} e\}$ во второй вопрос.
+$$
+\forall\colon True - \exists e, z\colon {\cal{} B}- \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False;\\{}
+ \forall{} y \colon{} Q(y),L(e,y) - \exists{}\colon{} False.
+\end{array}
+\right.
+$$
+$$
+{\cal{} B} = P(e),D(z),Q(z).
+$$
+\newpage{}
+\noindent{}Шаг 3 логического вывода $\neg{}T$:
+$$
+\forall\colon True - \exists e, z\colon {\cal{} B}- \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False;\\{}
+ \forall{} y \colon{} Q(y),L(e,y) - \exists{}\colon{} False.
+\end{array}
+\right.
+$$
+$$
+{\cal{} B} = P(e),D(z),Q(z).
+$$
+Подстановка $\Theta=\{y \rightarrow{} z\}$ в первый вопрос.
+$$
+\forall\colon True - \exists e, z\colon {\cal{} B}- \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False;\\{}
+ \forall{} y \colon{} Q(y),L(e,y) - \exists{}\colon{} False.
+\end{array}
+\right.
+$$
+$$
+{\cal{} B} = P(e),D(z),Q(z),L(e,z).
+$$
+\newpage{}
+\noindent{}Шаг 4 логического вывода $\neg{}T$:
+$$
+\forall\colon True - \exists e, z\colon {\cal{} B}- \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False;\\{}
+ \forall{} y \colon{} Q(y),L(e,y) - \exists{}\colon{} False.
+\end{array}
+\right.
+$$
+$$
+{\cal{} B} = P(e),D(z),Q(z),L(e,z).
+$$
+Подстановка $\Theta=\{y \rightarrow{} z\}$ в третий вопрос.
+$$
+\forall\colon True - \exists e, z\colon {\cal{} B}- \left\{
+\begin{array}{lcl}
+ \forall y \colon D(y) - \exists{}\colon{} L(e,y), \\
+ \forall x \colon P(x) - \exists\colon{} True - \\
+ \hspace{2em} - \forall{} y \colon{} Q(y),L(x,y) - \exists{}\colon{} False;\\{}
+ \forall{} y \colon{} Q(y),L(e,y) - \exists{}\colon{} False.
+\end{array}
+\right.
+$$
+$$
+{\cal{} B} = P(e),D(z),Q(z),L(e,z),False.
+$$
+
+
+\end{document}
