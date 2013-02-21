@@ -11,7 +11,7 @@
 			"file": "autorefbig17.tex",
 			"settings":
 			{
-				"buffer_size": 60689,
+				"buffer_size": 60839,
 				"line_ending": "Unix"
 			}
 		},
@@ -155,7 +155,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -163,25 +163,26 @@
 					"file": "autorefbig17.tex",
 					"settings":
 					{
-						"buffer_size": 60689,
+						"buffer_size": 60839,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								7491,
+								7491
 							]
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6093.0,
+						"translation.y": 7010.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -209,7 +210,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6204.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -232,6 +233,7 @@
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
