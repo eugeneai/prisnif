@@ -6,7 +6,7 @@ prisnif
 .emacs.desktop*
 /parsers/pcf/.#tptp_tr.sh
 /parsers/pcf/#tptp_tr.sh#
-/parsers/tptp/conversion.log
+*.log
 /parsers/tptp/conv_out.txt
 /parsers/pcf/input.pl
 /parsers/pcf/result.p
@@ -45,5 +45,7 @@ parsers/tptp/hotptp-yl-parser
 parsers/tptp/tptp-yl-parser
 *.lock
 
-/brick/dis.bbl
-/brick/dis.blg
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
