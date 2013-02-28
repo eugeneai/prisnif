@@ -3,7 +3,7 @@
 PICS=pics/AnBase.eps pics/Chunk2.eps pics/Chunk.eps pics/logics_schema_1.eps \
 	pics/Parallel.eps pics/PST2.eps pics/PST.eps
 TEXS=appendix.tex bibliography.tex chapter1.tex chapter2.tex \
-	chapter3.tex chapter4.tex conclusions.tex dis.tex introduction.tex
+	chapter3.tex chapter4.tex chapter5.tex conclusions.tex dis.tex introduction.tex
 
 
 all: dis
