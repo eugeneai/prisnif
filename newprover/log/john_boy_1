@@ -1,0 +1,178 @@
+e[in(john,boy)0,]
+    a[Big_part, Number_of_mid_parts, Mid_part, Small_part, Number_of_small_parts, ]
+    a[has_parts(Big_part,Number_of_mid_parts,Mid_part),has_parts(object_in(Big_part,Mid_part,Small_part,Number_of_mid_parts,Number_of_small_parts),Number_of_small_parts,Small_part),]
+        e[]
+        e[has_parts(Big_part,times(Number_of_mid_parts,Number_of_small_parts),Small_part),]
+
+
+    a[X, ]
+    a[in(X,boy),]
+        e[]
+        e[in(X,human),]
+
+
+    a[X, ]
+    a[in(X,hand),]
+        e[]
+        e[has_parts(X,n5,fingers),]
+
+
+    a[X, ]
+    a[in(X,human),]
+        e[]
+        e[has_parts(X,n2,arm),]
+
+
+    a[X, ]
+    a[in(X,arm),]
+        e[]
+        e[has_parts(X,n1,hand),]
+
+
+    a[]
+    a[has_parts(john,times(times(n2,n1),n5),fingers),]
+        e[]
+        e[False,]
+
+
+    a[Big_part, Number_of_mid_parts, Mid_part, Small_part, Number_of_small_parts, ]
+    a[has_parts(Big_part,Number_of_mid_parts,Mid_part),]
+        e[]
+        e[has_parts(Big_part,times(Number_of_mid_parts,Number_of_small_parts),Small_part),]
+
+        e[]
+        e[in(object_in(Big_part,Mid_part,Small_part,Number_of_mid_parts,Number_of_small_parts),Mid_part),]
+
+
+
+{X -> john, }
+{X -> john, }
+{Big_part -> john, Number_of_mid_parts -> n2, Mid_part -> arm, Small_part -> h1, Number_of_small_parts -> h2, }
+{Big_part -> john, Number_of_mid_parts -> times(n2,h2), Mid_part -> h1, Small_part -> h3, Number_of_small_parts -> h4, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{h2 -> n1, h4 -> n5, h3 -> fingers, }
+{X -> object_in(john,boy,fingers,times(n2,n1),n5), h1 -> boy, }
+{X -> object_in(john,boy,fingers,times(n2,n1),n5), }
+{Big_part -> object_in(john,boy,fingers,times(n2,n1),n5), Number_of_mid_parts -> n2, Mid_part -> arm, Small_part -> h5, Number_of_small_parts -> h6, }
+{Big_part -> object_in(john,boy,fingers,times(n2,n1),n5), Number_of_mid_parts -> times(n2,h6), Mid_part -> h5, Small_part -> h7, Number_of_small_parts -> h8, }
+{Big_part -> object_in(john,boy,fingers,times(n2,n1),n5), Number_of_mid_parts -> times(times(n2,h6),h8), Mid_part -> h7, Small_part -> h9, Number_of_small_parts -> h10, }
+{Big_part -> object_in(john,boy,fingers,times(n2,n1),n5), Number_of_mid_parts -> times(times(times(n2,h6),h8),h10), Mid_part -> h9, Small_part -> h11, Number_of_small_parts -> h12, }
+{Big_part -> object_in(john,boy,fingers,times(n2,n1),n5), Number_of_mid_parts -> times(times(times(times(n2,h6),h8),h10),h12), Mid_part -> h11, Small_part -> h13, Number_of_small_parts -> h14, }
+{Big_part -> object_in(john,boy,fingers,times(n2,n1),n5), Number_of_mid_parts -> times(times(times(times(times(n2,h6),h8),h10),h12),h14), Mid_part -> h13, Small_part -> h15, Number_of_small_parts -> h16, }
+{Big_part -> object_in(john,boy,fingers,times(n2,n1),n5), Number_of_mid_parts -> times(times(times(times(times(times(n2,h6),h8),h10),h12),h14),h16), Mid_part -> h15, Small_part -> h17, Number_of_small_parts -> h18, }
+{X -> object_in(john,hand,fingers,times(n2,n1),n5), h1 -> hand, }
+{Big_part -> object_in(john,hand,fingers,times(n2,n1),n5), Number_of_mid_parts -> n5, Mid_part -> fingers, Small_part -> h19, Number_of_small_parts -> h20, }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{}
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> object_in(john,arm,hand,n2,n1), }
+{Big_part -> object_in(john,arm,hand,n2,n1), Number_of_mid_parts -> n1, Mid_part -> hand, Small_part -> h21, Number_of_small_parts -> h22, }
+{Big_part -> john, Number_of_mid_parts -> n2, Mid_part -> arm, Small_part -> hand, Number_of_small_parts -> n1, }
+{Big_part -> object_in(john,arm,hand,n2,n1), Number_of_mid_parts -> times(n1,h22), Mid_part -> h21, Small_part -> h23, Number_of_small_parts -> h24, }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> h25, Number_of_small_parts -> h26, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{h26 -> n5, h25 -> fingers, }
+{X -> object_in(john,hand,fingers,times(n2,n1),n5), }
+{Big_part -> object_in(john,arm,hand,n2,n1), Number_of_mid_parts -> times(times(n1,h22),h24), Mid_part -> h23, Small_part -> h27, Number_of_small_parts -> h28, }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{}
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> object_in(object_in(john,arm,hand,n2,n1),boy,h23,times(n1,h22),h24), h21 -> boy, }
+{X -> object_in(object_in(john,arm,hand,n2,n1),boy,h23,times(n1,h22),h24), }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> h29, Number_of_small_parts -> h30, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{h30 -> n5, h29 -> fingers, }
+{Big_part -> object_in(john,arm,hand,n2,n1), Number_of_mid_parts -> times(n1,h22), Mid_part -> boy, Small_part -> arm, Number_of_small_parts -> n2, h24 -> n2, h23 -> arm, }
+{X -> object_in(john,hand,fingers,times(n2,n1),n5), }
+{Big_part -> object_in(object_in(john,arm,hand,n2,n1),boy,arm,times(n1,h22),n2), Number_of_mid_parts -> n2, Mid_part -> arm, Small_part -> h31, Number_of_small_parts -> h32, }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+{Big_part -> object_in(object_in(john,arm,hand,n2,n1),boy,arm,times(n1,h22),n2), Number_of_mid_parts -> n2, Mid_part -> arm, Small_part -> h33, Number_of_small_parts -> h34, }
+{Big_part -> object_in(john,arm,hand,n2,n1), Number_of_mid_parts -> times(times(n1,h22),n2), Mid_part -> arm, Small_part -> h35, Number_of_small_parts -> h36, }
+{Big_part -> object_in(object_in(john,arm,hand,n2,n1),boy,arm,times(n1,h22),n2), Number_of_mid_parts -> times(n2,h34), Mid_part -> h33, Small_part -> h37, Number_of_small_parts -> h38, }
+{X -> object_in(john,hand,fingers,times(n2,n1),n5), }
+{Big_part -> object_in(object_in(john,arm,hand,n2,n1),boy,h23,times(n1,h22),h24), Number_of_mid_parts -> n2, Mid_part -> arm, Small_part -> h39, Number_of_small_parts -> h40, }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+{Big_part -> object_in(john,hand,fingers,times(n2,n1),n5), Number_of_mid_parts -> n5, Mid_part -> fingers, Small_part -> h41, Number_of_small_parts -> h42, }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{}
+{Big_part -> john, Number_of_mid_parts -> n2, Mid_part -> arm, Small_part -> hand, Number_of_small_parts -> n1, }
+{X -> object_in(object_in(john,arm,hand,n2,n1),hand,boy,n1,h22), }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> h43, Number_of_small_parts -> h44, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{h44 -> n5, h43 -> fingers, }
+{X -> object_in(john,hand,fingers,times(n2,n1),n5), }
+{Big_part -> object_in(object_in(john,arm,hand,n2,n1),hand,boy,n1,h22), Number_of_mid_parts -> n5, Mid_part -> fingers, Small_part -> h45, Number_of_small_parts -> h46, }
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{}
+{Big_part -> john, Number_of_mid_parts -> times(n2,n1), Mid_part -> hand, Small_part -> fingers, Number_of_small_parts -> n5, }
+a[]
+a[has_parts(john,times(times(n2,n1),n5),fingers),]
+    e[]
+    e[False,]
+
+
+{}
+==========ok==========
+sc: 70
+Опровергнуто баз: 11
+.........................
+Time: 0.006316s.
+================================

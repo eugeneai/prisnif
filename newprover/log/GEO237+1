@@ -1,0 +1,758 @@
+После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.
+На каждом шаге выводится: номер шага; база; вопрос; ответ. В самом начале выводится вся формула.
+
+================FORMULA================
+
+e[]
+    a[A, L, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[apart_point_and_line(A,L),]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[left_apart_point(A,L),]
+
+                        e[]
+                        e[left_apart_point(A,reverse_line(L)),]
+
+
+
+
+            a[]
+            a[]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[left_apart_point(A,L),]
+                                e[]
+                                e[False,]
+
+
+                            a[]
+                            a[left_apart_point(A,reverse_line(L)),]
+                                e[]
+                                e[False,]
+
+
+
+                        e[]
+                        e[apart_point_and_line(A,L),]
+
+
+
+
+
+
+    a[L, M, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[convergent_lines(L,M),]
+                e[]
+                e[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+
+
+
+
+            a[]
+            a[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+                e[]
+                e[convergent_lines(L,M),]
+
+
+
+
+    a[A, B, L, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[divides_points(L,A,B),]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[left_apart_point(A,L),left_apart_point(B,reverse_line(L)),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+
+
+
+                        e[]
+                        e[left_apart_point(A,reverse_line(L)),left_apart_point(B,L),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+
+
+
+
+
+
+            a[]
+            a[]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[left_apart_point(A,L),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[left_apart_point(B,reverse_line(L)),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[left_apart_point(A,reverse_line(L)),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[left_apart_point(B,L),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+
+                        e[]
+                        e[divides_points(L,A,B),]
+
+
+
+
+
+
+    a[L, A, B, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[before_on_line(L,A,B),]
+                e[]
+                e[distinct_points(A,B),]
+                    a[]
+                    a[left_apart_point(A,L),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[left_apart_point(A,reverse_line(L)),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[left_apart_point(B,L),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[left_apart_point(B,reverse_line(L)),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[unequally_directed_lines(L,line_connecting(A,B)),]
+                        e[]
+                        e[False,]
+
+
+
+
+            a[]
+            a[distinct_points(A,B),]
+                e[]
+                e[left_apart_point(A,L),]
+
+                e[]
+                e[left_apart_point(A,reverse_line(L)),]
+
+                e[]
+                e[left_apart_point(B,L),]
+
+                e[]
+                e[left_apart_point(B,reverse_line(L)),]
+
+                e[]
+                e[unequally_directed_lines(L,line_connecting(A,B)),]
+
+                e[]
+                e[before_on_line(L,A,B),]
+
+
+
+
+    a[L, A, B, C, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[between_on_line(L,A,B,C),]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[before_on_line(L,A,B),before_on_line(L,B,C),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+
+
+
+                        e[]
+                        e[before_on_line(L,C,B),before_on_line(L,B,A),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+
+
+
+
+
+
+            a[]
+            a[]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[before_on_line(L,A,B),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[before_on_line(L,B,C),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[before_on_line(L,C,B),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[before_on_line(L,B,A),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+
+                        e[]
+                        e[between_on_line(L,A,B,C),]
+
+
+
+
+
+
+    a[A, ]
+    a[distinct_points(A,A),]
+        e[]
+        e[False,]
+
+
+    a[A, B, C, ]
+    a[distinct_points(A,B),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(A,C),]
+
+                e[]
+                e[distinct_points(B,C),]
+
+
+
+
+    a[L, ]
+    a[distinct_lines(L,L),]
+        e[]
+        e[False,]
+
+
+    a[L, M, N, ]
+    a[distinct_lines(L,M),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(L,N),]
+
+                e[]
+                e[distinct_lines(M,N),]
+
+
+
+
+    a[L, ]
+    a[unequally_directed_lines(L,L),]
+        e[]
+        e[False,]
+
+
+    a[L, M, N, ]
+    a[unequally_directed_lines(L,M),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[unequally_directed_lines(L,N),]
+
+                e[]
+                e[unequally_directed_lines(M,N),]
+
+
+
+
+    a[L, M, N, ]
+    a[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+        e[]
+        e[unequally_directed_lines(L,N),unequally_directed_lines(L,reverse_line(N)),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+        e[]
+        e[unequally_directed_lines(M,N),unequally_directed_lines(M,reverse_line(N)),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+
+    a[L, M, ]
+    a[]
+        e[]
+        e[unequally_directed_lines(L,M),]
+
+        e[]
+        e[unequally_directed_lines(L,reverse_line(M)),]
+
+
+    a[L, M, ]
+    a[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+        e[]
+        e[left_convergent_lines(L,M),]
+
+        e[]
+        e[left_convergent_lines(L,reverse_line(M)),]
+
+
+    a[A, L, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[left_apart_point(A,L),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[left_apart_point(A,reverse_line(L)),]
+                e[]
+                e[False,]
+
+
+
+
+    a[L, M, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[left_convergent_lines(L,M),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[left_convergent_lines(L,reverse_line(M)),]
+                e[]
+                e[False,]
+
+
+
+
+    a[A, B, ]
+    a[point(A),point(B),distinct_points(A,B),]
+        e[]
+        e[line(line_connecting(A,B)),]
+
+
+    a[L, M, ]
+    a[line(L),line(M),unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+        e[]
+        e[point(intersection_point(L,M)),]
+
+
+    a[L, A, ]
+    a[point(A),line(L),]
+        e[]
+        e[line(parallel_through_point(L,A)),]
+
+
+    a[L, ]
+    a[line(L),]
+        e[]
+        e[line(reverse_line(L)),]
+
+
+    a[A, B, ]
+    a[distinct_points(A,B),]
+        e[]
+        e[]
+            a[]
+            a[apart_point_and_line(A,line_connecting(A,B)),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[apart_point_and_line(B,line_connecting(A,B)),]
+                e[]
+                e[False,]
+
+
+
+
+    a[L, M, ]
+    a[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+        e[]
+        e[]
+            a[]
+            a[apart_point_and_line(intersection_point(L,M),L),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[apart_point_and_line(intersection_point(L,M),M),]
+                e[]
+                e[False,]
+
+
+
+
+    a[A, L, ]
+    a[apart_point_and_line(A,parallel_through_point(L,A)),]
+        e[]
+        e[False,]
+
+
+    a[L, ]
+    a[distinct_lines(L,reverse_line(L)),]
+        e[]
+        e[False,]
+
+
+    a[A, B, ]
+    a[unequally_directed_lines(line_connecting(A,B),reverse_line(line_connecting(B,A))),]
+        e[]
+        e[False,]
+
+
+    a[A, L, ]
+    a[unequally_directed_lines(parallel_through_point(L,A),L),]
+        e[]
+        e[False,]
+
+
+    a[A, B, L, M, ]
+    a[distinct_points(A,B),distinct_lines(L,M),]
+        e[]
+        e[left_apart_point(A,L),]
+
+        e[]
+        e[left_apart_point(B,L),]
+
+        e[]
+        e[left_apart_point(A,M),]
+
+        e[]
+        e[left_apart_point(B,M),]
+
+        e[]
+        e[left_apart_point(A,reverse_line(L)),]
+
+        e[]
+        e[left_apart_point(B,reverse_line(L)),]
+
+        e[]
+        e[left_apart_point(A,reverse_line(M)),]
+
+        e[]
+        e[left_apart_point(B,reverse_line(M)),]
+
+
+    a[A, B, L, ]
+    a[distinct_points(A,B),left_apart_point(A,L),]
+        e[]
+        e[left_apart_point(B,L),]
+
+        e[]
+        e[left_convergent_lines(line_connecting(A,B),L),]
+
+
+    a[A, B, L, ]
+    a[left_apart_point(A,L),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(A,B),]
+
+                e[]
+                e[left_apart_point(B,L),]
+
+
+
+
+    a[A, L, M, ]
+    a[left_apart_point(A,L),unequally_directed_lines(L,M),]
+        e[]
+        e[distinct_lines(L,M),]
+
+        e[]
+        e[left_apart_point(A,reverse_line(M)),]
+
+
+    a[L, M, N, ]
+    a[left_convergent_lines(L,M),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[unequally_directed_lines(M,N),]
+
+                e[]
+                e[left_convergent_lines(L,N),]
+
+
+
+
+    a[]
+    a[]
+        e[A:e, B:e, C:e, L:e, ]
+        e[apart_point_and_line(C:e,L:e),divides_points(L:e,A:e,B:e),]
+            a[]
+            a[divides_points(L:e,A:e,C:e),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[divides_points(L:e,B:e,C:e),]
+                e[]
+                e[False,]
+
+
+
+
+
+==================== Step 1 ====================
+====answer====
+----------
+{A -> h1, L -> h2, }
+====end answer====
+
+==================== Step 2 ====================
+====answer====
+----------
+{L -> h3, M -> h4, }
+====end answer====
+
+==================== Step 3 ====================
+====answer====
+----------
+{A -> h5, B -> h6, L -> h7, }
+====end answer====
+
+==================== Step 4 ====================
+====answer====
+----------
+{L -> h8, A -> h9, B -> h10, }
+====end answer====
+
+==================== Step 5 ====================
+====answer====
+----------
+{L -> h11, A -> h12, B -> h13, C -> h14, }
+====end answer====
+
+==================== Step 6 ====================
+====answer====
+----------
+{L -> h15, M -> h16, }
+====end answer====
+
+==================== Step 7 ====================
+====answer====
+----------
+{A -> h34, L -> h35, }
+====end answer====
+
+==================== Step 8 ====================
+====goal answer====
+----------
+{L -> h16, h15 -> h16, }
+====end goal answer====
+
+==================== Step 9 ====================
+====answer====
+----------
+{A -> h47, L -> h48, }
+====end answer====
+
+==================== Step 10 ====================
+====answer====
+----------
+{L -> h53, M -> h54, }
+====end answer====
+
+==================== Step 11 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 12 ====================
+====answer====
+----------
+{h1 -> C:e, h2 -> L:e, }
+====end answer====
+
+==================== Step 13 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 14 ====================
+====answer====
+----------
+{h7 -> L:e, h5 -> A:e, h6 -> B:e, }
+====end answer====
+
+==================== Step 15 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 16 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 17 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 18 ====================
+====goal answer====
+----------
+{h47 -> C:e, h48 -> L:e, }
+====end goal answer====
+
+==================== Step 19 ====================
+====goal answer====
+----------
+{h47 -> C:e, h48 -> L:e, }
+====end goal answer====
+
+FORMULA IS REFUTED!
+================================
+FORMULA IS REFUTED: 19 steps.
+3 bases are refuted.
+.........................
+Time: 0.0045045s.
+================================

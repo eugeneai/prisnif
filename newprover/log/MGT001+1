@@ -1,0 +1,212 @@
+После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.
+На каждом шаге выводится: номер шага; база; вопрос; ответ. В самом начале выводится вся формула.
+
+================FORMULA================
+
+e[]
+    a[X, T, ]
+    a[organization(X,T),]
+        e[R:e, ]
+        e[reliability(X,R:e,T),]
+
+
+    a[X, T, ]
+    a[organization(X,T),]
+        e[A:e, ]
+        e[accountability(X,A:e,T),]
+
+
+    a[X, T, ]
+    a[organization(X,T),]
+        e[Rp:e, ]
+        e[reproducibility(X,Rp:e,T),]
+
+
+    a[X, Y, R1, R2, A1, A2, P1, P2, T1, T2, ]
+    a[organization(X,T1),organization(Y,T2),reliability(X,R1,T1),reliability(Y,R2,T2),accountability(X,A1,T1),accountability(Y,A2,T2),survival_chance(X,P1,T1),survival_chance(Y,P2,T2),greater(R2,R1),greater(A2,A1),]
+        e[]
+        e[greater(P2,P1),]
+
+
+    a[X, Y, T1, T2, R1, R2, A1, A2, Rp1, Rp2, ]
+    a[organization(X,T1),organization(Y,T2),reliability(X,R1,T1),reliability(Y,R2,T2),accountability(X,A1,T1),accountability(Y,A2,T2),reproducibility(X,Rp1,T1),reproducibility(Y,Rp2,T2),]
+        e[]
+        e[]
+            a[]
+            a[greater(Rp2,Rp1),]
+                e[]
+                e[greater(R2,R1),greater(A2,A1),]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+
+
+
+
+            a[]
+            a[greater(R2,R1),greater(A2,A1),]
+                e[]
+                e[greater(Rp2,Rp1),]
+
+
+
+
+    a[X, Y, T1, T2, Rp1, Rp2, I1, I2, ]
+    a[organization(X,T1),organization(Y,T2),reorganization_free(X,T1,T1),reorganization_free(Y,T2,T2),reproducibility(X,Rp1,T1),reproducibility(Y,Rp2,T2),inertia(X,I1,T1),inertia(Y,I2,T2),]
+        e[]
+        e[]
+            a[]
+            a[greater(Rp2,Rp1),]
+                e[]
+                e[greater(I2,I1),]
+
+
+            a[]
+            a[greater(I2,I1),]
+                e[]
+                e[greater(Rp2,Rp1),]
+
+
+
+
+    a[]
+    a[]
+        e[X:e, Y:e, T1:e, T2:e, I1:e, I2:e, P1:e, P2:e, ]
+        e[organization(X:e,T1:e),organization(Y:e,T2:e),reorganization_free(X:e,T1:e,T1:e),reorganization_free(Y:e,T2:e,T2:e),inertia(X:e,I1:e,T1:e),inertia(Y:e,I2:e,T2:e),survival_chance(X:e,P1:e,T1:e),survival_chance(Y:e,P2:e,T2:e),greater(I2:e,I1:e),]
+            a[]
+            a[greater(P2:e,P1:e),]
+                e[]
+                e[False,]
+
+
+
+
+
+==================== Step 1 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 2 ====================
+====answer====
+----------
+{X -> Y:e, T -> T2:e, }
+====end answer====
+
+==================== Step 3 ====================
+====answer====
+----------
+{X -> Y:e, T -> T2:e, }
+====end answer====
+
+==================== Step 4 ====================
+====answer====
+----------
+{X -> Y:e, T -> T2:e, }
+====end answer====
+
+==================== Step 5 ====================
+====answer====
+----------
+{X -> Y:e, T1 -> T2:e, Y -> Y:e, T2 -> T2:e, R1 -> R:e, R2 -> R:e, A1 -> A:e, A2 -> A:e, Rp1 -> Rp:e, Rp2 -> Rp:e, }
+====end answer====
+
+==================== Step 6 ====================
+====answer====
+----------
+{X -> Y:e, T1 -> T2:e, Y -> Y:e, T2 -> T2:e, Rp1 -> Rp:e, Rp2 -> Rp:e, I1 -> I2:e, I2 -> I2:e, }
+====end answer====
+
+==================== Step 7 ====================
+====answer====
+----------
+{X -> X:e, T -> T1:e, }
+====end answer====
+
+==================== Step 8 ====================
+====answer====
+----------
+{X -> X:e, T -> T1:e, }
+====end answer====
+
+==================== Step 9 ====================
+====answer====
+----------
+{X -> X:e, T -> T1:e, }
+====end answer====
+
+==================== Step 10 ====================
+====answer====
+----------
+{X -> X:e, T1 -> T1:e, Y -> Y:e, T2 -> T2:e, R1 -> R:e, R2 -> R:e, A1 -> A:e, A2 -> A:e, Rp1 -> Rp:e, Rp2 -> Rp:e, }
+====end answer====
+
+==================== Step 11 ====================
+====answer====
+----------
+{X -> X:e, T1 -> T1:e, Y -> Y:e, T2 -> T2:e, Rp1 -> Rp:e, Rp2 -> Rp:e, I1 -> I1:e, I2 -> I2:e, }
+====end answer====
+
+==================== Step 12 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 13 ====================
+====answer====
+----------
+{X -> Y:e, T1 -> T2:e, Y -> X:e, T2 -> T1:e, R1 -> R:e, R2 -> R:e, A1 -> A:e, A2 -> A:e, Rp1 -> Rp:e, Rp2 -> Rp:e, }
+====end answer====
+
+==================== Step 14 ====================
+====answer====
+----------
+{X -> Y:e, T1 -> T2:e, Y -> X:e, T2 -> T1:e, Rp1 -> Rp:e, Rp2 -> Rp:e, I1 -> I2:e, I2 -> I1:e, }
+====end answer====
+
+==================== Step 15 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 16 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 17 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 18 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 19 ====================
+====answer====
+----------
+{X -> X:e, T1 -> T1:e, Y -> Y:e, T2 -> T2:e, R1 -> R:e, R2 -> R:e, A1 -> A:e, A2 -> A:e, P1 -> P1:e, P2 -> P2:e, }
+====end answer====
+
+==================== Step 20 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+FORMULA IS REFUTED!
+================================
+FORMULA IS REFUTED: 20 steps.
+1 bases are refuted.
+.........................
+Time: 0.0180111s.
+================================

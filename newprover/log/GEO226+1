@@ -1,0 +1,242 @@
+После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.
+На каждом шаге выводится: номер шага; база; вопрос; ответ. В самом начале выводится вся формула.
+
+================FORMULA================
+
+e[]
+    a[X, ]
+    a[distinct_points(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, ]
+    a[distinct_lines(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, ]
+    a[convergent_lines(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, Z, ]
+    a[distinct_points(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(X,Z),]
+
+                e[]
+                e[distinct_points(Y,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[distinct_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(X,Z),]
+
+                e[]
+                e[distinct_lines(Y,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[convergent_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[convergent_lines(X,Z),]
+
+                e[]
+                e[convergent_lines(Y,Z),]
+
+
+
+
+    a[X, Y, ]
+    a[distinct_points(X,Y),apart_point_and_line(X,line_connecting(X,Y)),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, ]
+    a[distinct_points(X,Y),apart_point_and_line(Y,line_connecting(X,Y)),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, ]
+    a[convergent_lines(X,Y),apart_point_and_line(intersection_point(X,Y),X),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, ]
+    a[convergent_lines(X,Y),apart_point_and_line(intersection_point(X,Y),Y),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, U, V, ]
+    a[distinct_points(X,Y),distinct_lines(U,V),]
+        e[]
+        e[apart_point_and_line(X,U),]
+
+        e[]
+        e[apart_point_and_line(X,V),]
+
+        e[]
+        e[apart_point_and_line(Y,U),]
+
+        e[]
+        e[apart_point_and_line(Y,V),]
+
+
+    a[X, Y, Z, ]
+    a[apart_point_and_line(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(X,Z),]
+
+                e[]
+                e[apart_point_and_line(Z,Y),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[apart_point_and_line(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(Y,Z),]
+
+                e[]
+                e[apart_point_and_line(X,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[convergent_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(Y,Z),]
+
+                e[]
+                e[convergent_lines(X,Z),]
+
+
+
+
+    a[A, B, ]
+    a[point(A),point(B),distinct_points(A,B),]
+        e[]
+        e[line(line_connecting(A,B)),]
+
+
+    a[L, M, ]
+    a[line(L),line(M),convergent_lines(L,M),]
+        e[]
+        e[point(intersection_point(L,M)),]
+
+
+    a[L, A, ]
+    a[line(L),point(A),]
+        e[]
+        e[line(parallel_through_point(L,A)),]
+
+
+    a[L, A, ]
+    a[line(L),point(A),]
+        e[]
+        e[line(orthogonal_through_point(L,A)),]
+
+
+    a[]
+    a[]
+        e[L:e, M:e, ]
+        e[line(L:e),line(M:e),convergent_lines(L:e,M:e),]
+            a[X, ]
+            a[]
+                e[]
+                e[point(X),]
+                    a[]
+                    a[]
+                        e[]
+                        e[apart_point_and_line(X,L:e),]
+
+                        e[]
+                        e[apart_point_and_line(X,M:e),]
+
+
+
+
+
+
+
+==================== Step 1 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 2 ====================
+====answer====
+----------
+{X -> h1, }
+====end answer====
+
+==================== Step 3 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 4 ====================
+====goal answer====
+----------
+{X -> L:e, Y -> M:e, h1 -> intersection_point(L:e,M:e), h2 -> L:e, h3 -> M:e, }
+====end goal answer====
+
+==================== Step 5 ====================
+====answer====
+----------
+{X -> L:e, Y -> M:e, Z -> h10, }
+====end answer====
+
+==================== Step 6 ====================
+====goal answer====
+----------
+{X -> L:e, Y -> M:e, }
+====end goal answer====
+
+FORMULA IS REFUTED!
+================================
+FORMULA IS REFUTED: 6 steps.
+2 bases are refuted.
+.........................
+Time: 0.0011098s.
+================================

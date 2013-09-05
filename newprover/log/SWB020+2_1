@@ -1,0 +1,2325 @@
+e[]
+    a[X, Y, ]
+    a[iext(uri_owl_disjointWith,X,Y),]
+        e[]
+        e[ic(X),ic(Y),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+
+    a[Z, C, ]
+    a[iext(uri_owl_complementOf,Z,C),]
+        e[]
+        e[ic(Z),ic(C),]
+            a[X, ]
+            a[]
+                e[]
+                e[]
+                    a[]
+                    a[icext(Z,X),icext(C,X),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[]
+                        e[]
+                        e[icext(C,X),]
+
+                        e[]
+                        e[icext(Z,X),]
+
+
+
+
+
+
+    a[Z, S1, C1, S2, C2, ]
+    a[iext(uri_rdf_first,S1,C1),iext(uri_rdf_rest,S1,S2),iext(uri_rdf_first,S2,C2),iext(uri_rdf_rest,S2,uri_rdf_nil),]
+        e[]
+        e[]
+            a[]
+            a[iext(uri_owl_intersectionOf,Z,S1),]
+                e[]
+                e[ic(Z),ic(C1),ic(C2),]
+                    a[X, ]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[icext(Z,X),]
+                                e[]
+                                e[icext(C1,X),icext(C2,X),]
+                                    a[]
+                                    a[]
+                                        e[]
+                                        e[]
+
+
+
+
+                            a[]
+                            a[icext(C1,X),icext(C2,X),]
+                                e[]
+                                e[icext(Z,X),]
+
+
+
+
+
+
+            a[]
+            a[ic(Z),ic(C1),ic(C2),]
+                e[X:e, ]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[icext(Z,X:e),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[icext(C1,X:e),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[icext(C2,X:e),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+
+                        e[]
+                        e[icext(C1,X:e),icext(C2,X:e),]
+                            a[]
+                            a[icext(Z,X:e),]
+                                e[]
+                                e[False,]
+
+
+
+
+
+                e[]
+                e[iext(uri_owl_intersectionOf,Z,S1),]
+
+
+
+
+    a[Z, S1, C1, S2, C2, S3, C3, ]
+    a[iext(uri_rdf_first,S1,C1),iext(uri_rdf_rest,S1,S2),iext(uri_rdf_first,S2,C2),iext(uri_rdf_rest,S2,S3),iext(uri_rdf_first,S3,C3),iext(uri_rdf_rest,S3,uri_rdf_nil),]
+        e[]
+        e[]
+            a[]
+            a[iext(uri_owl_unionOf,Z,S1),]
+                e[]
+                e[ic(Z),ic(C1),ic(C2),ic(C3),]
+                    a[X, ]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[icext(Z,X),]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[]
+                                        e[]
+                                        e[icext(C1,X),]
+
+                                        e[]
+                                        e[icext(C2,X),]
+
+                                        e[]
+                                        e[icext(C3,X),]
+
+
+
+
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[]
+                                        e[]
+                                        e[]
+                                            a[]
+                                            a[icext(C1,X),]
+                                                e[]
+                                                e[False,]
+
+
+                                            a[]
+                                            a[icext(C2,X),]
+                                                e[]
+                                                e[False,]
+
+
+                                            a[]
+                                            a[icext(C3,X),]
+                                                e[]
+                                                e[False,]
+
+
+
+                                        e[]
+                                        e[icext(Z,X),]
+
+
+
+
+
+
+
+
+            a[]
+            a[ic(Z),ic(C1),ic(C2),ic(C3),]
+                e[X:e, ]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[icext(Z,X:e),]
+                            a[]
+                            a[icext(C1,X:e),]
+                                e[]
+                                e[False,]
+
+
+                            a[]
+                            a[icext(C2,X:e),]
+                                e[]
+                                e[False,]
+
+
+                            a[]
+                            a[icext(C3,X:e),]
+                                e[]
+                                e[False,]
+
+
+
+                        e[]
+                        e[]
+                            a[]
+                            a[]
+                                e[]
+                                e[icext(C1,X:e),]
+
+                                e[]
+                                e[icext(C2,X:e),]
+
+                                e[]
+                                e[icext(C3,X:e),]
+
+
+                            a[]
+                            a[icext(Z,X:e),]
+                                e[]
+                                e[False,]
+
+
+
+
+
+                e[]
+                e[iext(uri_owl_unionOf,Z,S1),]
+
+
+
+
+    a[C1, C2, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[iext(uri_rdfs_subClassOf,C1,C2),]
+                e[]
+                e[ic(C1),ic(C2),]
+                    a[X, ]
+                    a[icext(C1,X),]
+                        e[]
+                        e[icext(C2,X),]
+
+
+
+
+            a[]
+            a[ic(C1),ic(C2),]
+                e[X:e, ]
+                e[icext(C1,X:e),]
+                    a[]
+                    a[icext(C2,X:e),]
+                        e[]
+                        e[False,]
+
+
+
+                e[]
+                e[iext(uri_rdfs_subClassOf,C1,C2),]
+
+
+
+
+    a[C1, C2, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[iext(uri_owl_disjointWith,C1,C2),]
+                e[]
+                e[ic(C1),ic(C2),]
+                    a[X, ]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[icext(C1,X),]
+                                e[]
+                                e[False,]
+
+
+
+                        e[]
+                        e[]
+                            a[]
+                            a[icext(C2,X),]
+                                e[]
+                                e[False,]
+
+
+
+
+
+
+            a[]
+            a[ic(C1),ic(C2),]
+                e[X:e, ]
+                e[icext(C1,X:e),icext(C2,X:e),]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+
+
+
+                e[]
+                e[iext(uri_owl_disjointWith,C1,C2),]
+
+
+
+
+    a[]
+    a[iext(uri_rdfs_subClassOf,uri_ex_d,uri_ex_c3),]
+        e[]
+        e[False,]
+
+
+    a[]
+    a[]
+        e[BNODE_xs:e, BNODE_xc:e, BNODE_lu1:e, BNODE_lu2:e, BNODE_lu3:e, BNODE_li1:e, BNODE_li2:e, ]
+        e[iext(uri_owl_unionOf,uri_ex_c,BNODE_lu1:e),iext(uri_rdf_first,BNODE_lu1:e,uri_ex_c1),iext(uri_rdf_rest,BNODE_lu1:e,BNODE_lu2:e),iext(uri_rdf_first,BNODE_lu2:e,uri_ex_c2),iext(uri_rdf_rest,BNODE_lu2:e,BNODE_lu3:e),iext(uri_rdf_first,BNODE_lu3:e,uri_ex_c3),iext(uri_rdf_rest,BNODE_lu3:e,uri_rdf_nil),iext(uri_owl_disjointWith,uri_ex_d,uri_ex_c1),iext(uri_rdfs_subClassOf,uri_ex_d,BNODE_xs:e),iext(uri_owl_intersectionOf,BNODE_xs:e,BNODE_li1:e),iext(uri_rdf_first,BNODE_li1:e,uri_ex_c),iext(uri_rdf_rest,BNODE_li1:e,BNODE_li2:e),iext(uri_rdf_first,BNODE_li2:e,BNODE_xc:e),iext(uri_rdf_rest,BNODE_li2:e,uri_rdf_nil),iext(uri_owl_complementOf,BNODE_xc:e,uri_ex_c2),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+
+
+{C1 -> h1, C2 -> h2, }
+{C1 -> h3, C2 -> h4, }
+{}
+{h1 -> uri_ex_d, h2 -> BNODE_xs:e, }
+{}
+{h3 -> uri_ex_d, h4 -> uri_ex_c1, }
+{h3 -> uri_ex_d, }
+{}
+{X -> X:e, }
+a[]
+a[icext(BNODE_xs:e,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{X -> X:e, }
+a[]
+a[icext(BNODE_xs:e,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{h3 -> uri_ex_d, h4 -> uri_ex_c1, }
+{h3 -> uri_ex_d, }
+{}
+{X -> X:e, }
+{X -> h5, }
+a[]
+a[icext(uri_ex_d,h5),]
+    e[]
+    e[False,]
+
+
+{h5 -> X:e, }
+a[]
+a[icext(uri_ex_c1,h5),]
+    e[]
+    e[False,]
+
+
+{h5 -> X:e, }
+{}
+{X -> h6, }
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h7, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h8, }
+{}
+{X -> h9, }
+{h7 -> BNODE_xs:e, }
+{X -> h10, }
+{h7 -> BNODE_xs:e, }
+{h8 -> uri_ex_c, }
+{}
+{X -> h11, }
+{h7 -> BNODE_xs:e, }
+{}
+{h7 -> BNODE_xs:e, }
+{h7 -> BNODE_xs:e, }
+{X -> h12, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h13, }
+{}
+{X -> h14, }
+{h13 -> uri_ex_c, }
+{}
+{h13 -> uri_ex_c, }
+{}
+{X -> h15, }
+{X -> h16, }
+{h13 -> uri_ex_c, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h17, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h18, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h19, }
+{X -> h20, }
+{h18 -> BNODE_xs:e, }
+{h18 -> BNODE_xs:e, }
+{h19 -> uri_ex_c, }
+{h19 -> uri_ex_c, }
+{}
+{}
+{h18 -> BNODE_xs:e, }
+{h18 -> BNODE_xs:e, }
+{h19 -> uri_ex_c, }
+{X -> h21, }
+{h19 -> uri_ex_c, }
+{}
+{X -> h22, }
+{X -> h23, }
+{h18 -> BNODE_xs:e, }
+{h18 -> BNODE_xs:e, }
+{}
+{X -> h24, }
+{}
+{X -> h25, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h26, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h27, }
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h28, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h29, }
+{}
+{X -> h30, }
+{h28 -> BNODE_xs:e, }
+{h29 -> uri_ex_c, }
+{h28 -> BNODE_xs:e, }
+{h28 -> BNODE_xs:e, }
+{h29 -> uri_ex_c, }
+{X -> h31, }
+{h28 -> BNODE_xs:e, }
+{h28 -> BNODE_xs:e, }
+{h29 -> uri_ex_c, }
+{h29 -> uri_ex_c, }
+{}
+{}
+{}
+{X -> h32, }
+{h28 -> BNODE_xs:e, }
+{h28 -> BNODE_xs:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h33, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h34, }
+{}
+{X -> h35, }
+{h34 -> uri_ex_c, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h36, }
+{X -> h37, }
+{h34 -> uri_ex_c, }
+{}
+{}
+{X -> h38, }
+{}
+{X -> h39, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h40, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h41, }
+{X -> h42, }
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h43, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h44, }
+{}
+{X -> h45, }
+{h43 -> BNODE_xs:e, }
+{h44 -> uri_ex_c, }
+{h43 -> BNODE_xs:e, }
+{h43 -> BNODE_xs:e, }
+{h44 -> uri_ex_c, }
+{X -> h46, }
+{h43 -> BNODE_xs:e, }
+{h43 -> BNODE_xs:e, }
+{h44 -> uri_ex_c, }
+{h44 -> uri_ex_c, }
+{}
+{}
+{}
+{X -> h47, }
+{h43 -> BNODE_xs:e, }
+{h43 -> BNODE_xs:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h48, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h49, }
+{}
+{X -> h50, }
+{h49 -> uri_ex_c, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h51, }
+{X -> h52, }
+{h49 -> uri_ex_c, }
+{}
+{}
+{X -> h53, }
+{}
+{X -> h54, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h55, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h56, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h57, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h58, }
+{X -> h59, }
+{h57 -> BNODE_xs:e, }
+{h57 -> BNODE_xs:e, }
+{h58 -> uri_ex_c, }
+{}
+{h58 -> uri_ex_c, }
+{h58 -> uri_ex_c, }
+{}
+{h58 -> uri_ex_c, }
+{}
+{}
+{X -> h60, }
+{}
+{X -> h61, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h62, }
+{h57 -> BNODE_xs:e, }
+{h57 -> BNODE_xs:e, }
+{h58 -> uri_ex_c, }
+{}
+{X -> h63, }
+{X -> h64, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h65, }
+{h58 -> uri_ex_c, }
+{}
+{X -> h66, }
+{X -> h67, }
+{X -> h68, }
+{X -> h69, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h70, }
+{X -> h71, }
+{h57 -> BNODE_xs:e, }
+{h57 -> BNODE_xs:e, }
+{}
+{X -> h72, }
+{}
+{X -> h73, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h74, }
+{}
+{X -> h75, }
+{h57 -> uri_ex_c2, h75 -> h71, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h76, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h77, }
+{h57 -> uri_ex_d, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h78, }
+{X -> h79, }
+{h78 -> uri_ex_c, }
+{}
+{}
+{X -> h80, }
+{}
+{X -> h81, }
+{}
+{}
+{}
+{X -> h82, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h83, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h84, }
+{h84 -> uri_ex_c3, }
+{h84 -> uri_ex_c, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h85, }
+{}
+{X -> h86, }
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h87, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h88, }
+{h3 -> uri_ex_c1, }
+a[]
+a[icext(uri_ex_c1,h86),]
+    e[]
+    e[False,]
+
+
+{h86 -> X:e, }
+{}
+{X -> h89, }
+{h87 -> BNODE_xs:e, }
+{X -> h90, }
+{h87 -> BNODE_xs:e, }
+{h88 -> uri_ex_c, }
+{}
+{X -> h91, }
+{h87 -> BNODE_xs:e, }
+{h88 -> uri_ex_c, }
+{h87 -> BNODE_xs:e, }
+{h87 -> BNODE_xs:e, }
+{h88 -> uri_ex_c, }
+{h3 -> uri_ex_c1, }
+{}
+{X -> h92, }
+{h87 -> BNODE_xs:e, }
+{}
+{h87 -> BNODE_xs:e, }
+{h87 -> BNODE_xs:e, }
+{}
+{X -> h93, }
+{h87 -> BNODE_xs:e, }
+{h87 -> BNODE_xs:e, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h94, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h95, }
+{h3 -> uri_ex_c1, }
+{}
+{X -> h96, }
+{h95 -> uri_ex_c, }
+{}
+{h95 -> uri_ex_c, }
+{}
+{}
+{X -> h97, }
+{h95 -> uri_ex_c, }
+{}
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h98, }
+{}
+{X -> h99, }
+{h95 -> uri_ex_c, }
+{}
+{}
+{}
+a[]
+a[icext(h3,X:e),]
+    e[]
+    e[False,]
+
+
+{h3 -> uri_ex_c2, h99 -> X:e, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h100, }
+{h3 -> uri_ex_c2, }
+{h95 -> uri_ex_c, }
+{}
+{X -> h101, }
+{}
+{X -> h102, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h103, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h104, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h105, }
+{}
+{h104 -> BNODE_xs:e, }
+{h104 -> BNODE_xs:e, }
+{h105 -> uri_ex_c, }
+{X -> h106, }
+{h105 -> uri_ex_c, }
+{h105 -> uri_ex_c, }
+{X -> h107, }
+{h105 -> uri_ex_c, }
+{}
+{X -> h108, }
+{}
+{X -> h109, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h110, }
+{h104 -> BNODE_xs:e, }
+{h104 -> BNODE_xs:e, }
+{h105 -> uri_ex_c, }
+{}
+{X -> h111, }
+{X -> h112, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h113, }
+{h105 -> uri_ex_c, }
+{}
+{X -> h114, }
+{X -> h115, }
+{X -> h116, }
+{X -> h117, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h118, }
+{}
+{h104 -> BNODE_xs:e, }
+{h104 -> BNODE_xs:e, }
+{X -> h119, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h120, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h121, }
+{X -> h122, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h123, }
+{h104 -> uri_ex_d, }
+{h104 -> BNODE_xc:e, }
+{h104 -> BNODE_xc:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h124, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h125, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h126, }
+{}
+{X -> h127, }
+{h125 -> BNODE_xs:e, }
+{h125 -> BNODE_xs:e, }
+{h126 -> uri_ex_c, }
+{h126 -> uri_ex_c, }
+{}
+{}
+{h125 -> BNODE_xs:e, }
+{h125 -> BNODE_xs:e, }
+{h126 -> uri_ex_c, }
+{}
+{h126 -> uri_ex_c, }
+{}
+{}
+{X -> h128, }
+{h125 -> BNODE_xs:e, }
+{h125 -> BNODE_xs:e, }
+{h126 -> uri_ex_c, }
+{}
+{h126 -> uri_ex_c, }
+{}
+{}
+{h126 -> uri_ex_c, }
+{}
+{}
+{X -> h129, }
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h128 -> X:e, }
+{X -> h130, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h131, }
+{}
+{X -> h132, }
+{h125 -> BNODE_xs:e, }
+{h125 -> BNODE_xs:e, }
+{}
+{}
+{}
+{}
+{X -> h133, }
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h132 -> X:e, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h134, }
+{h125 -> BNODE_xs:e, }
+{h125 -> BNODE_xs:e, }
+{}
+{X -> h135, }
+{}
+{X -> h136, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h137, }
+{}
+{X -> h138, }
+{h125 -> uri_ex_c1, h138 -> X:e, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h139, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h140, }
+{h125 -> uri_ex_d, }
+{h125 -> uri_ex_c, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h141, }
+{}
+{X -> h142, }
+{h141 -> uri_ex_c, }
+{}
+{}
+{}
+{}
+{}
+{X -> h143, }
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h142 -> X:e, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h144, }
+{h141 -> uri_ex_c, }
+{}
+{}
+{X -> h145, }
+{}
+{X -> h146, }
+{}
+{}
+{}
+{X -> h147, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h148, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h149, }
+{h149 -> uri_ex_c3, }
+{h149 -> uri_ex_c, }
+{X -> h150, }
+{h141 -> uri_ex_c, }
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h150 -> X:e, }
+{X -> h151, }
+{}
+{X -> h152, }
+{}
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> h153, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h154, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h155, }
+{h155 -> uri_ex_c3, }
+{h155 -> uri_ex_c, }
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h156, }
+{h3 -> BNODE_xs:e, h4 -> BNODE_xs:e, }
+{}
+{}
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h157, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h158, }
+{}
+{X -> h159, }
+{h157 -> BNODE_xs:e, }
+{h158 -> uri_ex_c, }
+{h157 -> BNODE_xs:e, }
+{h157 -> BNODE_xs:e, }
+{h158 -> uri_ex_c, }
+{X -> h160, }
+{h157 -> BNODE_xs:e, }
+{h157 -> BNODE_xs:e, }
+{h158 -> uri_ex_c, }
+{h158 -> uri_ex_c, }
+{}
+{}
+{}
+{X -> h161, }
+{h157 -> BNODE_xs:e, }
+{h157 -> BNODE_xs:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h162, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h163, }
+{}
+{X -> h164, }
+{h163 -> uri_ex_c, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h165, }
+{X -> h166, }
+{h163 -> uri_ex_c, }
+{}
+{}
+{X -> h167, }
+{}
+{X -> h168, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h169, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h170, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h171, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h172, }
+{X -> h173, }
+{h171 -> BNODE_xs:e, }
+{h171 -> BNODE_xs:e, }
+{h172 -> uri_ex_c, }
+{}
+{h172 -> uri_ex_c, }
+{h172 -> uri_ex_c, }
+{}
+{h172 -> uri_ex_c, }
+{}
+{}
+{X -> h174, }
+{}
+{X -> h175, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h176, }
+{h171 -> BNODE_xs:e, }
+{h171 -> BNODE_xs:e, }
+{h172 -> uri_ex_c, }
+{}
+{X -> h177, }
+{X -> h178, }
+{}
+{h178 -> X:e, }
+{h172 -> uri_ex_c, }
+{}
+{X -> h179, }
+{X -> h180, }
+{X -> h181, }
+{X -> h182, }
+{h171 -> BNODE_xs:e, h181 -> X:e, }
+{X -> h183, }
+{h171 -> BNODE_xs:e, }
+{h171 -> BNODE_xs:e, }
+{}
+{X -> h184, }
+{}
+{X -> h185, }
+{}
+{h185 -> X:e, }
+{}
+{X -> h186, }
+{h171 -> uri_ex_c2, h186 -> h183, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h187, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h188, }
+{h171 -> uri_ex_d, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h189, }
+{X -> h190, }
+{h189 -> uri_ex_c, }
+{}
+{}
+{X -> h191, }
+{}
+{X -> h192, }
+{}
+{}
+{}
+{X -> h193, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h194, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h195, }
+{h195 -> uri_ex_c3, }
+{h195 -> uri_ex_c1, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h196, }
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h197, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h198, }
+{}
+{X -> h199, }
+{h197 -> BNODE_xs:e, }
+{h197 -> BNODE_xs:e, }
+{h198 -> uri_ex_c, }
+{h198 -> uri_ex_c, }
+{}
+{}
+{h197 -> BNODE_xs:e, }
+{h197 -> BNODE_xs:e, }
+{h198 -> uri_ex_c, }
+{X -> h200, }
+{h198 -> uri_ex_c, }
+{}
+{X -> h201, }
+{X -> h202, }
+{h197 -> BNODE_xs:e, }
+{h197 -> BNODE_xs:e, }
+{h198 -> uri_ex_c, }
+{}
+{h198 -> uri_ex_c, }
+{}
+{}
+{h198 -> uri_ex_c, }
+{}
+{}
+{X -> h203, }
+{}
+{X -> h204, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h205, }
+{}
+{X -> h206, }
+{h197 -> BNODE_xs:e, }
+{h197 -> BNODE_xs:e, }
+{}
+{X -> h207, }
+{}
+{X -> h208, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h209, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h210, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h211, }
+{}
+{X -> h212, }
+{h211 -> uri_ex_c, }
+{}
+{}
+{X -> h213, }
+{}
+{X -> h214, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h215, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h216, }
+{X -> h217, }
+{h211 -> uri_ex_c, }
+{}
+{}
+{X -> h218, }
+{}
+{X -> h219, }
+{}
+{}
+{}
+{X -> h220, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h221, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h222, }
+{h222 -> uri_ex_c3, }
+{h222 -> uri_ex_c, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h223, }
+{}
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h224, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h225, }
+{}
+{X -> h226, }
+{h224 -> BNODE_xs:e, }
+{h224 -> BNODE_xs:e, }
+{h225 -> uri_ex_c, }
+{h225 -> uri_ex_c, }
+{}
+{}
+{h224 -> BNODE_xs:e, }
+{h224 -> BNODE_xs:e, }
+{h225 -> uri_ex_c, }
+{X -> h227, }
+{h225 -> uri_ex_c, }
+{}
+{X -> h228, }
+{X -> h229, }
+{h224 -> BNODE_xs:e, }
+{h224 -> BNODE_xs:e, }
+{h225 -> uri_ex_c, }
+{}
+{h225 -> uri_ex_c, }
+{}
+{}
+{h225 -> uri_ex_c, }
+{}
+{}
+{X -> h230, }
+{}
+{X -> h231, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h232, }
+{}
+{X -> h233, }
+{h224 -> BNODE_xs:e, }
+{h224 -> BNODE_xs:e, }
+{}
+{X -> h234, }
+{}
+{X -> h235, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h236, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h237, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h238, }
+{}
+{X -> h239, }
+{h238 -> uri_ex_c, }
+{}
+{}
+{X -> h240, }
+{}
+{X -> h241, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h242, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h243, }
+{X -> h244, }
+{h238 -> uri_ex_c, }
+{}
+{}
+{X -> h245, }
+{}
+{X -> h246, }
+{}
+{}
+{}
+{X -> h247, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h248, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h249, }
+{h249 -> uri_ex_c3, }
+{h249 -> uri_ex_c, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h250, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h251, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h252, }
+{X -> h253, }
+{h251 -> BNODE_xs:e, }
+{h251 -> BNODE_xs:e, }
+{h252 -> uri_ex_c, }
+{h252 -> uri_ex_c, }
+{}
+{}
+{X -> h254, }
+{}
+{h252 -> uri_ex_c, }
+{h252 -> uri_ex_c, }
+{}
+{X -> h255, }
+{}
+{X -> h256, }
+{X -> h257, }
+{h252 -> uri_ex_c, }
+{}
+{}
+{X -> h258, }
+{}
+{X -> h259, }
+{}
+{}
+{}
+{X -> h260, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h261, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h262, }
+{h251 -> uri_ex_c2, }
+{h262 -> uri_ex_c3, }
+{h251 -> BNODE_xs:e, }
+{h251 -> BNODE_xs:e, }
+{h252 -> uri_ex_c, }
+{}
+{X -> h263, }
+{}
+{X -> h264, }
+{}
+{X -> h265, }
+{X -> h266, }
+{}
+{h266 -> X:e, }
+{}
+{h266 -> X:e, }
+{}
+{}
+{h252 -> uri_ex_c, }
+{}
+{X -> h267, }
+{X -> h268, }
+{}
+{X -> h269, }
+{}
+{}
+{X -> h270, }
+{X -> h271, }
+{h251 -> BNODE_xs:e, h270 -> X:e, }
+{}
+{h251 -> BNODE_xs:e, h270 -> X:e, }
+{}
+{}
+{X -> h272, }
+{h251 -> BNODE_xs:e, }
+{h251 -> BNODE_xs:e, }
+{}
+{X -> h273, }
+{}
+{h273 -> X:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h274, }
+{X -> h275, }
+{}
+{h275 -> X:e, }
+{}
+{h275 -> X:e, }
+{}
+{}
+{}
+{X -> h276, }
+{h251 -> uri_ex_c2, h276 -> h272, }
+a[]
+a[icext(BNODE_xc:e,h272),icext(uri_ex_c2,h272),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> h277, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h278, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h279, }
+{h3 -> BNODE_xs:e, h4 -> BNODE_xs:e, }
+{}
+{}
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h280, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h281, }
+{}
+{X -> h282, }
+{h280 -> BNODE_xs:e, }
+{h280 -> BNODE_xs:e, }
+{h281 -> uri_ex_c, }
+{h281 -> uri_ex_c, }
+{}
+{}
+{h280 -> BNODE_xs:e, }
+{h280 -> BNODE_xs:e, }
+{h281 -> uri_ex_c, }
+{X -> h283, }
+{h281 -> uri_ex_c, }
+{}
+{X -> h284, }
+{X -> h285, }
+{h280 -> BNODE_xs:e, }
+{h280 -> BNODE_xs:e, }
+{h281 -> uri_ex_c, }
+{}
+{h281 -> uri_ex_c, }
+{}
+{}
+{h281 -> uri_ex_c, }
+{}
+{}
+{X -> h286, }
+{}
+{X -> h287, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h288, }
+{}
+{X -> h289, }
+{h280 -> BNODE_xs:e, }
+{h280 -> BNODE_xs:e, }
+{}
+{X -> h290, }
+{}
+{X -> h291, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h292, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h293, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h294, }
+{}
+{X -> h295, }
+{h294 -> uri_ex_c, }
+{}
+{}
+{X -> h296, }
+{}
+{X -> h297, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h298, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h299, }
+{X -> h300, }
+{h294 -> uri_ex_c, }
+{}
+{}
+{X -> h301, }
+{}
+{X -> h302, }
+{}
+{}
+{}
+{X -> h303, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h304, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h305, }
+{h305 -> uri_ex_c3, }
+{h305 -> uri_ex_c, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h306, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h307, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h308, }
+{X -> h309, }
+{h307 -> BNODE_xs:e, }
+{h307 -> BNODE_xs:e, }
+{h308 -> uri_ex_c, }
+{h308 -> uri_ex_c, }
+{}
+{}
+{X -> h310, }
+{}
+{h308 -> uri_ex_c, }
+{h308 -> uri_ex_c, }
+{}
+{X -> h311, }
+{}
+{X -> h312, }
+{X -> h313, }
+{h308 -> uri_ex_c, }
+{}
+{}
+{X -> h314, }
+{}
+{X -> h315, }
+{}
+{}
+{}
+{X -> h316, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h317, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h318, }
+{h307 -> uri_ex_c2, }
+{h318 -> uri_ex_c3, }
+{h307 -> BNODE_xs:e, }
+{h307 -> BNODE_xs:e, }
+{h308 -> uri_ex_c, }
+{}
+{X -> h319, }
+{}
+{X -> h320, }
+{}
+{X -> h321, }
+{X -> h322, }
+{}
+{h322 -> X:e, }
+{}
+{h322 -> X:e, }
+{}
+{}
+{h308 -> uri_ex_c, }
+{}
+{X -> h323, }
+{X -> h324, }
+{}
+{X -> h325, }
+{}
+{}
+{X -> h326, }
+{X -> h327, }
+{h307 -> BNODE_xs:e, h326 -> X:e, }
+{}
+{h307 -> BNODE_xs:e, h326 -> X:e, }
+{}
+{}
+{X -> h328, }
+{h307 -> BNODE_xs:e, }
+{h307 -> BNODE_xs:e, }
+{}
+{X -> h329, }
+{}
+{h329 -> X:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h330, }
+{X -> h331, }
+{}
+{h331 -> X:e, }
+{}
+{h331 -> X:e, }
+{}
+{}
+{}
+{X -> h332, }
+{h307 -> uri_ex_c2, h332 -> h328, }
+a[]
+a[icext(BNODE_xc:e,h328),icext(uri_ex_c2,h328),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> h333, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h334, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h335, }
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h336, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h337, }
+{}
+{X -> h338, }
+{h336 -> BNODE_xs:e, }
+{h336 -> BNODE_xs:e, }
+{h337 -> uri_ex_c, }
+{}
+{h337 -> uri_ex_c, }
+{h337 -> uri_ex_c, }
+{}
+{h337 -> uri_ex_c, }
+{}
+{}
+{X -> h339, }
+{}
+{X -> h340, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h341, }
+{h336 -> BNODE_xs:e, }
+{h336 -> BNODE_xs:e, }
+{h337 -> uri_ex_c, }
+{}
+{X -> h342, }
+{X -> h343, }
+{}
+{h343 -> X:e, }
+{h337 -> uri_ex_c, }
+{}
+{X -> h344, }
+{X -> h345, }
+{X -> h346, }
+{X -> h347, }
+{h336 -> BNODE_xs:e, h346 -> X:e, }
+{X -> h348, }
+{h336 -> BNODE_xs:e, }
+{h336 -> BNODE_xs:e, }
+{h337 -> uri_ex_c, }
+{}
+{}
+{}
+{X -> h349, }
+{}
+{h337 -> uri_ex_c, }
+{}
+{}
+{X -> h350, }
+{}
+{X -> h351, }
+{X -> h352, }
+{h337 -> uri_ex_c, }
+{}
+{}
+{X -> h353, }
+{}
+{X -> h354, }
+{}
+{}
+{}
+{X -> h355, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h356, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h357, }
+{h336 -> uri_ex_c2, }
+{h357 -> uri_ex_c3, }
+{}
+{X -> h358, }
+{h336 -> BNODE_xs:e, }
+{h336 -> BNODE_xs:e, }
+{}
+{X -> h359, }
+{}
+{X -> h360, }
+{}
+{h360 -> X:e, }
+{}
+{X -> h361, }
+{h336 -> uri_ex_c2, h361 -> h358, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h362, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h363, }
+{h336 -> uri_ex_d, }
+{h336 -> BNODE_xs:e, }
+{h336 -> BNODE_xs:e, }
+{X -> h364, }
+{}
+{h364 -> X:e, }
+{}
+{h364 -> X:e, }
+{}
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h365, }
+{X -> h366, }
+{h336 -> BNODE_xs:e, h366 -> X:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h367, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h368, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h369, }
+{}
+{X -> h370, }
+{h369 -> uri_ex_c, }
+{}
+{}
+{X -> h371, }
+{}
+{X -> h372, }
+{}
+{}
+{}
+{X -> h373, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h374, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h375, }
+{h375 -> uri_ex_c3, }
+{h375 -> uri_ex_c, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h376, }
+{X -> h377, }
+{h369 -> uri_ex_c, }
+{}
+{}
+{X -> h378, }
+{}
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h377 -> X:e, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h379, }
+{X -> h380, }
+{}
+{h380 -> X:e, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h381, }
+{}
+{X -> h382, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h383, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h384, }
+{h384 -> uri_ex_c3, }
+{h384 -> uri_ex_c, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h385, }
+{h385 -> uri_ex_c3, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h386, }
+{}
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h387, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h388, }
+{}
+{X -> h389, }
+{h387 -> BNODE_xs:e, }
+{h387 -> BNODE_xs:e, }
+{h388 -> uri_ex_c, }
+{}
+{h388 -> uri_ex_c, }
+{h388 -> uri_ex_c, }
+{}
+{h388 -> uri_ex_c, }
+{}
+{}
+{X -> h390, }
+{}
+{X -> h391, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h392, }
+{h387 -> BNODE_xs:e, }
+{h387 -> BNODE_xs:e, }
+{h388 -> uri_ex_c, }
+{}
+{X -> h393, }
+{X -> h394, }
+{}
+{h394 -> X:e, }
+{h388 -> uri_ex_c, }
+{}
+{X -> h395, }
+{X -> h396, }
+{X -> h397, }
+{X -> h398, }
+{h387 -> BNODE_xs:e, h397 -> X:e, }
+{X -> h399, }
+{h387 -> BNODE_xs:e, }
+{h387 -> BNODE_xs:e, }
+{h388 -> uri_ex_c, }
+{}
+{}
+{}
+{X -> h400, }
+{}
+{h388 -> uri_ex_c, }
+{}
+{}
+{X -> h401, }
+{}
+{X -> h402, }
+{X -> h403, }
+{h388 -> uri_ex_c, }
+{}
+{}
+{X -> h404, }
+{}
+{X -> h405, }
+{}
+{}
+{}
+{X -> h406, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h407, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h408, }
+{h387 -> uri_ex_c2, }
+{h408 -> uri_ex_c3, }
+{}
+{X -> h409, }
+{h387 -> BNODE_xs:e, }
+{h387 -> BNODE_xs:e, }
+{}
+{X -> h410, }
+{}
+{X -> h411, }
+{}
+{h411 -> X:e, }
+{}
+{X -> h412, }
+{h387 -> uri_ex_c2, h412 -> h409, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h413, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h414, }
+{h387 -> uri_ex_d, }
+{h387 -> BNODE_xs:e, }
+{h387 -> BNODE_xs:e, }
+{X -> h415, }
+{}
+{h415 -> X:e, }
+{}
+{h415 -> X:e, }
+{}
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h416, }
+{X -> h417, }
+{h387 -> BNODE_xs:e, h417 -> X:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h418, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h419, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h420, }
+{}
+{X -> h421, }
+{h420 -> uri_ex_c, }
+{}
+{}
+{X -> h422, }
+{}
+{X -> h423, }
+{}
+{}
+{}
+{X -> h424, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h425, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h426, }
+{h426 -> uri_ex_c3, }
+{h426 -> uri_ex_c, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h427, }
+{X -> h428, }
+{h420 -> uri_ex_c, }
+{}
+{}
+{X -> h429, }
+{}
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h428 -> X:e, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h430, }
+{X -> h431, }
+{}
+{h431 -> X:e, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h432, }
+{}
+{X -> h433, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h434, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h435, }
+{h435 -> uri_ex_c3, }
+{h435 -> uri_ex_c, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h436, }
+{h436 -> uri_ex_c3, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h437, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h438, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h439, }
+{X -> h440, }
+{h438 -> BNODE_xs:e, }
+{h438 -> BNODE_xs:e, }
+{h439 -> uri_ex_c, }
+{h439 -> uri_ex_c, }
+{}
+{X -> h441, }
+{}
+{X -> h442, }
+{}
+{}
+{X -> h443, }
+{}
+{h443 -> X:e, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h444, }
+{h439 -> uri_ex_c, }
+{h439 -> uri_ex_c, }
+{}
+{X -> h445, }
+{X -> h446, }
+{X -> h447, }
+{X -> h448, }
+{}
+{}
+{X -> h449, }
+{X -> h450, }
+{h438 -> uri_ex_c2, h449 -> h440, }
+{X -> h451, }
+{h439 -> uri_ex_c2, h451 -> h440, }
+{}
+{h439 -> uri_ex_c, }
+{}
+{}
+{X -> h452, }
+{}
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h440 -> X:e, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h453, }
+{X -> h454, }
+{}
+{h454 -> X:e, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h455, }
+{}
+{X -> h456, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h457, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h458, }
+{h438 -> uri_ex_c2, }
+{h458 -> uri_ex_c3, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h459, }
+{h438 -> uri_ex_c2, }
+{h459 -> uri_ex_c3, }
+{}
+{h459 -> uri_ex_c3, }
+{}
+{h438 -> BNODE_xc:e, }
+{h439 -> uri_ex_c, }
+{}
+{X -> h460, }
+{}
+{h460 -> X:e, }
+{}
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h461, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h462, }
+{h438 -> BNODE_xc:e, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h463, }
+{h438 -> BNODE_xc:e, }
+{h463 -> uri_ex_c3, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h464, }
+{h438 -> uri_ex_c2, }
+{h464 -> uri_ex_c3, }
+{}
+{h464 -> uri_ex_c3, }
+{}
+{h438 -> BNODE_xc:e, }
+{h438 -> BNODE_xc:e, }
+{}
+{}
+{X -> h465, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h466, }
+{h438 -> BNODE_xc:e, }
+{h466 -> uri_ex_c3, }
+{h438 -> uri_ex_c2, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h467, }
+{h438 -> uri_ex_c2, }
+{h467 -> uri_ex_c3, }
+{}
+{}
+{}
+{}
+{h467 -> uri_ex_c1, }
+{h467 -> uri_ex_c1, }
+{}
+{}
+{h438 -> BNODE_xc:e, }
+{h438 -> BNODE_xc:e, }
+{}
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h468, }
+{X -> h469, }
+{h468 -> uri_ex_c, }
+{}
+{}
+{X -> h470, }
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h469 -> X:e, }
+{}
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h471, }
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h472, }
+{X -> h473, }
+{}
+{h473 -> X:e, }
+{}
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h474, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h475, }
+{}
+{X -> h476, }
+{}
+{}
+a[]
+a[icext(uri_ex_c2,h476),]
+    e[]
+    e[False,]
+
+
+{h476 -> X:e, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h477, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h478, }
+{h478 -> uri_ex_c3, }
+{h478 -> uri_ex_c1, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h479, }
+{h479 -> uri_ex_c3, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h480, }
+{h480 -> uri_ex_c3, }
+{}
+{}
+{h480 -> uri_ex_c1, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h481, }
+{}
+{X -> uri_ex_d, Y -> uri_ex_c1, }
+{Z -> BNODE_xc:e, C -> uri_ex_c2, }
+{S1 -> BNODE_li1:e, C1 -> uri_ex_c, S2 -> BNODE_li2:e, C2 -> BNODE_xc:e, Z -> h482, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h483, }
+{h1 -> uri_ex_c1, h2 -> uri_ex_c1, }
+a[]
+a[icext(uri_ex_c1,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{X -> h484, }
+{h482 -> BNODE_xs:e, }
+{}
+{h483 -> uri_ex_c, }
+{h483 -> uri_ex_c, }
+{}
+{}
+{X -> h485, }
+{}
+{h483 -> uri_ex_c, }
+{h483 -> uri_ex_c, }
+{}
+{X -> h486, }
+{}
+{X -> h487, }
+{X -> h488, }
+{h483 -> uri_ex_c, }
+{}
+{}
+{X -> h489, }
+{}
+{X -> h490, }
+{}
+{}
+{}
+{X -> h491, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h492, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h493, }
+{}
+{h482 -> uri_ex_c2, }
+{h483 -> uri_ex_c, }
+{}
+{X -> h494, }
+{}
+{h494 -> X:e, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h495, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h496, }
+{}
+{h482 -> uri_ex_c2, }
+{}
+{h482 -> uri_ex_c2, }
+{h482 -> BNODE_xc:e, }
+{X -> h497, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h498, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h499, }
+{}
+{h482 -> BNODE_xc:e, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h500, }
+{}
+{h482 -> BNODE_xc:e, }
+{h500 -> uri_ex_c3, }
+{h482 -> uri_ex_c2, }
+{h500 -> uri_ex_c3, }
+{}
+{X -> h501, }
+{h483 -> uri_ex_c, }
+{}
+{}
+{X -> h502, }
+{}
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h501 -> X:e, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h503, }
+{X -> h504, }
+{}
+{h504 -> X:e, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h505, }
+{}
+{X -> h506, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h507, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h508, }
+{}
+{h482 -> uri_ex_c2, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h509, }
+{}
+{h482 -> uri_ex_c2, }
+{h509 -> uri_ex_c3, }
+{h482 -> uri_ex_c2, }
+{h509 -> uri_ex_c3, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h510, }
+{}
+{}
+{X -> h511, }
+{h483 -> uri_ex_c, }
+{}
+{}
+{X -> h512, }
+{}
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h511 -> X:e, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h513, }
+{X -> h514, }
+{}
+{h514 -> X:e, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h515, }
+{}
+{X -> h516, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h517, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h518, }
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h482 -> uri_ex_c2, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h519, }
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h482 -> uri_ex_c2, }
+{h519 -> uri_ex_c3, }
+{h482 -> uri_ex_c2, }
+{h519 -> uri_ex_c3, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h520, }
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h1 -> uri_ex_c2, h2 -> uri_ex_c1, }
+{h1 -> uri_ex_c2, h2 -> uri_ex_c1, }
+{h483 -> uri_ex_c, }
+{}
+{X -> h521, }
+{}
+{h521 -> X:e, }
+{}
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h522, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h523, }
+{h1 -> uri_ex_c2, h2 -> uri_ex_c1, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h524, }
+{h1 -> uri_ex_c2, h2 -> uri_ex_c1, }
+{h482 -> uri_ex_c2, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h525, }
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h482 -> uri_ex_c2, }
+{h525 -> uri_ex_c3, }
+{h482 -> uri_ex_c2, }
+{h525 -> uri_ex_c3, }
+{}
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h482 -> uri_ex_c2, }
+{}
+{}
+{h482 -> BNODE_xc:e, }
+{}
+{}
+{X -> h526, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h527, }
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h482 -> BNODE_xc:e, }
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h482 -> BNODE_xc:e, }
+{h482 -> uri_ex_c1, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h528, }
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h482 -> uri_ex_c1, }
+{h528 -> uri_ex_c3, }
+{h482 -> uri_ex_c2, }
+{h528 -> uri_ex_c3, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h529, }
+{h1 -> uri_ex_d, h2 -> uri_ex_c1, }
+{h482 -> uri_ex_c2, }
+{h529 -> uri_ex_c3, }
+{}
+{h529 -> uri_ex_c3, }
+{}
+{h482 -> BNODE_xc:e, }
+{h482 -> BNODE_xc:e, }
+{h529 -> uri_ex_c3, }
+{}
+{}
+{}
+{}
+{h1 -> uri_ex_c2, h2 -> uri_ex_c1, }
+{h1 -> uri_ex_c2, h2 -> uri_ex_c1, }
+{}
+{X -> h530, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h531, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h532, }
+{X -> h533, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h534, }
+{S1 -> BNODE_lu1:e, C1 -> uri_ex_c1, S2 -> BNODE_lu2:e, C2 -> uri_ex_c2, S3 -> BNODE_lu3:e, C3 -> uri_ex_c3, Z -> h535, }
+{h1 -> uri_ex_c2, h2 -> uri_ex_c1, }
+{}
+{X -> h536, }
+{h535 -> uri_ex_c, }
+{}
+{}
+{X -> h537, }
+{}
+{}
+{}
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{h536 -> X:e, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h538, }
+{X -> h539, }
+{}
+{h539 -> X:e, }
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h540, }
+{}
+{X -> h541, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h542, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h543, }
+{h2 -> uri_ex_c1, }
+{h543 -> uri_ex_c3, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h544, }
+{h2 -> uri_ex_c1, }
+{h544 -> uri_ex_c3, }
+{h544 -> uri_ex_c, }
+{h544 -> uri_ex_c, }
+{}
+{h1 -> uri_ex_c2, h2 -> uri_ex_d, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h545, }
+{h1 -> uri_ex_c2, h2 -> uri_ex_d, }
+{h2 -> uri_ex_d, }
+{h1 -> uri_ex_c2, h2 -> uri_ex_c2, }
+a[]
+a[icext(uri_ex_c2,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{h2 -> uri_ex_c2, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_d, }
+{h2 -> uri_ex_d, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_c2, }
+{h2 -> uri_ex_c2, }
+{h1 -> BNODE_xc:e, h2 -> BNODE_xc:e, }
+{h1 -> BNODE_xc:e, h2 -> BNODE_xc:e, }
+a[]
+a[icext(BNODE_xc:e,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{h2 -> BNODE_xc:e, }
+a[]
+a[icext(BNODE_xc:e,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> X:e, }
+{h2 -> BNODE_xc:e, }
+a[]
+a[icext(BNODE_xc:e,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{h535 -> uri_ex_c, }
+{}
+{X -> h546, }
+{}
+{h546 -> X:e, }
+{}
+{}
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h547, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h548, }
+{h1 -> BNODE_xc:e, h2 -> BNODE_xc:e, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h549, }
+{h1 -> BNODE_xc:e, h2 -> BNODE_xc:e, }
+{h549 -> uri_ex_c3, }
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h550, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_c1, }
+{h550 -> uri_ex_c3, }
+{h2 -> uri_ex_c1, }
+{h550 -> uri_ex_c3, }
+{}
+{h2 -> uri_ex_c1, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_c1, }
+{h2 -> uri_ex_c1, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_d, }
+{h2 -> uri_ex_d, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_c2, }
+{X -> h551, }
+{}
+{}
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h552, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_c2, }
+{h552 -> uri_ex_c3, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_c1, }
+{h2 -> uri_ex_c1, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_d, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h553, }
+{h1 -> BNODE_xc:e, h2 -> uri_ex_d, }
+{h553 -> uri_ex_c3, }
+{h2 -> uri_ex_d, }
+{h553 -> uri_ex_c3, }
+{}
+{h2 -> uri_ex_d, }
+{S1 -> BNODE_lu2:e, C1 -> uri_ex_c2, S2 -> BNODE_lu3:e, C2 -> uri_ex_c3, Z -> h554, }
+{h1 -> uri_ex_c1, h2 -> uri_ex_d, }
+{h554 -> uri_ex_c3, }
+{}
+{h2 -> uri_ex_d, }
+{h2 -> uri_ex_d, }
+{h554 -> uri_ex_c, }
+{h554 -> uri_ex_c2, }
+{h554 -> uri_ex_c2, }
+{}
+{}
+{h1 -> uri_ex_d, h2 -> uri_ex_d, }
+{h1 -> uri_ex_d, h2 -> uri_ex_d, }
+a[]
+a[icext(uri_ex_d,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{h2 -> uri_ex_d, }
+{X -> h555, }
+a[]
+a[icext(uri_ex_d,X:e),]
+    e[]
+    e[False,]
+
+
+{}
+==========ok==========
+sc: 2668
+Опровергнуто баз: 30
+.........................
+Time: 2.28755s.
+================================

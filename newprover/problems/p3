@@ -1,0 +1,9 @@
+{e[][c_lessequals(c_0,v_f(v_xa),t_b),c_lessequals(c_HOL_Oabs(v_a(v_xa),t_b),c_times(v_c,v_f(v_xa),t_b),t_b),class_Ring__and__Field_Oordered__idom(t_b)]
+{
+a[T][class_Ring__and__Field_Oordered__idom(T)]{e[][class_Orderings_Olinorder(T),class_Ring__and__Field_Opordered__semiring(T),class_Orderings_Oorder(T)]{}};
+a[T_b,V_x,V_y][class_Orderings_Olinorder(T_b)]{ e[][c_lessequals(V_x,c_Orderings_Omax(V_x,V_y,T_b),T_b)]{} } ;
+a[T_a,V_x,V_y,V_z][class_Orderings_Oorder(T_a),c_lessequals(V_y,V_z,T_a),c_lessequals(V_x,V_y,T_a)]{e[][c_lessequals(V_x,V_z,T_a)]{}};
+a[T_a,V_a,V_b,V_c][class_Ring__and__Field_Opordered__semiring(T_a),c_lessequals(V_a,V_b,T_a),c_lessequals(c_0,V_c,T_a)]{e[][c_lessequals(c_times(V_a,V_c,T_a),c_times(V_b,V_c,T_a),T_a)]{}};
+a[][c_lessequals(c_HOL_Oabs(v_a(v_xa),t_b),c_times(c_Orderings_Omax(v_c,v_ca,t_b),v_f(v_xa),t_b),t_b)]{ e[][False]{} } 
+}
+}

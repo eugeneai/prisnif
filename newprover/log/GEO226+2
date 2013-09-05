@@ -1,0 +1,614 @@
+После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.
+На каждом шаге выводится: номер шага; база; вопрос; ответ. В самом начале выводится вся формула.
+
+================FORMULA================
+
+e[]
+    a[X, ]
+    a[distinct_points(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, ]
+    a[distinct_lines(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, ]
+    a[convergent_lines(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, Z, ]
+    a[distinct_points(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(X,Z),]
+
+                e[]
+                e[distinct_points(Y,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[distinct_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(X,Z),]
+
+                e[]
+                e[distinct_lines(Y,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[convergent_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[convergent_lines(X,Z),]
+
+                e[]
+                e[convergent_lines(Y,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[distinct_points(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[apart_point_and_line(Z,line_connecting(X,Y)),]
+                e[]
+                e[distinct_points(Z,X),distinct_points(Z,Y),]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+
+
+
+
+
+
+    a[X, Y, Z, ]
+    a[convergent_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[apart_point_and_line(Z,X),]
+                                e[]
+                                e[False,]
+
+
+                            a[]
+                            a[apart_point_and_line(Z,Y),]
+                                e[]
+                                e[False,]
+
+
+
+                        e[]
+                        e[distinct_points(Z,intersection_point(X,Y)),]
+
+
+
+
+
+
+    a[X, Y, U, V, ]
+    a[distinct_points(X,Y),distinct_lines(U,V),]
+        e[]
+        e[apart_point_and_line(X,U),]
+
+        e[]
+        e[apart_point_and_line(X,V),]
+
+        e[]
+        e[apart_point_and_line(Y,U),]
+
+        e[]
+        e[apart_point_and_line(Y,V),]
+
+
+    a[X, Y, Z, ]
+    a[apart_point_and_line(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(X,Z),]
+
+                e[]
+                e[apart_point_and_line(Z,Y),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[apart_point_and_line(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(Y,Z),]
+
+                e[]
+                e[apart_point_and_line(X,Z),]
+
+
+
+
+    a[X, Y, ]
+    a[convergent_lines(X,Y),]
+        e[]
+        e[distinct_lines(X,Y),]
+
+
+    a[A, B, ]
+    a[point(A),point(B),distinct_points(A,B),]
+        e[]
+        e[line(line_connecting(A,B)),]
+
+
+    a[L, M, ]
+    a[line(L),line(M),convergent_lines(L,M),]
+        e[]
+        e[point(intersection_point(L,M)),]
+
+
+    a[L, A, ]
+    a[line(L),point(A),]
+        e[]
+        e[line(parallel_through_point(L,A)),]
+
+
+    a[L, A, ]
+    a[line(L),point(A),]
+        e[]
+        e[line(orthogonal_through_point(L,A)),]
+
+
+    a[]
+    a[]
+        e[L:e, M:e, ]
+        e[line(L:e),line(M:e),convergent_lines(L:e,M:e),]
+            a[X, ]
+            a[]
+                e[]
+                e[point(X),]
+                    a[]
+                    a[]
+                        e[]
+                        e[apart_point_and_line(X,L:e),]
+
+                        e[]
+                        e[apart_point_and_line(X,M:e),]
+
+
+
+
+
+
+
+==================== Step 1 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 2 ====================
+====answer====
+----------
+{X -> h1, }
+====end answer====
+
+==================== Step 3 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 4 ====================
+====answer====
+----------
+{X -> L:e, Y -> M:e, Z -> h2, }
+====end answer====
+
+==================== Step 5 ====================
+====answer====
+----------
+{X -> L:e, Y -> M:e, Z -> h3, }
+====end answer====
+
+==================== Step 6 ====================
+====answer====
+----------
+{X -> h1, Y -> L:e, Z -> h4, }
+====end answer====
+
+==================== Step 7 ====================
+====answer====
+----------
+{X -> h1, Y -> L:e, Z -> h5, }
+====end answer====
+
+==================== Step 8 ====================
+====answer====
+----------
+{X -> L:e, Y -> M:e, }
+====end answer====
+
+==================== Step 9 ====================
+====answer====
+----------
+{L -> L:e, M -> M:e, }
+====end answer====
+
+==================== Step 10 ====================
+====answer====
+----------
+{L -> M:e, A -> h1, }
+====end answer====
+
+==================== Step 11 ====================
+====answer====
+----------
+{L -> M:e, A -> h1, }
+====end answer====
+
+==================== Step 12 ====================
+====answer====
+----------
+{X -> h6, }
+====end answer====
+
+==================== Step 13 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 14 ====================
+====goal answer====
+----------
+{X -> L:e, h2 -> L:e, }
+====end goal answer====
+
+==================== Step 15 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 16 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 17 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 18 ====================
+====goal answer====
+----------
+{X -> L:e, h5 -> L:e, }
+====end goal answer====
+
+==================== Step 19 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 20 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 21 ====================
+====goal answer====
+----------
+{h3 -> h6, }
+====end goal answer====
+
+==================== Step 22 ====================
+====answer====
+----------
+{X -> h1, Y -> h4, Z -> h7, }
+====end answer====
+
+==================== Step 23 ====================
+====goal answer====
+----------
+{X -> intersection_point(L:e,M:e), h6 -> intersection_point(L:e,M:e), }
+====end goal answer====
+
+==================== Step 24 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 25 ====================
+====goal answer====
+----------
+{h1 -> intersection_point(L:e,M:e), h8 -> L:e, h9 -> M:e, }
+====end goal answer====
+
+==================== Step 26 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 27 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 28 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 29 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 30 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 31 ====================
+====goal answer====
+----------
+{h4 -> intersection_point(L:e,M:e), h16 -> L:e, h17 -> M:e, }
+====end goal answer====
+
+==================== Step 32 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 33 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 34 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 35 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 36 ====================
+====answer====
+----------
+{X -> L:e, Y -> M:e, Z -> h20, }
+====end answer====
+
+==================== Step 37 ====================
+====answer====
+----------
+{X -> L:e, Y -> M:e, Z -> h21, }
+====end answer====
+
+==================== Step 38 ====================
+====answer====
+----------
+{X -> intersection_point(L:e,M:e), Y -> M:e, Z -> h22, }
+====end answer====
+
+==================== Step 39 ====================
+====answer====
+----------
+{X -> intersection_point(L:e,M:e), Y -> M:e, Z -> h23, }
+====end answer====
+
+==================== Step 40 ====================
+====answer====
+----------
+{X -> L:e, Y -> M:e, }
+====end answer====
+
+==================== Step 41 ====================
+====answer====
+----------
+{L -> L:e, M -> M:e, }
+====end answer====
+
+==================== Step 42 ====================
+====answer====
+----------
+{L -> M:e, A -> intersection_point(L:e,M:e), }
+====end answer====
+
+==================== Step 43 ====================
+====answer====
+----------
+{L -> M:e, A -> intersection_point(L:e,M:e), }
+====end answer====
+
+==================== Step 44 ====================
+====answer====
+----------
+{X -> h24, }
+====end answer====
+
+==================== Step 45 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 46 ====================
+====goal answer====
+----------
+{h20 -> L:e, }
+====end goal answer====
+
+==================== Step 47 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 48 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 49 ====================
+====goal answer====
+----------
+{h22 -> intersection_point(L:e,M:e), h25 -> L:e, h26 -> M:e, }
+====end goal answer====
+
+==================== Step 50 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 51 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 52 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 53 ====================
+====goal answer====
+----------
+{h21 -> intersection_point(L:e,M:e), }
+====end goal answer====
+
+==================== Step 54 ====================
+====answer====
+----------
+{X -> intersection_point(L:e,M:e), Y -> intersection_point(L:e,M:e), Z -> h29, }
+====end answer====
+
+==================== Step 55 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 56 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 57 ====================
+====goal answer====
+----------
+{h24 -> intersection_point(L:e,M:e), h32 -> L:e, h33 -> M:e, }
+====end goal answer====
+
+==================== Step 58 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 59 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 60 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 61 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 62 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 63 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 64 ====================
+====goal answer====
+----------
+{h23 -> L:e, }
+====end goal answer====
+
+==================== Step 65 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+FORMULA IS REFUTED!
+================================
+FORMULA IS REFUTED: 65 steps.
+21 bases are refuted.
+.........................
+Time: 0.0069706s.
+================================

@@ -1,0 +1,270 @@
+После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.
+На каждом шаге выводится: номер шага; база; вопрос; ответ. В самом начале выводится вся формула.
+
+================FORMULA================
+
+e[]
+    a[Y, X, ]
+    a[is_a_theorem(implies(X,Y)),is_a_theorem(X),]
+        e[]
+        e[is_a_theorem(Y),]
+
+
+    a[Y, X, ]
+    a[]
+        e[]
+        e[is_a_theorem(implies(X,implies(Y,X))),]
+
+
+    a[Z, Y, X, ]
+    a[]
+        e[]
+        e[is_a_theorem(implies(implies(X,Y),implies(implies(Y,Z),implies(X,Z)))),]
+
+
+    a[Y, X, ]
+    a[]
+        e[]
+        e[is_a_theorem(implies(implies(implies(X,Y),Y),implies(implies(Y,X),X))),]
+
+
+    a[Y, X, ]
+    a[]
+        e[]
+        e[is_a_theorem(implies(implies(not(X),not(Y)),implies(Y,X))),]
+
+
+    a[]
+    a[]
+        e[Y:e, X:e, ]
+        e[]
+            a[]
+            a[is_a_theorem(implies(implies(implies(X:e,Y:e),implies(Y:e,X:e)),implies(Y:e,X:e))),]
+                e[]
+                e[False,]
+
+
+
+
+
+==================== Step 1 ====================
+====answer====
+[]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(X,implies(Y,X))),]
+
+
+{Y -> h1, X -> h2, }
+====end answer====
+
+==================== Step 2 ====================
+====answer====
+[is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Z, Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(X,Y),implies(implies(Y,Z),implies(X,Z)))),]
+
+
+{Z -> h3, Y -> h4, X -> h5, }
+====end answer====
+
+==================== Step 3 ====================
+====answer====
+[is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(implies(X,Y),Y),implies(implies(Y,X),X))),]
+
+
+{Y -> h6, X -> h7, }
+====end answer====
+
+==================== Step 4 ====================
+====answer====
+[is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(not(X),not(Y)),implies(Y,X))),]
+
+
+{Y -> h8, X -> h9, }
+====end answer====
+
+==================== Step 5 ====================
+====answer====
+[is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[]
+a[]
+    e[Y:e, X:e, ]
+    e[]
+        a[]
+        a[is_a_theorem(implies(implies(implies(X:e,Y:e),implies(Y:e,X:e)),implies(Y:e,X:e))),]
+            e[]
+            e[False,]
+
+
+
+
+{}
+====end answer====
+
+==================== Step 6 ====================
+====answer====
+[is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(X,implies(Y,X))),]
+
+
+{Y -> h45, X -> h46, }
+====end answer====
+
+==================== Step 7 ====================
+====answer====
+[is_a_theorem(implies(h46,implies(h45,h46)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Z, Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(X,Y),implies(implies(Y,Z),implies(X,Z)))),]
+
+
+{Z -> h53, Y -> h54, X -> h55, }
+====end answer====
+
+==================== Step 8 ====================
+====answer====
+[is_a_theorem(implies(implies(h55,h54),implies(implies(h54,h53),implies(h55,h53))))6,is_a_theorem(implies(h46,implies(h45,h46)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(implies(X,Y),Y),implies(implies(Y,X),X))),]
+
+
+{Y -> h60, X -> h61, }
+====end answer====
+
+==================== Step 9 ====================
+====answer====
+[is_a_theorem(implies(implies(implies(h61,h60),h60),implies(implies(h60,h61),h61)))7,is_a_theorem(implies(implies(h55,h54),implies(implies(h54,h53),implies(h55,h53))))6,is_a_theorem(implies(h46,implies(h45,h46)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(not(X),not(Y)),implies(Y,X))),]
+
+
+{Y -> h62, X -> h63, }
+====end answer====
+
+==================== Step 10 ====================
+====answer====
+[is_a_theorem(implies(implies(not(h63),not(h62)),implies(h62,h63)))8,is_a_theorem(implies(implies(implies(h61,h60),h60),implies(implies(h60,h61),h61)))7,is_a_theorem(implies(implies(h55,implies(h80,h81)),implies(implies(implies(h80,h81),h53),implies(h55,h53))))6,is_a_theorem(implies(h46,implies(h45,h46)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[is_a_theorem(implies(X,Y)),is_a_theorem(X),]
+    e[]
+    e[is_a_theorem(Y),]
+
+
+{X -> implies(h55,implies(h80,h81)), Y -> implies(implies(implies(h80,h81),h53),implies(h55,h53)), h46 -> h81, h54 -> implies(h80,h81), h45 -> h80, }
+====end answer====
+
+==================== Step 11 ====================
+====answer====
+[is_a_theorem(implies(implies(implies(h80,h81),h53),implies(h55,h53)))9,is_a_theorem(implies(implies(not(h63),not(h62)),implies(h62,h63)))8,is_a_theorem(implies(implies(implies(h61,h60),h60),implies(implies(h60,h61),h61)))7,is_a_theorem(implies(implies(h55,implies(h80,h81)),implies(implies(implies(h80,h81),h53),implies(h55,h53))))6,is_a_theorem(implies(h81,implies(h80,h81)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(X,implies(Y,X))),]
+
+
+{Y -> h84, X -> h85, }
+====end answer====
+
+==================== Step 12 ====================
+====answer====
+[is_a_theorem(implies(h85,implies(h84,h85)))10,is_a_theorem(implies(implies(implies(h80,h81),h53),implies(h55,h53)))9,is_a_theorem(implies(implies(not(h63),not(h62)),implies(h62,h63)))8,is_a_theorem(implies(implies(implies(h61,h60),h60),implies(implies(h60,h61),h61)))7,is_a_theorem(implies(implies(h55,implies(h80,h81)),implies(implies(implies(h80,h81),h53),implies(h55,h53))))6,is_a_theorem(implies(h81,implies(h80,h81)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Z, Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(X,Y),implies(implies(Y,Z),implies(X,Z)))),]
+
+
+{Z -> h92, Y -> h93, X -> h94, }
+====end answer====
+
+==================== Step 13 ====================
+====answer====
+[is_a_theorem(implies(implies(h94,h93),implies(implies(h93,h92),implies(h94,h92))))11,is_a_theorem(implies(h85,implies(h84,h85)))10,is_a_theorem(implies(implies(implies(h80,h81),h53),implies(h55,h53)))9,is_a_theorem(implies(implies(not(h63),not(h62)),implies(h62,h63)))8,is_a_theorem(implies(implies(implies(h61,h60),h60),implies(implies(h60,h61),h61)))7,is_a_theorem(implies(implies(h55,implies(h80,h81)),implies(implies(implies(h80,h81),h53),implies(h55,h53))))6,is_a_theorem(implies(h81,implies(h80,h81)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(implies(X,Y),Y),implies(implies(Y,X),X))),]
+
+
+{Y -> h99, X -> h100, }
+====end answer====
+
+==================== Step 14 ====================
+====answer====
+[is_a_theorem(implies(implies(implies(h100,h99),h99),implies(implies(h99,h100),h100)))12,is_a_theorem(implies(implies(h94,h93),implies(implies(h93,h92),implies(h94,h92))))11,is_a_theorem(implies(h85,implies(h84,h85)))10,is_a_theorem(implies(implies(implies(h80,h81),h53),implies(h55,h53)))9,is_a_theorem(implies(implies(not(h63),not(h62)),implies(h62,h63)))8,is_a_theorem(implies(implies(implies(h61,h60),h60),implies(implies(h60,h61),h61)))7,is_a_theorem(implies(implies(h55,implies(h80,h81)),implies(implies(implies(h80,h81),h53),implies(h55,h53))))6,is_a_theorem(implies(h81,implies(h80,h81)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(h7,h6),h6),implies(implies(h6,h7),h7)))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[]
+    e[]
+    e[is_a_theorem(implies(implies(not(X),not(Y)),implies(Y,X))),]
+
+
+{Y -> h101, X -> h102, }
+====end answer====
+
+==================== Step 15 ====================
+====answer====
+[is_a_theorem(implies(implies(not(h102),not(h101)),implies(h101,h102)))13,is_a_theorem(implies(implies(implies(h100,h99),h99),implies(implies(h99,h100),h100)))12,is_a_theorem(implies(implies(h94,h93),implies(implies(h93,h92),implies(h94,h92))))11,is_a_theorem(implies(h85,implies(h84,h85)))10,is_a_theorem(implies(implies(implies(h80,h81),h53),implies(h55,h53)))9,is_a_theorem(implies(implies(not(h63),not(h62)),implies(h62,h63)))8,is_a_theorem(implies(implies(implies(h61,h60),h60),implies(implies(h60,h61),h61)))7,is_a_theorem(implies(implies(h55,implies(h80,h81)),implies(implies(implies(h80,h81),h53),implies(h55,h53))))6,is_a_theorem(implies(h81,implies(h80,h81)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(implies(h216,h217),implies(h218,h219)),implies(h218,h219)),implies(implies(implies(h218,h219),implies(h216,h217)),implies(h216,h217))))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[Y, X, ]
+a[is_a_theorem(implies(X,Y)),is_a_theorem(X),]
+    e[]
+    e[is_a_theorem(Y),]
+
+
+{X -> implies(implies(implies(h216,h217),implies(h218,h219)),implies(h218,h219)), Y -> implies(implies(implies(h218,h219),implies(h216,h217)),implies(h216,h217)), h7 -> implies(h216,h217), h80 -> h216, h81 -> h217, h53 -> h219, h6 -> implies(h218,h219), h55 -> h218, }
+====end answer====
+
+==================== Step 16 ====================
+====goal answer====
+[is_a_theorem(implies(implies(implies(h218,h219),implies(h216,h217)),implies(h216,h217)))14,is_a_theorem(implies(implies(not(h102),not(h101)),implies(h101,h102)))13,is_a_theorem(implies(implies(implies(h100,h99),h99),implies(implies(h99,h100),h100)))12,is_a_theorem(implies(implies(h94,h93),implies(implies(h93,h92),implies(h94,h92))))11,is_a_theorem(implies(h85,implies(h84,h85)))10,is_a_theorem(implies(implies(implies(h216,h217),h219),implies(h218,h219)))9,is_a_theorem(implies(implies(not(h63),not(h62)),implies(h62,h63)))8,is_a_theorem(implies(implies(implies(h61,h60),h60),implies(implies(h60,h61),h61)))7,is_a_theorem(implies(implies(h218,implies(h216,h217)),implies(implies(implies(h216,h217),h219),implies(h218,h219))))6,is_a_theorem(implies(h217,implies(h216,h217)))5,is_a_theorem(implies(implies(not(h9),not(h8)),implies(h8,h9)))4,is_a_theorem(implies(implies(implies(implies(h216,h217),implies(h218,h219)),implies(h218,h219)),implies(implies(implies(h218,h219),implies(h216,h217)),implies(h216,h217))))3,is_a_theorem(implies(implies(h5,h4),implies(implies(h4,h3),implies(h5,h3))))2,is_a_theorem(implies(h2,implies(h1,h2)))1,]
+----------
+a[]
+a[is_a_theorem(implies(implies(implies(X:e,Y:e),implies(Y:e,X:e)),implies(Y:e,X:e))),]
+    e[]
+    e[False,]
+
+
+{h218 -> X:e, h219 -> Y:e, h216 -> Y:e, h217 -> X:e, }
+====end goal answer====
+
+FORMULA IS REFUTED!
+================================
+FORMULA IS REFUTED: 16 steps.
+1 bases are refuted.
+.........................
+Time: 0.0053134s.
+================================

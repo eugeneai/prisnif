@@ -1,0 +1,10 @@
+{
+  e[][] {
+    a[A,B,C,D][] {
+      e[][p(nand(nand(A,nand(B,C)),nand(nand(nand(D,C),nand(nand(A,D),nand(A,D))),nand(A,nand(A,B)))))] {}};
+    a[P,Q,R][p(nand(P,nand(Q,R))),p(P)] {
+      e[][p(R)] {}};
+    a[][p(nand(nand(a,nand(b,b)),nand(nand(nand(b,b),nand(nand(a,a),nand(a,a))),nand(nand(b,b),nand(nand(a,a),nand(a,a))))))]{
+      e[][False] {}}
+    }
+}

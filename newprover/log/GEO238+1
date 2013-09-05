@@ -1,0 +1,1262 @@
+После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.
+На каждом шаге выводится: номер шага; база; вопрос; ответ. В самом начале выводится вся формула.
+
+================FORMULA================
+
+e[]
+    a[A, L, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[apart_point_and_line(A,L),]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[left_apart_point(A,L),]
+
+                        e[]
+                        e[left_apart_point(A,reverse_line(L)),]
+
+
+
+
+            a[]
+            a[]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[left_apart_point(A,L),]
+                                e[]
+                                e[False,]
+
+
+                            a[]
+                            a[left_apart_point(A,reverse_line(L)),]
+                                e[]
+                                e[False,]
+
+
+
+                        e[]
+                        e[apart_point_and_line(A,L),]
+
+
+
+
+
+
+    a[L, M, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[convergent_lines(L,M),]
+                e[]
+                e[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+
+
+
+
+            a[]
+            a[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+                e[]
+                e[convergent_lines(L,M),]
+
+
+
+
+    a[A, B, L, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[divides_points(L,A,B),]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[left_apart_point(A,L),left_apart_point(B,reverse_line(L)),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+
+
+
+                        e[]
+                        e[left_apart_point(A,reverse_line(L)),left_apart_point(B,L),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+
+
+
+
+
+
+            a[]
+            a[]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[left_apart_point(A,L),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[left_apart_point(B,reverse_line(L)),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[left_apart_point(A,reverse_line(L)),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[left_apart_point(B,L),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+
+                        e[]
+                        e[divides_points(L,A,B),]
+
+
+
+
+
+
+    a[L, A, B, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[before_on_line(L,A,B),]
+                e[]
+                e[distinct_points(A,B),]
+                    a[]
+                    a[left_apart_point(A,L),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[left_apart_point(A,reverse_line(L)),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[left_apart_point(B,L),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[left_apart_point(B,reverse_line(L)),]
+                        e[]
+                        e[False,]
+
+
+                    a[]
+                    a[unequally_directed_lines(L,line_connecting(A,B)),]
+                        e[]
+                        e[False,]
+
+
+
+
+            a[]
+            a[distinct_points(A,B),]
+                e[]
+                e[left_apart_point(A,L),]
+
+                e[]
+                e[left_apart_point(A,reverse_line(L)),]
+
+                e[]
+                e[left_apart_point(B,L),]
+
+                e[]
+                e[left_apart_point(B,reverse_line(L)),]
+
+                e[]
+                e[unequally_directed_lines(L,line_connecting(A,B)),]
+
+                e[]
+                e[before_on_line(L,A,B),]
+
+
+
+
+    a[L, A, B, C, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[between_on_line(L,A,B,C),]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[before_on_line(L,A,B),before_on_line(L,B,C),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+
+
+
+                        e[]
+                        e[before_on_line(L,C,B),before_on_line(L,B,A),]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+
+
+
+
+
+
+            a[]
+            a[]
+                e[]
+                e[]
+                    a[]
+                    a[]
+                        e[]
+                        e[]
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[before_on_line(L,A,B),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[before_on_line(L,B,C),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+                            a[]
+                            a[]
+                                e[]
+                                e[]
+                                    a[]
+                                    a[before_on_line(L,C,B),]
+                                        e[]
+                                        e[False,]
+
+
+
+                                e[]
+                                e[]
+                                    a[]
+                                    a[before_on_line(L,B,A),]
+                                        e[]
+                                        e[False,]
+
+
+
+
+
+                        e[]
+                        e[between_on_line(L,A,B,C),]
+
+
+
+
+
+
+    a[A, ]
+    a[distinct_points(A,A),]
+        e[]
+        e[False,]
+
+
+    a[A, B, C, ]
+    a[distinct_points(A,B),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(A,C),]
+
+                e[]
+                e[distinct_points(B,C),]
+
+
+
+
+    a[L, ]
+    a[distinct_lines(L,L),]
+        e[]
+        e[False,]
+
+
+    a[L, M, N, ]
+    a[distinct_lines(L,M),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(L,N),]
+
+                e[]
+                e[distinct_lines(M,N),]
+
+
+
+
+    a[L, ]
+    a[unequally_directed_lines(L,L),]
+        e[]
+        e[False,]
+
+
+    a[L, M, N, ]
+    a[unequally_directed_lines(L,M),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[unequally_directed_lines(L,N),]
+
+                e[]
+                e[unequally_directed_lines(M,N),]
+
+
+
+
+    a[L, M, N, ]
+    a[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+        e[]
+        e[unequally_directed_lines(L,N),unequally_directed_lines(L,reverse_line(N)),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+        e[]
+        e[unequally_directed_lines(M,N),unequally_directed_lines(M,reverse_line(N)),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+
+    a[L, M, ]
+    a[]
+        e[]
+        e[unequally_directed_lines(L,M),]
+
+        e[]
+        e[unequally_directed_lines(L,reverse_line(M)),]
+
+
+    a[L, M, ]
+    a[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+        e[]
+        e[left_convergent_lines(L,M),]
+
+        e[]
+        e[left_convergent_lines(L,reverse_line(M)),]
+
+
+    a[A, L, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[left_apart_point(A,L),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[left_apart_point(A,reverse_line(L)),]
+                e[]
+                e[False,]
+
+
+
+
+    a[L, M, ]
+    a[]
+        e[]
+        e[]
+            a[]
+            a[left_convergent_lines(L,M),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[left_convergent_lines(L,reverse_line(M)),]
+                e[]
+                e[False,]
+
+
+
+
+    a[A, B, ]
+    a[point(A),point(B),distinct_points(A,B),]
+        e[]
+        e[line(line_connecting(A,B)),]
+
+
+    a[L, M, ]
+    a[line(L),line(M),unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+        e[]
+        e[point(intersection_point(L,M)),]
+
+
+    a[L, A, ]
+    a[point(A),line(L),]
+        e[]
+        e[line(parallel_through_point(L,A)),]
+
+
+    a[L, ]
+    a[line(L),]
+        e[]
+        e[line(reverse_line(L)),]
+
+
+    a[A, B, ]
+    a[distinct_points(A,B),]
+        e[]
+        e[]
+            a[]
+            a[apart_point_and_line(A,line_connecting(A,B)),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[apart_point_and_line(B,line_connecting(A,B)),]
+                e[]
+                e[False,]
+
+
+
+
+    a[L, M, ]
+    a[unequally_directed_lines(L,M),unequally_directed_lines(L,reverse_line(M)),]
+        e[]
+        e[]
+            a[]
+            a[apart_point_and_line(intersection_point(L,M),L),]
+                e[]
+                e[False,]
+
+
+            a[]
+            a[apart_point_and_line(intersection_point(L,M),M),]
+                e[]
+                e[False,]
+
+
+
+
+    a[A, L, ]
+    a[apart_point_and_line(A,parallel_through_point(L,A)),]
+        e[]
+        e[False,]
+
+
+    a[L, ]
+    a[distinct_lines(L,reverse_line(L)),]
+        e[]
+        e[False,]
+
+
+    a[A, B, ]
+    a[unequally_directed_lines(line_connecting(A,B),reverse_line(line_connecting(B,A))),]
+        e[]
+        e[False,]
+
+
+    a[A, L, ]
+    a[unequally_directed_lines(parallel_through_point(L,A),L),]
+        e[]
+        e[False,]
+
+
+    a[A, B, L, M, ]
+    a[distinct_points(A,B),distinct_lines(L,M),]
+        e[]
+        e[left_apart_point(A,L),]
+
+        e[]
+        e[left_apart_point(B,L),]
+
+        e[]
+        e[left_apart_point(A,M),]
+
+        e[]
+        e[left_apart_point(B,M),]
+
+        e[]
+        e[left_apart_point(A,reverse_line(L)),]
+
+        e[]
+        e[left_apart_point(B,reverse_line(L)),]
+
+        e[]
+        e[left_apart_point(A,reverse_line(M)),]
+
+        e[]
+        e[left_apart_point(B,reverse_line(M)),]
+
+
+    a[A, B, L, ]
+    a[distinct_points(A,B),left_apart_point(A,L),]
+        e[]
+        e[left_apart_point(B,L),]
+
+        e[]
+        e[left_convergent_lines(line_connecting(A,B),L),]
+
+
+    a[A, B, L, ]
+    a[left_apart_point(A,L),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(A,B),]
+
+                e[]
+                e[left_apart_point(B,L),]
+
+
+
+
+    a[A, L, M, ]
+    a[left_apart_point(A,L),unequally_directed_lines(L,M),]
+        e[]
+        e[distinct_lines(L,M),]
+
+        e[]
+        e[left_apart_point(A,reverse_line(M)),]
+
+
+    a[L, M, N, ]
+    a[left_convergent_lines(L,M),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[unequally_directed_lines(M,N),]
+
+                e[]
+                e[left_convergent_lines(L,N),]
+
+
+
+
+    a[]
+    a[]
+        e[A:e, B:e, C:e, L:e, ]
+        e[divides_points(L:e,A:e,B:e),divides_points(L:e,A:e,C:e),divides_points(L:e,B:e,C:e),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+
+
+==================== Step 1 ====================
+====answer====
+----------
+{A -> h1, L -> h2, }
+====end answer====
+
+==================== Step 2 ====================
+====answer====
+----------
+{L -> h3, M -> h4, }
+====end answer====
+
+==================== Step 3 ====================
+====answer====
+----------
+{A -> h5, B -> h6, L -> h7, }
+====end answer====
+
+==================== Step 4 ====================
+====answer====
+----------
+{L -> h8, A -> h9, B -> h10, }
+====end answer====
+
+==================== Step 5 ====================
+====answer====
+----------
+{L -> h11, A -> h12, B -> h13, C -> h14, }
+====end answer====
+
+==================== Step 6 ====================
+====answer====
+----------
+{L -> h15, M -> h16, }
+====end answer====
+
+==================== Step 7 ====================
+====goal answer====
+----------
+{L -> h16, h15 -> h16, }
+====end goal answer====
+
+==================== Step 8 ====================
+====answer====
+----------
+{A -> h35, L -> h36, }
+====end answer====
+
+==================== Step 9 ====================
+====answer====
+----------
+{L -> h41, M -> h42, }
+====end answer====
+
+==================== Step 10 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 11 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 12 ====================
+====answer====
+----------
+{h7 -> L:e, h5 -> B:e, h6 -> C:e, }
+====end answer====
+
+==================== Step 13 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 14 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 15 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 16 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 17 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 18 ====================
+====goal answer====
+----------
+{h35 -> C:e, h36 -> reverse_line(L:e), }
+====end goal answer====
+
+==================== Step 19 ====================
+====goal answer====
+----------
+{h1 -> C:e, h2 -> L:e, }
+====end goal answer====
+
+==================== Step 20 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 21 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 22 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 23 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 24 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 25 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 26 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 27 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 28 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 29 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 30 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 31 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 32 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 33 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 34 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 35 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 36 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 37 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 38 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 39 ====================
+====goal answer====
+----------
+{}
+====end goal answer====
+
+==================== Step 40 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 41 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 42 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 43 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 44 ====================
+====answer====
+----------
+{A -> h49, L -> h50, }
+====end answer====
+
+==================== Step 45 ====================
+====answer====
+----------
+{L -> h51, M -> h52, }
+====end answer====
+
+==================== Step 46 ====================
+====answer====
+----------
+{A -> h53, B -> h54, L -> h55, }
+====end answer====
+
+==================== Step 47 ====================
+====answer====
+----------
+{L -> h56, A -> h57, B -> h58, }
+====end answer====
+
+==================== Step 48 ====================
+====answer====
+----------
+{L -> h59, A -> h60, B -> h61, C -> h62, }
+====end answer====
+
+==================== Step 49 ====================
+====answer====
+----------
+{L -> h16, M -> reverse_line(h16), N -> h63, }
+====end answer====
+
+==================== Step 50 ====================
+====answer====
+----------
+{L -> h64, M -> h65, }
+====end answer====
+
+==================== Step 51 ====================
+====goal answer====
+----------
+{h16 -> h65, }
+====end goal answer====
+
+==================== Step 52 ====================
+====goal answer====
+----------
+{h64 -> parallel_through_point(reverse_line(h65),h82), L -> reverse_line(h65), A -> h82, h81 -> reverse_line(h65), }
+====end goal answer====
+
+==================== Step 53 ====================
+====answer====
+----------
+{A -> h83, L -> h84, }
+====end answer====
+
+==================== Step 54 ====================
+====answer====
+----------
+{L -> h85, M -> h86, }
+====end answer====
+
+==================== Step 55 ====================
+====answer====
+----------
+{A -> h87, B -> h88, L -> h89, }
+====end answer====
+
+==================== Step 56 ====================
+====answer====
+----------
+{L -> h90, A -> h91, B -> h92, }
+====end answer====
+
+==================== Step 57 ====================
+====answer====
+----------
+{L -> h93, A -> h94, B -> h95, C -> h96, }
+====end answer====
+
+==================== Step 58 ====================
+====answer====
+----------
+{L -> h65, M -> reverse_line(h65), N -> h97, }
+====end answer====
+
+==================== Step 59 ====================
+====answer====
+----------
+{L -> h98, M -> h99, }
+====end answer====
+
+==================== Step 60 ====================
+====answer====
+----------
+{L -> h98, M -> h99, h65 -> h99, }
+====end answer====
+
+==================== Step 61 ====================
+====answer====
+----------
+{A -> h120, L -> h121, }
+====end answer====
+
+==================== Step 62 ====================
+====goal answer====
+----------
+{h120 -> C:e, h121 -> L:e, }
+====end goal answer====
+
+==================== Step 63 ====================
+====answer====
+----------
+{A -> h122, L -> h123, }
+====end answer====
+
+==================== Step 64 ====================
+====goal answer====
+----------
+{h41 -> h98, h42 -> reverse_line(h99), }
+====end goal answer====
+
+==================== Step 65 ====================
+====answer====
+----------
+{A -> h124, L -> h125, }
+====end answer====
+
+==================== Step 66 ====================
+====goal answer====
+----------
+{h98 -> line_connecting(h129,h128), A -> h129, B -> h128, h99 -> line_connecting(h128,h129), h127 -> h128, h126 -> h129, }
+====end goal answer====
+
+==================== Step 67 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 68 ====================
+====answer====
+----------
+{A -> h133, L -> h134, }
+====end answer====
+
+==================== Step 69 ====================
+====answer====
+----------
+{L -> h135, M -> h136, }
+====end answer====
+
+==================== Step 70 ====================
+====answer====
+----------
+{A -> h137, B -> h138, L -> h139, }
+====end answer====
+
+==================== Step 71 ====================
+====answer====
+----------
+{L -> h140, A -> h141, B -> h142, }
+====end answer====
+
+==================== Step 72 ====================
+====answer====
+----------
+{L -> h143, A -> h144, B -> h145, C -> h146, }
+====end answer====
+
+==================== Step 73 ====================
+====answer====
+----------
+{L -> line_connecting(h128,h129), M -> reverse_line(line_connecting(h128,h129)), N -> h147, }
+====end answer====
+
+==================== Step 74 ====================
+====answer====
+----------
+{L -> h148, M -> h149, }
+====end answer====
+
+==================== Step 75 ====================
+====answer====
+----------
+{L -> line_connecting(h128,h129), M -> reverse_line(line_connecting(h128,h129)), h148 -> line_connecting(h128,h129), h149 -> reverse_line(reverse_line(line_connecting(h128,h129))), h153 -> reverse_line(line_connecting(h128,h129)), }
+====end answer====
+
+==================== Step 76 ====================
+====answer====
+----------
+{A -> h175, L -> h176, }
+====end answer====
+
+==================== Step 77 ====================
+====goal answer====
+----------
+{h175 -> C:e, h176 -> L:e, }
+====end goal answer====
+
+==================== Step 78 ====================
+====answer====
+----------
+{A -> h177, L -> h178, }
+====end answer====
+
+==================== Step 79 ====================
+====goal answer====
+----------
+{h177 -> C:e, h178 -> L:e, }
+====end goal answer====
+
+==================== Step 80 ====================
+====answer====
+----------
+{A -> h179, L -> h180, }
+====end answer====
+
+==================== Step 81 ====================
+====goal answer====
+----------
+{h179 -> C:e, h180 -> L:e, }
+====end goal answer====
+
+==================== Step 82 ====================
+====answer====
+----------
+{A -> h181, L -> h182, }
+====end answer====
+
+==================== Step 83 ====================
+====answer====
+----------
+{L -> h183, M -> h184, }
+====end answer====
+
+==================== Step 84 ====================
+====answer====
+----------
+{A -> h185, B -> h186, L -> h187, }
+====end answer====
+
+==================== Step 85 ====================
+====answer====
+----------
+{L -> h188, A -> h189, B -> h190, }
+====end answer====
+
+==================== Step 86 ====================
+====answer====
+----------
+{L -> h191, A -> h192, B -> h193, C -> h194, }
+====end answer====
+
+==================== Step 87 ====================
+====answer====
+----------
+{L -> line_connecting(h128,h129), M -> reverse_line(line_connecting(h128,h129)), N -> h195, }
+====end answer====
+
+==================== Step 88 ====================
+====answer====
+----------
+{L -> h196, M -> h197, }
+====end answer====
+
+==================== Step 89 ====================
+====answer====
+----------
+{A -> h225, L -> h226, }
+====end answer====
+
+==================== Step 90 ====================
+====goal answer====
+----------
+{h225 -> C:e, h226 -> L:e, }
+====end goal answer====
+
+==================== Step 91 ====================
+====answer====
+----------
+{A -> h243, L -> h244, }
+====end answer====
+
+==================== Step 92 ====================
+====goal answer====
+----------
+{h243 -> C:e, h244 -> L:e, }
+====end goal answer====
+
+==================== Step 93 ====================
+====answer====
+----------
+{}
+====end answer====
+
+==================== Step 94 ====================
+====answer====
+----------
+{A -> h254, L -> h255, }
+====end answer====
+
+==================== Step 95 ====================
+====answer====
+----------
+{L -> h256, M -> h257, }
+====end answer====
+
+==================== Step 96 ====================
+====answer====
+----------
+{A -> h258, B -> h259, L -> h260, }
+====end answer====
+
+==================== Step 97 ====================
+====answer====
+----------
+{L -> h261, A -> h262, B -> h263, }
+====end answer====
+
+==================== Step 98 ====================
+====answer====
+----------
+{L -> h264, A -> h265, B -> h266, C -> h267, }
+====end answer====
+
+==================== Step 99 ====================
+====answer====
+----------
+{L -> line_connecting(h128,h129), M -> reverse_line(line_connecting(h128,h129)), N -> h268, }
+====end answer====
+
+==================== Step 100 ====================
+====answer====
+----------
+{L -> h269, M -> h270, }
+====end answer====
+
+==================== Step 101 ====================
+====answer====
+----------
+{A -> h296, L -> h297, }
+====end answer====
+
+==================== Step 102 ====================
+====goal answer====
+----------
+{h296 -> C:e, h297 -> L:e, }
+====end goal answer====
+
+==================== Step 103 ====================
+====answer====
+----------
+{A -> h313, L -> h314, }
+====end answer====
+
+==================== Step 104 ====================
+====goal answer====
+----------
+{h313 -> C:e, h314 -> L:e, }
+====end goal answer====
+
+FORMULA IS REFUTED!
+================================
+FORMULA IS REFUTED: 104 steps.
+24 bases are refuted.
+.........................
+Time: 0.0197243s.
+================================

@@ -1,0 +1,2585 @@
+e[]
+    a[X, ]
+    a[distinct_points(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, ]
+    a[distinct_lines(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, ]
+    a[convergent_lines(X,X),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, Z, ]
+    a[distinct_points(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(X,Z),]
+
+                e[]
+                e[distinct_points(Y,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[distinct_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(X,Z),]
+
+                e[]
+                e[distinct_lines(Y,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[convergent_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[convergent_lines(X,Z),]
+
+                e[]
+                e[convergent_lines(Y,Z),]
+
+
+
+
+    a[X, Y, ]
+    a[distinct_points(X,Y),apart_point_and_line(X,line_connecting(X,Y)),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, ]
+    a[distinct_points(X,Y),apart_point_and_line(Y,line_connecting(X,Y)),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, ]
+    a[convergent_lines(X,Y),apart_point_and_line(intersection_point(X,Y),X),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, ]
+    a[convergent_lines(X,Y),apart_point_and_line(intersection_point(X,Y),Y),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, Z, ]
+    a[apart_point_and_line(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_points(X,Z),]
+
+                e[]
+                e[apart_point_and_line(Z,Y),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[apart_point_and_line(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(Y,Z),]
+
+                e[]
+                e[apart_point_and_line(X,Z),]
+
+
+
+
+    a[X, Y, Z, ]
+    a[convergent_lines(X,Y),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[distinct_lines(Y,Z),]
+
+                e[]
+                e[convergent_lines(X,Z),]
+
+
+
+
+    a[X, Y, ]
+    a[convergent_lines(parallel_through_point(Y,X),Y),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, ]
+    a[apart_point_and_line(X,parallel_through_point(Y,X)),]
+        e[]
+        e[False,]
+
+
+    a[X, Y, Z, ]
+    a[distinct_lines(Y,Z),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[apart_point_and_line(X,Y),]
+
+                e[]
+                e[apart_point_and_line(X,Z),]
+
+                e[]
+                e[convergent_lines(Y,Z),]
+
+
+
+
+    a[A, L, ]
+    a[unorthogonal_lines(orthogonal_through_point(L,A),L),]
+        e[]
+        e[False,]
+
+
+    a[A, L, ]
+    a[apart_point_and_line(A,orthogonal_through_point(L,A)),]
+        e[]
+        e[False,]
+
+
+    a[A, L, M, N, ]
+    a[distinct_lines(L,M),]
+        e[]
+        e[]
+            a[]
+            a[]
+                e[]
+                e[apart_point_and_line(A,L),]
+
+                e[]
+                e[apart_point_and_line(A,M),]
+
+                e[]
+                e[unorthogonal_lines(L,N),]
+
+                e[]
+                e[unorthogonal_lines(M,N),]
+
+
+
+
+    a[]
+    a[]
+        e[A:e, L:e, ]
+        e[distinct_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+
+
+    a[L, M, N, ]
+    a[convergent_lines(L,M),unorthogonal_lines(L,M),]
+        e[]
+        e[convergent_lines(L,N),unorthogonal_lines(L,N),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+        e[]
+        e[convergent_lines(M,N),unorthogonal_lines(M,N),]
+            a[]
+            a[]
+                e[]
+                e[]
+
+
+
+
+    a[L, M, ]
+    a[]
+        e[]
+        e[convergent_lines(L,M),]
+
+        e[]
+        e[unorthogonal_lines(L,M),]
+
+
+    a[X, Y, U, V, ]
+    a[distinct_points(X,Y),distinct_lines(U,V),]
+        e[]
+        e[apart_point_and_line(X,U),]
+
+        e[]
+        e[apart_point_and_line(X,V),]
+
+        e[]
+        e[apart_point_and_line(Y,U),]
+
+        e[]
+        e[apart_point_and_line(Y,V),]
+
+
+
+{}
+{L -> h1, M -> h2, }
+a[X, ]
+a[convergent_lines(X,X),]
+    e[]
+    e[False,]
+
+
+{X -> h2, h1 -> h2, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h7, }
+{Y -> parallel_through_point(L:e,A:e), Z -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), X -> h10, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), A -> h13, N -> h14, }
+{}
+a[X, ]
+a[distinct_lines(X,X),]
+    e[]
+    e[False,]
+
+
+{X -> parallel_through_point(L:e,A:e), h7 -> parallel_through_point(L:e,A:e), h17 -> L:e, h18 -> A:e, }
+{}
+a[X, Y, ]
+a[apart_point_and_line(X,parallel_through_point(Y,X)),]
+    e[]
+    e[False,]
+
+
+{X -> A:e, Y -> L:e, h10 -> A:e, }
+a[A, L, ]
+a[apart_point_and_line(A,orthogonal_through_point(L,A)),]
+    e[]
+    e[False,]
+
+
+{A -> A:e, L -> orthogonal_through_point(L:e,A:e), h10 -> A:e, }
+{}
+a[X, Y, ]
+a[convergent_lines(X,Y),apart_point_and_line(intersection_point(X,Y),X),]
+    e[]
+    e[False,]
+
+
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h13 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h31 -> parallel_through_point(L:e,A:e), h32 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h41, }
+a[X, Y, ]
+a[convergent_lines(X,Y),apart_point_and_line(intersection_point(X,Y),Y),]
+    e[]
+    e[False,]
+
+
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h42, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h43, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h44, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h45, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h46, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h47, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h48, N -> h49, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h50, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h51, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h52, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h53, N -> h54, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h55, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h56, N -> h57, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h14 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h58, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h75, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h76, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h77, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h78, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h79, N -> h80, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h81, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h82, N -> h83, }
+{}
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h86, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h87, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h88, N -> h89, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h92, N -> h93, }
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h106, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h107, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h108, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h109, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h110, N -> h111, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h112, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h113, N -> h114, }
+{}
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h117, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h118, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h119, N -> h120, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h123, N -> h124, }
+{}
+{}
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h155, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h156, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h157, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h158, N -> h159, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h184, N -> h185, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h238, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h239, N -> h240, }
+{}
+{}
+{}
+a[X, ]
+a[distinct_points(X,X),]
+    e[]
+    e[False,]
+
+
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h155 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h297 -> parallel_through_point(L:e,A:e), h299 -> L:e, h300 -> A:e, h298 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h301 -> orthogonal_through_point(L:e,A:e), h303 -> L:e, h304 -> A:e, h302 -> A:e, }
+{}
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h353, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h354, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h355, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h356, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h357, N -> h358, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h361, N -> h362, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h379, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h380, N -> h381, }
+{}
+{}
+{}
+{}
+{}
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h446, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h447, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h448, N -> h449, }
+{}
+{}
+{}
+{}
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h506, N -> h507, }
+{}
+{}
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h446, Z -> h598, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h599, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h600, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h601, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h602, N -> h603, }
+{}
+{}
+{}
+a[h2, ]
+a[convergent_lines(h2,h2),]
+    e[]
+    e[False,]
+
+
+{h2 -> parallel_through_point(L:e,A:e), h599 -> parallel_through_point(L:e,A:e), h628 -> L:e, h629 -> A:e, }
+{}
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h684, N -> h685, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h600, Z -> h774, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h775, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h776, N -> h777, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h775 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h852 -> parallel_through_point(L:e,A:e), h854 -> L:e, h855 -> A:e, h853 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h856 -> orthogonal_through_point(L:e,A:e), h858 -> L:e, h859 -> A:e, h857 -> A:e, }
+{}
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h910, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h911, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h912, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h913, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h914, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h925, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h926, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h927, N -> h928, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h926 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h926 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h925, Z -> h997, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h927 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h927 -> A:e, }
+a[A, L, ]
+a[unorthogonal_lines(orthogonal_through_point(L,A),L),]
+    e[]
+    e[False,]
+
+
+{L -> orthogonal_through_point(L:e,A:e), A -> A:e, h928 -> orthogonal_through_point(L:e,A:e), h1030 -> L:e, h1031 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h925, Z -> h1032, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h925, X -> h1033, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1034, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1035, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1036, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1037, }
+{}
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h925, Z -> h1050, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1051, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1052, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1053, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1054, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h925, X -> h1055, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h925, Z -> h1056, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h925, X -> h1057, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h925, A -> h1058, N -> h1059, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h925, A -> h1064, N -> h1065, }
+{}
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h1126, N -> h1127, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h1126 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1126 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1127 -> orthogonal_through_point(L:e,A:e), h1162 -> L:e, h1163 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h925, Z -> h1164, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h925, X -> h1165, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h925, A -> h1166, N -> h1167, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h925, X -> h1168, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h925, A -> h1169, N -> h1170, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h925, Z -> h1219, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h925, X -> h1220, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h925, A -> h1221, N -> h1222, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h925, A -> h1227, N -> h1228, }
+{}
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), A -> h1289, N -> h1290, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1289 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h1289 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1325, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h1326, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h1327, N -> h1328, }
+{}
+{}
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h1326 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1326 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1463, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1325, Z -> h1466, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1467, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1325, Z -> h1468, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1325, X -> h1469, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h1325, A -> h1470, N -> h1471, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h1472, N -> h1473, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h1472 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1472 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1473 -> orthogonal_through_point(L:e,A:e), h1508 -> L:e, h1509 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1325, Z -> h1510, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1325, X -> h1511, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1325, Z -> h1512, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1325, X -> h1513, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h1325, A -> h1514, N -> h1515, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h1516, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h1517, N -> h1518, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h1516 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1516 -> A:e, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h1517 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1517 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1518 -> orthogonal_through_point(L:e,A:e), h1583 -> L:e, h1584 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1585, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1586, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1587, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1588, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1599, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1600, }
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1599, Z -> h1623, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1599, Z -> h1624, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1625, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1625 -> parallel_through_point(L:e,A:e), h1626 -> L:e, h1627 -> A:e, }
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{Y -> parallel_through_point(L:e,A:e), Z -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), X -> h1630, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), A -> h1631, N -> h1632, }
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1630 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h1630 -> A:e, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1631 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h1665 -> parallel_through_point(L:e,A:e), h1667 -> L:e, h1668 -> A:e, h1666 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h1669 -> orthogonal_through_point(L:e,A:e), h1671 -> L:e, h1672 -> A:e, h1670 -> A:e, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1699, }
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1700, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1701, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h1632 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h1702, }
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1702 -> parallel_through_point(L:e,A:e), h1703 -> L:e, h1704 -> A:e, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1700 -> parallel_through_point(L:e,A:e), h1715 -> L:e, h1716 -> A:e, }
+{}
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1701, Z -> h1745, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1701, Z -> h1756, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1757, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1758, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1759, }
+{}
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h1632 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h1770, }
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1770 -> parallel_through_point(L:e,A:e), h1771 -> L:e, h1772 -> A:e, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1783, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1784, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1785, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1786, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h1787, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1800, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1801, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h1802, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1815, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h1816, }
+{}
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1831, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h1832, }
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h1832 -> parallel_through_point(L:e,A:e), h1833 -> L:e, h1834 -> A:e, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1831, Z -> h1855, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1856, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1831, Z -> h1857, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1858, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1859, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1860, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1861, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h1862, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h1875, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h1876, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h1831, Z -> h1901, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1831, X -> h1902, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h1831, A -> h1903, N -> h1904, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h1831, A -> h1909, N -> h1910, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h1831, X -> h1971, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h1831, A -> h1972, N -> h1973, }
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h1971 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h2086 -> parallel_through_point(L:e,A:e), h2088 -> L:e, h2089 -> A:e, h2087 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h2090 -> orthogonal_through_point(L:e,A:e), h2092 -> L:e, h2093 -> A:e, h2091 -> A:e, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> h1831, Z -> h2126, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> h1831, Z -> h2153, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2180, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2181, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h2180 -> parallel_through_point(L:e,A:e), h2182 -> L:e, h2183 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2181, Z -> h2202, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2203, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2204, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2205, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2206, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2181, X -> h2207, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2208, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2209, }
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2208, Z -> h2232, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2208, Z -> h2233, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2181, Z -> h2244, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2181, X -> h2245, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h2181, A -> h2246, N -> h2247, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h2181, A -> h2252, N -> h2253, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2181, X -> h2314, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h2181, A -> h2315, N -> h2316, }
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h2314 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h2429 -> parallel_through_point(L:e,A:e), h2431 -> L:e, h2432 -> A:e, h2430 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h2433 -> orthogonal_through_point(L:e,A:e), h2435 -> L:e, h2436 -> A:e, h2434 -> A:e, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> h2181, Z -> h2469, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> h2181, Z -> h2496, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2523, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2524, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2523, Z -> h2537, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h2524 -> parallel_through_point(L:e,A:e), h2538 -> L:e, h2539 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2523, Z -> h2550, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2523, Z -> h2551, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2523, Z -> h2570, }
+{}
+{}
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h2575, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h2576, }
+{}
+a[intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), ]
+a[distinct_points(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e))),]
+    e[]
+    e[False,]
+
+
+{h2575 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h2577 -> parallel_through_point(L:e,A:e), h2579 -> L:e, h2580 -> A:e, h2578 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h2581 -> orthogonal_through_point(L:e,A:e), h2583 -> L:e, h2584 -> A:e, h2582 -> A:e, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h2576 -> parallel_through_point(L:e,A:e), h2601 -> L:e, h2602 -> A:e, }
+{}
+a[intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), ]
+a[distinct_points(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e))),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h2629, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h2629 -> parallel_through_point(L:e,A:e), h2630 -> L:e, h2631 -> A:e, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2658, }
+{Y -> parallel_through_point(L:e,A:e), Z -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), X -> h2659, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), A -> h2660, N -> h2661, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h2658 -> parallel_through_point(L:e,A:e), h2662 -> L:e, h2663 -> A:e, }
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h2659 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h2659 -> A:e, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h2660 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h2696 -> parallel_through_point(L:e,A:e), h2698 -> L:e, h2699 -> A:e, h2697 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h2700 -> orthogonal_through_point(L:e,A:e), h2702 -> L:e, h2703 -> A:e, h2701 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2730, }
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2731, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2732, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2733, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h2734, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2735, N -> h2736, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h2737, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2738, N -> h2739, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h2661 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h2740, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2753, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h2754, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2755, N -> h2756, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h2757, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2770, N -> h2771, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h2772, }
+{}
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2787, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2788, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h2789, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2790, N -> h2791, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h2792, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2805, N -> h2806, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h2807, }
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h2830, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2831, N -> h2832, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h2833, }
+{}
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h2856, }
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h2856 -> parallel_through_point(L:e,A:e), h2857 -> L:e, h2858 -> A:e, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h2911, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2912, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2913, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h2914, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2915, N -> h2916, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2919, N -> h2920, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h2933, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2934, N -> h2935, }
+{}
+{}
+{}
+{}
+{}
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h2992, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h2993, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h2994, N -> h2995, }
+{}
+{}
+{}
+{}
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h3052, N -> h3053, }
+{}
+{}
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h2992, Z -> h3144, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3145, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h3146, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h3147, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h3148, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h3149, N -> h3150, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h3153, N -> h3154, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h3181, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h3182, N -> h3183, }
+{}
+{}
+{}
+{}
+{}
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h3268, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h3269, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h3270, N -> h3271, }
+{}
+{}
+{}
+{}
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h3364, N -> h3365, }
+{}
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h3268 -> parallel_through_point(L:e,A:e), h3430 -> L:e, h3431 -> A:e, }
+{}
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3492, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3493, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h3494, }
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h3494 -> parallel_through_point(L:e,A:e), h3495 -> L:e, h3496 -> A:e, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h3492 -> parallel_through_point(L:e,A:e), h3507 -> L:e, h3508 -> A:e, }
+{}
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h3493, Z -> h3537, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h3493, Z -> h3548, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3549, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3550, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3551, }
+{}
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h3562, }
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h3562 -> parallel_through_point(L:e,A:e), h3563 -> L:e, h3564 -> A:e, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3575, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3576, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3577, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3578, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h3579, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3592, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3593, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h3594, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3607, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h3608, }
+{}
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3623, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), N -> h3624, }
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h3624 -> parallel_through_point(L:e,A:e), h3625 -> L:e, h3626 -> A:e, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h3623, Z -> h3647, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3648, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h3623, Z -> h3649, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3650, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3651, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3652, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3653, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h3654, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3667, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), N -> h3668, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h3623, Z -> h3693, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3623, X -> h3694, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h3623, A -> h3695, N -> h3696, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h3623, A -> h3701, N -> h3702, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3623, X -> h3763, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h3623, A -> h3764, N -> h3765, }
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h3763 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h3878 -> parallel_through_point(L:e,A:e), h3880 -> L:e, h3881 -> A:e, h3879 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h3882 -> orthogonal_through_point(L:e,A:e), h3884 -> L:e, h3885 -> A:e, h3883 -> A:e, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> h3623, Z -> h3918, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> h3623, Z -> h3945, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3972, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3973, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h3972 -> parallel_through_point(L:e,A:e), h3974 -> L:e, h3975 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h3973, Z -> h3994, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3995, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3996, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3997, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h3998, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3973, X -> h3999, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h4000, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h4001, }
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4000, Z -> h4024, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4000, Z -> h4025, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h3973, Z -> h4036, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3973, X -> h4037, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h3973, A -> h4038, N -> h4039, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h3973, A -> h4044, N -> h4045, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h3973, X -> h4106, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h3973, A -> h4107, N -> h4108, }
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h4106 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h4221 -> parallel_through_point(L:e,A:e), h4223 -> L:e, h4224 -> A:e, h4222 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h4225 -> orthogonal_through_point(L:e,A:e), h4227 -> L:e, h4228 -> A:e, h4226 -> A:e, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> h3973, Z -> h4261, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> h3973, Z -> h4288, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h4315, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h4316, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4315, Z -> h4329, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h4316 -> parallel_through_point(L:e,A:e), h4330 -> L:e, h4331 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4315, Z -> h4342, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4315, Z -> h4343, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4315, Z -> h4362, }
+{}
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h4367, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4368, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4369, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h4370, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h4371, N -> h4372, }
+{}
+{}
+{}
+{}
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h4407, N -> h4408, }
+{}
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h4368 -> parallel_through_point(L:e,A:e), h4431 -> L:e, h4432 -> A:e, }
+{}
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h4485, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h4486, N -> h4487, }
+{}
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4367, Z -> h4622, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h4485 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h4631 -> parallel_through_point(L:e,A:e), h4633 -> L:e, h4634 -> A:e, h4632 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h4635 -> orthogonal_through_point(L:e,A:e), h4637 -> L:e, h4638 -> A:e, h4636 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4367, Z -> h4655, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h4656, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4657, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h4658, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h4659, N -> h4660, }
+{}
+{}
+{}
+{}
+{}
+{}
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4367, Z -> h4825, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h4658 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h4834 -> parallel_through_point(L:e,A:e), h4836 -> L:e, h4837 -> A:e, h4835 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h4838 -> orthogonal_through_point(L:e,A:e), h4840 -> L:e, h4841 -> A:e, h4839 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4367, Z -> h4858, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h4859, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h4860, N -> h4861, }
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4367, Z -> h4908, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h4860 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h4917 -> parallel_through_point(L:e,A:e), h4919 -> L:e, h4920 -> A:e, h4918 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h4921 -> orthogonal_through_point(L:e,A:e), h4923 -> L:e, h4924 -> A:e, h4922 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4367, Z -> h4943, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h4944, }
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h4861 -> orthogonal_through_point(L:e,A:e), h4955 -> L:e, h4956 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4657, Z -> h4957, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4657, X -> h4958, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4657, Z -> h4959, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4657, X -> h4960, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h4657, A -> h4961, N -> h4962, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4963, }
+{X -> parallel_through_point(L:e,A:e), Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4964, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h4965, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h4966, N -> h4967, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h4963 -> parallel_through_point(L:e,A:e), h4968 -> L:e, h4969 -> A:e, }
+{}
+{}
+{}
+{}
+{}
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4964, Z -> h5138, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h4965 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h5147 -> parallel_through_point(L:e,A:e), h5149 -> L:e, h5150 -> A:e, h5148 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h5151 -> orthogonal_through_point(L:e,A:e), h5153 -> L:e, h5154 -> A:e, h5152 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5171, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h5172, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h5173, N -> h5174, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4964, Z -> h5219, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5173 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h5228 -> parallel_through_point(L:e,A:e), h5230 -> L:e, h5231 -> A:e, h5229 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h5232 -> orthogonal_through_point(L:e,A:e), h5234 -> L:e, h5235 -> A:e, h5233 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5254, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h5255, }
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5174 -> orthogonal_through_point(L:e,A:e), h5266 -> L:e, h5267 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4964, Z -> h5268, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4964, X -> h5269, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h4964, Z -> h5270, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h4964, X -> h5271, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h4964, A -> h5272, N -> h5273, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h5274, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h5275, N -> h5276, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5274 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h5285 -> parallel_through_point(L:e,A:e), h5287 -> L:e, h5288 -> A:e, h5286 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h5289 -> orthogonal_through_point(L:e,A:e), h5291 -> L:e, h5292 -> A:e, h5290 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5343, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5275 -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), h5352 -> parallel_through_point(L:e,A:e), h5354 -> L:e, h5355 -> A:e, h5353 -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), h5356 -> orthogonal_through_point(L:e,A:e), h5358 -> L:e, h5359 -> A:e, h5357 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5378, }
+{X -> intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)), Y -> parallel_through_point(L:e,A:e), Z -> h5379, }
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5276 -> orthogonal_through_point(L:e,A:e), h5380 -> L:e, h5381 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5382, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5383, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5384, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5385, }
+{}
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[parallel_through_point(L:e,A:e), orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), ]
+a[convergent_lines(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),apart_point_and_line(intersection_point(parallel_through_point(L:e,A:e),orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5396, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5397, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5408, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5411, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h5412, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h5413, N -> h5414, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5412 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5412 -> A:e, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5413 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5413 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5414 -> orthogonal_through_point(L:e,A:e), h5481 -> L:e, h5482 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5411, Z -> h5483, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5484, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5411, Z -> h5485, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5486, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5487, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5411, Z -> h5488, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5411, X -> h5489, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5411, A -> h5490, N -> h5491, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5411, X -> h5492, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5411, A -> h5493, N -> h5494, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5543, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5544, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5555, }
+{}
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5411, Z -> h5560, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5561, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5562, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5411, X -> h5563, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5564, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5411, X -> h5565, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5411, A -> h5566, N -> h5567, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5568, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5569, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5411, X -> h5570, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5411, A -> h5571, N -> h5572, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5411, X -> h5573, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5411, A -> h5574, N -> h5575, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5411, Z -> h5586, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5411, X -> h5587, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5411, A -> h5588, N -> h5589, }
+{}
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5586, Z -> h5694, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5411, A -> h5695, N -> h5696, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5586, Z -> h5757, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5695 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5695 -> A:e, h5411 -> parallel_through_point(L:e,A:e), h5800 -> L:e, h5801 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5696 -> orthogonal_through_point(L:e,A:e), h5806 -> L:e, h5807 -> A:e, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h5814, N -> h5815, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5814 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5814 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5815 -> orthogonal_through_point(L:e,A:e), h5848 -> L:e, h5849 -> A:e, }
+{L -> parallel_through_point(L:e,A:e), M -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), A -> h5850, N -> h5851, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5850 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5850 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5886, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h5887, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h5888, N -> h5889, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5887 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5887 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5886, Z -> h5958, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h5888 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5888 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h5889 -> orthogonal_through_point(L:e,A:e), h5991 -> L:e, h5992 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5886, Z -> h5993, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5886, X -> h5994, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5995, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5996, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5997, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h5998, }
+{}
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5886, Z -> h6011, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6012, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6013, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6014, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6015, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5886, X -> h6016, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5886, Z -> h6017, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5886, X -> h6018, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5886, A -> h6019, N -> h6020, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5886, A -> h6025, N -> h6026, }
+{}
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h6087, N -> h6088, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h6087 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6087 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6088 -> orthogonal_through_point(L:e,A:e), h6123 -> L:e, h6124 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5886, Z -> h6125, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5886, X -> h6126, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5886, A -> h6127, N -> h6128, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5886, X -> h6129, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5886, A -> h6130, N -> h6131, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h5886, Z -> h6180, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h5886, X -> h6181, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5886, A -> h6182, N -> h6183, }
+{}
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h5886, A -> h6188, N -> h6189, }
+{}
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h6250, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h6251, N -> h6252, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h6250 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6250 -> A:e, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h6251 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6251 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6252 -> orthogonal_through_point(L:e,A:e), h6317 -> L:e, h6318 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6319, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6320, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6331, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6334, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6335, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6334, Z -> h6348, }
+{}
+a[parallel_through_point(L:e,A:e), ]
+a[distinct_lines(parallel_through_point(L:e,A:e),parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6335 -> parallel_through_point(L:e,A:e), h6349 -> L:e, h6350 -> A:e, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6334, Z -> h6361, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6334, Z -> h6362, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6334, Z -> h6381, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6386, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> parallel_through_point(L:e,A:e), X -> h6387, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h6388, N -> h6389, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h6387 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6387 -> A:e, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h6388 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6388 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6389 -> orthogonal_through_point(L:e,A:e), h6456 -> L:e, h6457 -> A:e, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6386, Z -> h6458, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6459, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6386, Z -> h6460, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6461, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6462, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6386, Z -> h6463, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h6386, X -> h6464, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h6386, A -> h6465, N -> h6466, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h6386, X -> h6467, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h6386, A -> h6468, N -> h6469, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6518, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6519, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6530, }
+{}
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6386, Z -> h6535, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6536, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6537, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h6386, X -> h6538, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6539, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h6386, X -> h6540, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h6386, A -> h6541, N -> h6542, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6543, }
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> parallel_through_point(L:e,A:e), Z -> h6544, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h6386, X -> h6545, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h6386, A -> h6546, N -> h6547, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h6386, X -> h6548, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h6386, A -> h6549, N -> h6550, }
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6386, Z -> h6561, }
+{Y -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Z -> h6386, X -> h6562, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h6386, A -> h6563, N -> h6564, }
+{}
+{}
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6561, Z -> h6669, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> h6386, A -> h6670, N -> h6671, }
+{}
+{}
+{X -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), Y -> h6561, Z -> h6732, }
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h6670 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6670 -> A:e, h6386 -> parallel_through_point(L:e,A:e), h6775 -> L:e, h6776 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6671 -> orthogonal_through_point(L:e,A:e), h6781 -> L:e, h6782 -> A:e, }
+{L -> orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e), M -> parallel_through_point(L:e,A:e), A -> h6789, N -> h6790, }
+{}
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{h6789 -> A:e, }
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6789 -> A:e, }
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[unorthogonal_lines(orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e),orthogonal_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{h6790 -> orthogonal_through_point(L:e,A:e), h6823 -> L:e, h6824 -> A:e, }
+{}
+a[A:e, L:e, ]
+a[apart_point_and_line(A:e,parallel_through_point(L:e,A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+a[A:e, orthogonal_through_point(L:e,A:e), ]
+a[apart_point_and_line(A:e,orthogonal_through_point(orthogonal_through_point(L:e,A:e),A:e)),]
+    e[]
+    e[False,]
+
+
+{}
+==========fail==========
+sc: 1510
+Опровергнуто баз: 209
+.........................
+Time: 0.145176s.
+================================

@@ -49,3 +49,4 @@ parsers/tptp/tptp-yl-parser
 *.blg
 *.fls
 *.fdb_latexmk
+.DS_Store
