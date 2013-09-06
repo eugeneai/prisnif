@@ -122,7 +122,7 @@ $$Q[X,A]\{F_1,\ldots,F_n\} \equiv Q[X,A] - \left\{
 
 \item Дочерние узлы корня $\exists[X,A]\ldots$ называются {\em базами ПО--формулы}, конъюнкт $A$ называется {\em базой фактов}, а вся подформула начинающаяся с базового узла называется {\em базовой подформулой};
 
-\item Дочерние узлы баз $\forall[Y,B]\ldots$ называются {\em вопросами} к родительской базе. Если вопрос является листовым узлом $\forall[Y,B] \equiv \forall[Y,B]false$, то он называется {\em целевым вопросом}. 
+\item Дочерние узлы баз $\forall[Y,B]\ldots$ называются {\em вопросами} к родительской базе. Если вопрос является листовым узлом $\forall[Y,B] \equiv \forall[Y,B]false$, то он называется {\em целевым вопросом}. Иногда, для того чтоб подчеркнуть тот факт что вопрос является целевым, будем в явной форме записывать контанту $false$. 
 
 \item Поддеревья вопросов называются {\em консеквентами} или {\em следствиями}. 
 
@@ -207,31 +207,59 @@ $$F^{\text{\tiny{PCF}}} = \forall\colon \boldsymbol{True}-\exists\colon\boldsymb
 
 %-------------------------ИСЧИСЛЕНИЕ ПО-ФОРМУЛ-------------------
 \subsection{Исчисление позитивно--образованных формул}
+Логическое исчисление состоит из трёх компонент: язык, аксиомы и правила вывода. Язык ПО--формул был описан в предыдущей подглаве. Теперь опишем аксиомы и правила вывода.
 
-Схема аксиом исчисления ПО--формул $\boldsymbol{JF}$ имеет следующую форму:
-$$ Ax\boldsymbol{JF} = \forall\colon\boldsymbol{True}\left(\exists \bar{x}_1\colon\boldsymbol{False}\left(\widetilde{\Phi}_1\right),\ldots,\exists \bar{x}_n\colon\boldsymbol{False}\left(\widetilde{\Phi}_n\right)\right). $$
+Исчисление ПО--формул имеет единственную аксиому и единственное правило вывода.
 
-В исчислении ПО--формул для того, чтобы доказать $F$ мы будем пытаться опровергнуть её отрицание, поэтому аксиома исчисления ПО--формул ---  тождественно ложное высказывание. Таким образом процесс вывода в исчислении ПО--формул является процессом {\em опровержения}.
+Как и в методе резолюций, для доказательства формулы $F$ мы будем пытаться опровергнуть её отрицание, поэтому аксиома исчисления ПО--формул --- тождественно ложная ПО--формула вида $\forall[\emptyset,\emptyset]$. Выражение $\forall[\emptyset,\emptyset]$ действительно является ложным, поскольку в соответствии с принятыми сокращениями тождественно выражению $\forall[\emptyset,\emptyset]false$, которое в свою очередь тождественно выражению $true \rightarrow false \equiv false$.
 
-\begin{definition}
-\label{ircond}
-Будем говорить что вопрос $\forall \bar{y}\colon A$ к базе $\exists \bar{x}\colon B$ имеет {\em ответ} $\theta$  тогда и только тогда, когда $\theta$ есть подстановка $\bar{y} \rightarrow H^{\infty}$ и $A\theta \subseteq B$, где $H^{\infty}$ есть эрбранов универсум, основанный на $\exists$--переменных из $\bar{x}$, константных и функциональных символах которые встречаются в соответствующей базе. Ответ $\theta$, будем иногда называть {\em ответной подстановкой}.
-\end{definition}
+
+\textbf{Ответ}. Будем говорить что вопрос $\forall[Y,B]\Upsilon$ к базе $\exists[X,A]$ имеет {\em ответ} $\theta$ тогда и только тогда когда $\theta$ есть подстановка $Y \rightarrow H^{\infty} \cup X$ и $B\theta \subseteq A$, где $H^{\infty}$ есть Эрбранов универс основанный на константах и функциональных символов из соответствующей базовой подформулы.
+
+%split operation
+\textbf{Операция расщепления split}. Пусть $F = \exists[X,A]\Psi$, и $S = \forall[Y,B]\Upsilon$, where $\Upsilon = \{\exists[Z_1,C_1]\Gamma_1,\ldots,\exists[Z_n,C_n]\Gamma_n\}$ тогда $split(F,S) = \{\exists[X \cup {Z_1}', A \cup {C_1}']\Psi \cup {\Gamma_1}',\ldots,\exists[X \cup {Z_n}', A \cup {C_n}']\Psi \cup {\Gamma_n}'\}$, где $'$ есть оператор переименования переменных. И мы говорим что формула $F$ расщеплена формулой $S$. Очевидно, $split(F,\forall[Y,B]false) = \emptyset = false$.
+
+%omega inference rule
+\textbf{Правило вывода $\omega$}. Рассмотрим некоторую ПОФ находящуюся в каноническом виде $F = \forall[\emptyset,\emptyset]\Phi$. Пусть существует вопрос $Q$ который имеет ответ $\theta$ к соответствующей базе $S \in \Phi$, тогда $\omega F  = \forall[\emptyset,\emptyset]\Phi \setminus \{S\} \cup split(S,Q\theta)$. 
+
+Иными словами, если вопрос имеет ответ к своей базе, тогда базовачя подформула расщипляется этим вопросом. В случае целевого вопроса, мы говорим что базовая подформула опровергнута, поскольку 
+$split(S,\forall[Y,B]false) = false$. Опровергнутая базовая подформула $S$ удаляется из множества баз $\Phi$, поскольку $\Phi \setminus \{S\} \cup \emptyset = \Phi \setminus \{S\}$. 
+
+После того как опровергнуты все базовые подформулы, формула $F$ также опровергается, поскольку $\forall[\emptyset,\emptyset]\emptyset = \forall[\emptyset,\emptyset]$, а это тождественно ложная аксиома.   
+
+Отметим, что ответ на вопрос с дизъюнктивным ветвлением приводит к увеличению количества базовых подформул, в силу использования оператора расщепления.
+
+%For this reason we can say that $\forall[\emptyset,\emptyset]$ is a single axiom in the method of PCF refutation.
+
+
+%Thus, for proof that some FOF $F$ is a theorem in FOL, we represent  negation of $F$ as PCF, and then applying inference rule $\omega$ until we obtain the $\forall[\emptyset,\emptyset]$.
+
+
+
+%Схема аксиом исчисления ПО--формул $\boldsymbol{JF}$ имеет следующую форму:
+%$$ Ax\boldsymbol{JF} = \forall\colon\boldsymbol{True}\left(\exists \bar{x}_1\colon\boldsymbol{False}\left(\widetilde{\Phi}_1\right),\ldots,\exists \bar{x}_n\colon\boldsymbol{False}\left(\widetilde{\Phi}_n\right)\right). $$
+
+%В исчислении ПО--формул для того, чтобы доказать $F$ мы будем пытаться опровергнуть её отрицание, поэтому аксиома исчисления ПО--формул ---  тождественно ложное высказывание. Таким образом процесс вывода в исчислении ПО--формул является процессом {\em опровержения}.
+
+%\begin{definition}
+%\label{ircond}
+%Будем говорить что вопрос $\forall \bar{y}\colon A$ к базе $\exists \bar{x}\colon B$ имеет {\em ответ} $\theta$  тогда и только тогда, когда $\theta$ есть подстановка $\bar{y} \rightarrow H^{\infty}$ и $A\theta \subseteq B$, где $H^{\infty}$ есть эрбранов универсум, основанный на $\exists$--переменных из $\bar{x}$, константных и функциональных символах которые встречаются в соответствующей базе. Ответ $\theta$, будем иногда называть {\em ответной подстановкой}.
+%\end{definition}
 
 %The unique unary inference rule $\bomega$ is defined as follows.
 
-\begin{definition}
-\label{omega}
-Если $F$ имеет структуру $\forall\colon\boldsymbol{True}\left(\exists \bar{x}\colon B\left(\Phi\right),\Sigma\right)$, где $\Sigma$ есть список других базовых подформул, и $\Phi$ есть список подформул--вопросов содержащий подформулу--вопрос $\forall \bar{y}\colon A(\exists \bar{z}_i\colon C_i\left(\Psi_i\right))_{i=\overline{1,k}}$, тогда заключение $\bomega F$ есть результат применения унарного правила вывода $\bomega$ к вопросу $\forall \bar{y}\colon A$ с ответом $\theta$, и $\bomega F = \forall\colon\boldsymbol{True}(\exists \bar{x} \cup \bar{z}_i\colon B \cup C_i\theta\left(\Phi \cup \Psi_i\theta\right)_{i=\overline{1,k}},\Sigma).$
+%\begin{definition}
+%\label{omega}
+%Если $F$ имеет структуру $\forall\colon\boldsymbol{True}\left(\exists \bar{x}\colon B\left(\Phi\right),\Sigma\right)$, где $\Sigma$ есть список других базовых подформул, и $\Phi$ есть список подформул--вопросов содержащий подформулу--вопрос $\forall \bar{y}\colon A(\exists \bar{z}_i\colon C_i\left(\Psi_i\right))_{i=\overline{1,k}}$, тогда заключение $\bomega F$ есть результат применения унарного правила вывода $\bomega$ к вопросу $\forall \bar{y}\colon A$ с ответом $\theta$, и $\bomega F = \forall\colon\boldsymbol{True}(\exists \bar{x} \cup \bar{z}_i\colon B \cup C_i\theta\left(\Phi \cup \Psi_i\theta\right)_{i=\overline{1,k}},\Sigma).$
 
-\end{definition}
+%\end{definition}
 
-После соответствующего переименования некоторых переменных в каждой подформуле, выражение $\bomega F$ будет удовлетворять всем условиям пра\-виль\-но--построенных ПО--формул.
+%После соответствующего переименования некоторых переменных в каждой подформуле, выражение $\bomega F$ будет удовлетворять всем условиям пра\-виль\-но--построенных ПО--формул.
 
 %
-Любая конечная последовательность ПО--формул $F, \bomega F, \bomega^2 F,\ldots,$ $\bomega^n F$, где $\bomega^n F \in Ax\boldsymbol{JF}$ называется {\em опровержением} $F$ в исчислении ПО--формул. Иногда будем использовать слово вывод вместо cслова опровержение.
+%Любая конечная последовательность ПО--формул $F, \bomega F, \bomega^2 F,\ldots,$ $\bomega^n F$, где $\bomega^n F \in Ax\boldsymbol{JF}$ называется {\em опровержением} $F$ в исчислении ПО--формул. Иногда будем использовать слово вывод вместо cслова опровержение.
 
-Вопрос с консеквентом $\exists:\boldsymbol{False}$ называется {\em целевым вопросом}. Если вопрос имеет дизъюнктивное ветвление, то ответ на этот вопрос приводит к расщеплению соответствующей базовой подформулы на несколько новых.
+%Вопрос с консеквентом $\exists:\boldsymbol{False}$ называется {\em целевым вопросом}. Если вопрос имеет дизъюнктивное ветвление, то ответ на этот вопрос приводит к расщеплению соответствующей базовой подформулы на несколько новых.
 
 Для ясности рассмотрим пример.
 
