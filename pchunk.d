@@ -10,7 +10,7 @@ import std.conv;
 class PNode(T){
 	T value;
 	PNode!(T) next;
-	int number = -1;// вообще с 0 нумерация начинается
+	ulong number = -1;// вообще с 0 нумерация начинается
 	
 	this(T _value, PNode _next){
 		value = _value;
@@ -18,7 +18,7 @@ class PNode(T){
 	}
 	
 	/*взять n-ый узел. нумерация начинается от 0*/
-	PNode!(T) getn(int n){
+	PNode!(T) getn(ulong n){
 		if (n==0) return this;
 		if(next is null && n>0) return null;
 		return next.getn(n-1);
@@ -29,7 +29,7 @@ class PNode(T){
 			return true;
 		}else{
 			if(next is null) return false;
-			next.is_contains(_value);
+			return next.is_contains(_value);
 		}
 		return false;
 	}		
@@ -41,9 +41,9 @@ class PNode(T){
 class PChunk(T){
 	PNode!(T) first;// first element of chunk
 	PNode!(T) last;// last element of chunk
-	int size = 0;
+	ulong size = 0;
 
-	this(PNode!(T) _first, int _size){
+	this(PNode!(T) _first, ulong _size){
 		size = _size;
 		first = _first;
 		last = first.getn(size-1);	
@@ -59,11 +59,6 @@ class PChunk(T){
 	bool is_dummy(){
 		if(size==0) return true; else return false;
 	}
-
-	int get_size(){
-		if(first !is null) return first.number;
-		return 0;
-	}
 	
 	//линковка.
 	void link(PChunk!(T) _c){
@@ -78,15 +73,15 @@ class PChunk(T){
 			last.next = _c.first;
 		}
 		
-		int lnumber;// = _c.first.number;
+		ulong lnumber;// = _c.first.number;
 		if(_c.first is null){
 			lnumber = 0;
 		}else lnumber = _c.first.number;
 		//writeln("lnumber: ",lnumber); 
 		//writeln("size: ",size);
-		int rsize = size;
+		ulong rsize = size;
 		
-		int k = lnumber+rsize;
+		ulong k = lnumber+rsize;
 		//writeln("k: ",k,"; lnumber: ",lnumber);
 		PNode!(T) curr = first;
 		while(k>lnumber){
@@ -128,7 +123,7 @@ class PChunk(T){
 		return false;
 	}
 	
-	T getn(int n){
+	T getn(ulong n){
 		return first.getn(n).value;
 	}
 	
@@ -136,7 +131,7 @@ class PChunk(T){
 		if(first is null) return;
 		if(first.number > -1) return;
 		PNode!(T) curr = first;
-		int k = size-1;
+		ulong k = size-1;
 		while(k>-1){
 			curr.number = k;
 			k--;
@@ -144,7 +139,7 @@ class PChunk(T){
 		}
 	}
 	
-	T get_by_number(int n){
+	T get_by_number(ulong n){
 		//if(first is null) return null;
 		PNode!(T) curr = first; 
 		while(curr !is null){

@@ -26,6 +26,19 @@ class ParserHu{
 		return uncoflag;
 	}
 
+	int aatoms = 0;
+	int eatoms = 0;
+
+	int afcount = 0;
+
+	int baseconj = 0;
+
+	int gt10 = 0;
+
+	bool getGt10(){
+		if(gt10>0) return true;
+		return false;
+	}
 
 	this(){
 		st = new SymbolTable();
@@ -70,6 +83,7 @@ class ParserHu{
 				}
 				//sn.add(nt.getName(tstr),tstr);
 				Symbol s8 = st.addget_symbol(new Symbol(SymbolType.CONSTANT,tstr,0));
+				//writeln(s8.name);
 				return new GTerm(s8);
 				//return new GTerm(new Symbol(SymbolType.CONSTANT,nt.getName(tstr),0));
 			}
@@ -88,11 +102,13 @@ class ParserHu{
 				//Symbol s4 = new Symbol(SymbolType.FUNCTION,nt.getName(tstr[0..x]),args.length);
 				Symbol s8 = st.addget_symbol(new Symbol(SymbolType.FUNCTION,tstr[0..x],args.length)); 
 				t = new GTerm(s8);
+				//writeln(s8.name);
 			}
 			else{//иначе это атом
 				//Symbol s4 = new Symbol(SymbolType.ATOM,nt.getName(tstr[0..x]),args.length);			
 				Symbol s8 = st.addget_symbol(new Symbol(SymbolType.ATOM,tstr[0..x],args.length)); 				
 				t = new GTerm(s8);
+				//writeln(s8.name);
 				//if(tstr[0..x]=="Print"){
 				//	t.nature=GTermNature.print;
 				//}
@@ -100,6 +116,7 @@ class ParserHu{
 			}
 			//writeln();
 			//t.print();
+			//writeln(s8.name);
 			foreach(i,a;args){
 				t.set_arg(args[i],i);
 			}
@@ -120,6 +137,7 @@ class ParserHu{
 	
 	PChunk!(GTerm) parseBaseConjunct(string constr, VarList vl){
 		GTerm[] tseq = parseGTermSeq(constr,vl,0);
+		baseconj += tseq.length;
 		Conjunct con8 = new Conjunct(tseq);
 		return con8.to_pchunk();		
 	}
@@ -129,10 +147,13 @@ class ParserHu{
 		SymbolType gtt;
 		if(isEVar)gtt=SymbolType.EVARIABLE; else gtt=SymbolType.AVARIABLE;		
 		string[] astr = split(varsstr,",");
+		int k = 0;
 		foreach(a;astr){
 			vl.addStrVar(a,gtt);
 			vars.add_var(vl.getVar(a));
+			k++;
 		}
+		if(k>10)gt10++;
 		return vars;
 	}
 	
@@ -165,6 +186,9 @@ class ParserHu{
 		bf.questions = parse_Questions(efstr3[left..right+1], vl);///!!!
 		
 		bf.oldquestions_size = bf.questions.length;
+
+		//bf.reductio();//удаление фиктивных связок кванторов
+
 		return bf;
 	}
 	
@@ -184,8 +208,17 @@ class ParserHu{
 		if(str=="{}")return null;
 		string afs_str[] = splitFList(str[1..$-1]);
 		Question afs[] = new Question[afs_str.length];
+		int i5=0;
+		int i6=0;
 		foreach(i,a;afs_str){
-			afs[i] = parse_Question(a, vl.get_fuzzy_copy());
+			Question q = parse_Question(a, vl.get_fuzzy_copy());
+			if(!q.disjunctive()){
+				afs[i5] = q;
+				i5++;
+			}else {
+				afs[afs.length-1-i6] = q;
+				i6++;
+			}
 		}
 		return afs;
 	}
@@ -203,7 +236,7 @@ class ParserHu{
 		left = findSymbol(afstr2,'[');
 		right = left+getNextSkobka(afstr2[left..$],'[');		
 		
-		af.conjunct = parseConjunct(afstr2[left+1..right], vl);
+		af.conjunct = parseConjunct(afstr2[left+1..right], vl); Conjunct.asize+=af.conjunct.get_size();
 		string afstr3 = afstr2[right+1..$];
 
 		left = findSymbol(afstr3,'{');
@@ -216,7 +249,7 @@ class ParserHu{
 		if(flag8) uncoflag = true; 
 		af.set_is_goal();//целевой ли это вопрос
 		//af.addEmptyAnswer();
-		
+		af.evars();//установка пометки, если консеквент содердит е-переменную
 		return af;
 	}
 	
@@ -233,7 +266,7 @@ class ParserHu{
 		left = findSymbol(efstr2,'[');
 		right = left+getNextSkobka(efstr2[left..$],'[');		
 		
-		ef.conjunct = parseConjunct(efstr2[left+1..right], vl);
+		ef.conjunct = parseConjunct(efstr2[left+1..right], vl);Conjunct.esize+=ef.conjunct.get_size();
 		string efstr3 = efstr2[right+1..$];
 		
 		left = findSymbol(efstr3,'{');
@@ -241,6 +274,8 @@ class ParserHu{
 		
 		ef.afs = parse_AFList(efstr3[left..right+1], vl);///!!!
 		
+		//ef.reductio();//удаление фиктивных связок кванторов
+
 		return ef;
 	}
 	

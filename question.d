@@ -13,6 +13,9 @@ class Question{
 	AFormula af;
 	QData qd;
 	
+	//сколько раз на этот вопрос ответили
+	ulong answercount=0;
+
 	//Если создается новый вопрос, у него ещё нет предыстории ответов.
 	this(AFormula _af){
 		af = _af;
@@ -25,8 +28,25 @@ class Question{
 		//af = lq.af;
 	}
 	
+	void incanswercount(){
+		answercount++;
+	}
+
+	//содердит ли вопрос в консеквенте е-переменные
+	bool evars(){
+		return af.cevars;
+	}
+
+	bool emptyconj(){
+		if(af.conjunct.is_empty()){
+			return true;
+		}
+		return false;
+	}
+
 	void link(Question lq){
 		af = lq.af;
+		answercount = lq.answercount;
 		qd = new QData(af.conjunct.get_size());
 		qd.link(lq.qd);
 	}
@@ -36,7 +56,7 @@ class Question{
 		return af.conjunct.conjunct;
 	}
 	
-	int get_conjunct_size(){
+	ulong get_conjunct_size(){
 		return af.conjunct.conjunct.length;
 	}
 
@@ -53,25 +73,49 @@ class Question{
 			return null;
 		}
 		//ans.add_answer(af.vars.get_unconfined_answers());
-
+		if(af.is_goal) return ans;
 		//writeln("====cont====");
 		//print();
 		//ans.print();
 		//qd.answers.print();
 		//writeln("====end cont====");
 		//if (false){
+		bool fl = false;
+		if(emptyconj()){
+			//writeln("Пустой конъюнкт. ",answercount);
+			//if(answercount>10) fl = true;
+		}
+		if(fl){
+			//writeln("Исчерпан лимит ответов на вопрос.");
+			return null;
+		}
 		if(is_contains_answer(ans)){
+			if(evars()){
+				if(answercount<25){
+					goto metka;
+				}	
+				//writeln("Больше не отвечаем повторно нв вопрос с е-переменными.");
+			}
 			//writeln("contains");
-			if(ans.fict) return null;
+			//print();
+			//writeln("----------");
+			if(ans.fict){
+				if(answercount>25)return null; else goto metka;
+			} 
 			//writeln("nofict");
 			//print();
 			//ans.print();
 			//Oracle.pause();
 			goto startr; 	
 		} else{
+			metka:
 			qd.add_answer(ans);
-			return ans;	
-		}	
+			Answer rans = new Answer();
+			rans.add_answer(ans);
+			rans.add_answer(af.vars.get_unconfined_answers());
+			return rans;	
+		}
+
 		return ans;
 	}
 	
@@ -87,6 +131,10 @@ class Question{
 		return af.is_goal();
 	}
 	
+	bool disjunctive(){
+		return af.disjunctive();
+	}
+
 	void numerize_subanswers(){
 		foreach(sa;qd.subanswers){
 			sa.numerize();
@@ -99,35 +147,53 @@ class Question{
 	bool is_contains_answer(Answer a){
 		if(qd.is_contains_answer(a))return true; else return false;
 	}
+
+	//удаление фиктивных связок кванторов
+	Question[] reductio(){
+		AFormula[] newafs = af.reductio();
+		Question[] newq = new Question[newafs.length];
+		foreach(i,na; newafs){
+			newq[i] = new Question(na);
+		}
+		return newq;
+	}
+
 }
+
+
+
+
+
+
+
 
 /*----------------------------------------------------*/
 /*questions data: base of answers*/
 class QData{
-	static int obr = 0;
+	static ulong obr = 0;
 	PChunk!(Answer)[] subanswers;//чанк ответов для каждого атома
 	PChunk!(Answer) answers;//чанк полных ответов
 	//aindex это текущая выборка возможных подответов.
 	//то что записано в aindex УЖЕ проверено
 	//старт с 0 0 0 0...; стартовая комбинация находится ближе к корню ДСВ.
-	int[] aindex;
+	ulong[] aindex;
 	bool overflow;
 
 	//n = количество атомов в конъюнкте вопроса
-	this(int n){
+	this(ulong n){
 		subanswers = new PChunk!(Answer)[n];
 		//creating of dummy chunks
-		for(int i=0; i<subanswers.length;i++){
+		for(ulong i=0; i<subanswers.length;i++){
 			subanswers[i] = new PChunk!(Answer)();
 		}
 		answers = new PChunk!(Answer);
 		overflow = false;
-		aindex = new int[subanswers.length];
+		aindex = new ulong[subanswers.length];
 		if(subanswers.length>0)aindex[0] = -1;
 
 	}
 	
-	void link_i(int i, PChunk!(Answer) l){
+	void link_i(ulong i, PChunk!(Answer) l){
 		//writeln("QData: link_i: [strart]");
 		subanswers[i].link(l);
 	}
@@ -156,7 +222,7 @@ class QData{
 	}
 	
 	//найденный ответ на один атом добавляется
-	void add(Answer a, int i){
+	void add(Answer a, ulong i){
 		if(subanswers[i].add(a)){
 			overflow = false;
 		}
@@ -164,8 +230,8 @@ class QData{
 		//writeln("added");
 	}
 
-	int[] get_aindex_bound(){
-		int[] aindex_bound = new int[aindex.length];
+	ulong[] get_aindex_bound(){
+		ulong[] aindex_bound = new ulong[aindex.length];
 		foreach(i,pch;subanswers){
 			aindex_bound[i] = pch.first.number;
 		}
@@ -176,7 +242,7 @@ class QData{
 	bool next_aindex(){
 		auto bound = get_aindex_bound();
 
-		int k = 0;
+		ulong k = 0;
 		bool fl = false;
 		while(aindex[k] == bound[k]){
 			k++;		
@@ -187,36 +253,41 @@ class QData{
 			}			
 		}
 		aindex[k]++;
-		for(int i=0;i<k;i++){
+		for(ulong i=0;i<k;i++){
 			aindex[i] = 0;
 		}
 		return true;
 	}
 
 	/*Является ли aindex годным с точки зрения НЭЭ*/
-	/*private bool is_hvalid(){
+	private bool is_hvalid(){
+		//writeln("is hvalid");
 		foreach(i,s;subanswers){
 			if(!s.get_by_number(aindex[i]).is_hvalid()){
 				return false;
 			}
 		}
 		return true;
-	}*/
+	}
 
-	/*bool next_hvalid(){
+	bool next_hvalid(){
 		auto bound = get_aindex_bound();
 
-		int z = 100000;
+		ulong z = 100000;
 		while(z > 0){
-			int i = subanswers.length-1;
+			long i = subanswers.length-1;
+			//writeln("i: ",i);
+			//writeln(subanswers.length);
+			//writeln(aindex.length);
 			while(subanswers[i].get_by_number(aindex[i]).is_hvalid() && i>=0){
 				i--;
 				if(i<0)break;
+				//writeln("i: ",i);
 			}
 			//Если все subanswers h-валидны, то всё ок.
 			if(i<0) return true;
 
-			int k = i;
+			ulong k = i;
 			while(aindex[k] == bound[k]){
 				k++;
 				if(k == aindex.length){
@@ -227,13 +298,13 @@ class QData{
 			}
 
 			aindex[k]++;
-			for(int j=0;j<k;j++){
+			for(ulong j=0;j<k;j++){
 				aindex[j] = 0;
 			}
 			z--;
 		}
 		return false;
-	}*/
+	}
 
 	bool is_ready(){
 		foreach(i,pch; subanswers){
@@ -247,7 +318,7 @@ class QData{
 
 	Answer retrieve_next_answer(){
 		obr++;
-		int obr2 = 0;
+		ulong obr2 = 0;
 		//writeln("QData: retrieve_next_answer: [start]");
 		if(aindex.length>0){
 			//writeln("is ready ", aindex.length);
@@ -256,22 +327,26 @@ class QData{
 				return null;
 			}
 			//writeln("ok");
+			int zx = 0;
 			start:
+			zx++;
+			// writeln(zx);
 			obr2++;
 			next_aindex();
-			//next_hvalid();
+			next_hvalid();
 			//writeln("hvalid");
 			if(overflow){
 				//writeln("overflow");
 				return null;
 			}
+
 			Answer ans = new Answer();
-			/*writeln("subanswers");
-			foreach(ind,i;subanswers){
+			//writeln("subanswers");
+			/*foreach(ind,i;subanswers){
 				writeln(ind," :");
 				i.print();
-			}
-			writeln("end print subanswers");*/
+			}*/
+			//writeln("end print subanswers");
 			//writeln("bound: ",get_aindex_bound());
 			//if(obr2 % 500000 == 0)writeln("aindex: ",aindex);
 			//writeln("aindex: ",aindex);
@@ -283,23 +358,16 @@ class QData{
 				//writeln("get by number Ok");
 				//ans.print();
 				//if(ans2 is null) writeln("null"); else ans2.print();
-				//ans.print();
-				//ans2.print();
-
 				ans = Answer.combine(ans,ans2);
 				//writeln("end combine iteration");
 				if(ans is null){
 					//writeln("ans is null");
 					goto start;	
-				}else {
-					//ans.print();
-					//writeln("..........");
 				} 
 			}
 			//if(is_contains_answer(ans)) goto start; 
 			//else{
 				//add_answer(ans);
-				//ans.print();
 				return ans;	
 			//} 
 		}else{

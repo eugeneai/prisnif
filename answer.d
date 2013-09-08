@@ -7,6 +7,7 @@ import gterm;
 /*================ ANSWER ================*/
 class Answer{
 	//Binding[] binds;
+	static gt10 = 0;
 	Binding[GTerm] binds;
 	bool is_applied;
 
@@ -40,16 +41,22 @@ class Answer{
 	}
 
 	//полный ресет. вместе с НЭЭ. Применяется после неудачной попытки унификации.
-	/*void reset_full(){
+	void reset_full(){
 		foreach(b;binds){
 			b.reset_full();
 		}	
 		is_applied = false;
-	}*/	
+	}	
 	
 	/*Добавить биндинг*/
 	void add_binding(Binding b){
 			binds[b.left] = b;
+			if(binds.length > 10){
+				//writeln("binds: ",binds.length);
+				gt10++;
+			}
+
+
 	}
 	
 	/*Прямое добавление другого ответа*/
@@ -100,28 +107,37 @@ class Answer{
 			if(b2.left in a1.binds){
 				Answer subanswer = b2.right.matching(a1.binds[b2.left].right);
 				if(subanswer is null){
+					//writeln("null");
 					return null;
 				}
 				else {
-					//subanswer.reset();
 					if(a1.loop() || a2.loop()){
-						subanswer.reset();
+						subanswer.reset_full();
 						return null;
 					} 
-					subanswer.reset();
-					comboanswer.add_answer(subanswer);
+					subanswer.reset_full();
+					
+					comboanswer = Answer.combine(comboanswer,subanswer);
+					if(comboanswer is null) return null;
+					//comboanswer.add_answer(subanswer);					
 				}
 			}else{
+				b2.apply();
+				if(a1.loop() || a2.loop()){
+					b2.reset_full();
+					return null;
+				}
+				b2.reset_full();
 				comboanswer.add_binding(b2);
 			}
 		}
-		//comboanswer.print();
 		comboanswer.apply();
 		if(comboanswer.loop()){
-			comboanswer.reset();
+			comboanswer.reset_full();
 			return null;
 		}
-		comboanswer.reset();			
+		comboanswer.reset_full();		
+		//comboanswer.print();
 		return comboanswer;
 	}
 
@@ -140,10 +156,11 @@ class Answer{
 	h может вернуться на место.
 	Данная функция проверяет является ли подстановка корректной.	
 	*/
-	/*bool is_hvalid(){
+	bool is_hvalid(){
 		foreach(b;binds){
 			//если левая часть это НЭЭ
 			if(b.left.is_uhe()){
+				//writeln('y');
 				//если он УЖЕ подставлен, то false
 				if(b.left.is_substed()){
 					if(!b.left.is_twin(b.right)) return false;
@@ -151,7 +168,7 @@ class Answer{
 			}
 		}
 		return true;
-	}*/
+	}
 	
 	string to_string(){
 		string res="{";
@@ -201,19 +218,24 @@ class Binding{
 	}
 
 	/*полный reset вместе с НЭЭ*/
-	/*void reset_full(){
+	void reset_full(){
 		left.sub_zero(null);
 		if(left.is_uhe()){
 			if(left.args[1] !is null)left.args[1].rem_conc(right);
 		}
 		is_applied = false;
-	}*/
+	}
 
 	bool loop(){
 		if(right.is_contains(left)){
+			if(right.is_twin(left))return false;
+			//writeln("loop:");
+			//right.print();
+			//left.print();
 			return true; 
 		}else return false;
 	}
+
 	
 	string to_string(){
 		string s;

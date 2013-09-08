@@ -14,28 +14,14 @@ class Symbol{
 	/*string representation*/
 	string name;
 	SymbolType type;
-	int arity;
+	ulong arity;
 
-	static int avarcount=1;
-	static int evarcount=1;
-	/*static Symbol cr_uhe(){
+	static ulong uhecount=1;
+	static Symbol cr_uhe(){
 		Symbol s = new Symbol(SymbolType.UHE,"h"~to!string(uhecount),0);
 		uhecount++;
 		return s;
-	}*/
-
-	static Symbol cr_avar(){
-		Symbol s = new Symbol(SymbolType.AVARIABLE,"vH"~to!string(avarcount),0);
-		avarcount++;
-		return s;
 	}
-
-	static Symbol cr_evar(){
-		Symbol s = new Symbol(SymbolType.EVARIABLE,"eH"~to!string(evarcount),0);
-		evarcount++;
-		return s;
-	}
-
 	this(){
 
 	}
@@ -50,12 +36,12 @@ class Symbol{
 		type = _type;
 	}
 
-	this(SymbolType _type, string _name, int _arity){
+	this(SymbolType _type, string _name, ulong _arity){
 		type=_type;
 		name = _name;
 		if(type==SymbolType.EVARIABLE || type==SymbolType.INTEGER || type==SymbolType.FLOAT || type==SymbolType.CONSTANT){
 			arity = 0;
-		}else if(type==SymbolType.AVARIABLE){
+		}else if(type==SymbolType.AVARIABLE || type==SymbolType.UHE){
 			arity = 0;
 		}else{
 			arity=_arity;
@@ -63,7 +49,7 @@ class Symbol{
 	}
 
 	bool is_mutable(){
-		if (type==SymbolType.AVARIABLE) return true; else return false;
+		if (type==SymbolType.AVARIABLE || type==SymbolType.UHE) return true; else return false;
 	}
 
 	void get_sema(){
@@ -73,8 +59,8 @@ class Symbol{
 	bool compare(Symbol _s){
 		if(_s==this) return true;
 		if(_s.type==SymbolType.EVARIABLE) return false;
-		if(_s.type==SymbolType.AVARIABLE) return false;
 		if(_s.name == name)return true; else return false;
+		//}
 		return false;
 	}
 }
@@ -83,7 +69,7 @@ class Symbol{
 /*Symbol table*/
 class SymbolTable{
 	Symbol[string] table;
-	static int i=0;
+	static ulong i=0;
 	//static Symbol[10000] table;
 	this(){
 		//table = new Symbol[1000];

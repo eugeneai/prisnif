@@ -12,7 +12,11 @@ import symbol;
 class Conjunct{
 	GTerm[] conjunct;//Array of Atoms
 
-	this(int len){
+	static asize = 0;
+	static esize = 0;
+
+
+	this(ulong len){
 		conjunct = new GTerm[len];
 	}
 
@@ -45,11 +49,11 @@ class Conjunct{
 		return rpchunk;
 	}
 
-	GTerm get(int i){
+	GTerm get(ulong i){
 		return conjunct[i];
 	}
 
-	int get_size(){
+	ulong get_size(){
 		return conjunct.length;
 	}
 
@@ -101,9 +105,54 @@ class AFormula{
 
 	bool isGoal=false;
 	bool isDeep;
+	bool cevars=false;//содердит ли консеквент е-переменные.
 
 	this(){
 
+	}
+
+
+	bool empty(){
+		if(conjunct.is_empty() && vars.empty()){
+			return true;
+		}
+		return false;
+	}
+
+	bool evars(){
+		foreach(e;efs){
+			if(e.evars()){
+				cevars=true;
+				return true;
+			}
+		}
+		return false;
+	}
+
+	//удаление фиктивных связок
+	AFormula[] reductio(){
+		if(empty()){
+			if(efs.length==1){
+					
+			}
+			foreach(e;efs){
+				if(!e.empty()){
+					AFormula[] res = new AFormula[1]; 
+					res[0] = this;					
+					return res;
+				}
+			}
+			//writeln("Найдена фиктивная связка кванторов");
+			AFormula[] res = new AFormula[0];			
+			foreach(e;efs){
+				res~=e.afs;
+			}
+			return res;
+		}else{
+			AFormula[] res = new AFormula[1]; 
+			res[0] = this;
+			return res;
+		}
 	}
 
 	void reduce(){
@@ -117,8 +166,16 @@ class AFormula{
 		return isGoal;
 	}
 
+	bool disjunctive(){
+		if (efs !is null){
+			if(efs.length>1)return true;
+		}
+		return false;
+	}
+
 	string to_string(string tab){
-		string res = tab~"a"~vars.to_string()~"\n";
+		string estr = ""; if(cevars) estr = "?";
+		string res = tab~"a"~vars.to_string()~estr~"\n";
 		res~=tab~"a"~conjunct.to_string()~"\n";
 		foreach(e;efs){
 			res~=e.to_string(tab~"    ")~"\n";
@@ -179,6 +236,40 @@ class EFormula{
 
 	}
 
+	bool evars(){
+		if(varsempty()){
+			foreach(a;afs){
+				if(a.cevars) return true;
+				if(a.evars())return true;
+			}
+			return false;
+		}
+		return true;
+	}
+
+	bool varsempty(){
+		if(vars.empty()) return true;
+		return false;
+	}
+
+	bool empty(){
+		if(conjunct.is_empty() && vars.empty()){
+			return true;
+		}
+		return false;
+	}
+
+	//схлопывание (удаление фиктивных связок кванторов)
+	void reductio(){
+		//writeln("EFormula reductio");
+		AFormula[] newafs = new AFormula[0];
+		if(afs is null) return;
+		foreach(a;afs){
+			newafs~=a.reductio();
+		}
+		afs = newafs;
+	}
+
 	void reduce(){
 		conjunct.reduce();
 		foreach(a;afs){
@@ -226,6 +317,10 @@ class QVars{
 	GTerm[] unconfined_vars;//неограниченные переменные
 
 
+	bool empty(){
+		if(vars.length==0 && unconfined_vars.length==0) return true; else return false;
+	}
+
 	bool unc(){
 		if (unconfined_vars.length==0) return false; else return true; 
 	}
@@ -235,7 +330,7 @@ class QVars{
 		unconfined_vars = new GTerm[0];
 	}
 
-	/*Answer get_unconfined_answers(){
+	Answer get_unconfined_answers(){
 		//если открытых переменных нет, то и подстановки для них нет
 		if(unconfined_vars.length==0)
 			return null;
@@ -251,7 +346,7 @@ class QVars{
 			}
 			return ans;
 		}
-	}*/
+	}
 
 	string to_string(){
 		string res="[";

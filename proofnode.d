@@ -7,6 +7,7 @@ import qformulas;
 import misc;
 import answer;
 import pchunk;
+import std.datetime;
 
 /*-----------------------------------------------------*/
 /*Node of PST*/
@@ -14,17 +15,31 @@ class ProofNode{
 	PChunk!(GTerm) base;
 	Question[] questions;
 	ProofNode left = null;
-	int branch_count = 0;
-	int oldquestions_size = 0;
-	int curr_question=-1;
+	ulong branch_count = 0;
+	ulong oldquestions_size = 0;
+	ulong curr_question=-1;
 	bool is_refuted = false;
 
+	Answer apanswer;
+
+	ulong glub;
+
 	static d8 = 0;
+
+	static long matchingtime = 0;
+
 
 	this(){
 	
 	}
 	
+	void printstat(){
+		writeln("Количество вопросов: ",qsize());
+	}
+
+	ulong qsize(){
+		return questions.length;
+	}
 	//bool is_refuted(){
 	//	if(base.is_contains(GTerm.cr_false())){
 	//		return true;
@@ -41,7 +56,7 @@ class ProofNode{
 		base.link(lnode.base);
 		Question[] reflquestions = new Question[lnode.questions.length];
 		//writeln(reflquestions.length);
-		for(int i=0;i<reflquestions.length;i++){
+		for(ulong i=0;i<reflquestions.length;i++){
 			reflquestions[i] = new Question();
 			//writeln("25");
 			reflquestions[i].link(lnode.questions[i]);
@@ -76,7 +91,7 @@ class ProofNode{
 	void search_subanswers(){
 		//writeln("search...");
 		//поиска для старых вопросов только по текущей базе узла
-		for(int i=0;i<oldquestions_size;i++){
+		for(ulong i=0;i<oldquestions_size;i++){
 			PNode!(GTerm) curr = base.first;
 			if(base.first is null) break;
 			while(curr !is base.last.next){
@@ -86,10 +101,18 @@ class ProofNode{
 					//qatom.print();
 					//curr.value.print();
 					//writeln("end matching");
+					
+					auto t1 = Clock.currStdTime();
+
 					Answer ans  = qatom.matching(curr.value);
+					
+					auto t2 = Clock.currStdTime();;
+					auto dt = (t2-t1);
+					matchingtime+= dt;
+
 					//if(ans is null)writeln("ans is null"); else ans.print;
 					if(ans !is null){
-						ans.reset();
+						ans.reset_full();
 						questions[i].qd.add(ans,j);
 					}
 				}
@@ -97,19 +120,27 @@ class ProofNode{
 			}
 		}
 		//поиск для новых вопросов для всей базы
-		for(int i = oldquestions_size; i<questions.length;i++){
+		for(ulong i = oldquestions_size; i<questions.length;i++){
 			PNode!(GTerm) curr = base.first;
 			while(curr !is null){
 				//для каждого атома конъюнкта вопроса
 				foreach(j,qatom;questions[i].get_conjunct()){
+
+					auto t1 = Clock.currStdTime();
+
 					Answer ans  = qatom.matching(curr.value);
+
+					auto t2 = Clock.currStdTime();;
+					auto dt = (t2-t1);
+					matchingtime+= dt;
+
 					if(ans !is null){
-						ans.reset();
+						ans.reset_full();
 						questions[i].qd.add(ans,j);
 					}
 				}
 				curr = curr.next;
-			}			
+			}		
 		}
 		//writeln("..end");
 	}
@@ -126,13 +157,16 @@ class ProofNode{
 			if(q.is_goal()){
 				Answer a = q.retrieve_answer();
 				if(a !is null){
-					writeln("====goal answer====");
-					base.print();
-					writeln("----------");
-					q.print();
-					//a.apply();
-					a.print();
-					writeln("====end goal answer====\n");
+					writeln("==========goal==========");
+					//writeln("====goal answer====");
+						//base.print();
+					//writeln("----------");
+						//q.print();
+					a.apply();
+					//a.print();
+					//writeln("====end goal answer====\n");
+					a.reset();
+					this.apanswer = a;					
 					return true;					
 				}
 			}
@@ -141,15 +175,18 @@ class ProofNode{
 	}
 
 	ProofNode[] answer_the_question(){
+		auto nw = base.first.number;
+		writeln("Размер базы: ",nw);
+		writeln("Количество вопросов: ",questions.length);
+		base.print();
+		//writeln("answer the question");
 		is_refuted = false;
-		
 		//сразу проверяем целевые вопросы.
 		if(goal()){
 			is_refuted = true;
 			return new ProofNode[0];
 		}
-
-		int k = questions.length;
+		ulong k = questions.length;
 		Question q;
 		Answer a;
 		while(k>0){
@@ -163,24 +200,21 @@ class ProofNode{
 			}else break;
 		}
 		if(k == 0) return null;
-
-		writeln("====answer====");
-		//writeln(base.get_size());
-		base.print();
-		writeln("----------");
-		q.print();
+		//writeln("====answer====");
+			//base.print();
+		//writeln("----------");
+			//q.print();
 		a.apply();
-		//d8++;
-		//if(d8%1000==0)writeln(d8);
-		a.print();
-		writeln("====end answer====\n");
+		q.incanswercount();// говорим о том что на вопрос в очередной раз ответли
+			//d8++;
+			//if(d8%1000==0)writeln(d8);
+		//a.print();
+		//writeln("====end answer====\n");
 		//-----------
 		ProofNode[] pnl = new ProofNode[q.af.efs.length];
 		//для каждой е-консеквента
-		VarMap vm = new VarMap();
-		vm.add_qvars(q.af.vars);
 		foreach(i,ef;q.af.efs){
-			EFormula newef = ef.get_hard_copy(vm);
+			EFormula newef = ef.get_hard_copy(new VarMap());
 			newef.reduce();
 			PChunk!(GTerm) newbase  = newef.conjunct.to_pchunk(base);
 			Question[] newqs = new Question[newef.afs.length];
@@ -188,10 +222,11 @@ class ProofNode{
 				newqs[j] = new Question(raf);
 			}
 			pnl[i] = new ProofNode(newbase, newqs);
+			pnl[i].glub = this.glub + 1;
 		}
-		
 		//-----------
 		a.reset();
+		this.apanswer = a;
 		foreach(p;pnl){
 			p.link(this);
 			p.search_subanswers();
@@ -199,7 +234,19 @@ class ProofNode{
 				q2.numerize_subanswers();
 			}
 		}
+		//writeln("end answer");
 		return pnl;
 	}	
+
+
+	//удаление фиктивных связок кванторов
+	void reductio(){
+		Question[] newquestions = new Question[0];
+
+		foreach(q;questions){
+			newquestions~=q.reductio();
+		}
+		questions = newquestions;
+	}
 
 }

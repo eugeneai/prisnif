@@ -3,7 +3,7 @@ import std.stdio;
 import gterm;
 import symbol;
 import qformulas;
-import std.random;
+import std.random; 
 
 /*===============================================================================================*/
 class VarMap{
@@ -21,18 +21,12 @@ class VarMap{
 	QVars add_qvars(QVars qvs){
 		QVars new_qvs = new QVars();
 		foreach(i,e; qvs.vars){
-			Symbol s;
-			if(e.is_evar()) s = Symbol.cr_evar();
-			if(e.is_avar()) s = Symbol.cr_avar();
-			GTerm t = new GTerm(s);
+			GTerm t = new GTerm(new Symbol(e.symbol));
 			new_qvs.add_var(t);
 			add(t,e.symbol);
 		}
 		foreach(i,e; qvs.unconfined_vars){
-			Symbol s;
-			if(e.is_evar()) s = Symbol.cr_evar();
-			if(e.is_avar()) s = Symbol.cr_avar();			
-			GTerm t = new GTerm(s);
+			GTerm t = new GTerm(new Symbol(e.symbol));
 			new_qvs.add_unconfined_var(t);
 			add(t,e.symbol);
 		}
@@ -42,10 +36,8 @@ class VarMap{
 	
 	GTerm get(GTerm t){
 		if(t.symbol in vm){
-			//writeln("ye");
 			return vm[t.symbol];
 		}else{
-			//writeln("ey");
 			return t;
 		}
 	}
@@ -93,7 +85,7 @@ class Oracle{
 	}
 	
 	static void pause(){
-		for(int i=0;i<1000000000;i++){
+		for(ulong i=0;i<1000000000;i++){
 			
 		}
 	}	
@@ -102,11 +94,10 @@ class Oracle{
 		auto x = uniform(0,10);
 		if(x>5)return true; else return false;
 	}
-
 }
 
 GTerm xsum(GTerm t1, GTerm t2){
-	return null;
+	return null; 
 }
 
 

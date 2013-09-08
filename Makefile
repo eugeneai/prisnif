@@ -4,8 +4,8 @@
 
 MAINBRANCH=master
 
-SRCS=answer.d misc.d pchunk.d proofnode.d question.d \
-	symbol.d gterm.d parserhu.d prisnif.d qformulas.d supervisor.d
+SRCS= answer.d gterm.d misc.d parserhu.d pchunk.d prisnif.d proofnode.d qformulas.d question.d supervisor.d symbol.d
+
 
 DFLAGS=-g
 
@@ -30,6 +30,7 @@ distr: distrib
 distribution: distrib
 
 test:	prisnif
+	# Task about John the boy with a lot of fingers.
 	./prisnif problems/john_boy 2000
 
 all-rec:
