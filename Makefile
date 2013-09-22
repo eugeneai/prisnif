@@ -33,7 +33,11 @@ distribution: distrib
 
 test:	prisnif
 	# Task about John the boy with a lot of fingers.
-	./prisnif problems/john_boy 2000
+	echo "-- Breadt-first test------------------------------------"
+	./prisnif problems/john_boy 15 w
+	#echo "-- Depth-first test ------------------------------------"
+	#./prisnif problems/john_boy 70 q
+	echo "--------------------------------------------------------"
 
 all-rec:
 	cd parsers/pcf/ && make
