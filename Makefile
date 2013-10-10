@@ -7,14 +7,14 @@ MAINBRANCH=master
 SRCS= answer.d gterm.d misc.d parserhu.d pchunk.d prisnif.d proofnode.d qformulas.d question.d supervisor.d symbol.d
 
 
-DFLAGS=-g
+DFLAGS=-gc
 
 ROOT=$(PWD)
 
 all:	prisnif all-rec
 
 prisnif: $(SRCS)
-	dmd $(DFLAGS) $^ -of$@
+	ldc2 $(DFLAGS) $^ -of$@
 
 clean:
 	rm *.o
@@ -31,7 +31,7 @@ distribution: distrib
 
 test:	prisnif
 	# Task about John the boy with a lot of fingers.
-	./prisnif problems/john_boy 2000
+	./prisnif problems/john_boy 2000 r
 
 all-rec:
 	cd parsers/pcf/ && make
