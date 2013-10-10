@@ -2,6 +2,8 @@
 .PHONY: cleanall distrib distr distribution
 .PHONY: test
 
+DCOMPILER=ldc2
+
 MAINBRANCH=master
 
 SRCS= answer.d gterm.d misc.d parserhu.d pchunk.d prisnif.d proofnode.d qformulas.d question.d supervisor.d symbol.d
@@ -14,7 +16,7 @@ ROOT=$(PWD)
 all:	prisnif all-rec
 
 prisnif: $(SRCS)
-	ldc2 $(DFLAGS) $^ -of$@
+	$(DCOMPILER) $(DFLAGS) $^ -of$@
 
 clean:
 	rm *.o
