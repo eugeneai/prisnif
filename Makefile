@@ -2,7 +2,8 @@
 .PHONY: cleanall distrib distr distribution
 .PHONY: test
 
-DCOMPILER=ldc2
+DCOMPILER=dmd
+#DCOMPILER=ldc2
 
 MAINBRANCH=master
 
@@ -37,6 +38,7 @@ test:	prisnif
 	./prisnif problems/john_boy 15 w
 	#echo "-- Depth-first test ------------------------------------"
 	#./prisnif problems/john_boy 70 q
+	#./prisnif problems/john_boy 2000 r
 	echo "--------------------------------------------------------"
 
 all-rec:
