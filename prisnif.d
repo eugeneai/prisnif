@@ -7,7 +7,7 @@ import std.bitmanip;
 import std.file;
 import std.string;
 import std.datetime;
-import std.random; 
+import std.random;
 
 import parserhu;
 import supervisor;
@@ -15,34 +15,34 @@ import qformulas;
 
 class Prover{
 	this(){
-	
+
 	}
-	
+
 	void start(string pathfile, ulong n, string flag){
 		ParserHu ph = new ParserHu();
 
 		Supervisor sv = new Supervisor(ph.parseFromFile(pathfile),n);
 		writeln(ph.baseconj);
 		auto t1 = Clock.currStdTime();
-		
+
 		if(flag=="q") sv.start();
 		if(flag=="w") sv.start2();
-		
+
 		auto t2 = Clock.currStdTime();;
 		auto dt = (t2-t1);
 		writeln(".........................");
 		//writeln(t1);
 		//writeln(Clock.currTime.stdTime());
-		writeln("Time: ",dt/10000000.0,"s.");		
+		writeln("Time: ",dt/10000000.0,"s.");
 		writeln("================================");
 	}
 
 	//Адекватный размер формулы, без равенств, без неограниченных переменных
 	void uncoTest(){
-		foreach (string name; dirEntries("/home/ale/Dropbox/TPTP/", SpanMode.breadth)) { 
+		foreach (string name; dirEntries("/home/ale/Dropbox/TPTP/", SpanMode.breadth)) {
 			auto size = getSize(name);
 			//Размер от 20 байт до 1000 000 байт
-			if((size>20) && size<1000000){			
+			if((size>20) && size<1000000){
 				string s = readText(name);
 				if(indexOf(s,'=')<0){
 					//writeln(name);
@@ -56,22 +56,22 @@ class Prover{
 	}
 
 	void copyx(){
-		foreach (string name; dirEntries("/home/ale/Dropbox/TPTP/", SpanMode.breadth)) { 
+		foreach (string name; dirEntries("/home/ale/Dropbox/TPTP/", SpanMode.breadth)) {
 			//string s = readText(name);
 			auto size = getSize(name);
 			if((size>20) && size<100000){
 				writeln(name,": ",size);
 				//copy(name,"../tasks.out/BIG/"~name);
-			} 
+			}
 		}
 	}
 
 	//адекватный размер, без равенств. Возможны неограниченные перменные
 	void select(){
 		///home/ale/bench/prover/tasks.out/BIG
-		foreach (string name; dirEntries("/home/ale/bench/prover/tasks.out/all/", SpanMode.breadth)) { 
+		foreach (string name; dirEntries("/home/ale/bench/prover/tasks.out/all/", SpanMode.breadth)) {
 			auto size = getSize(name);
-			//Размер от 20 байт до 
+			//Размер от 20 байт до
 			if((size>20 && size<500000) && indexOf(name,'-')>0){
 				string s = readText(name);
 				//без равенства
@@ -81,7 +81,7 @@ class Prover{
 					//if(!ph.unco()) writeln(name, ": Ok.");
 					writeln(name);
 				}
-			} 			
+			}
 		}
 	}
 
@@ -105,7 +105,7 @@ class Prover{
 				res1 = res1[indexOf(res1,',')+1..$];
 
 				time = res1[0..indexOf(res1,';')];
-				res1 = res1[indexOf(res1,';')+1..$];				
+				res1 = res1[indexOf(res1,';')+1..$];
 
 				rating = res1;
 
@@ -117,13 +117,13 @@ class Prover{
 	void statvar(){
 
 
-		foreach (string name; dirEntries("../fof/", SpanMode.breadth)) { 
+		foreach (string name; dirEntries("../fof/", SpanMode.breadth)) {
 			//if(name[0]=='.')continue;
 			//writeln("start statvar");
 			auto size = getSize(name);
 			//Размер от 20 байт до 1000 000 байт
 			if((size>20) && size<100000000 && name!="../fof/.DS_Store" ){
-				//writeln(name);			
+				//writeln(name);
 				string s = readText(name);
 				if(indexOf(s,'=')>=0){
 					continue;
@@ -142,17 +142,17 @@ class Prover{
 					//writeln(name, ": Ok.");
 				//}
 			}
-		}		
+		}
 	}
 
 
 	void statvar2(){
-		foreach (string name; dirEntries("../fof/", SpanMode.breadth)) { 
+		foreach (string name; dirEntries("../fof/", SpanMode.breadth)) {
 			auto size = getSize(name);
 			//Размер от 20 байт до 1000 000 байт
 			if((size>10000) && size<100000000 && name!="../fof/.DS_Store" ){
-				//writeln(name);			
-				
+				//writeln(name);
+
 
 				string s = readText(name);
 				if(indexOf(s,'=')>=0){
@@ -170,7 +170,7 @@ class Prover{
 					//	writeln(ph.gt10);
 					//}
 			}
-		}		
+		}
 	}
 
 	void statSize(){
@@ -187,7 +187,7 @@ class Prover{
 
 			if(indexOf(s,'=')>=0){
 				continue;
-			} 
+			}
 			auto size = getSize(name);
 			if(size>20 && size<100000){
 				avgsize+=size;
@@ -202,9 +202,9 @@ class Prover{
 			}
 		}
 		avgsize/=k;
-		writeln("Stat: ",avgsize,"; ",k,"; ",gt100k);		
+		writeln("Stat: ",avgsize,"; ",k,"; ",gt100k);
 	}
-	
+
 }
 
 
@@ -215,7 +215,7 @@ void main(string args[]){
 		p.uncoTest();
 	}else if(args[1]=="c"){
 		p.copyx();
-	} else if(args[1]=="s"){
+	}else if(args[1]=="s"){
 		p.select();
 	}else if(args[1]=="a"){
 		p.parseappendix(args[2]);
@@ -224,7 +224,7 @@ void main(string args[]){
 	}else if(args[1]=="b"){
 		p.statvar2();
 	}else if(args[1] == "sv"){
-		p.statSize();		
+		p.statSize();
 	}else{
 		p.start(args[1],to!int(args[2]),args[3]);
 	}
