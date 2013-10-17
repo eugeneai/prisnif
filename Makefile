@@ -20,10 +20,10 @@ prisnif: $(SRCS)
 	$(DCOMPILER) $(DFLAGS) $^ -of$@
 
 clean:
-	rm *.o
+	rm -f *.o
 
 cleanall: clean
-	rm prisnif
+	rm -f prisnif
 
 distrib:
 	git archive --format zip --output ../prisnif.zip $(MAINBRANCH)
