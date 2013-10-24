@@ -11,8 +11,10 @@ import std.random;
 
 
 /*================ MAIN ================*/
-void main(string args[]){
+int main(string args[]){
 	Prover p = new Prover();
+
+	int res = 0;
 	if (args[1]=="u"){
 		p.uncoTest();
 	}else if(args[1]=="c"){
@@ -28,7 +30,9 @@ void main(string args[]){
 	}else if(args[1] == "sv"){
 		p.statSize();
 	}else{
-		p.start(args[1],to!int(args[2]),args[3]);
+		res = p.start(args[1],to!int(args[2]),args[3]);
 	}
+
+	return res;
 
 }

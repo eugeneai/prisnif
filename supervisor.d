@@ -49,7 +49,7 @@ class Supervisor{
 
 
 	//-----------------------START------------------------
-	void start(){
+	int start(){
 		//writeln("После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.");
 		//writeln("На каждом шаге выводится: номер шага; база; вопрос; ответ. В самом начале выводится вся формула.\n");
 		writeln("================FORMULA================\n");
@@ -68,18 +68,23 @@ class Supervisor{
 				//print();
 			}else{
 				writeln("FORMULA IS REFUTED!");
+				//return 0;
 				break;
 			}
 			//writeln("==================================");
 			k--;
 		}
 		writeln("================================");
+		int res = 0;
+
 		if(k>0 && b){
 			writeln("FORMULA IS REFUTED: ",maxsteps-k+1," steps." );
 			writeln(refuted_base_count," bases are refuted.");
+			res = 0;
 		}else{
 			writeln("FAIL! ",maxsteps-k+1," steps.");
 			writeln("Bases: ",leafs.length);
+			res = 100;
 		}
 		writeln("AConjunct: ",Conjunct.asize);
 		writeln("EConjunct: ",Conjunct.esize);
@@ -87,6 +92,8 @@ class Supervisor{
 		writeln("Matchingtime: ",ProofNode.matchingtime/10000000.0,"s.");
 		writeln("Avgmatchigtime: ",ProofNode.matchingtime/(10000000.0*GTerm.matchingsize));
 		writeln("gt10: ",Answer.gt10);
+
+		return res;
 	}
 
 	//step of inference
@@ -124,7 +131,7 @@ class Supervisor{
 
 	enum Glubstate {Deadlock, Maxglub, Order, Ok};
 
-	void start2(){
+	int start2(){
 		//reductio();
 
 		//print();
@@ -138,10 +145,13 @@ class Supervisor{
 		}
 
 		//writeln("rc: ", rc);
+		int res = 0;
 		if(rc == leafs.length){
 			writeln("==========ok==========");
+			res = 0;
 		}else{
 			writeln("==========fail==========");
+			res = 100;
 		}
 		writeln("sc: ",sc);
 		writeln("rc: ",rc);
@@ -151,6 +161,8 @@ class Supervisor{
 		writeln("Matching: ",GTerm.matchingsize);
 		writeln("Matchingtime: ",ProofNode.matchingtime/10000000.0, "s.");
 		writeln("gt10: ",Answer.gt10);
+
+		return res;
 	}
 
 
