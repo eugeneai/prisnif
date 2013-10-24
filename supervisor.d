@@ -16,9 +16,9 @@ class Supervisor{
 
 	ProofNode[] leafs;
 	ulong maxsteps = 100;
-	
+
 	ulong refuted_base_count=0;
-	
+
 	//Answer[] answersstack;
 
 	this(ProofNode[] _leafs, ulong n){
@@ -37,7 +37,7 @@ class Supervisor{
 	this(ulong n){
 		maxsteps = n;
 	}
-	
+
 	void print(){
 		foreach(pn;leafs){
 			pn.print();
@@ -46,8 +46,8 @@ class Supervisor{
 		writeln("AConjunct: ",Conjunct.asize);
 		writeln("EConjunct: ",Conjunct.esize);
 	}
-	
-	
+
+
 	//-----------------------START------------------------
 	void start(){
 		//writeln("После экзистенциальной переменной ставится :e, например X:e. Все НЭЭ обозначаются как hN.");
@@ -64,11 +64,11 @@ class Supervisor{
 				writeln("The formula is satisfiable.");
 				break;
 			}
-			if(!is_all_refuted){
+			if(!is_all_refuted()){
 				//print();
 			}else{
 				writeln("FORMULA IS REFUTED!");
-				break;	
+				break;
 			}
 			//writeln("==================================");
 			k--;
@@ -85,20 +85,20 @@ class Supervisor{
 		writeln("EConjunct: ",Conjunct.esize);
 		writeln("Matching: ",GTerm.matchingsize);
 		writeln("Matchingtime: ",ProofNode.matchingtime/10000000.0,"s.");
-		writeln("Avgmatchigtime: ",ProofNode.matchingtime/(10000000.0*GTerm.matchingsize));		
+		writeln("Avgmatchigtime: ",ProofNode.matchingtime/(10000000.0*GTerm.matchingsize));
 		writeln("gt10: ",Answer.gt10);
 	}
 
 	//step of inference
 	bool step(){
-		ProofNode[] newleafs = leafs[0].answer_the_question(); 
+		ProofNode[] newleafs = leafs[0].answer_the_question();
 		if(newleafs is null && leafs[0].is_refuted==false) return false;
 		if(leafs[0].is_refuted==true) refuted_base_count++;
 		//answersstack.put(leafs[0].answer);
 		leafs = newleafs~leafs[1..$];
 		return true;
 	}
-	
+
 	//--------------------------------
 	bool is_all_refuted(){
 		if(leafs.length==0) return true; else return false;
@@ -136,7 +136,7 @@ class Supervisor{
 			//writeln("bb");
 			if(b == Glubstate.Ok) rc++;
 		}
-		
+
 		//writeln("rc: ", rc);
 		if(rc == leafs.length){
 			writeln("==========ok==========");
@@ -149,11 +149,11 @@ class Supervisor{
 		writeln("AConjunct: ",Conjunct.asize);
 		writeln("EConjunct: ",Conjunct.esize);
 		writeln("Matching: ",GTerm.matchingsize);
-		writeln("Matchingtime: ",ProofNode.matchingtime/10000000.0, "s.");		
+		writeln("Matchingtime: ",ProofNode.matchingtime/10000000.0, "s.");
 		writeln("gt10: ",Answer.gt10);
 	}
 
-	
+
 	//k - Глубина вывода
 	Glubstate glub(ulong k, ProofNode pn){
 		//writeln("start glub");
@@ -166,7 +166,7 @@ class Supervisor{
 			return Glubstate.Maxglub;
 		}
 		//пробуем ответить на узел
-		ProofNode[] newleafs = pn.answer_the_question(); 
+		ProofNode[] newleafs = pn.answer_the_question();
 		//если тупик то неудача
 		if(newleafs is null && !pn.is_refuted) return Glubstate.Deadlock;
 		//если опровергнут то успех
@@ -185,10 +185,10 @@ class Supervisor{
 			}
 			if(b == Glubstate.Maxglub){
 				return Glubstate.Order;
-			} 
+			}
 			if(b == Glubstate.Deadlock) return Glubstate.Order;
 			//if(b == Glubstate.Ok) retun Glubstate.Ok;
 		}
-		return Glubstate.Ok; 
+		return Glubstate.Ok;
 	}
 }
