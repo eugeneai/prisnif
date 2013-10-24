@@ -2,7 +2,7 @@
 .PHONY: cleanall distrib distr distribution
 .PHONY: test
 
-DCOMPILER=ldc2
+DCOMPILER=dmd
 
 MAINBRANCH=master
 
