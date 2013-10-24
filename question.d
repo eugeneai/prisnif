@@ -12,7 +12,7 @@ import misc;
 class Question{
 	AFormula af;
 	QData qd;
-	
+
 	//сколько раз на этот вопрос ответили
 	ulong answercount=0;
 	
@@ -23,12 +23,12 @@ class Question{
 		//writeln("point: new Quesntion: new Qdata: [start]");
 		qd = new QData(af.conjunct.get_size());
 	}
-	
+
 	//если просто ссылка перекидывается
 	this(){
 		//af = lq.af;
 	}
-	
+
 	void incanswercount(){
 		answercount++;
 	}
@@ -51,12 +51,12 @@ class Question{
 		qd = new QData(af.conjunct.get_size());
 		qd.link(lq.qd);
 	}
-	
+
 	GTerm[] get_conjunct(){
 		//writeln("get_conjunct: [start]");
 		return af.conjunct.conjunct;
 	}
-	
+
 	ulong get_conjunct_size(){
 		return af.conjunct.conjunct.length;
 	}
@@ -74,7 +74,7 @@ class Question{
 			return null;
 		}
 		//ans.add_answer(af.vars.get_unconfined_answers());
-		if(af.is_goal) return ans;
+		if(af.is_goal()) return ans;
 		//writeln("====cont====");
 		//print();
 		//ans.print();
@@ -94,7 +94,7 @@ class Question{
 			if(evars()){
 				if(answercount<25){
 					goto metka;
-				}	
+				}
 				//writeln("Больше не отвечаем повторно нв вопрос с е-переменными.");
 			}
 			//writeln("contains");
@@ -102,36 +102,36 @@ class Question{
 			//writeln("----------");
 			if(ans.fict){
 				if(answercount>25)return null; else goto metka;
-			} 
+			}
 			//writeln("nofict");
 			//print();
 			//ans.print();
 			//Oracle.pause();
-			goto startr; 	
+			goto startr;
 		} else{
 			metka:
 			qd.add_answer(ans);
 			Answer rans = new Answer();
 			rans.add_answer(ans);
 			rans.add_answer(af.vars.get_unconfined_answers());
-			return rans;	
+			return rans;
 		}
 
 		return ans;
 	}
-	
+
 	string to_string(string tab){
 		return af.to_string(tab);
 	}
-	
+
 	void print(){
 		writeln(to_string(""));
 	}
-	
+
 	bool is_goal(){
 		return af.is_goal();
 	}
-	
+
 	bool disjunctive(){
 		return af.disjunctive();
 	}
@@ -144,7 +144,7 @@ class Question{
 	void numerize_answers(){
 		qd.answers.numerize();
 	}
-	
+
 	bool is_contains_answer(Answer a){
 		if(qd.is_contains_answer(a))return true; else return false;
 	}
@@ -193,7 +193,7 @@ class QData{
 		if(subanswers.length>0)aindex[0] = -1;
 
 	}
-	
+
 	void link_i(ulong i, PChunk!(Answer) l){
 		//writeln("QData: link_i: [strart]");
 		subanswers[i].link(l);
@@ -208,12 +208,12 @@ class QData{
 		aindex = lqd.aindex.dup;
 		overflow = lqd.overflow;
 	}
-	
+
 	//добавить полный ответ
 	void add_answer(Answer a){
 		answers.add(a);
 	}
-	
+
 	bool is_contains_answer(Answer a){
 		if(answers.is_contains(a)){
 			return true;
@@ -221,7 +221,7 @@ class QData{
 			return false;
 		}
 	}
-	
+
 	//найденный ответ на один атом добавляется
 	void add(Answer a, ulong i){
 		if(subanswers[i].add(a)){
@@ -236,7 +236,7 @@ class QData{
 		foreach(i,pch;subanswers){
 			aindex_bound[i] = pch.first.number;
 		}
-		return aindex_bound;		
+		return aindex_bound;
 	}
 
 	/*==========*/
@@ -246,12 +246,12 @@ class QData{
 		ulong k = 0;
 		bool fl = false;
 		while(aindex[k] == bound[k]){
-			k++;		
+			k++;
 			if(k == aindex.length){
 				//writeln("overflow nextaindex");
 				overflow = true;
 				return false;
-			}			
+			}
 		}
 		aindex[k]++;
 		for(ulong i=0;i<k;i++){
@@ -311,7 +311,7 @@ class QData{
 		foreach(i,pch; subanswers){
 			if(pch is null) return false;
 			//writeln("e",i);
-			if(pch.first is null) return false; 
+			if(pch.first is null) return false;
 			//writeln("ee",i);
 		}
 		return true;
@@ -363,17 +363,17 @@ class QData{
 				//writeln("end combine iteration");
 				if(ans is null){
 					//writeln("ans is null");
-					goto start;	
-				} 
+					goto start;
+				}
 			}
-			//if(is_contains_answer(ans)) goto start; 
+			//if(is_contains_answer(ans)) goto start;
 			//else{
 				//add_answer(ans);
-				return ans;	
-			//} 
+				return ans;
+			//}
 		}else{
 			//writeln("catch");
 			return new Answer(true);
 		}
-	}	
+	}
 }

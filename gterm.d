@@ -12,7 +12,7 @@ import answer;
 class GTerm{
 	Symbol symbol;
 	GTerm[] args;
-	
+
 	GTerm[] concretized;
 	ulong[] conccount;
 
@@ -33,16 +33,16 @@ class GTerm{
 			//writeln(args.length);
 		}else{
 			args = new GTerm[symbol.arity];
-		}		
+		}
 		concretized = new GTerm[0];
 		//conccount = new int[0];
-		
+
 	}
 
 	void add_conc(GTerm t){
 		/*foreach(i,tl;concretized){
 			if(t.is_twin(tl)) {
-				conccount[i]++; 
+				conccount[i]++;
 				return;
 			}
 		}*/
@@ -77,7 +77,7 @@ class GTerm{
 		return false;
 	}
 
-	
+
 	GTerm reduce(){
 		//writeln("reduce: [start]");
 		GTerm t = get_value();
@@ -86,7 +86,7 @@ class GTerm{
 			foreach(i,a;t.args){
 				t.args[i] = a.reduce();
 			}
-			return t;			
+			return t;
 		}
 		if(t.is_top_function()){
 			//writeln("reduce: function");
@@ -97,11 +97,11 @@ class GTerm{
 			if(t.symbol.name=="-"){
 				ulong r = to!int(t.args[0].reduce().symbol.name) - to!int(t.args[1].reduce().symbol.name);
 				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
-			}			
+			}
 			if(t.symbol.name=="*"){
 				ulong r = to!int(t.args[0].reduce().symbol.name) * to!int(t.args[1].reduce().symbol.name);
 				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
-			}			
+			}
 			foreach(i,a;t.args){
 				t.args[i] = a.reduce();
 			}
@@ -117,8 +117,8 @@ class GTerm{
 		}
 		return tfalse;
 	}
-	
-	
+
+
 	ulong weight(){
 		GTerm t = get_value();
 		if(t.symbol.arity==0){
@@ -130,17 +130,17 @@ class GTerm{
 			}
 			return res;
 		}
-		
+
 	}
 
 	void set_arg(GTerm t, ulong n){
 		args[n] = t;
 	}
-	
+
 	string name_to_string(){
 		return symbol.name;
 	}
-	
+
 	/*transforming string to term*/
 	string to_string(){
 		string res="";
@@ -165,13 +165,13 @@ class GTerm{
 			if(symbol.arity>0) res ~= ")";
 			if(symbol.type==SymbolType.EVARIABLE) res~=":e";
 		}
-		return res;	
+		return res;
 	}
-	 
+
 	void print(){
 		writeln(to_string());
 	}
-	
+
 	/*если не подставляем то ниче не меняется, иначе если что-то*/
 	/*подставлено, то возвращаем это*/
 	GTerm get_value(){
@@ -181,9 +181,9 @@ class GTerm{
 		}else {
 			return args[0].get_value();
 		}
-		
+
 	}
-	
+
 	/*hard comparizion*/
 	bool is_twin(GTerm t){
 		GTerm tthis = get_value();
@@ -193,9 +193,9 @@ class GTerm{
 		for(ulong i=0;i<tthis.symbol.arity;i++){
 			if(!tthis.args[i].is_twin(t2.args[i]))return false;
 		}
-		return true;		
+		return true;
 	}
-	
+
 	bool twinh(GTerm t){
 		GTerm tthis = get_value();
 		GTerm t2 = t.get_value();
@@ -205,7 +205,7 @@ class GTerm{
 		for(ulong i=0;i<tthis.symbol.arity;i++){
 			if(!tthis.args[i].is_twin(t2.args[i]))return false;
 		}
-		return true;		
+		return true;
 	}
 
 
@@ -213,15 +213,15 @@ class GTerm{
 		GTerm tthis = get_value();
 		GTerm t2 = t.get_value();
 		if(tthis.is_uhe() && t2.is_uhe()) return false;
-		return tthis.is_twin(t2);		
+		return tthis.is_twin(t2);
 	}
-	
+
 	/*hard*/
 	bool is_twin_names(GTerm t){
 		if(!get_value().symbol.compare(t.get_value().symbol))return false; else return true;
 		//if(get_value().symbol!=t.get_value().symbol)return false; else return true;
-	}	
-	
+	}
+
 	/*is this contains t*/
 	bool is_contains(GTerm t){
 		GTerm tthis = get_value();
@@ -236,16 +236,16 @@ class GTerm{
 				if(a.is_contains(t2))return true;
 			}
 			//writeln("234");
-		}		
-		return false;	
+		}
+		return false;
 	}
-	
+
 	bool is_substed(){
 		if (symbol.type== SymbolType.AVARIABLE || symbol.type == SymbolType.UHE){
 			if(args[0] is null) return false; else return true;
 		}else return false;
 	}
-	
+
 	bool is_var(){
 		if(symbol.type == SymbolType.EVARIABLE || symbol.type == SymbolType.AVARIABLE) return true; else return false;
 	}
@@ -255,12 +255,12 @@ class GTerm{
 	}
 	bool is_evar(){
 		if(symbol.type == SymbolType.EVARIABLE) return true; else return false;
-	}		
-	
+	}
+
 	bool is_uhe(){
 		if(symbol.type == SymbolType.UHE) return true; else return false;
 	}
-	
+
 	/*hard copy of term*/
 	GTerm get_hard_copy(VarMap vm){
 		//НЭЭ копируется как есть
@@ -271,7 +271,7 @@ class GTerm{
 		//Если она конкретизирована, то копируем конкретизацию
 		//Если она свободна, то разыменовываем.
 		if(is_avar()){
-			if(is_substed){
+                  if(is_substed()){
 				return args[0].get_hard_copy(vm);
 			}else{
 				return vm.get(this);
@@ -283,7 +283,7 @@ class GTerm{
 				return t;
 			}else{
 				return this;
-			}*/ 
+			}*/
 		}else{
 			GTerm t = new GTerm(symbol);
 			for(ulong i=0;i<symbol.arity;i++){
@@ -294,21 +294,21 @@ class GTerm{
 
 		return null;
 	}
-	
+
 	void sub_zero(GTerm t){
 		args[0]=t;
 	}
-	
+
 	void print_type(){
-		if(is_top_avar)writeln("AVARIABLE");
-		if(is_top_constant)writeln("CONSTANT");
-		if(is_top_evar)writeln("EVARIABLE");
-		if(is_top_uhe)writeln("UHE");
-		if(is_top_atom)writeln("ATOM");
-		if(is_top_function)writeln("FUNCTION");
-		
+          if(is_top_avar())writeln("AVARIABLE");
+          if(is_top_constant())writeln("CONSTANT");
+          if(is_top_evar())writeln("EVARIABLE");
+          if(is_top_uhe())writeln("UHE");
+          if(is_top_atom())writeln("ATOM");
+          if(is_top_function())writeln("FUNCTION");
+
 	}
-	
+
 	bool is_top_constant(){
 		if(symbol.type == SymbolType.CONSTANT)return true; else return false;
 	}
@@ -317,18 +317,18 @@ class GTerm{
 	}
 	bool is_top_evar(){
 		if(symbol.type == SymbolType.EVARIABLE)return true; else return false;
-	}		
+	}
 	bool is_top_avar(){
 		if(symbol.type == SymbolType.AVARIABLE)return true; else return false;
-	}	
+	}
 	bool is_top_function(){
 		if(symbol.type == SymbolType.FUNCTION)return true; else return false;
-	}	
+	}
 	bool is_top_atom(){
 		if(symbol.type == SymbolType.ATOM)return true; else return false;
-	}	
-	
-	
+	}
+
+
 	static long matchingsize = 0;
 
 	/*ordinary matching*/
@@ -357,36 +357,36 @@ class GTerm{
 			if(tb.is_top_constant()){
 				//writeln("tb top constant");
 				//writeln("top constant");
-				if(!tq.is_twin_names(tb)){ 
+				if(!tq.is_twin_names(tb)){
 					//writeln("return null");
 					return null;
 				}
 				else{
 					return answer;
-				}	
+				}
 			}
 			//если слева НЭЭ
 			else if(tb.is_top_uhe()){
 				//writeln("tb top uhe");
 				//writeln("left uhe");
-				//if(tb.args is null)writeln("args is null");else writeln(tb.args.length);				
-				
+				//if(tb.args is null)writeln("args is null");else writeln(tb.args.length);
+
 				if(tb.args[1] is null){
 					//writeln("args[1] is null");
 					Binding b = new Binding(tb,tq);
 					b.apply();
 					answer.add_binding(b);
-					//tb.args[1].add_conc(tq);					
-				}else if(tb.args[1].cont_term(tq)){ 
+					//tb.args[1].add_conc(tq);
+				}else if(tb.args[1].cont_term(tq)){
 					//writeln("x");
 					return null;
-				}else{			
-					//writeln("y");	
+				}else{
+					//writeln("y");
 					Binding b = new Binding(tb,tq);
 					b.apply();
 					answer.add_binding(b);
 					tb.args[1].add_conc(tq);//
-					
+
 				}
 				//answer.print();
 				return answer;
@@ -400,11 +400,11 @@ class GTerm{
 			//если слева evar
 			if(tb.is_top_evar()){
 				//writeln("tb top evar");
-				if(!tq.is_twin_names(tb)) 
+				if(!tq.is_twin_names(tb))
 					return null;
 				else{
 					return answer;
-				}	
+				}
 			}
 			//если слева НЭЭ
 			else if(tb.is_top_uhe()){
@@ -414,11 +414,11 @@ class GTerm{
 					Binding b = new Binding(tb,tq);
 					b.apply();
 					answer.add_binding(b);
-					//tb.args[1].add_conc(tq);					
-				}else				
-				if(tb.args[1].cont_term(tq)) 
+					//tb.args[1].add_conc(tq);
+				}else
+				if(tb.args[1].cont_term(tq))
 					return null;
-				else{	
+				else{
 				//доопределить НЭЭ до константы
 					Binding b = new Binding(tb,tq);
 					b.apply();
@@ -429,7 +429,7 @@ class GTerm{
 				return answer;
 			}
 			//если слева что-то другое, то fail
-			else return null;		
+			else return null;
 		}
 		//если справа avar
 		else if(tq.is_top_avar()){
@@ -451,7 +451,7 @@ class GTerm{
 					return answer;
 				}else{
 					//Если это разные НЭЭ. То есть два варианта. Или они унифицируются или нет. !!!
-					
+
 					if(tq.args[1] is null){
 
 						if(Oracle.iffff()){
@@ -467,7 +467,7 @@ class GTerm{
 						/*Binding b = new Binding(tq,tb);
 						b.apply();
 						answer.add_binding(b);*/
-					}else if(tq.args[1].cont_term(tb)) 
+					}else if(tq.args[1].cont_term(tb))
 						//writeln("");
 						return null;
 					else{
@@ -493,7 +493,7 @@ class GTerm{
 						//writeln("_");
 						return null;
 					}*/
-					
+
 				}
 			}else{
 				//writeln("tb top not uhe");
@@ -502,15 +502,15 @@ class GTerm{
 				if(tb.is_contains(tq)){
 					//writeln("match contains null");
 					return null;
-				}				
+				}
 				if(tq.args[1] is null){
 					//writeln("args[1] is null");
 					Binding b = new Binding(tq,tb);
 					b.apply();
 					answer.add_binding(b);
-					//tb.args[1].add_conc(tq);					
+					//tb.args[1].add_conc(tq);
 				}else
-				if(tq.args[1].cont_term(tb)) 
+				if(tq.args[1].cont_term(tb))
 					return null;
 				else{
 					Binding b = new Binding(tq,tb);
@@ -521,7 +521,7 @@ class GTerm{
 				}
 				return answer;
 			}
-		}		
+		}
 		//если справа функ.символ
 		else if(tq.is_top_function()){
 			//writeln("tq top function");
@@ -533,12 +533,12 @@ class GTerm{
 					foreach(i,subt;tq.args){
 						Answer subanswer = subt.matching(tb.args[i]);
 						if(subanswer is null){
-							answer.reset_full(); 
+							answer.reset_full();
 							return null;
 						}
 						else{
 							answer.add_answer(subanswer);
-						}	
+						}
 					}
 					return answer;
 				}
@@ -576,19 +576,19 @@ class GTerm{
 				foreach(i,subt;tq.args){
 					Answer subanswer = subt.matching(newt.args[i]);
 					if(subanswer is null){
-						answer.reset_full(); 
+						answer.reset_full();
 						return null;
 					}
 					else{
 						//writeln("subanswer:");
 						//subanswer.print();
 						answer.add_answer(subanswer);
-					}					
+					}
 				}
 				return answer;
 			}else{
 				return null;
-			} 
+			}
 		}
 		//если справа атом
 		else if(tq.is_top_atom()){
@@ -607,20 +607,20 @@ class GTerm{
 						//writeln("1");
 						Answer subanswer = subt.matching(tb.args[i]);
 						//writeln("2");
-						if(subanswer is null){ 
+						if(subanswer is null){
 							//writeln("atom null");
 							answer.reset_full();
 							return null;
 						}
 						else{
 							answer.add_answer(subanswer);
-						}	
+						}
 					}
 					return answer;
 				}
-			}else return null;		
+			}else return null;
 		}
-		
+
 		return null;
 	}
 }
