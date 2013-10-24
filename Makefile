@@ -27,7 +27,7 @@ clean:
 	rm -f *.o
 
 cleanall: clean
-	rm -f prisnif
+	rm -f prisnif libprisnif.a
 
 distrib:
 	git archive --format zip --output ../prisnif.zip $(MAINBRANCH)
