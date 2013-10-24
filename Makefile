@@ -1,12 +1,13 @@
 .PHONY: all test clean all-rec
 .PHONY: cleanall distrib distr distribution
-.PHONY: test
+.PHONY: test lib
 
-DCOMPILER=ldc2
+DCOMPILER=dmd
 
 MAINBRANCH=master
 
 SRCS= answer.d gterm.d misc.d parserhu.d pchunk.d prisnif.d proofnode.d qformulas.d question.d supervisor.d symbol.d
+MAIN_SRC = main.d
 
 
 DFLAGS=-gc
@@ -14,9 +15,13 @@ DFLAGS=-gc
 ROOT=$(PWD)
 
 all:	prisnif all-rec
+lib:	libprisnif.a
 
-prisnif: $(SRCS)
+prisnif: $(MAIN_SRC) libprisnif.a
 	$(DCOMPILER) $(DFLAGS) $^ -of$@
+
+libprisnif.a: $(SRCS)
+	$(DCOMPILER) $(DFLAGS) -lib $^ -of$@
 
 clean:
 	rm *.o
