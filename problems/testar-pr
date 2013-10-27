@@ -1,0 +1,5 @@
+{e[][F(1,1)]
+{
+a[x,y][F(x,y)]{e[][Q(+(c1,c2))]{}};
+a[z][Q(z)]{e[][print(Z_Val_is), print(z), nl]{}}
+}}
