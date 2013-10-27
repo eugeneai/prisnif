@@ -19,6 +19,8 @@ class ProofNode{
 	ulong oldquestions_size = 0;
 	ulong curr_question=-1;
 	bool is_refuted = false;
+	bool horn = true;
+	ulong curr_d = 0;
 
 	Answer apanswer;
 
@@ -67,6 +69,8 @@ class ProofNode{
 		left = lnode;
 		left.branch_count++;
 		curr_question = lnode.curr_question;
+		horn = lnode.horn;
+		curr_d = lnode.curr_d;
 		
 	}
 	
@@ -148,7 +152,31 @@ class ProofNode{
 	//ВЫБОР ВОПРОСА
 	Question select_question(){
 		curr_question++;
-		if(curr_question==questions.length) curr_question=0;
+		//curr_d++;
+		if(curr_question==questions.length) {
+			curr_question=0;
+			//horn = !horn;
+		}
+
+		/*if(!horn){
+			while(!questions[curr_d].disjunctive()){
+				curr_d++;
+				if(curr_d==questions.length)curr_d=0;
+			}	
+			horn = !horn;
+			return questions[curr_d];		
+		}else{
+			while(questions[curr_question].disjunctive()){
+				curr_question++;
+				if(curr_question==questions.length){
+					curr_question=0;
+				}
+			}
+			return questions[curr_question];
+		}*/
+
+
+		
 		return questions[curr_question];
 	}
 
@@ -178,7 +206,7 @@ class ProofNode{
 		auto nw = base.first.number;
 		writeln("Размер базы: ",nw);
 		writeln("Количество вопросов: ",questions.length);
-		base.print();
+		//base.print();
 		//writeln("answer the question");
 		is_refuted = false;
 		//сразу проверяем целевые вопросы.

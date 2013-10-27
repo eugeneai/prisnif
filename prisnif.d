@@ -18,15 +18,16 @@ class Prover{
 
 	}
 
-	void start(string pathfile, ulong n, string flag){
+	int start(string pathfile, ulong n, string flag){
 		ParserHu ph = new ParserHu();
 
 		Supervisor sv = new Supervisor(ph.parseFromFile(pathfile),n);
 		writeln(ph.baseconj);
 		auto t1 = Clock.currStdTime();
 
-		if(flag=="q") sv.start();
-		if(flag=="w") sv.start2();
+		int res = 0;
+		if(flag=="q") res = sv.start();
+		if(flag=="w") res = sv.start2();
 
 		auto t2 = Clock.currStdTime();;
 		auto dt = (t2-t1);
@@ -35,6 +36,8 @@ class Prover{
 		//writeln(Clock.currTime.stdTime());
 		writeln("Time: ",dt/10000000.0,"s.");
 		writeln("================================");
+
+		return res;
 	}
 
 	//Адекватный размер формулы, без равенств, без неограниченных переменных
