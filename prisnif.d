@@ -12,14 +12,15 @@ import std.random;
 import parserhu;
 import supervisor;
 import qformulas;
+import symbol;
 
 class Prover{
 	this(){
 
 	}
 
-	int start(string pathfile, ulong n, string flag){
-		ParserHu ph = new ParserHu();
+  int start(string pathfile, ulong n, string flag, SymbolTable st = null){
+		ParserHu ph = new ParserHu(st);
 
 		Supervisor sv = new Supervisor(ph.parseFromFile(pathfile),n);
 		writeln(ph.baseconj);
@@ -209,5 +210,3 @@ class Prover{
 	}
 
 }
-
-

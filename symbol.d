@@ -98,10 +98,13 @@ class SymbolTable{
 		if(s in table)return true; else return false;
 	}
 
-	void add_symbol(Symbol s){
-		if(is_contains(s)){
+	bool add_symbol(Symbol s){
+		if(! is_contains(s)){
 			table[s.name] = s;
 			i++;
-		}
+                        return true;
+		} else {
+                  return false;
+                }
 	}
 };
