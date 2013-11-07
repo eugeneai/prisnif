@@ -64,40 +64,21 @@ class Symbol{
 		//}
 		return false;
 	}
-  GTerm reduce(GTerm ot){ // I.e. original t[erm]
+  static GTerm reduce(GTerm ot){ // I.e. original t[erm]
 		//writeln("reduce: [start]");
 		GTerm t = ot.get_value();
 		if(t.is_top_constant()) return ot;
 		if(t.is_top_atom()){
 			foreach(i,a;t.args){
-				t.args[i] = reduce(a);
+				t.args[i] = Symbol.reduce(a);
 			}
 			return t;
 		}
-		/* FIXME: This stuff must not exists at all
-                        if(t.is_top_function()) {
-			//writeln("reduce: function");
-
-			if(t.symbol.name=="+"){
-				ulong r = to!int(t.args[0].reduce().symbol.name) + to!int(t.args[1].reduce().symbol.name);
-				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
-			}
-			if(t.symbol.name=="-"){
-				ulong r = to!int(t.args[0].reduce().symbol.name) - to!int(t.args[1].reduce().symbol.name);
-				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
-			}
-			if(t.symbol.name=="*"){
-				ulong r = to!int(t.args[0].reduce().symbol.name) * to!int(t.args[1].reduce().symbol.name);
-				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
-			}
-			foreach(i,a;t.args){
-				t.args[i] = a.reduce();
-			}
-			return t;
-                        }
-                */
                 return ot;
 	}
+  bool can_interp() { // Can the symbol be interpreted in a notions of an outer interpreter.
+    return false;
+  }
 }
 
 /*--------------------------------------------------*/
