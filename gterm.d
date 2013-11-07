@@ -77,39 +77,6 @@ class GTerm{
 		return false;
 	}
 
-
-	GTerm reduce(){
-		//writeln("reduce: [start]");
-		GTerm t = get_value();
-		if(t.is_top_constant())return this;
-		if(t.is_top_atom()){
-			foreach(i,a;t.args){
-				t.args[i] = a.reduce();
-			}
-			return t;
-		}
-		if(t.is_top_function()){
-			//writeln("reduce: function");
-			if(t.symbol.name=="+"){
-				ulong r = to!int(t.args[0].reduce().symbol.name) + to!int(t.args[1].reduce().symbol.name);
-				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
-			}
-			if(t.symbol.name=="-"){
-				ulong r = to!int(t.args[0].reduce().symbol.name) - to!int(t.args[1].reduce().symbol.name);
-				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
-			}
-			if(t.symbol.name=="*"){
-				ulong r = to!int(t.args[0].reduce().symbol.name) * to!int(t.args[1].reduce().symbol.name);
-				return new GTerm(new Symbol(SymbolType.CONSTANT,to!string(r),0));
-			}
-			foreach(i,a;t.args){
-				t.args[i] = a.reduce();
-			}
-			return t;
-		}
-		return this;
-	}
-
 	static GTerm tfalse = null;
 	static GTerm cr_false(){
 		if(tfalse is null){

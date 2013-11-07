@@ -26,7 +26,7 @@ class Conjunct{
 
 	void reduce(){
 		foreach(i,c;conjunct){
-			conjunct[i] = c.reduce();
+			conjunct[i] = c.symbol.reduce(c);
 		}
 	}
 
@@ -133,23 +133,23 @@ class AFormula{
 	AFormula[] reductio(){
 		if(empty()){
 			if(efs.length==1){
-					
+
 			}
 			foreach(e;efs){
 				if(!e.empty()){
-					AFormula[] res = new AFormula[1]; 
-					res[0] = this;					
+					AFormula[] res = new AFormula[1];
+					res[0] = this;
 					return res;
 				}
 			}
 			//writeln("Найдена фиктивная связка кванторов");
-			AFormula[] res = new AFormula[0];			
+			AFormula[] res = new AFormula[0];
 			foreach(e;efs){
 				res~=e.afs;
 			}
 			return res;
 		}else{
-			AFormula[] res = new AFormula[1]; 
+			AFormula[] res = new AFormula[1];
 			res[0] = this;
 			return res;
 		}
@@ -322,7 +322,7 @@ class QVars{
 	}
 
 	bool unc(){
-		if (unconfined_vars.length==0) return false; else return true; 
+		if (unconfined_vars.length==0) return false; else return true;
 	}
 
 	this(){
